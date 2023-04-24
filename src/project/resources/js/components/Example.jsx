@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './templates/Header';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './views/Home';
-import Setting from './views/Setting';
+import Home from './pages/Home';
+import Setting from './pages/Setting';
 
 function Example() {
     return (
