@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Time() {
+export default function NowTime() {
 
     // 時刻メソッドを呼び出し
     const time = new Date()

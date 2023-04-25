@@ -9682,15 +9682,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Record)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _parts_record_Time__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../parts/record/Time */ "./resources/js/components/parts/record/Time.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function Record() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_parts_record_Time__WEBPACK_IMPORTED_MODULE_1__["default"], {})
-  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {});
 }
 
 /***/ }),
@@ -9769,67 +9765,6 @@ function Link() {
         children: "Setting"
       })
     })]
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/components/parts/record/Time.jsx":
-/*!*******************************************************!*\
-  !*** ./resources/js/components/parts/record/Time.jsx ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Time)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-function Time() {
-  // 時刻メソッドを呼び出し
-  var time = new Date();
-
-  // 現在時刻取得
-  var hour = time.getHours(); // 時
-  var minutes = time.getMinutes(); // 分
-  var seconds = time.getSeconds(); // 秒
-
-  // 非同期時間計算用
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(hour),
-    _useState2 = _slicedToArray(_useState, 2),
-    hourCount = _useState2[0],
-    setHourCount = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(minutes),
-    _useState4 = _slicedToArray(_useState3, 2),
-    minutesCount = _useState4[0],
-    setMinutesCount = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(seconds),
-    _useState6 = _slicedToArray(_useState5, 2),
-    secondsCount = _useState6[0],
-    setSecondsCount = _useState6[1];
-
-  // 一秒ごとに実行
-  setInterval(function () {
-    // 時刻メソッドを呼び出し
-    var nowTime = new Date();
-
-    // 1秒ごとに時間を代入
-    setHourCount(nowTime.getHours());
-    setMinutesCount(nowTime.getMinutes());
-    setSecondsCount(nowTime.getSeconds());
-  }, 1000);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    children: [hourCount, " : ", minutesCount, " : ", secondsCount]
   });
 }
 
