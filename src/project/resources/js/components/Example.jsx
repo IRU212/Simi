@@ -10,11 +10,11 @@ import Header from './templates/Header';
 function Example() {
     return (
         <div>
-
-            {/* ヘッダー */}
-            <Header />
-
             <BrowserRouter>
+
+                {/* ヘッダー */}
+                <Header />
+
                 <Routes>
 
                     {/* ホーム */}

@@ -1,3 +1,25 @@
-.header{
+// ヘッダー パーツ　スタイル ↓
 
+.link{
+    margin: 0 auto;
+
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    section{
+        margin: 0 20px 0 0;
+
+        &:last-child{
+            margin: 0;
+        }
+
+        a{
+            text-decoration: none;
+            color: #222;
+        }
+    }
 }
+
+// ヘッダー パーツ　スタイル ↑
