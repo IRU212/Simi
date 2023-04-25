@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Home from './pages/Home';
 import Setting from './pages/Setting';
+
+import Header from './templates/Header';
 
 function Example() {
     return (
         <div>
+
+            {/* ヘッダー */}
+            <Header />
+
             <BrowserRouter>
                 <Routes>
 

@@ -1,6 +1,8 @@
+import styles from '../../../../public/scss/templates/header.module.scss';
+
 export default function Header() {
     return (
-        <div>
+        <div className={styles.header}>
             Header
         </div>
     )
