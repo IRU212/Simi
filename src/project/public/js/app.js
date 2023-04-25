@@ -9681,12 +9681,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Record)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _parts_record_Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../parts/record/Form */ "./resources/js/components/parts/record/Form.jsx");
+/* harmony import */ var _templates_record_Time__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../templates/record/Time */ "./resources/js/components/templates/record/Time.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+// 勉強記録[pages]
 
 
 function Record() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {});
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_templates_record_Time__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_parts_record_Form__WEBPACK_IMPORTED_MODULE_0__["default"], {})]
+  });
 }
 
 /***/ }),
@@ -9770,6 +9777,155 @@ function Link() {
 
 /***/ }),
 
+/***/ "./resources/js/components/parts/record/Form.jsx":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/parts/record/Form.jsx ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Form)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/scss/parts/record.module.scss */ "./public/scss/parts/record.module.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+// スタイル
+
+
+// // 入力データ受け渡し
+// export const BodyContext = createContext(body)
+
+// 勉強記録[parts]
+
+
+function Form() {
+  // 保存用データ
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState2 = _slicedToArray(_useState, 2),
+    body = _useState2[0],
+    setBody = _useState2[1]; // 内容
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState4 = _slicedToArray(_useState3, 2),
+    time = _useState4[0],
+    setTime = _useState4[1]; // 時間
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState6 = _slicedToArray(_useState5, 2),
+    subject = _useState6[0],
+    setSubject = _useState6[1]; // 科目
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].form,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].ImageCover,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+        src: "https://pbs.twimg.com/media/EjELaMQU8AAx4TL.jpg",
+        alt: "\u753B\u50CF"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].MainCover,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "name",
+          children: "\u5B66\u7FD2\u5185\u5BB9"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+          type: "text"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "name",
+          children: "\u6642\u9593"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+          type: "text"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "name",
+          children: "\u79D1\u76EE"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+          type: "text"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: "\u8A18\u9332"
+      })]
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/parts/record/NowTime.jsx":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/parts/record/NowTime.jsx ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ NowTime)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+// 現在時刻取得[parts]
+
+function NowTime() {
+  // 時刻メソッドを呼び出し
+  var time = new Date();
+
+  // 現在時刻取得
+  var hour = time.getHours(); // 時
+  var minutes = time.getMinutes(); // 分
+  var seconds = time.getSeconds(); // 秒
+
+  // 非同期時間計算用
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(hour),
+    _useState2 = _slicedToArray(_useState, 2),
+    hourCount = _useState2[0],
+    setHourCount = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(minutes),
+    _useState4 = _slicedToArray(_useState3, 2),
+    minutesCount = _useState4[0],
+    setMinutesCount = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(seconds),
+    _useState6 = _slicedToArray(_useState5, 2),
+    secondsCount = _useState6[0],
+    setSecondsCount = _useState6[1];
+
+  // 一秒ごとに実行
+  setInterval(function () {
+    // 時刻メソッドを呼び出し
+    var nowTime = new Date();
+
+    // 1秒ごとに時間を代入
+    setHourCount(nowTime.getHours());
+    setMinutesCount(nowTime.getMinutes());
+    setSecondsCount(nowTime.getSeconds());
+  }, 1000);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    children: [hourCount, " : ", minutesCount, " : ", secondsCount]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/templates/Header.jsx":
 /*!******************************************************!*\
   !*** ./resources/js/components/templates/Header.jsx ***!
@@ -9792,6 +9948,33 @@ function Header() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: _public_scss_templates_header_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].header,
     children: ["Header", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_parts_header_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/templates/record/Time.jsx":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/templates/record/Time.jsx ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Time)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _parts_record_NowTime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../parts/record/NowTime */ "./resources/js/components/parts/record/NowTime.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+// parts 呼び出し
+
+
+function Time() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_parts_record_NowTime__WEBPACK_IMPORTED_MODULE_1__["default"], {})
   });
 }
 
@@ -15048,6 +15231,36 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".cYY-fi4INUxnuVabRXboaA\\=\\= {\n  mar
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"link": "cYY-fi4INUxnuVabRXboaA=="
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./public/scss/parts/record.module.scss":
+/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./public/scss/parts/record.module.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".jIPyO9pjXyb8xKftby5N8A\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  display: flex;\n  margin: 0 auto;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .I2r-fVI6uQOZ4PHIsKuU0g\\=\\= {\n  max-width: 500px;\n  width: 100%;\n  border-radius: 15px;\n  overflow: hidden;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .I2r-fVI6uQOZ4PHIsKuU0g\\=\\= img {\n  width: 100%;\n  vertical-align: bottom;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= {\n  margin: 0 0 0 80px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section {\n  margin: 0 0 20px 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section .fgGfVs5uff15g2bqeaLfoQ\\=\\= {\n  margin: 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section input {\n  width: 500px;\n  margin-top: 6px;\n}", ""]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	"form": "jIPyO9pjXyb8xKftby5N8A==",
+	"ImageCover": "I2r-fVI6uQOZ4PHIsKuU0g==",
+	"MainCover": "E81QJhpX7N2Gq78ktGedIQ==",
+	"name": "fgGfVs5uff15g2bqeaLfoQ=="
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -66280,6 +66493,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_header_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./public/scss/parts/record.module.scss":
+/*!**********************************************!*\
+  !*** ./public/scss/parts/record.module.scss ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_record_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./record.module.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./public/scss/parts/record.module.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

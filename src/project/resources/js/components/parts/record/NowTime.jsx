@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+// 現在時刻取得[parts]
+
 export default function NowTime() {
 
     // 時刻メソッドを呼び出し

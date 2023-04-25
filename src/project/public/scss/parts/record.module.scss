@@ -1,0 +1,34 @@
+.form{
+    width: fit-content;
+    display: flex;
+    margin: 0 auto;
+
+    .ImageCover{
+        max-width: 500px;
+        width: 100%;
+        border-radius: 15px;
+        overflow: hidden;
+
+        img{
+            width: 100%;
+            vertical-align: bottom;
+        }
+    }
+
+    .MainCover{
+        margin: 0 0 0 80px;
+
+        section{
+            margin: 0 0 20px 0;
+
+            .name{
+                margin: 0;
+            }
+
+            input{
+                width: 500px;
+                margin-top: 6px;
+            }
+        }
+    }
+}
