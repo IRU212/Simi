@@ -1,7 +1,9 @@
+// 学習記録入力フォーム ↓
+
 .form{
     width: fit-content;
     display: flex;
-    margin: 0 auto;
+    margin: 60px auto 0 auto;
 
     .ImageCover{
         max-width: 500px;
@@ -32,3 +34,30 @@
         }
     }
 }
+
+// 学習記録入力フォーム ↑
+
+// 現在時刻 ↓
+
+.nowtime{
+    width: fit-content;
+    margin: 20px auto 0 auto;
+}
+
+// 現在時刻 ↑
+
+// 勉強時間記録 ↓
+
+.timerecord{
+    width: 100%;
+    margin: 60px 0 0 0;
+    text-align: center;
+
+    .buttonCover{
+        width: fit-content;
+        display: inline-flex;
+        background-color: antiquewhite;
+    }
+}
+
+// 勉強時間記録 ↑

@@ -9875,13 +9875,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ NowTime)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/scss/parts/record.module.scss */ "./public/scss/parts/record.module.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+// スタイル呼び出し
 
 
 // 現在時刻取得[parts]
@@ -9919,8 +9923,106 @@ function NowTime() {
     setMinutesCount(nowTime.getMinutes());
     setSecondsCount(nowTime.getSeconds());
   }, 1000);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].nowtime,
     children: [hourCount, " : ", minutesCount, " : ", secondsCount]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/parts/record/TimeRecord.jsx":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/parts/record/TimeRecord.jsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ TimeRecord)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/scss/parts/record.module.scss */ "./public/scss/parts/record.module.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+// スタイル呼び出し
+
+
+// 時間計測[parts]
+
+
+function TimeRecord() {
+  // タイマー時刻　リスト
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState2 = _slicedToArray(_useState, 2),
+    hourCount = _useState2[0],
+    setHourCount = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState4 = _slicedToArray(_useState3, 2),
+    minutesCount = _useState4[0],
+    setMinutesCount = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState6 = _slicedToArray(_useState5, 2),
+    secondsCount = _useState6[0],
+    setSecondsCount = _useState6[1];
+
+  // リロード時に一回実行
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    // 1秒ごとに実行
+    var interval = setInterval(function () {
+      // 秒数に一秒足す
+      setSecondsCount(function (c) {
+        return c + 1;
+      });
+    }, 1000);
+
+    // 一定間隔ごとに実行する処理を解除
+    // このメソッドがないとタイマーがバグる
+    return function () {
+      return clearInterval(interval);
+    };
+  }, []);
+
+  // 秒数が足されるたびに実行
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    // 秒数が60秒になったら1分ずつ追加
+    if (secondsCount == 60) {
+      // 秒数を0に戻す
+      setSecondsCount(0);
+
+      // 1分タイマーを足す
+      setMinutesCount(minutesCount + 1);
+    }
+
+    // 分数が60分になったら1時間ずつ追加
+    if (minutesCount == 60) {
+      // 秒数を0に戻す
+      setMinutesCount(0);
+
+      // 1分タイマーを足す
+      setHourCount(hourCount + 1);
+    }
+  }, [secondsCount]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].timerecord,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: [hourCount, " : ", minutesCount, " : ", secondsCount]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].buttonCover,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: "START"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: "STOP"
+      })]
+    })]
   });
 }
 
@@ -9964,17 +10066,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Time)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _parts_record_NowTime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../parts/record/NowTime */ "./resources/js/components/parts/record/NowTime.jsx");
+/* harmony import */ var _parts_record_NowTime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../parts/record/NowTime */ "./resources/js/components/parts/record/NowTime.jsx");
+/* harmony import */ var _parts_record_TimeRecord__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../parts/record/TimeRecord */ "./resources/js/components/parts/record/TimeRecord.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
 // parts 呼び出し
 
 
+
+
 function Time() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_parts_record_NowTime__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_parts_record_TimeRecord__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_parts_record_NowTime__WEBPACK_IMPORTED_MODULE_0__["default"], {})]
   });
 }
 
@@ -15254,13 +15356,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".jIPyO9pjXyb8xKftby5N8A\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  display: flex;\n  margin: 0 auto;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .I2r-fVI6uQOZ4PHIsKuU0g\\=\\= {\n  max-width: 500px;\n  width: 100%;\n  border-radius: 15px;\n  overflow: hidden;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .I2r-fVI6uQOZ4PHIsKuU0g\\=\\= img {\n  width: 100%;\n  vertical-align: bottom;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= {\n  margin: 0 0 0 80px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section {\n  margin: 0 0 20px 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section .fgGfVs5uff15g2bqeaLfoQ\\=\\= {\n  margin: 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section input {\n  width: 500px;\n  margin-top: 6px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".jIPyO9pjXyb8xKftby5N8A\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  display: flex;\n  margin: 60px auto 0 auto;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .I2r-fVI6uQOZ4PHIsKuU0g\\=\\= {\n  max-width: 500px;\n  width: 100%;\n  border-radius: 15px;\n  overflow: hidden;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .I2r-fVI6uQOZ4PHIsKuU0g\\=\\= img {\n  width: 100%;\n  vertical-align: bottom;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= {\n  margin: 0 0 0 80px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section {\n  margin: 0 0 20px 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section .fgGfVs5uff15g2bqeaLfoQ\\=\\= {\n  margin: 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section input {\n  width: 500px;\n  margin-top: 6px;\n}\n\n.z\\+fN758-29SNKKu\\+7VoB7A\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 20px auto 0 auto;\n}\n\n.S743GJ8YDDQKpGyreg7wRw\\=\\= {\n  width: 100%;\n  margin: 60px 0 0 0;\n  text-align: center;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  display: inline-flex;\n  background-color: antiquewhite;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"form": "jIPyO9pjXyb8xKftby5N8A==",
 	"ImageCover": "I2r-fVI6uQOZ4PHIsKuU0g==",
 	"MainCover": "E81QJhpX7N2Gq78ktGedIQ==",
-	"name": "fgGfVs5uff15g2bqeaLfoQ=="
+	"name": "fgGfVs5uff15g2bqeaLfoQ==",
+	"nowtime": "z+fN758-29SNKKu+7VoB7A==",
+	"timerecord": "S743GJ8YDDQKpGyreg7wRw==",
+	"buttonCover": "jT6A0qNGbj3YMVLaI1tvSw=="
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

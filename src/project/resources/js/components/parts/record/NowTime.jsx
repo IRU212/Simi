@@ -1,7 +1,9 @@
 import { useState } from "react"
 
-// 現在時刻取得[parts]
+// スタイル呼び出し
+import styles from '../../../../../public/scss/parts/record.module.scss'
 
+// 現在時刻取得[parts]
 export default function NowTime() {
 
     // 時刻メソッドを呼び出し
@@ -31,7 +33,7 @@ export default function NowTime() {
     }, 1000);
 
     return (
-        <div>
+        <div className={styles.nowtime}>
             { hourCount } : { minutesCount } : { secondsCount }
         </div>
     )
