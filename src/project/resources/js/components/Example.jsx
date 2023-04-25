@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Setting from './pages/Setting';
 
 import Header from './templates/Header';
+import Record from './pages/Record';
 
 function Example() {
     return (
@@ -19,6 +20,9 @@ function Example() {
 
                     {/* ホーム */}
                     <Route path="/" element={<Home />} />
+
+                    {/* 記録 */}
+                    <Route path='/record' element={<Record />} />
 
                     {/* 設定 */}
                     <Route path="/setting" element={<Setting />} />
