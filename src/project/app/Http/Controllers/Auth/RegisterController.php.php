@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RegisterController.php extends Controller
@@ -12,8 +13,12 @@ class RegisterController.php extends Controller
      *
      * @return void
      */
-    public function store()
+    public function store(Request $request)
     {
-        # code...
+        // model コンストラクタ呼び出し
+        $user = new User();
+
+        // request 受け取りデータ 保存
+        $user->save();
     }
 }

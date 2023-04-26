@@ -7,6 +7,7 @@ import Setting from './pages/Setting';
 
 import Header from './templates/Header';
 import Record from './pages/Record';
+import Register from './pages/Auth/Register';
 
 function Example() {
     return (
@@ -26,6 +27,13 @@ function Example() {
 
                     {/* 設定 */}
                     <Route path="/setting" element={<Setting />} />
+
+                    {/* アカウント認証　↓ */}
+
+                    {/* 新規登録 */}
+                    <Route path="/register" element={<Register />} />
+
+                    {/* アカウント認証　↑ */}
 
                 </Routes>
             </BrowserRouter>
