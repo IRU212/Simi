@@ -31,7 +31,7 @@ export default function Form() {
     const PostClick = () => {
 
         axios
-            .post("", {
+            .post("/api/user/store", {
                 name: name,
                 email: email,
                 password: password
@@ -40,7 +40,7 @@ export default function Form() {
 
             })
             .catch((err) => {
-                console.log(err)
+                console.log(err.data)
             })
     }
 

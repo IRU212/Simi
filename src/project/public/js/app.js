@@ -9814,12 +9814,12 @@ function Form() {
 
   // クリックしたらAPIでバックエンドに送信
   var PostClick = function PostClick() {
-    axios__WEBPACK_IMPORTED_MODULE_1___default().post("", {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/user/store", {
       name: name,
       email: email,
       password: password
     }).then(function () {})["catch"](function (err) {
-      console.log(err);
+      console.log(err.data);
     });
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
