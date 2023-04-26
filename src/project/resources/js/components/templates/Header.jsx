@@ -1,4 +1,5 @@
 import styles from '../../../../public/scss/templates/header.module.scss';
+import Icon from '../parts/header/Icon';
 import Link from '../parts/header/Link';
 
 export default function Header() {
@@ -8,6 +9,9 @@ export default function Header() {
 
             {/* リンク一覧 */}
             <Link />
+
+            {/* ユーザアイコン */}
+            <Icon />
 
         </div>
     )
