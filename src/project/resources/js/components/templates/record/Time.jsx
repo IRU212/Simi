@@ -10,7 +10,7 @@ export default function Time() {
             <TimeRecord />
 
             {/* 現在時刻表示 */}
-            <NowTime />
+            {/* <NowTime /> */}
 
         </div>
     )

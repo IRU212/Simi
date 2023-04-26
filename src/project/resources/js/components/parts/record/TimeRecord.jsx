@@ -14,6 +14,9 @@ export default function TimeRecord() {
     // タイマー実行判定
     const [time,setTime] = useState(false)
 
+    // リセット・ストップボタン表示判定
+    const [resetButton,setResetButton] = useState(true)
+
     // リロード時に一回実行
     useEffect(() => {
 
@@ -63,15 +66,24 @@ export default function TimeRecord() {
         setTime(true)
     }
 
+    // クリックしたらタイマーをリセット
+    const ResetClick = () => {
+        setHourCount(0)
+        setMinutesCount(0)
+        setSecondsCount(0)
+        setResetButton(true) // ストップ・リセットボタン切り替え
+    }
+
     // クリックしたらタイマー止める
     const StopClick = () => {
         setTime(false)
+        setResetButton(false) // ストップ・リセットボタン切り替え
     }
 
     return (
         <div className={styles.timerecord}>
 
-            <div>
+            <div className={styles.mainTime}>
                 { hourCount } : { minutesCount } : { secondsCount }
             </div>
 
@@ -81,11 +93,19 @@ export default function TimeRecord() {
                         START
                     </p>
                 </div>
-                <div onClick={StopClick} className={styles.stopButton}>
-                    <p>
-                        STOP
-                    </p>
-                </div>
+                { resetButton ?
+                    <div onClick={StopClick} className={styles.stopButton}>
+                        <p>
+                            STOP
+                        </p>
+                    </div>
+                    :
+                    <div onClick={ResetClick} className={styles.startButton}>
+                        <p>
+                            RESET
+                        </p>
+                    </div>
+                }
             </div>
 
         </div>
