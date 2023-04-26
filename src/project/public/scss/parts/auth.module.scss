@@ -1,7 +1,27 @@
 // 新規アカウント登録 ↓
 
 .register{
+    width: fit-content;
 
+    .FormCover{
+        width: 380px;
+
+        section{
+            margin: 0 0 30px 0;
+
+            .name{
+                margin: 0 0 4px 0;
+            }
+
+            input{
+                width: 100%;
+                padding: 6px;
+                border-radius: 4px;
+                border: 1px solid #666;
+                outline: none;
+            }
+        }
+    }
 }
 
 // 新規アカウント登録 ↑
