@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Http\Requests\Auth\RegisterRequest;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -14,7 +16,7 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function store(Request $request)
+    public function store(RegisterRequest $request)
     {
         // model コンストラクタ呼び出し
         $user = new User();
@@ -25,5 +27,6 @@ class RegisterController extends Controller
 
         // request 受け取りデータ 保存
         $user->save();
+
     }
 }
