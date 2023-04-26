@@ -56,7 +56,38 @@
     .buttonCover{
         width: fit-content;
         display: inline-flex;
-        background-color: antiquewhite;
+        margin: 30px 0 0 0;
+        gap: 0 30px; // 横並び要素　隙間
+
+        %button {
+            border: 1px solid #222;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            text-align: center;
+            vertical-align: middle;
+            position: relative;
+
+            p {
+                width: fit-content;
+                position: absolute;
+                top: 38%;
+                left: 50%;
+                transform: translate(-50%);
+            }
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+
+        .startButton{
+            @extend %button;
+        }
+
+        .stopButton{
+            @extend %button;
+        }
     }
 }
 

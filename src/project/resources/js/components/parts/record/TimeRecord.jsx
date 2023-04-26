@@ -11,14 +11,19 @@ export default function TimeRecord() {
     const [minutesCount,setMinutesCount] = useState(0)
     const [secondsCount,setSecondsCount] = useState(0)
 
+    // タイマー実行判定
+    const [time,setTime] = useState(false)
+
     // リロード時に一回実行
     useEffect(() => {
 
         // 1秒ごとに実行
         const interval = setInterval(() => {
 
-            // 秒数に一秒足す
-            setSecondsCount(c => c + 1)
+            if (time) {
+                // 秒数に一秒足す
+                setSecondsCount(c => c + 1)
+            }
 
         },1000)
 
@@ -26,7 +31,7 @@ export default function TimeRecord() {
         // このメソッドがないとタイマーがバグる
         return () => clearInterval(interval)
 
-    },[])
+    },[time])
 
     // 秒数が足されるたびに実行
     useEffect(() => {
@@ -53,6 +58,16 @@ export default function TimeRecord() {
 
     },[secondsCount])
 
+    // クリックしたらタイマー実行
+    const StartClick = () => {
+        setTime(true)
+    }
+
+    // クリックしたらタイマー止める
+    const StopClick = () => {
+        setTime(false)
+    }
+
     return (
         <div className={styles.timerecord}>
 
@@ -61,11 +76,15 @@ export default function TimeRecord() {
             </div>
 
             <div className={styles.buttonCover}>
-                <div>
-                    START
+                <div onClick={StartClick} className={styles.startButton}>
+                    <p>
+                        START
+                    </p>
                 </div>
-                <div>
-                    STOP
+                <div onClick={StopClick} className={styles.stopButton}>
+                    <p>
+                        STOP
+                    </p>
                 </div>
             </div>
 
