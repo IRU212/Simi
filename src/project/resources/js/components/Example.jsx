@@ -4,10 +4,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Setting from './pages/Setting';
-
 import Header from './templates/Header';
 import Record from './pages/Record';
 import Register from './pages/Auth/Register';
+import Login from './pages/Auth/Login';
 
 function Example() {
     return (
@@ -29,6 +29,9 @@ function Example() {
                     <Route path="/setting" element={<Setting />} />
 
                     {/* アカウント認証　↓ */}
+
+                    {/* ログイン */}
+                    <Route path="/login" element={<Login />} />
 
                     {/* 新規登録 */}
                     <Route path="/register" element={<Register />} />

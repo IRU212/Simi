@@ -25,17 +25,17 @@ class LoginController extends Controller
         $email = $request->email;
         $password = $request->password;
 
-        // // 入力した一致したユーザ名を取得
-        // $user_data = $user->where('email','=',$email)
-        //                   ->get()[0];
+        // 入力した一致したユーザ名を取得
+        $user_data = $user->where('email','=',$email)
+                          ->get()[0];
 
-        // // ハッシュ化したパスワードが一致判定
-        // if (Hash::check($password, $user_data->password)) {
-        //     $request->session()->push('login_id', $user_data->id);
-        //     return true;
-        // } else {
-        //     return false;
-        // }
+        // ハッシュ化したパスワードが一致判定
+        if (Hash::check($password, $user_data->password)) {
+            $request->session()->push('login_id', $user_data->id);
+            return true;
+        } else {
+            return false;
+        }
 
     }
 }
