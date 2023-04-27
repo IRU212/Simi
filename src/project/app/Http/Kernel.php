@@ -40,7 +40,9 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            \App\Http\Middleware\EncryptCookies::class, // API SESSION 保存可能にする
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class, // API SESSION 保存可能にする
+            \Illuminate\Session\Middleware\StartSession::class, // API SESSION 保存可能にする
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
