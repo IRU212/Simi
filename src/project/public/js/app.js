@@ -9936,23 +9936,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Icon)
 /* harmony export */ });
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _public_scss_parts_header_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../public/scss/parts/header.module.scss */ "./public/scss/parts/header.module.scss");
 /* harmony import */ var _api_get_LoginUserApi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api/get/LoginUserApi */ "./resources/js/components/api/get/LoginUserApi.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 // スタイル
 
+
+// コンポネート呼び出し
 
 
 // header ログインユーザ　アイコン
 
+
 function Icon() {
   var loginData = (0,_api_get_LoginUserApi__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  console.log(loginData);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: _public_scss_parts_header_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].icon,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-      src: "https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg",
-      alt: "\u30A2\u30A4\u30B3\u30F3"
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: loginData !== false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+      to: "/login",
+      className: _public_scss_parts_header_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].icon,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+        src: "https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg",
+        alt: "\u30A2\u30A4\u30B3\u30F3"
+      })
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+      to: "/profile/".concat(loginData === null || loginData === void 0 ? void 0 : loginData.id),
+      className: _public_scss_parts_header_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].icon,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+        src: "https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg",
+        alt: "\u30A2\u30A4\u30B3\u30F3"
+      })
     })
   });
 }
