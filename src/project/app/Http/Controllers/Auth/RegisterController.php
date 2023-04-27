@@ -28,5 +28,8 @@ class RegisterController extends Controller
         // request 受け取りデータ 保存
         $user->save();
 
+        // ログインデータ sessionに保存
+        $request->session()->push('login_id', $user->id);
+
     }
 }
