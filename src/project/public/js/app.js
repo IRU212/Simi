@@ -9797,6 +9797,20 @@ function Form() {
     password = _useState6[0],
     setPassword = _useState6[1]; // パスワード
 
+  // バリテージョンエラーメッセージ
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState8 = _slicedToArray(_useState7, 2),
+    errorName = _useState8[0],
+    setErrorName = _useState8[1]; // 名前
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState10 = _slicedToArray(_useState9, 2),
+    errorEmail = _useState10[0],
+    setErrorEmail = _useState10[1]; // メールアドレス
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState12 = _slicedToArray(_useState11, 2),
+    errorPassword = _useState12[0],
+    setErrorPassword = _useState12[1]; // パスワード
+
   // 入力内容代入 名前
   var NameChange = function NameChange(e) {
     setName(e.target.value);
@@ -9818,10 +9832,19 @@ function Form() {
       name: name,
       email: email,
       password: password
-    }).then(function () {})["catch"](function (err) {
-      console.log(err.data);
+    }).then(function (res) {
+      console.log(res);
+    })["catch"](function (err) {
+      // バリデーション内容の取得
+      var errorMessage = err.response.data || err.message;
+
+      // エラーメッセージ取得
+      setErrorName(errorMessage.errors.name); // 名前
+      setErrorEmail(errorMessage.errors.email); // メールアドレス
+      setErrorPassword(errorMessage.errors.password); // パスワード
     });
   };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].register,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -9833,7 +9856,7 @@ function Form() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           type: "text",
           onChange: NameChange
-        })]
+        }), errorName !== undefined ? errorName : ""]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].name,
@@ -9841,7 +9864,7 @@ function Form() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           type: "text",
           onChange: EmailChange
-        })]
+        }), errorEmail !== undefined ? errorEmail : ""]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].name,
@@ -9849,7 +9872,7 @@ function Form() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           type: "password",
           onChange: PasswordChange
-        })]
+        }), errorPassword !== undefined ? errorPassword : ""]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       onClick: PostClick,

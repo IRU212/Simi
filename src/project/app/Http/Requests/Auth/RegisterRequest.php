@@ -26,9 +26,25 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required'
+            'name' => 'required | between:5,30',
+            'email' => 'required | unique:user',
+            'password' => 'required | between:5,30'
+        ];
+    }
+
+    /**
+     * エラーメッセージ
+     *
+     * @return void
+     */
+    public function messages(){
+        return [
+            'name.required' => 'ユーザ名を入力してください',
+            'name.between' => 'ユーザ名を5~30字以内で入力してください',
+            'email.required' => 'メールアドレスを入力してください',
+            'name.unique' => 'このメールアドレスは既に存在しています',
+            'password.required' => 'パスワードを入力してください',
+            'password.between' => 'パスワードを5~30字以内で入力してください',
         ];
     }
 
