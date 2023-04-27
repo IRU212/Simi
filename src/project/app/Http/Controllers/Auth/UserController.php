@@ -8,6 +8,13 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+
+    /**
+     * アカウントログイン情報
+     *
+     * @param Request $request
+     * @return void
+     */
     public function index(Request $request)
     {
         // モデル　コンストラクタ呼び出し
