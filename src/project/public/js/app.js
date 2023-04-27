@@ -10091,7 +10091,7 @@ __webpack_require__.r(__webpack_exports__);
 function Icon() {
   var loginData = (0,_api_get_LoginUserApi__WEBPACK_IMPORTED_MODULE_1__["default"])();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: loginData !== true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+    children: loginData == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
       to: "/login",
       className: _public_scss_parts_header_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].icon,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {

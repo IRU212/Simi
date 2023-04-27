@@ -13,7 +13,7 @@ export default function Icon() {
 
     return (
         <>
-            { loginData !== true ?
+            { loginData == false ?
                 <Link to={`/login`} className={styles.icon}>
                     <img src="https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg" alt="アイコン" />
                 </Link>
