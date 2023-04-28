@@ -9660,7 +9660,25 @@ function Example() {
           path: "/question",
           element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Question__WEBPACK_IMPORTED_MODULE_5__["default"], {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+          path: "/question/follow",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Question__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+          path: "/question/latest",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Question__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+          path: "/question/evaluation",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Question__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
           path: "/question/subject/:id",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Question__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+          path: "/question/subject/follow/:id",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Question__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+          path: "/question/subject/latest/:id",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Question__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+          path: "/question/subject/evaluation/:id",
           element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Question__WEBPACK_IMPORTED_MODULE_5__["default"], {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
           path: "/question/course/:id",
@@ -10676,48 +10694,104 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ListHeader)
 /* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../public/scss/parts/question.module.scss */ "./public/scss/parts/question.module.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
 
 function ListHeader() {
-  var paramsId = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useParams)()['id'];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].listHeader,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
-      className: function className(_ref) {
-        var isActive = _ref.isActive;
-        return isActive ? _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
-      },
-      to: "/question/subject/".concat(paramsId),
-      children: "\u304A\u3059\u3059\u3081"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
-      className: function className(_ref2) {
-        var isActive = _ref2.isActive;
-        return isActive ? _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
-      },
-      to: "/question/subject/".concat(paramsId, "/follow"),
-      children: "\u30D5\u30A9\u30ED\u30FC"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
-      className: function className(_ref3) {
-        var isActive = _ref3.isActive;
-        return isActive ? _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
-      },
-      to: "/question/subject/".concat(paramsId, "/latest"),
-      children: "\u6700\u65B0"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
-      className: function className(_ref4) {
-        var isActive = _ref4.isActive;
-        return isActive ? _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
-      },
-      to: "/question/subject/".concat(paramsId, "/evaluation"),
-      children: "\u8A55\u4FA1"
-    })]
-  });
+  // home判定用変数
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    homeUrl = _useState2[0],
+    setHomeUrl = _useState2[1];
+
+  // パラメータを取得
+  var paramsId = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)()['id'];
+
+  // urlが変更されるたびに実行
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    if (window.location.pathname == "/question") {
+      setHomeUrl(true);
+    } else {
+      setHomeUrl(false);
+    }
+  }, [window.location.pathname]);
+  if (paramsId == undefined) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].listHeader,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
+        className: "".concat(homeUrl ? _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : ""),
+        to: "/question",
+        children: "\u304A\u3059\u3059\u3081"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
+        className: function className(_ref) {
+          var isActive = _ref.isActive;
+          return isActive ? _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
+        },
+        to: "/question/follow",
+        children: "\u30D5\u30A9\u30ED\u30FC"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
+        className: function className(_ref2) {
+          var isActive = _ref2.isActive;
+          return isActive ? _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
+        },
+        to: "/question/latest",
+        children: "\u6700\u65B0"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
+        className: function className(_ref3) {
+          var isActive = _ref3.isActive;
+          return isActive ? _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
+        },
+        to: "/question/evaluation",
+        children: "\u8A55\u4FA1"
+      })]
+    });
+  } else {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].listHeader,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
+        className: function className(_ref4) {
+          var isActive = _ref4.isActive;
+          return isActive ? _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
+        },
+        to: "/question/subject/".concat(paramsId),
+        children: "\u304A\u3059\u3059\u3081"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
+        className: function className(_ref5) {
+          var isActive = _ref5.isActive;
+          return isActive ? _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
+        },
+        to: "/question/subject/follow/".concat(paramsId),
+        children: "\u30D5\u30A9\u30ED\u30FC"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
+        className: function className(_ref6) {
+          var isActive = _ref6.isActive;
+          return isActive ? _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
+        },
+        to: "/question/subject/latest/".concat(paramsId),
+        children: "\u6700\u65B0"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
+        className: function className(_ref7) {
+          var isActive = _ref7.isActive;
+          return isActive ? _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
+        },
+        to: "/question/subject/evaluation/".concat(paramsId),
+        children: "\u8A55\u4FA1"
+      })]
+    });
+  }
 }
 
 /***/ }),
@@ -16899,7 +16973,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.QwXbrw5W33aKMGgRWHggDQ\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  border-radius: 15px;\n  background-color: #454668;\n  color: #fff;\n  padding: 20px;\n  margin: 0 0 40px 0;\n}\n.QwXbrw5W33aKMGgRWHggDQ\\=\\= .G15mq5EvrItpiOTBLhOAwQ\\=\\= {\n  width: 300px;\n  font-size: 1.2rem;\n  font-weight: 600;\n}\n.QwXbrw5W33aKMGgRWHggDQ\\=\\= a {\n  margin: 5px;\n  display: block;\n  text-decoration: none;\n  color: #fff;\n}\n.QwXbrw5W33aKMGgRWHggDQ\\=\\= section {\n  width: auto;\n  height: auto;\n  margin: 5px;\n}\n.QwXbrw5W33aKMGgRWHggDQ\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\= {\n  width: 80px;\n  display: flex;\n  align-items: center;\n  margin: 10px 0;\n}\n.QwXbrw5W33aKMGgRWHggDQ\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\=::before {\n  content: \"\";\n  flex-grow: 1;\n  height: 1px; /* 線の太さ */\n  background: #fff; /* 線の色 */\n  margin: 0 10px 0 0; /* 文字と線の余白 */\n}\n.QwXbrw5W33aKMGgRWHggDQ\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\=::after {\n  content: \"\";\n  flex-grow: 1;\n  height: 1px; /* 線の太さ */\n  background: #fff; /* 線の色 */\n  margin: 0 0 0 10px; /* 文字と線の余白 */\n}\n\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= {\n  display: flex;\n  align-items: center;\n  padding: 0 0 0 25px;\n  border-bottom: 1px solid #222;\n}\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= a {\n  width: 80px;\n  padding: 18px 0 15px 0;\n  text-align: center;\n  text-decoration: none;\n  color: #fff;\n}\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= .V4VxGIpTyS0vFzi3Sik0MQ\\=\\= {\n  border-bottom: 3px solid #ccc;\n}\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= .AIhnY4yYtKkdjAcj6eTR9Q\\=\\= {\n  border-bottom: 1px solid #222;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.QwXbrw5W33aKMGgRWHggDQ\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  border-radius: 15px;\n  background-color: #454668;\n  color: #fff;\n  padding: 20px;\n  margin: 0 0 40px 0;\n}\n.QwXbrw5W33aKMGgRWHggDQ\\=\\= .G15mq5EvrItpiOTBLhOAwQ\\=\\= {\n  width: 300px;\n  font-size: 1.2rem;\n  font-weight: 600;\n}\n.QwXbrw5W33aKMGgRWHggDQ\\=\\= a {\n  margin: 5px;\n  display: block;\n  text-decoration: none;\n  color: #fff;\n}\n.QwXbrw5W33aKMGgRWHggDQ\\=\\= section {\n  width: auto;\n  height: auto;\n  margin: 5px;\n}\n.QwXbrw5W33aKMGgRWHggDQ\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\= {\n  width: 80px;\n  display: flex;\n  align-items: center;\n  margin: 10px 0;\n}\n.QwXbrw5W33aKMGgRWHggDQ\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\=::before {\n  content: \"\";\n  flex-grow: 1;\n  height: 1px; /* 線の太さ */\n  background: #fff; /* 線の色 */\n  margin: 0 10px 0 0; /* 文字と線の余白 */\n}\n.QwXbrw5W33aKMGgRWHggDQ\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\=::after {\n  content: \"\";\n  flex-grow: 1;\n  height: 1px; /* 線の太さ */\n  background: #fff; /* 線の色 */\n  margin: 0 0 0 10px; /* 文字と線の余白 */\n}\n\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= {\n  display: flex;\n  padding: 0 0 0 25px;\n  border-bottom: 1px solid #222;\n}\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= a {\n  width: 80px;\n  padding: 18px 0 15px 0;\n  text-align: center;\n  text-decoration: none;\n  color: #fff;\n}\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= .V4VxGIpTyS0vFzi3Sik0MQ\\=\\= {\n  border-bottom: 3px solid #ccc;\n}\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= .AIhnY4yYtKkdjAcj6eTR9Q\\=\\= {\n  border-bottom: 1px solid #222;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"subject": "QwXbrw5W33aKMGgRWHggDQ==",

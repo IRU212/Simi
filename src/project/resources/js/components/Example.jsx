@@ -42,8 +42,21 @@ function Example() {
                     <Route path='/record' element={<Record />} />
 
                     {/* 質問 */}
+
+                    {/* 質問教科未選択 ↓ */}
                     <Route path='/question' element={<Question />} />
+                    <Route path='/question/follow' element={<Question />} />
+                    <Route path='/question/latest' element={<Question />} />
+                    <Route path='/question/evaluation' element={<Question />} />
+                    {/* 質問教科未選択 ↑ */}
+
+                    {/* 質問教科指定　↓ */}
                     <Route path='/question/subject/:id' element={<Question />} />
+                    <Route path='/question/subject/follow/:id' element={<Question />} />
+                    <Route path='/question/subject/latest/:id' element={<Question />} />
+                    <Route path='/question/subject/evaluation/:id' element={<Question />} />
+                    {/* 質問教科指定　↑ */}
+
                     <Route path='/question/course/:id' element={<Question />} />
 
                     {/* 設定 ↓ */}
