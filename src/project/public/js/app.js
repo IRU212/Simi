@@ -10309,6 +10309,37 @@ function IconImage() {
 
 /***/ }),
 
+/***/ "./resources/js/components/parts/profile/Name.jsx":
+/*!********************************************************!*\
+  !*** ./resources/js/components/parts/profile/Name.jsx ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Name)
+/* harmony export */ });
+/* harmony import */ var _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../public/scss/parts/profile.module.scss */ "./public/scss/parts/profile.module.scss");
+/* harmony import */ var _api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api/get/ProfileUserApi */ "./resources/js/components/api/get/ProfileUserApi.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+// コンポネート呼び出し
+
+
+// ユーザプロフィール情報　名前
+
+function Name() {
+  // プロフィール情報 API 取得
+  var apiData = (0,_api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: apiData === null || apiData === void 0 ? void 0 : apiData.name
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/parts/record/Form.jsx":
 /*!*******************************************************!*\
   !*** ./resources/js/components/parts/record/Form.jsx ***!
@@ -10652,7 +10683,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _parts_profile_BackImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../parts/profile/BackImage */ "./resources/js/components/parts/profile/BackImage.jsx");
 /* harmony import */ var _parts_profile_IconImage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../parts/profile/IconImage */ "./resources/js/components/parts/profile/IconImage.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _parts_profile_Name__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../parts/profile/Name */ "./resources/js/components/parts/profile/Name.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -10661,8 +10694,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function MainProfile() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_parts_profile_BackImage__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_parts_profile_IconImage__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_profile_BackImage__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_profile_IconImage__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_profile_Name__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
   });
 }
 

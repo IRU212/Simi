@@ -6,7 +6,7 @@ import ProfileUserApi from '../../api/get/ProfileUserApi'
 // ユーザプロフィール情報　アイコン
 export default function IconImage() {
 
-     // プロフィール情報 API 取得
+    // プロフィール情報 API 取得
     const apiData = ProfileUserApi()
 
     return (
