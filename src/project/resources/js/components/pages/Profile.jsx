@@ -1,10 +1,14 @@
 import React from 'react'
-import BackImage from '../parts/profile/BackImage'
+import MainProfile from '../templates/profile/MainProfile'
 
 export default function Profile() {
     return (
         <div>
-            <BackImage />
+
+            {/* プロフィールユーザ情報 */}
+            <MainProfile />
+
+
         </div>
     )
 }

@@ -10250,23 +10250,58 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ BackImage)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/scss/parts/profile.module.scss */ "./public/scss/parts/profile.module.scss");
-/* harmony import */ var _api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/get/ProfileUserApi */ "./resources/js/components/api/get/ProfileUserApi.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../public/scss/parts/profile.module.scss */ "./public/scss/parts/profile.module.scss");
+/* harmony import */ var _api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api/get/ProfileUserApi */ "./resources/js/components/api/get/ProfileUserApi.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 // コンポネート呼び出し
 
 
+// ユーザプロフィール情報　背景画像
+
 function BackImage() {
-  var apiData = (0,_api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  console.log(apiData);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].backImage,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+  // プロフィール情報 API 取得
+  var apiData = (0,_api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].backImage,
+    children: apiData == false ? "" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
       src: "https://prtimes.jp/i/30865/238/origin/d30865-238-463172-2.png",
+      alt: "\u80CC\u666F\u753B\u50CF"
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/parts/profile/IconImage.jsx":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/parts/profile/IconImage.jsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ IconImage)
+/* harmony export */ });
+/* harmony import */ var _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../public/scss/parts/profile.module.scss */ "./public/scss/parts/profile.module.scss");
+/* harmony import */ var _api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api/get/ProfileUserApi */ "./resources/js/components/api/get/ProfileUserApi.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+// コンポネート呼び出し
+
+
+// ユーザプロフィール情報　アイコン
+
+function IconImage() {
+  // プロフィール情報 API 取得
+  var apiData = (0,_api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].iconImage,
+    children: apiData == false ? "" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+      src: "https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg",
       alt: "\u80CC\u666F\u753B\u50CF"
     })
   });
@@ -10616,15 +10651,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _parts_profile_BackImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../parts/profile/BackImage */ "./resources/js/components/parts/profile/BackImage.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _parts_profile_IconImage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../parts/profile/IconImage */ "./resources/js/components/parts/profile/IconImage.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 // プロフィールユーザ情報
 
+
 function MainProfile() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_parts_profile_BackImage__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_parts_profile_BackImage__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_parts_profile_IconImage__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
   });
 }
 
@@ -15960,10 +15998,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ee0lAkR4o5hS1NbBp8Nkyg\\=\\= {\n  width: 100vw;\n  height: 400px;\n}\n.ee0lAkR4o5hS1NbBp8Nkyg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".ee0lAkR4o5hS1NbBp8Nkyg\\=\\= {\n  width: 100vw;\n  height: 400px;\n  position: relative;\n}\n.ee0lAkR4o5hS1NbBp8Nkyg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  vertical-align: bottom;\n}\n\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= {\n  width: 115px;\n  height: 115px;\n  border-radius: 50%;\n  position: relative;\n  overflow: hidden;\n}\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  vertical-align: bottom;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	"backImage": "ee0lAkR4o5hS1NbBp8Nkyg=="
+	"backImage": "ee0lAkR4o5hS1NbBp8Nkyg==",
+	"iconImage": "+8xk31IbrwsU-Q8Iiq9qNQ=="
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
