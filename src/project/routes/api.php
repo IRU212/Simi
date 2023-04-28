@@ -17,6 +17,7 @@ use App\Http\Controllers\Auth\UserController;
 Route::prefix('user')->group(function () {
     Route::get('index', [UserController::class,'index']); // ユーザログイン情報
     Route::get('show/{id}',[UserController::class, 'show']); // ユーザプロフィール情報
+    Route::post('edit',[UserController::class, 'edit']); // ユーザプロフィール情報
     Route::post('store', [RegisterController::class,'store']); // ユーザ新規登録
     Route::post('login',[LoginController::class, 'login']); // ユーザログイン
 });

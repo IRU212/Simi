@@ -53,4 +53,18 @@ class UserController extends Controller
             return response()->json($data);
         }
     }
+
+    public function edit(Request $request)
+    {
+        // フォーム request 取得
+        $name = $request->name; // 名前
+
+        // モデル　コンストラクタ呼び出し
+        $user = new User();
+
+        // ユーザ情報の編集
+        $user->where('id','=',session('login_id'))
+                          ->update(['name' => $name]);
+
+    }
 }
