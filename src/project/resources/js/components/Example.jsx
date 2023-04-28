@@ -8,6 +8,7 @@ import Header from './templates/Header';
 import Record from './pages/Record';
 import Register from './pages/Auth/Register';
 import Login from './pages/Auth/Login';
+import Profile from './pages/Profile';
 
 function Example() {
     return (
@@ -27,6 +28,9 @@ function Example() {
 
                     {/* 設定 */}
                     <Route path="/setting" element={<Setting />} />
+
+                    {/* プロフィール */}
+                    <Route path="/profile/:id" element={<Profile />} />
 
                     {/* アカウント認証　↓ */}
 

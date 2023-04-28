@@ -32,8 +32,8 @@ export default function Form() {
                 email: email,
                 password: password
             })
-            .then((res) => {
-                console.log(res)
+            .then(() => {
+                location.reload = "/"
             })
             .catch((err) => {
 
