@@ -32,4 +32,25 @@ class UserController extends Controller
             return response()->json(false);
         }
     }
+
+    /**
+     * プロフィール　ユーザ情報
+     * idはuser.idを参照
+     *
+     * @param int $id
+     * @return void
+     */
+    public function show($id)
+    {
+        // モデル　コンストラクタ呼び出し
+        $user = new User();
+
+        $data = $user->find($id);
+
+        if (!$data) {
+            return response()->json(false);
+        } else {
+            return response()->json($data);
+        }
+    }
 }
