@@ -43,7 +43,8 @@ function Example() {
 
                     {/* 質問 */}
                     <Route path='/question' element={<Question />} />
-                    <Route path='/question/:keyword' element={<Question />} />
+                    <Route path='/question/subject/:id' element={<Question />} />
+                    <Route path='/question/course/:id' element={<Question />} />
 
                     {/* 設定 ↓ */}
 
