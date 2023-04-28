@@ -1,10 +1,11 @@
 import Course from "../../parts/question/Course";
 import Subject from "../../parts/question/Subject";
+import styles from '../../../../../public/scss/templates/question.module.scss'
 
 // 質問種類　サイドヘッダー　
 export default function SideHeader() {
     return (
-        <div>
+        <div className={styles.sideHeader}>
 
             {/* 教科別項目 */}
             <Subject />
