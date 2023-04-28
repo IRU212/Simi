@@ -33,3 +33,80 @@
 }
 
 // 設定　項目 ヘッダー ↑
+
+// 設定プロフィール編集
+
+.edit{
+    width: 600px;
+    background-color: #6f6e6e;
+    border-radius: 20px;
+    overflow: hidden;
+
+    .backImage{
+        width: 100%;
+        height: 160px;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    section{
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        $icon-profile-size: 80px;
+        .iconImage{
+            width: $icon-profile-size;
+            height: $icon-profile-size;
+            border-radius: 50%;
+            overflow: hidden;
+            transform: translateY(-30%);
+            margin: 0 0 0 10%;
+            border: 3px solid #6f6e6e;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .name{
+            color: #fff;
+            margin: 0 0 0 8%;
+        }
+
+        .nameChange{
+            color: #fff;
+            margin: 0 10% 0 auto;
+            font-size: 0.65rem;
+            background-color: #434242;
+            padding: 8px;
+            border-radius: 10px;
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+// プロフィール変更内容保存ボタン
+.SaveButton{
+    width: fit-content;
+    margin: 30px 0 0 auto;
+    color: #fff;
+    background-color: #5c5c5c;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: .8rem;
+
+    &:hover{
+        cursor: pointer;
+    }
+}

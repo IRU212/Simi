@@ -9960,16 +9960,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _templates_setting_SideHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../templates/setting/SideHeader */ "./resources/js/components/templates/setting/SideHeader.jsx");
 /* harmony import */ var _public_scss_pages_setting_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/scss/pages/setting.module.scss */ "./public/scss/pages/setting.module.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _templates_setting_Profile_MyProfile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../templates/setting/Profile/MyProfile */ "./resources/js/components/templates/setting/Profile/MyProfile.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 // プロフィール設定
 
+
 function Profile() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: _public_scss_pages_setting_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].setting,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_templates_setting_SideHeader__WEBPACK_IMPORTED_MODULE_0__["default"], {})
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_templates_setting_SideHeader__WEBPACK_IMPORTED_MODULE_0__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_templates_setting_Profile_MyProfile__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
   });
 }
 
@@ -10767,6 +10770,64 @@ function SettingHeader() {
 
 /***/ }),
 
+/***/ "./resources/js/components/parts/setting/profile/Edit.jsx":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/parts/setting/profile/Edit.jsx ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../public/scss/parts/setting.module.scss */ "./public/scss/parts/setting.module.scss");
+/* harmony import */ var _api_get_LoginUserApi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../api/get/LoginUserApi */ "./resources/js/components/api/get/LoginUserApi.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+// コンポネート呼び出し
+
+
+
+
+function Edit() {
+  var loginData = (0,_api_get_LoginUserApi__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].edit,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].backImage,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+          src: "https://prtimes.jp/i/30865/238/origin/d30865-238-463172-2.png",
+          alt: "\u80CC\u666F\u753B\u50CF"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].iconImage,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+            src: "https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg",
+            alt: "\u30A2\u30A4\u30B3\u30F3"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].name,
+          children: loginData === null || loginData === void 0 ? void 0 : loginData.name
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].nameChange,
+          children: "\u540D\u524D\u3092\u5909\u66F4"
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].SaveButton,
+      children: "\u4FDD\u5B58"
+    })]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/templates/Header.jsx":
 /*!******************************************************!*\
   !*** ./resources/js/components/templates/Header.jsx ***!
@@ -10860,6 +10921,40 @@ __webpack_require__.r(__webpack_exports__);
 function Time() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_parts_record_TimeRecord__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/templates/setting/Profile/MyProfile.jsx":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/templates/setting/Profile/MyProfile.jsx ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ MyProfile)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _parts_setting_profile_Edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../parts/setting/profile/Edit */ "./resources/js/components/parts/setting/profile/Edit.jsx");
+/* harmony import */ var _public_scss_templates_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../public/scss/templates/setting.module.scss */ "./public/scss/templates/setting.module.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+// 設定プロフィール編集
+
+
+function MyProfile() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: _public_scss_templates_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].myProfile,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: _public_scss_templates_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].title,
+      children: "\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u7DE8\u96C6"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_parts_setting_profile_Edit__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
   });
 }
 
@@ -16289,11 +16384,17 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: calc(100vh - 65px);\n  margin: 0 0 0 auto;\n  padding: 10px 20px 0 0;\n  border-right: 1px solid #ccc;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section {\n  padding: 10px;\n  border-bottom: 1px solid #fff;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a, .ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  margin: 8px 0;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  font-size: 0.9rem;\n  color: #6f6e6e;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a {\n  font-size: 1rem;\n  display: block;\n  text-decoration: none;\n  color: #222;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: calc(100vh - 65px);\n  margin: 0 0 0 auto;\n  padding: 10px 20px 0 0;\n  border-right: 1px solid #ccc;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section {\n  padding: 10px;\n  border-bottom: 1px solid #fff;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a, .ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  margin: 8px 0;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  font-size: 0.9rem;\n  color: #6f6e6e;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a {\n  font-size: 1rem;\n  display: block;\n  text-decoration: none;\n  color: #222;\n}\n\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= {\n  width: 600px;\n  background-color: #6f6e6e;\n  border-radius: 20px;\n  overflow: hidden;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= {\n  width: 100%;\n  height: 160px;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section {\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  overflow: hidden;\n  transform: translateY(-30%);\n  margin: 0 0 0 10%;\n  border: 3px solid #6f6e6e;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .Apuwqm-HFH6qc85jwalCTw\\=\\= {\n  color: #fff;\n  margin: 0 0 0 8%;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\= {\n  color: #fff;\n  margin: 0 10% 0 auto;\n  font-size: 0.65rem;\n  background-color: #434242;\n  padding: 8px;\n  border-radius: 10px;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\=:hover {\n  cursor: pointer;\n}\n\n.m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 30px 0 0 auto;\n  color: #fff;\n  background-color: #5c5c5c;\n  padding: 8px 16px;\n  border-radius: 10px;\n  font-size: 0.8rem;\n}\n.m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\=:hover {\n  cursor: pointer;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"settingHeader": "ku7Gh6W-n4bJ0XvlXLd9sw==",
-	"title": "a07nSlVXdbNyhch2mp9f0A=="
+	"title": "a07nSlVXdbNyhch2mp9f0A==",
+	"edit": "vUdty3WtCKaWNYCbgkK8ZQ==",
+	"backImage": "CrpmA+wPSjxykGysdn2IOQ==",
+	"iconImage": "G25fVEenH1vKV7-d376dNg==",
+	"name": "Apuwqm-HFH6qc85jwalCTw==",
+	"nameChange": "_4flEee6KCk7LKm4WAYPrUw==",
+	"SaveButton": "m-Lx-vxid++58Yv0Ft5W9w=="
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -16373,10 +16474,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Kug-y6oMtJ0o5rZnk0U8Tg\\=\\= {\n  width: 40vw;\n  background-color: #eae6e6;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Kug-y6oMtJ0o5rZnk0U8Tg\\=\\= {\n  width: 34vw;\n  background-color: #eae6e6;\n}\n\n.hq14MkjyEULywwcXPvO-FQ\\=\\= {\n  width: auto;\n  padding: 40px 0 0 40px;\n}\n.hq14MkjyEULywwcXPvO-FQ\\=\\= ._4UAvlpzrq-lX1zLl26tUfA\\=\\= {\n  color: #222;\n  font-size: 1.2rem;\n  margin-bottom: 30px;\n  font-weight: 600;\n  letter-spacing: 1px;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	"sideHeader": "Kug-y6oMtJ0o5rZnk0U8Tg=="
+	"sideHeader": "Kug-y6oMtJ0o5rZnk0U8Tg==",
+	"myProfile": "hq14MkjyEULywwcXPvO-FQ==",
+	"title": "_4UAvlpzrq-lX1zLl26tUfA=="
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
