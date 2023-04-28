@@ -10819,43 +10819,94 @@ function Edit() {
     backImage = _useState6[0],
     setBackImage = _useState6[1];
 
-  // 名前入力許可判定
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  // プレビュー用画像変数
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState8 = _slicedToArray(_useState7, 2),
-    isNameInput = _useState8[0],
-    setIsNameInput = _useState8[1];
+    previewIconImage = _useState8[0],
+    setPreviewIconImage = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState10 = _slicedToArray(_useState9, 2),
+    previewBackImage = _useState10[0],
+    setPreviewBackImage = _useState10[1];
+
+  // 名前入力許可判定
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState12 = _slicedToArray(_useState11, 2),
+    isNameInput = _useState12[0],
+    setIsNameInput = _useState12[1];
 
   // 名前の変更内容を変数に代入
   var NameChange = function NameChange(e) {
     setName(e.target.value);
   };
+
+  // 画像の変更内容を変数に代入 背景画像
+  var BackFileChange = function BackFileChange(e) {
+    // DB保存用変数に画像を入れる
+    setBackImage(e.target.files[0]);
+
+    // オブジェクトURLを生成し、useState()を更新
+    setPreviewBackImage(window.URL.createObjectURL(e.target.files[0]));
+  };
+
+  // 画像の変更内容を変数に代入 アイコン
+  var IconFileChange = function IconFileChange(e) {
+    // DB保存用変数に画像を入れる
+    setIconImage(e.target.files[0]);
+
+    // オブジェクトURLを生成し、useState()を更新
+    setPreviewIconImage(window.URL.createObjectURL(e.target.files[0]));
+  };
+
+  // 名前の入力のキャンセル
   var IsNameInputClick = function IsNameInputClick() {
     setIsNameInput(!isNameInput);
     setName("");
   };
+
+  // クリックしたら保存
   var SaveClick = function SaveClick() {
     var data = new FormData();
     data.append("name", name); // 名前
 
-    axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/user/edit", data).then(function () {})["catch"](function (err) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/user/edit", data).then(function () {
+      // 変更成功時にページリロード
+      location.reload();
+    })["catch"](function (err) {
       console.log(err);
     });
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].edit,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+        type: "file",
+        id: "backImage",
+        accept: "image/*",
+        onChange: BackFileChange
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        htmlFor: "backImage",
         className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].backImage,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+        children: previewBackImage == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
           src: "https://prtimes.jp/i/30865/238/origin/d30865-238-463172-2.png",
           alt: "\u80CC\u666F\u753B\u50CF"
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+          src: "".concat(previewBackImage)
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          type: "file",
+          id: "iconImage",
+          accept: "image/*",
+          onChange: IconFileChange
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+          htmlFor: "iconImage",
           className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].iconImage,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+          children: previewIconImage == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
             src: "https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg",
             alt: "\u30A2\u30A4\u30B3\u30F3"
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+            src: "".concat(previewIconImage)
           })
         }), isNameInput ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
           type: "text",
@@ -16442,7 +16493,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: calc(100vh - 65px);\n  margin: 0 0 0 auto;\n  padding: 10px 20px 0 0;\n  border-right: 1px solid #ccc;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section {\n  padding: 10px;\n  border-bottom: 1px solid #fff;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a, .ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  margin: 8px 0;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  font-size: 0.9rem;\n  color: #6f6e6e;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a {\n  font-size: 1rem;\n  display: block;\n  text-decoration: none;\n  color: #222;\n}\n\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= {\n  width: 600px;\n  background-color: #6f6e6e;\n  border-radius: 20px;\n  overflow: hidden;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= {\n  width: 100%;\n  height: 160px;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section {\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  overflow: hidden;\n  transform: translateY(-30%);\n  margin: 0 0 0 10%;\n  border: 3px solid #6f6e6e;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .Apuwqm-HFH6qc85jwalCTw\\=\\= {\n  color: #fff;\n  margin: 0 0 0 8%;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .lNdstIBSZeyOl7eYz-QYfQ\\=\\= {\n  margin: 0 0 0 8%;\n  padding: 4px;\n  font-size: 0.75rem;\n  border-radius: 6px;\n  outline: none;\n  border: none;\n  color: #fff;\n  background-color: #3f3f3f;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\= {\n  color: #fff;\n  margin: 0 10% 0 auto;\n  font-size: 0.65rem;\n  background-color: #434242;\n  padding: 8px;\n  border-radius: 10px;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\=:hover {\n  cursor: pointer;\n}\n\n.m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 30px 0 0 auto;\n  color: #fff;\n  background-color: #5c5c5c;\n  padding: 8px 16px;\n  border-radius: 10px;\n  font-size: 0.8rem;\n}\n.m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\=:hover {\n  cursor: pointer;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: calc(100vh - 65px);\n  margin: 0 0 0 auto;\n  padding: 10px 20px 0 0;\n  border-right: 1px solid #ccc;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section {\n  padding: 10px;\n  border-bottom: 1px solid #fff;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a, .ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  margin: 8px 0;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  font-size: 0.9rem;\n  color: #6f6e6e;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a {\n  font-size: 1rem;\n  display: block;\n  text-decoration: none;\n  color: #222;\n}\n\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= {\n  width: 600px;\n  background-color: #6f6e6e;\n  border-radius: 20px;\n  overflow: hidden;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= input[type=file] {\n  display: none;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= {\n  width: 100%;\n  height: 160px;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\=:hover {\n  cursor: pointer;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section {\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  overflow: hidden;\n  transform: translateY(-30%);\n  margin: 0 0 0 10%;\n  border: 3px solid #6f6e6e;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .Apuwqm-HFH6qc85jwalCTw\\=\\= {\n  color: #fff;\n  margin: 0 0 0 8%;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .lNdstIBSZeyOl7eYz-QYfQ\\=\\= {\n  margin: 0 0 0 8%;\n  padding: 4px;\n  font-size: 0.75rem;\n  border-radius: 6px;\n  outline: none;\n  border: none;\n  color: #fff;\n  background-color: #3f3f3f;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\= {\n  color: #fff;\n  margin: 0 10% 0 auto;\n  font-size: 0.65rem;\n  background-color: #434242;\n  padding: 8px;\n  border-radius: 10px;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\=:hover {\n  cursor: pointer;\n}\n\n.m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 30px 0 0 auto;\n  color: #fff;\n  background-color: #5c5c5c;\n  padding: 8px 16px;\n  border-radius: 10px;\n  font-size: 0.8rem;\n}\n.m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\=:hover {\n  cursor: pointer;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"settingHeader": "ku7Gh6W-n4bJ0XvlXLd9sw==",
