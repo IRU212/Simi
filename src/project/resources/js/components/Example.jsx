@@ -2,13 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Home from './pages/Home';
-import Setting from './pages/Setting';
 import Header from './templates/Header';
+
+{/* ホーム */}
+import Home from './pages/Home';
+
+{/* 記録 */}
 import Record from './pages/Record';
+
+{/* アカウント認証　↓ */}
 import Register from './pages/Auth/Register';
 import Login from './pages/Auth/Login';
+
+{/* プロフィール */}
 import Profile from './pages/Profile';
+
+{/* 設定 */}
+import Account from './pages/setting/Account';
+import SettingProfile from './pages/setting/Profile';
+import Privacy from './pages/setting/Privacy';
 
 function Example() {
     return (
@@ -26,8 +38,13 @@ function Example() {
                     {/* 記録 */}
                     <Route path='/record' element={<Record />} />
 
-                    {/* 設定 */}
-                    <Route path="/setting" element={<Setting />} />
+                    {/* 設定 ↓ */}
+
+                    <Route path="/setting" element={<Account />} />
+                    <Route path="/setting/profile" element={<SettingProfile />} />
+                    <Route path="/setting/privacy" element={<Privacy />} />
+
+                    {/* 設定 ↑ */}
 
                     {/* プロフィール */}
                     <Route path="/profile/:id" element={<Profile />} />

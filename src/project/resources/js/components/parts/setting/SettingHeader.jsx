@@ -10,7 +10,7 @@ export default function SettingHeader() {
 
                 <div className={styles.title}>ユーザ設定</div>
 
-                <Link to="/setting/profile">
+                <Link to="/setting">
                     アカウント情報
                 </Link>
                 <Link to="/setting/profile">
@@ -23,7 +23,7 @@ export default function SettingHeader() {
 
                 <div className={styles.title}>アプリ設定</div>
 
-                <Link to="/setting/profile">
+                <Link to="/setting/privacy">
                     プライバシー
                 </Link>
 
