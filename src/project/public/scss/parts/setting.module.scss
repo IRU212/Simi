@@ -1,0 +1,35 @@
+// 設定　項目 ヘッダー ↓
+
+.settingHeader{
+    width: fit-content;
+    min-height: calc(100vh - 65px);
+    padding: 0 20px 0 28%;
+    border-right: 1px solid #ccc;
+    background-color: #eae6e6;
+
+    section {
+        padding: 10px;
+        border-bottom: 1px solid #fff;
+
+        // 文字の上下の隙間
+        %font-height {
+            margin: 8px 0
+        }
+
+        .title{
+            @extend %font-height;
+            font-size: 0.9rem;
+            color: #6f6e6e;
+        }
+
+        a{
+            @extend %font-height;
+            font-size: 1rem;
+            display: block;
+            text-decoration: none;
+            color: #222;
+        }
+    }
+}
+
+// 設定　項目 ヘッダー ↑
