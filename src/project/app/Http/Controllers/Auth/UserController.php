@@ -58,13 +58,41 @@ class UserController extends Controller
     {
         // フォーム request 取得
         $name = $request->name; // 名前
+        $icon_image = $request->icon_image; // アイコン画像
+        $back_image = $request->back_image; // 背景画像
 
         // モデル　コンストラクタ呼び出し
         $user = new User();
 
-        // ユーザ情報の編集
-        $user->where('id','=',session('login_id'))
-                          ->update(['name' => $name]);
+        if ($name !== null) {
+            // ユーザ情報の編集
+            $user->where('id','=',session('login_id'))->update(['name' => $name]);
+        }
 
+        // アイコン画像ファイルアップロード成功　判定
+        if($icon_image !== null) {
+
+            // アップロードされたファイル名を取得
+            $file_name = $icon_image->getClientOriginalName();
+
+            // 取得したファイル名で保存
+            $image = $icon_image->storeAs('public/image', $file_name);
+
+            // ユーザ情報の編集
+            $user->where('id','=',session('login_id'))->update(['icon_image' => $request->getUriForPath('') . '/storage/image/' . $file_name]);
+        }
+
+        // 背景画像ファイルアップロード成功　判定
+        if($back_image !== null) {
+
+            // アップロードされたファイル名を取得
+            $file_name = $back_image->getClientOriginalName();
+
+            // 取得したファイル名で保存
+            $image = $back_image->storeAs('public/image', $file_name);
+
+            // ユーザ情報の編集
+            $user->where('id','=',session('login_id'))->update(['back_image' => $request->getUriForPath('') . '/storage/image/' . $file_name]);
+        }
     }
 }

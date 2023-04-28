@@ -78,6 +78,10 @@
             margin: 0 0 0 10%;
             border: 3px solid #6f6e6e;
 
+            &:hover{
+                cursor: pointer;
+            }
+
             img{
                 width: 100%;
                 height: 100%;

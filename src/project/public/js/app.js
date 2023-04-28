@@ -10806,15 +10806,15 @@ function Edit() {
   var loginData = (0,_api_get_LoginUserApi__WEBPACK_IMPORTED_MODULE_3__["default"])();
 
   // DB保存用変数
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState2 = _slicedToArray(_useState, 2),
     name = _useState2[0],
     setName = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState4 = _slicedToArray(_useState3, 2),
     iconImage = _useState4[0],
     setIconImage = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState6 = _slicedToArray(_useState5, 2),
     backImage = _useState6[0],
     setBackImage = _useState6[1];
@@ -10868,8 +10868,14 @@ function Edit() {
   var SaveClick = function SaveClick() {
     var data = new FormData();
     data.append("name", name); // 名前
+    data.append("icon_image", iconImage); // アイコン画像
+    data.append("back_image", backImage); // 背景画像
 
-    axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/user/edit", data).then(function () {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/user/edit", data, {
+      headers: {
+        'content-type': 'multipart/form-data'
+      }
+    }).then(function () {
       // 変更成功時にページリロード
       location.reload();
     })["catch"](function (err) {
@@ -10883,12 +10889,13 @@ function Edit() {
         type: "file",
         id: "backImage",
         accept: "image/*",
+        multiple: true,
         onChange: BackFileChange
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
         htmlFor: "backImage",
         className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].backImage,
         children: previewBackImage == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-          src: "https://prtimes.jp/i/30865/238/origin/d30865-238-463172-2.png",
+          src: "".concat(loginData === null || loginData === void 0 ? void 0 : loginData.back_image),
           alt: "\u80CC\u666F\u753B\u50CF"
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
           src: "".concat(previewBackImage)
@@ -10898,12 +10905,13 @@ function Edit() {
           type: "file",
           id: "iconImage",
           accept: "image/*",
+          multiple: true,
           onChange: IconFileChange
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
           htmlFor: "iconImage",
           className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].iconImage,
           children: previewIconImage == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-            src: "https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg",
+            src: "".concat(loginData === null || loginData === void 0 ? void 0 : loginData.icon_image),
             alt: "\u30A2\u30A4\u30B3\u30F3"
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
             src: "".concat(previewIconImage)
@@ -16493,7 +16501,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: calc(100vh - 65px);\n  margin: 0 0 0 auto;\n  padding: 10px 20px 0 0;\n  border-right: 1px solid #ccc;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section {\n  padding: 10px;\n  border-bottom: 1px solid #fff;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a, .ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  margin: 8px 0;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  font-size: 0.9rem;\n  color: #6f6e6e;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a {\n  font-size: 1rem;\n  display: block;\n  text-decoration: none;\n  color: #222;\n}\n\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= {\n  width: 600px;\n  background-color: #6f6e6e;\n  border-radius: 20px;\n  overflow: hidden;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= input[type=file] {\n  display: none;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= {\n  width: 100%;\n  height: 160px;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\=:hover {\n  cursor: pointer;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section {\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  overflow: hidden;\n  transform: translateY(-30%);\n  margin: 0 0 0 10%;\n  border: 3px solid #6f6e6e;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .Apuwqm-HFH6qc85jwalCTw\\=\\= {\n  color: #fff;\n  margin: 0 0 0 8%;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .lNdstIBSZeyOl7eYz-QYfQ\\=\\= {\n  margin: 0 0 0 8%;\n  padding: 4px;\n  font-size: 0.75rem;\n  border-radius: 6px;\n  outline: none;\n  border: none;\n  color: #fff;\n  background-color: #3f3f3f;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\= {\n  color: #fff;\n  margin: 0 10% 0 auto;\n  font-size: 0.65rem;\n  background-color: #434242;\n  padding: 8px;\n  border-radius: 10px;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\=:hover {\n  cursor: pointer;\n}\n\n.m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 30px 0 0 auto;\n  color: #fff;\n  background-color: #5c5c5c;\n  padding: 8px 16px;\n  border-radius: 10px;\n  font-size: 0.8rem;\n}\n.m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\=:hover {\n  cursor: pointer;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: calc(100vh - 65px);\n  margin: 0 0 0 auto;\n  padding: 10px 20px 0 0;\n  border-right: 1px solid #ccc;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section {\n  padding: 10px;\n  border-bottom: 1px solid #fff;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a, .ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  margin: 8px 0;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  font-size: 0.9rem;\n  color: #6f6e6e;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a {\n  font-size: 1rem;\n  display: block;\n  text-decoration: none;\n  color: #222;\n}\n\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= {\n  width: 600px;\n  background-color: #6f6e6e;\n  border-radius: 20px;\n  overflow: hidden;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= input[type=file] {\n  display: none;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= {\n  width: 100%;\n  height: 160px;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\=:hover {\n  cursor: pointer;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section {\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  overflow: hidden;\n  transform: translateY(-30%);\n  margin: 0 0 0 10%;\n  border: 3px solid #6f6e6e;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\=:hover {\n  cursor: pointer;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .Apuwqm-HFH6qc85jwalCTw\\=\\= {\n  color: #fff;\n  margin: 0 0 0 8%;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .lNdstIBSZeyOl7eYz-QYfQ\\=\\= {\n  margin: 0 0 0 8%;\n  padding: 4px;\n  font-size: 0.75rem;\n  border-radius: 6px;\n  outline: none;\n  border: none;\n  color: #fff;\n  background-color: #3f3f3f;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\= {\n  color: #fff;\n  margin: 0 10% 0 auto;\n  font-size: 0.65rem;\n  background-color: #434242;\n  padding: 8px;\n  border-radius: 10px;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\=:hover {\n  cursor: pointer;\n}\n\n.m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 30px 0 0 auto;\n  color: #fff;\n  background-color: #5c5c5c;\n  padding: 8px 16px;\n  border-radius: 10px;\n  font-size: 0.8rem;\n}\n.m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\=:hover {\n  cursor: pointer;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"settingHeader": "ku7Gh6W-n4bJ0XvlXLd9sw==",

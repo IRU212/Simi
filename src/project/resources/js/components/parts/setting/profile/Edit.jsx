@@ -11,9 +11,9 @@ export default function Edit() {
     const loginData = LoginUserApi()
 
     // DB保存用変数
-    const [name,setName] = useState()
-    const [iconImage,setIconImage] = useState()
-    const [backImage,setBackImage]  = useState()
+    const [name,setName] = useState("")
+    const [iconImage,setIconImage] = useState("")
+    const [backImage,setBackImage]  = useState("")
 
     // プレビュー用画像変数
     const [previewIconImage, setPreviewIconImage] = useState(null)
@@ -58,9 +58,17 @@ export default function Edit() {
 
         const data = new FormData()
         data.append("name",name) // 名前
+        data.append("icon_image",iconImage) // アイコン画像
+        data.append("back_image",backImage) // 背景画像
 
         axios
-            .post("/api/user/edit",data)
+            .post("/api/user/edit",data,
+                {
+                    headers: {
+                        'content-type': 'multipart/form-data',
+                    },
+                }
+            )
             .then(() => {
                 // 変更成功時にページリロード
                 location.reload()
@@ -75,10 +83,10 @@ export default function Edit() {
             <div className={styles.edit}>
 
                 {/* 背景画像 */}
-                <input type="file" id='backImage' accept="image/*" onChange={BackFileChange} />
+                <input type="file" id='backImage' accept="image/*" multiple onChange={BackFileChange} />
                 <label htmlFor='backImage' className={styles.backImage}>
                     { previewBackImage == null ?
-                        <img src="https://prtimes.jp/i/30865/238/origin/d30865-238-463172-2.png" alt="背景画像" />
+                        <img src={`${loginData?.back_image}`} alt="背景画像" />
                         :
                         <img src={`${previewBackImage}`} />
                     }
@@ -88,10 +96,10 @@ export default function Edit() {
                 <section>
 
                     {/* アイコン画像 */}
-                    <input type="file" id='iconImage' accept="image/*" onChange={IconFileChange} />
+                    <input type="file" id='iconImage' accept="image/*" multiple onChange={IconFileChange} />
                     <label htmlFor='iconImage' className={styles.iconImage}>
                         { previewIconImage == null ?
-                            <img src="https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg" alt="アイコン" />
+                            <img src={`${loginData?.icon_image}`} alt="アイコン" />
                             :
                             <img src={`${previewIconImage}`} />
                         }
