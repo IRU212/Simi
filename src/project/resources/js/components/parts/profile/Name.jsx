@@ -10,7 +10,7 @@ export default function Name() {
     const apiData = ProfileUserApi()
 
     return (
-        <div>
+        <div className={styles.name}>
             { apiData?.name }
         </div>
     )

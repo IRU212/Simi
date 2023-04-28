@@ -1,0 +1,18 @@
+.mainProfile{
+    width: 100%;
+
+    section {
+        width: 100%;
+        padding: 0 10%;
+        display: flex;
+        align-items: center;
+
+        .icon{
+            transform: translateY(-30%);
+        }
+
+        .name {
+            margin-left: 80px;
+        }
+    }
+}
