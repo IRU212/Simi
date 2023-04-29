@@ -10916,14 +10916,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Form)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../public/scss/parts/question.module.scss */ "./public/scss/parts/question.module.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../public/scss/parts/question.module.scss */ "./public/scss/parts/question.module.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -10947,62 +10950,75 @@ function Form() {
   };
 
   // 本文が変更されたらbodyに保存
-  var BodyInput = function BodyInput(e) {
-    setBody(e.target.innerHTML);
+  // const BodyInput = (e) => {
+  //     setBody(e.target.innerHTML)
+  //     console.log(body)
+  // }
+  var BodyChange = function BodyChange(e) {
+    setBody(e.target.value);
     console.log(body);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].form,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].cover,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].title,
+
+  // クリックしたらDBに保存
+  var SaveClick = function SaveClick() {
+    var data = new FormData();
+    data.append("name", name);
+    data.append("body", body);
+    axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/question/store", data).then(function (res) {})["catch"](function (err) {
+      console.log(err);
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].form,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].cover,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].title,
           children: "\u30BF\u30A4\u30C8\u30EB"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           type: "text",
           onChange: NameChange
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].title,
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].title,
           children: "\u8CEA\u554F\u5185\u5BB9"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          contentEditable: "true",
-          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].bodyTextArea,
-          value: body,
-          onInput: BodyInput
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
+          rows: "18",
+          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].bodyTextArea,
+          onChange: BodyChange
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].title,
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].title,
           children: "\u8CEA\u554F\u5185\u5BB9\u30D7\u30EC\u30D3\u30E5\u30FC"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].bodyTextArea,
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].bodyTextArea,
           value: body,
-          onInput: BodyInput,
           children: body.split("<div>").map(function (item, index) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               children: item.replace("</div>", '').replace("<br>", "")
             }, index);
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].title,
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].title,
           children: "\u6559\u79D1"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           type: "text"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].title,
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].title,
           children: "\u79D1\u76EE"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           type: "text"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].postButton,
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].postButton,
+        onClick: SaveClick,
         children: "\u6295\u7A3F"
       })]
     })

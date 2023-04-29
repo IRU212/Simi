@@ -6,7 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\UserController;
 
 // 質問関連
-use App\Http\Controllers\Auth\QuestionController;
+use App\Http\Controllers\QuestionController;
 
 /*
 |--------------------------------------------------------------------------
