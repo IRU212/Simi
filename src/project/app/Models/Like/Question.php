@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Like;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -8,14 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     // テーブル名
-    protected $table = "question";
+    protected $table = "question_like";
 
     // カラム名
     protected $fillable = [
-        'name',
-        'body',
-        'image',
-        'subject',
-        'course'
+        'question_id',
+        'user_id'
     ];
 }

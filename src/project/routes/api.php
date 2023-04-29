@@ -8,6 +8,9 @@ use App\Http\Controllers\Auth\UserController;
 // 質問関連
 use App\Http\Controllers\QuestionController;
 
+// いいね関連
+use App\Http\Controllers\Like\QuestionController as LikeQuestionController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,4 +36,12 @@ Route::prefix('question')->group(function () {
     Route::get('index', [QuestionController::class,'index']); // 質問おすすめ一覧
     Route::get('latest', [QuestionController::class,'latest']); // 質問最新順一覧
     Route::post('store', [QuestionController::class,'store']); // 質問保存
+});
+
+/**
+ *  いいね関連
+ */
+Route::prefix('like')->group(function () {
+    Route::get('index/{id}', [LikeQuestionController::class,'index']); // 質問いいね判定
+    Route::post('store', [LikeQuestionController::class,'store']); // いいね保存
 });
