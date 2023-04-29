@@ -12,6 +12,20 @@ class QuestionController extends Controller
     }
 
     /**
+     * 質問最新順一覧
+     *
+     * @return void
+     */
+    public function latest()
+    {
+        $question = new Question();
+
+        $data = $question->latest()->get();;
+
+        return response()->json($data);
+    }
+
+    /**
      * 質問保存
      *
      * @param Request $request

@@ -30,5 +30,6 @@ Route::prefix('user')->group(function () {
  */
 Route::prefix('question')->group(function () {
     Route::get('index', [QuestionController::class,'index']); // 質問おすすめ一覧
+    Route::get('latest', [QuestionController::class,'latest']); // 質問最新順一覧
     Route::post('store', [QuestionController::class,'store']); // 質問保存
 });
