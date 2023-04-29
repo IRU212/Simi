@@ -20,7 +20,7 @@ class QuestionController extends Controller
     {
         $question = new Question();
 
-        $data = $question->latest()->get();;
+        $data = $question->latest()->paginate(20);
 
         return response()->json($data);
     }
