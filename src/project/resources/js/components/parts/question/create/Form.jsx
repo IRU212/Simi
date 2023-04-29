@@ -35,7 +35,7 @@ export default function Form() {
                     <div className={styles.title}>
                         質問内容
                     </div>
-                    <div contentEditable className={styles.bodyTextArea} value={body} onInput={BodyInput}>
+                    <div contentEditable="true" className={styles.bodyTextArea} value={body} onInput={BodyInput}>
 
                     </div>
                 </section>
@@ -50,10 +50,11 @@ export default function Form() {
                         { body.split("<div>").map((item,index) => {
                             return(
                                 <div key={index}>
-                                    { item.replace("</div>","").replace("<br>","") }
+                                    { item.replace("</div>",'').replace("<br>","") }
                                 </div>
                             )
                         }) }
+
                     </div>
                 </section>
 
