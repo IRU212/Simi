@@ -53,6 +53,10 @@
     @extend %item;
 }
 
+.item{
+    @extend %item;
+}
+
 // 質問リスト　ヘッダー　↓
 
 .listHeader{
@@ -79,3 +83,62 @@
 }
 
 // 質問リスト　ヘッダー　↑
+
+
+// 質問作成フォーム　↓
+
+.form{
+    width: 100%;
+    height: 100%;
+
+    .cover{
+        max-width: 1000px;
+        width: 100%;
+        margin: 60px auto 0 auto;
+
+        section{
+            width: 100%;
+            margin: 0 0 30px 0;
+
+            .title{
+                margin: 0 0 6px 0;
+                font-weight: 600;
+            }
+
+            input{
+                width: 100%;
+                outline: none;
+                border-radius: 8px;
+                padding: 6px 10px;
+            }
+
+            .bodyTextArea{
+                width: 100%;
+                height: 30rem;
+                resize: none;
+                outline: none;
+                border-radius: 8px;
+                padding: 6px 10px;
+                background-color: #fff;
+                border: 1px solid #222;
+
+                // テキスト入力スタイル
+                .red{
+                    color: red;
+                }
+            }
+        }
+
+        .postButton{
+            width: fit-content;
+            margin: 30px 0 60px auto;
+            color: #fff;
+            background-color: #454668;
+            font-size: 0.8rem;
+            padding: 6px 16px;
+            border-radius: 12px;
+        }
+    }
+}
+
+// 質問作成フォーム　↑

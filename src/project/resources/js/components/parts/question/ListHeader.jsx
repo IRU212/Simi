@@ -44,9 +44,9 @@ export default function ListHeader() {
                 </NavLink>
                 <NavLink
                     className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
-                    to={`/question/evaluation`}
+                    to={`/question/like`}
                 >
-                    評価
+                    いいね
                 </NavLink>
 
             </div>
@@ -75,9 +75,9 @@ export default function ListHeader() {
                 </NavLink>
                 <NavLink
                     className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
-                    to={`/question/subject/evaluation/${paramsId}`}
+                    to={`/question/subject/like/${paramsId}`}
                 >
-                    評価
+                    いいね
                 </NavLink>
 
             </div>

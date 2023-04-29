@@ -24,6 +24,7 @@ import Profile from './pages/Profile';
 import Account from './pages/setting/Account';
 import SettingProfile from './pages/setting/Profile';
 import Privacy from './pages/setting/Privacy';
+import Create from './pages/question/Create';
 
 function Example() {
     return (
@@ -41,23 +42,28 @@ function Example() {
                     {/* 記録 */}
                     <Route path='/record' element={<Record />} />
 
-                    {/* 質問 */}
+                    {/* 質問 ↓ */}
 
                     {/* 質問教科未選択 ↓ */}
                     <Route path='/question' element={<Question />} />
                     <Route path='/question/follow' element={<Question />} />
                     <Route path='/question/latest' element={<Question />} />
-                    <Route path='/question/evaluation' element={<Question />} />
+                    <Route path='/question/like' element={<Question />} />
                     {/* 質問教科未選択 ↑ */}
 
                     {/* 質問教科指定　↓ */}
                     <Route path='/question/subject/:id' element={<Question />} />
                     <Route path='/question/subject/follow/:id' element={<Question />} />
                     <Route path='/question/subject/latest/:id' element={<Question />} />
-                    <Route path='/question/subject/evaluation/:id' element={<Question />} />
+                    <Route path='/question/subject/like/:id' element={<Question />} />
                     {/* 質問教科指定　↑ */}
 
+                    {/* 質問作成 */}
+                    <Route path='/question/create' element={<Create />} />
+
                     <Route path='/question/course/:id' element={<Question />} />
+
+                    {/* 質問 ↑ */}
 
                     {/* 設定 ↓ */}
 
