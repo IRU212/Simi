@@ -20,8 +20,6 @@ export default function IsLike(props) {
         setData(apiData)
     },[apiData])
 
-    console.log(data);
-
     // いいねされている：いいねされていない
     // true : false
     // いいねされていたらいいねを解除：いいねされていなければいいねする

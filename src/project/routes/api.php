@@ -33,10 +33,10 @@ Route::prefix('user')->group(function () {
  *  質問関連
  */
 Route::prefix('question')->group(function () {
-    Route::get('index', [QuestionController::class,'index']); // 質問おすすめ一覧
-    Route::get('latest', [QuestionController::class,'latest']); // 質問最新順一覧
-    Route::get('like', [QuestionController::class,'like']); // 質問いいね一覧
-    Route::post('store', [QuestionController::class,'store']); // 質問保存
+    Route::get('/', [QuestionController::class,'index']); // 質問おすすめ一覧
+    Route::get('/latest', [QuestionController::class,'latest']); // 質問最新順一覧
+    Route::get('/like', [QuestionController::class,'like']); // 質問いいね一覧
+    Route::post('/store', [QuestionController::class,'store']); // 質問保存
 });
 
 /**

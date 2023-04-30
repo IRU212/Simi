@@ -10774,7 +10774,6 @@ function List() {
     _useState4 = _slicedToArray(_useState3, 2),
     idPagenate = _useState4[0],
     setIdPagenate = _useState4[1];
-  console.log(pathname);
 
   // URLが変更されるたびに実行
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -11173,7 +11172,6 @@ function IsLike(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {
     setData(apiData);
   }, [apiData]);
-  console.log(data);
 
   // いいねされている：いいねされていない
   // true : false

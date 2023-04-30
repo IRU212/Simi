@@ -14,8 +14,6 @@ export default function List() {
     // 初期ページネイトページ数
     const [idPagenate,setIdPagenate] = useState(1)
 
-    console.log(pathname)
-
     // URLが変更されるたびに実行
     useEffect(() => {
         axios
