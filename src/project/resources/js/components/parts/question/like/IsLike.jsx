@@ -1,5 +1,7 @@
 import styles from '../../../../../../public/scss/parts/question.module.scss'
 import QuestionApi from '../../../api/get/like/QuestionApi'
+import Like from './Like'
+import UnLike from './UnLike'
 
 // いいねボタン表示
 export default function IsLike() {
@@ -9,9 +11,10 @@ export default function IsLike() {
 
     // いいねされている：いいねされていない
     // true : false
+    // いいねされていたらいいねを解除：いいねされていなければいいねする
     if (apiData) {
-        return <div className={styles.like}></div>
+        return <UnLike />
     } else {
-        return <div className={styles.unlike}></div>
+        return <Like />
     }
 }

@@ -188,17 +188,64 @@
 // いいねボタン　↓
 
 %like-button{
-    width: 10px;
-    height: 10px;
-    display: none;
+    width: 20px;
+	height: 20px;
+	position: relative;
+    margin: 0 0 0 auto;
+
+    $heart-size-ratio: 6;
+
+    &::before{
+        content: "";
+        position: absolute;
+        left: calc(60px / $heart-size-ratio); /* x位置 */
+        top: 0; /* y位置 */
+        width: calc(60px / $heart-size-ratio); /* 幅 */
+        height: calc(100px / $heart-size-ratio); /* 高さ */
+        border-radius: calc(100px / $heart-size-ratio) calc(60px / $heart-size-ratio) 0 0; /* 丸み */
+        transform: rotate(-45deg); /* 角度調整 */
+        transform-origin: 0 100%; /* 回転の基準点 */
+    }
+
+    &::after{
+        content: "";
+        position: absolute;
+        left: 0; /* x位置 */
+        top: 0; /* y位置 */
+        width: calc(60px / $heart-size-ratio); /* 幅 */
+        height: calc(100px / $heart-size-ratio); /* 高さ */
+        border-radius: calc(60px / $heart-size-ratio) calc(100px / $heart-size-ratio) 0 0; /* 丸み */
+        transform: rotate(45deg); /* 角度調整 */
+        transform-origin: 100% 100%; /* 回転の基準点 */
+    }
+
+    &:hover{
+        cursor: pointer;
+    }
 }
 
-.link{
+.like{
     @extend %like-button;
+
+    &::before{
+        background: #FF5252; /* 色 */
+    }
+
+    &::after{
+        background: #FF5252; /* 色 */
+    }
 }
 
-.unLink{
+.unlike{
     @extend %like-button;
+
+    &::before{
+        background: #fff; /* 色 */
+    }
+
+    &::after{
+        background: #fff; /* 色 */
+    }
 }
 
 
