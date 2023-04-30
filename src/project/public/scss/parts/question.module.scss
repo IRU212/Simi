@@ -184,3 +184,22 @@
 }
 
 // 質問一覧デザイン　↑
+
+// いいねボタン　↓
+
+%like-button{
+    width: 10px;
+    height: 10px;
+    display: none;
+}
+
+.link{
+    @extend %like-button;
+}
+
+.unLink{
+    @extend %like-button;
+}
+
+
+// いいねボタン　↑

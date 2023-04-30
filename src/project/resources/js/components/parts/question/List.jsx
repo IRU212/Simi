@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../../../../../public/scss/parts/question.module.scss'
 import { Link } from 'react-router-dom'
+import IsLike from './like/IsLike'
 
 export default function List() {
 
@@ -40,6 +41,7 @@ export default function List() {
                             { item.body }
                         </div>
                     </div>
+                    <IsLike />
                 </div>
             )}
         </div>
