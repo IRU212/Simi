@@ -18,10 +18,35 @@ class QuestionController extends Controller
      */
     public function latest()
     {
+        // モデル　インスタンス呼び出し
         $question = new Question();
 
-        $data = $question->latest()->paginate(20);
+        $data = $question->with('user')->latest()->paginate(20);
 
+        // JSONで返す
+        return response()->json($data);
+    }
+
+    /**
+     * 質問いいね一覧
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function like()
+    {
+        // モデル　インスタンス呼び出し
+        $question = new Question();
+
+        $data = $question->with('user')
+                         ->with('like')
+                         ->whereHas('like', function($q){
+                            $q->where('question_id','!=',null);
+                        })
+                         ->latest()
+                         ->paginate(20);
+
+        // JSONで返す
         return response()->json($data);
     }
 
@@ -31,8 +56,9 @@ class QuestionController extends Controller
      * @param Request $request
      * @return void
      */
-    public function store(Request $request) {
-
+    public function store(Request $request)
+    {
+        // モデル　インスタンス呼び出し
         $question = new Question();
 
         $question->name = $request->name;
@@ -41,6 +67,7 @@ class QuestionController extends Controller
         $question->course = $request->course;
         $question->user_id = session('login_id')[0];
 
+        // JSONで返す
         $question->save();
     }
 }

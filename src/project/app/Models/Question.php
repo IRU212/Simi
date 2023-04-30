@@ -18,4 +18,16 @@ class Question extends Model
         'subject',
         'course'
     ];
+
+    // userテーブル取得
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    // question_likeテーブル取得
+    public function like()
+    {
+        return $this->hasOne(Like\Question::class,'question_id')->where('user_id','=',session('login_id')[0]);
+    }
 }

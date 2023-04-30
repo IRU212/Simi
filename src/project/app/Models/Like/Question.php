@@ -15,4 +15,7 @@ class Question extends Model
         'question_id',
         'user_id'
     ];
+
+    // タイムスタンプ無効
+    public $timestamps = false;
 }

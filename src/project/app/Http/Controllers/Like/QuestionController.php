@@ -42,10 +42,34 @@ class QuestionController extends Controller
 
         // 保存用データ格納
         $question->question_id = $request->question_id;
-        $question->user_id = session('login_id');
+        $question->user_id = session('login_id')[0];
 
         // DBに保存
-        $data = $question->save();
+        $question->save();
+
+        // いいね判定
+        $data = $question->where('question_id','=',$request->question_id)
+                         ->where('user_id','=',session('login_id'))
+                         ->exists();
+
+        // JSONで表示
+        return response()->json($data,200);
+    }
+
+    public function destroy(Request $request)
+    {
+        // モデルインスタンス呼び出し
+        $question = new Question();
+
+        // DBに保存
+        $question->where('question_id','=',$request->question_id)
+                         ->where('user_id','=',session('login_id')[0])
+                         ->delete();
+
+        // いいね判定
+        $data = $question->where('question_id','=',$request->question_id)
+                         ->where('user_id','=',session('login_id'))
+                         ->exists();
 
         // JSONで表示
         return response()->json($data,200);

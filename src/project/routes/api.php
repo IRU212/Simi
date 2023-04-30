@@ -35,6 +35,7 @@ Route::prefix('user')->group(function () {
 Route::prefix('question')->group(function () {
     Route::get('index', [QuestionController::class,'index']); // 質問おすすめ一覧
     Route::get('latest', [QuestionController::class,'latest']); // 質問最新順一覧
+    Route::get('like', [QuestionController::class,'like']); // 質問いいね一覧
     Route::post('store', [QuestionController::class,'store']); // 質問保存
 });
 
@@ -44,4 +45,5 @@ Route::prefix('question')->group(function () {
 Route::prefix('like')->group(function () {
     Route::get('index/{id}', [LikeQuestionController::class,'index']); // 質問いいね判定
     Route::post('store', [LikeQuestionController::class,'store']); // いいね保存
+    Route::post('destroy', [LikeQuestionController::class,'destroy']); // いいね削除
 });

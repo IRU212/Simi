@@ -14,10 +14,12 @@ export default function List() {
     // 初期ページネイトページ数
     const [idPagenate,setIdPagenate] = useState(1)
 
+    console.log(pathname)
+
     // URLが変更されるたびに実行
     useEffect(() => {
         axios
-            .get(`http://localhost:8081/api/question/latest?page=${idPagenate}`)
+            .get(`http://localhost:8081/api${pathname}?page=${idPagenate}`)
             .then((res) => {
                 setData(res.data.data)
             })
@@ -41,7 +43,7 @@ export default function List() {
                             { item.body }
                         </div>
                     </div>
-                    <IsLike />
+                    <IsLike questionId={item.id} />
                 </div>
             )}
         </div>
