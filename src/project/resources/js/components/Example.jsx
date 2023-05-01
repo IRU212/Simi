@@ -25,6 +25,7 @@ import Account from './pages/setting/Account';
 import SettingProfile from './pages/setting/Profile';
 import Privacy from './pages/setting/Privacy';
 import Create from './pages/question/Create';
+import Search from './pages/Search';
 
 function Example() {
     return (
@@ -64,6 +65,13 @@ function Example() {
                     <Route path='/question/course/:id' element={<Question />} />
 
                     {/* 質問 ↑ */}
+
+                    {/* 検索　↓ */}
+
+                    <Route path="/search" element={<Search />} />
+                    <Route path="/search/user" element={<Search />} />
+
+                    {/* 検索　↑ */}
 
                     {/* 設定 ↓ */}
 

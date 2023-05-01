@@ -8,28 +8,23 @@ export default function Link() {
         <div className={styles.link}>
 
             <section>
-                <RouterLink to="/">
-                    Home
-                </RouterLink>
-            </section>
-            <section>
-                <RouterLink to="/study">
-                    Study
+                <RouterLink to="/search">
+                    検索
                 </RouterLink>
             </section>
             <section>
                 <RouterLink to="/record">
-                    Record
+                    記録
                 </RouterLink>
             </section>
             <section>
                 <RouterLink to="/question">
-                    Question
+                    質問
                 </RouterLink>
             </section>
             <section>
                 <RouterLink to="/setting">
-                    Setting
+                    設定
                 </RouterLink>
             </section>
 
