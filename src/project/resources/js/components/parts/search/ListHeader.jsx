@@ -20,6 +20,7 @@ export default function ListHeader() {
         }
     },[window.location.pathname])
 
+
     if (paramsId == undefined) {
         return (
             <div className={styles.listHeader}>

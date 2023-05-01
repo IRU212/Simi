@@ -11542,6 +11542,45 @@ function TimeRecord() {
 
 /***/ }),
 
+/***/ "./resources/js/components/parts/search/Form.jsx":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/parts/search/Form.jsx ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Form)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _public_scss_parts_search_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/scss/parts/search.module.scss */ "./public/scss/parts/search.module.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function Form() {
+  // urlを取得
+  var url = window.location.href;
+
+  // urlのドメイン以降を取得
+  var pathname = window.location.pathname;
+
+  // クエリー取得 keyword
+  var getUrl = url.split("=")[1];
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+    action: "".concat(pathname),
+    method: "get",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+      type: "text",
+      name: "keyword",
+      placeholder: getUrl
+    })
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/parts/search/List.jsx":
 /*!*******************************************************!*\
   !*** ./resources/js/components/parts/search/List.jsx ***!
@@ -12045,16 +12084,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _public_scss_templates_search_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../public/scss/templates/search.module.scss */ "./public/scss/templates/search.module.scss");
 /* harmony import */ var _parts_search_ListHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../parts/search/ListHeader */ "./resources/js/components/parts/search/ListHeader.jsx");
 /* harmony import */ var _parts_search_List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../parts/search/List */ "./resources/js/components/parts/search/List.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _parts_search_Form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../parts/search/Form */ "./resources/js/components/parts/search/Form.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 
 
 function SearchList() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: _public_scss_templates_search_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].searchList,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_parts_search_ListHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_parts_search_List__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_search_Form__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_search_ListHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_search_List__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
   });
 }
 
@@ -17617,7 +17658,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".I\\+4swjZKOEnj2Vv3W3Ml-A\\=\\= {\n  display: flex;\n  padding: 0 0 0 25px;\n  border-bottom: 1px solid #222;\n}\n.I\\+4swjZKOEnj2Vv3W3Ml-A\\=\\= a {\n  width: 80px;\n  padding: 18px 0 15px 0;\n  text-align: center;\n  text-decoration: none;\n  color: #fff;\n}\n.I\\+4swjZKOEnj2Vv3W3Ml-A\\=\\= .t4LjVpGvHyEzpvIiLRhlIA\\=\\= {\n  border-bottom: 3px solid #ccc;\n}\n.I\\+4swjZKOEnj2Vv3W3Ml-A\\=\\= ._7C\\+LzWedZcGwUzLFuFg93Q\\=\\= {\n  border-bottom: 1px solid #222;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "form {\n  width: 100%;\n  padding: 20px 20px 0 20px;\n}\nform input {\n  width: 100%;\n  margin: 0 auto;\n  display: block;\n  outline: none;\n  padding: 8px 12px;\n  border-radius: 10px;\n}\n\n.I\\+4swjZKOEnj2Vv3W3Ml-A\\=\\= {\n  display: flex;\n  padding: 0 0 0 25px;\n  border-bottom: 1px solid #222;\n}\n.I\\+4swjZKOEnj2Vv3W3Ml-A\\=\\= a {\n  width: 80px;\n  padding: 18px 0 15px 0;\n  text-align: center;\n  text-decoration: none;\n  color: #fff;\n}\n.I\\+4swjZKOEnj2Vv3W3Ml-A\\=\\= .t4LjVpGvHyEzpvIiLRhlIA\\=\\= {\n  border-bottom: 3px solid #ccc;\n}\n.I\\+4swjZKOEnj2Vv3W3Ml-A\\=\\= ._7C\\+LzWedZcGwUzLFuFg93Q\\=\\= {\n  border-bottom: 1px solid #222;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"listHeader": "I+4swjZKOEnj2Vv3W3Ml-A==",
