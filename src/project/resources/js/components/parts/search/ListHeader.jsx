@@ -8,8 +8,11 @@ export default function ListHeader() {
     // home判定用変数
     const [homeUrl,setHomeUrl] = useState(false)
 
-    // パラメータを取得
-    const paramsId = useParams()['id']
+    // urlを取得
+    const url = window.location.href
+
+    // クエリー取得 keyword
+    const getUrl = url.split("=")[1]
 
     // urlが変更されるたびに実行
     useEffect(() => {
@@ -20,8 +23,7 @@ export default function ListHeader() {
         }
     },[window.location.pathname])
 
-
-    if (paramsId == undefined) {
+    if (getUrl == undefined) {
         return (
             <div className={styles.listHeader}>
 
@@ -46,13 +48,13 @@ export default function ListHeader() {
 
                 <NavLink
                     className={`${homeUrl ? styles.NowUrlLink : ""}`}
-                    to={`/search`}
+                    to={`/search?keyword=${getUrl}`}
                 >
                     質問
                 </NavLink>
                 <NavLink
                     className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
-                    to={`/search/user`}
+                    to={`/search/user?keyword=${getUrl}`}
                 >
                     ユーザ
                 </NavLink>

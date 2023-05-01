@@ -11614,8 +11614,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ListHeader)
 /* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _public_scss_parts_search_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/scss/parts/search.module.scss */ "./public/scss/parts/search.module.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -11637,8 +11636,11 @@ function ListHeader() {
     homeUrl = _useState2[0],
     setHomeUrl = _useState2[1];
 
-  // パラメータを取得
-  var paramsId = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)()['id'];
+  // urlを取得
+  var url = window.location.href;
+
+  // クエリー取得 keyword
+  var getUrl = url.split("=")[1];
 
   // urlが変更されるたびに実行
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -11648,14 +11650,14 @@ function ListHeader() {
       setHomeUrl(false);
     }
   }, [window.location.pathname]);
-  if (paramsId == undefined) {
+  if (getUrl == undefined) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: _public_scss_parts_search_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].listHeader,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
         className: "".concat(homeUrl ? _public_scss_parts_search_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].NowUrlLink : ""),
         to: "/search",
         children: "\u8CEA\u554F"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
         className: function className(_ref) {
           var isActive = _ref.isActive;
           return isActive ? _public_scss_parts_search_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].NowUrlLink : undefined;
@@ -11667,16 +11669,16 @@ function ListHeader() {
   } else {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: _public_scss_parts_search_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].listHeader,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
         className: "".concat(homeUrl ? _public_scss_parts_search_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].NowUrlLink : ""),
-        to: "/search",
+        to: "/search?keyword=".concat(getUrl),
         children: "\u8CEA\u554F"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
         className: function className(_ref2) {
           var isActive = _ref2.isActive;
           return isActive ? _public_scss_parts_search_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].NowUrlLink : undefined;
         },
-        to: "/search/user",
+        to: "/search/user?keyword=".concat(getUrl),
         children: "\u30E6\u30FC\u30B6"
       })]
     });
