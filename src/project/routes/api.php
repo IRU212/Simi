@@ -1,15 +1,18 @@
 <?php
 
-// ユーザ関連
+// ユーザ
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\UserController;
 
-// 質問関連
+// 質問
 use App\Http\Controllers\QuestionController;
 
-// いいね関連
+// いいね
 use App\Http\Controllers\Like\QuestionController as LikeQuestionController;
+
+// 検索
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +22,7 @@ use App\Http\Controllers\Like\QuestionController as LikeQuestionController;
 
 
 /**
- *  ユーザ関連
+ *  ユーザ
 */
 Route::prefix('user')->group(function () {
     Route::get('index', [UserController::class,'index']); // ユーザログイン情報
@@ -30,7 +33,7 @@ Route::prefix('user')->group(function () {
 });
 
 /**
- *  質問関連
+ *  質問
  */
 Route::prefix('question')->group(function () {
     Route::get('/', [QuestionController::class,'index']); // 質問おすすめ一覧
@@ -40,10 +43,18 @@ Route::prefix('question')->group(function () {
 });
 
 /**
- *  いいね関連
+ *  いいね
  */
 Route::prefix('like')->group(function () {
     Route::get('index/{id}', [LikeQuestionController::class,'index']); // 質問いいね判定
     Route::post('store', [LikeQuestionController::class,'store']); // いいね保存
     Route::post('destroy', [LikeQuestionController::class,'destroy']); // いいね削除
+});
+
+/**
+ *  検索
+ */
+Route::prefix('search')->group(function () {
+    Route::get('question/{keyword}', [SearchController::class,'question']); // 質問検索
+    Route::get('user/{keyword}', [SearchController::class,'user']); // ユーザ検索
 });
