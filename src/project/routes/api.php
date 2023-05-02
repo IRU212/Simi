@@ -55,6 +55,6 @@ Route::prefix('like')->group(function () {
  *  検索
  */
 Route::prefix('search')->group(function () {
-    Route::get('question/{keyword}', [SearchController::class,'question']); // 質問検索
+    Route::get('{keyword}', [SearchController::class,'question']); // 質問検索
     Route::get('user/{keyword}', [SearchController::class,'user']); // ユーザ検索
 });

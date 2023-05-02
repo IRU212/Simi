@@ -13,8 +13,7 @@ class SearchController extends Controller
         // モデル　インスタンス呼び出し
         $user = new User();
 
-        $data = $user->with('user')
-                     ->where('name','LIKE',"%{$keyword}%")
+        $data = $user->where('name','LIKE',"%{$keyword}%")
                      ->paginate(20);
 
         // JSONで返す

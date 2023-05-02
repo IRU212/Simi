@@ -11592,13 +11592,91 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ List)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/scss/parts/question.module.scss */ "./public/scss/parts/question.module.scss");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var _question_like_IsLike__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../question/like/IsLike */ "./resources/js/components/parts/question/like/IsLike.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-// 検索結果
+
+
+
+
+// 検索結果　
+
+
 function List() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    children: "searchResult"
-  });
+  // Apiデータ取得
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState2 = _slicedToArray(_useState, 2),
+    data = _useState2[0],
+    setData = _useState2[1];
+
+  // ドメイン以降のURLを取得
+  var pathname = window.location.pathname;
+
+  // 初期ページネイトページ数
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState4 = _slicedToArray(_useState3, 2),
+    idPagenate = _useState4[0],
+    setIdPagenate = _useState4[1];
+
+  // urlを取得
+  var url = window.location.href;
+
+  // クエリー取得 keyword
+  var getUrl = url.split("=")[1];
+
+  // URLが変更されるたびに実行
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    axios.get("http://localhost:8081/api".concat(pathname, "/").concat(getUrl)).then(function (res) {
+      setData(res.data.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  }, [pathname]);
+  if (getUrl == undefined) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: "\u691C\u7D22\u3057\u3066\u304F\u3060\u3055\u3044"
+    });
+  } else if (pathname == "/search") {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].List,
+      children: data.map(function (item, index) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].questionItem,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+            to: "/profile/".concat(item.user_id),
+            className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].icon,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+              src: "https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg",
+              alt: "\u30A2\u30A4\u30B3\u30F3"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].main,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].title,
+              children: item.name
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              children: item.body
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_question_like_IsLike__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            questionId: item.id
+          })]
+        }, index);
+      })
+    });
+  } else {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: "\u30E6\u30FC\u30B6"
+    });
+  }
 }
 
 /***/ }),
