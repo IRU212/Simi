@@ -5,6 +5,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\UserController;
 
+// フォロー
+use App\Http\Controllers\FollowController;
+
 // 質問
 use App\Http\Controllers\QuestionController;
 
@@ -30,6 +33,14 @@ Route::prefix('user')->group(function () {
     Route::post('edit',[UserController::class, 'edit']); // ユーザプロフィール情報
     Route::post('store', [RegisterController::class,'store']); // ユーザ新規登録
     Route::post('login',[LoginController::class, 'login']); // ユーザログイン
+});
+
+/**
+ * フォロー
+ */
+Route::prefix('follow')->group(function () {
+    Route::get('/show/{id}', [FollowController::class,'show']); // フォロー判定
+    Route::post('/store', [FollowController::class,'store']); // フォローする
 });
 
 /**

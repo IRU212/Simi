@@ -5,6 +5,7 @@ import styles from '../../../../../public/scss/templates/profile.module.scss'
 import BackImage from '../../parts/profile/BackImage'
 import IconImage from '../../parts/profile/IconImage'
 import Name from '../../parts/profile/Name'
+import Follow from '../../parts/profile/Follow'
 
 // プロフィールユーザ情報
 export default function MainProfile() {
@@ -24,6 +25,11 @@ export default function MainProfile() {
                 {/* ユーザ名 */}
                 <div className={styles.name}>
                     <Name />
+                </div>
+
+                {/* フォロー */}
+                <div className={styles.follow}>
+                    <Follow />
                 </div>
 
             </section>

@@ -43,3 +43,23 @@
 }
 
 // プロフィールアイコン名前 ↑
+
+// フォローボタン ↓
+
+.follow{
+    color: #454668;
+    border: 1px solid #454668;
+    border-radius: 18px;
+    padding: 8px 18px;
+    font-size: 0.8rem;
+}
+
+.unfollow{
+    color: #fff;
+    background-color: #454668;
+    border-radius: 18px;
+    padding: 8px 18px;
+    font-size: 0.8rem;
+}
+
+// フォローボタン ↑
