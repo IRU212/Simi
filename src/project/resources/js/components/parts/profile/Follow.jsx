@@ -3,14 +3,24 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
 import styles from '../../../../../public/scss/parts/profile.module.scss'
+import IsFollow from '../../api/get/follow/IsFollow'
+import { useEffect } from 'react'
 
 export default function Follow() {
 
+    // APIフォロー判定
+    const apiData = IsFollow()
+
     // フォロー判定
-    const [data,setData] = useState(false)
+    const [data,setData] = useState(apiData)
 
     // パラメータを取得
     const paramsId = useParams()['id']
+
+    // APIを受け取ったら変数に取得
+    useEffect(() => {
+        setData(apiData)
+    },[apiData])
 
     // クリックしたらフォロー
     const FollowClick = () => {
@@ -26,16 +36,16 @@ export default function Follow() {
             })
     }
 
-    if (!data) {
+    if (data) {
         return (
-            <div className={styles.follow} onClick={FollowClick}>
-                Follow
+            <div className={styles.unfollow} onClick={FollowClick}>
+                Following
             </div>
         )
     } else {
         return (
-            <div className={styles.unfollow} onClick={FollowClick}>
-                Following
+            <div className={styles.follow} onClick={FollowClick}>
+                Follow
             </div>
         )
     }

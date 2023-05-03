@@ -52,6 +52,10 @@
     border-radius: 18px;
     padding: 8px 18px;
     font-size: 0.8rem;
+
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 .unfollow{
@@ -60,6 +64,10 @@
     border-radius: 18px;
     padding: 8px 18px;
     font-size: 0.8rem;
+
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 // フォローボタン ↑

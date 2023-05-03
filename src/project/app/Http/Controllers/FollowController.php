@@ -18,7 +18,9 @@ class FollowController extends Controller
         // モデル　インスタンス呼び出し
         $follow = new Follow();
 
-        $data = $follow->all();
+        $data = $follow->where('user_id','=',session('login_id')[0])
+                       ->where('follow_id','=',$id)
+                       ->exists();
 
         // JSONで返す
         return response()->json($data);

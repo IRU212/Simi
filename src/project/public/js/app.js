@@ -9817,6 +9817,50 @@ function ProfileUserApi() {
 
 /***/ }),
 
+/***/ "./resources/js/components/api/get/follow/IsFollow.jsx":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/api/get/follow/IsFollow.jsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ IsFollow)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+function IsFollow() {
+  // API 取得データ用　変数
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState2 = _slicedToArray(_useState, 2),
+    data = _useState2[0],
+    setData = _useState2[1];
+
+  // パラメータ取得
+  var id = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useParams)()['id'];
+
+  // リロード時に実行
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    axios.get("/api/follow/show/".concat(id)).then(function (res) {
+      setData(res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  }, []);
+  return data;
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/api/get/like/QuestionApi.jsx":
 /*!**************************************************************!*\
   !*** ./resources/js/components/api/get/like/QuestionApi.jsx ***!
@@ -10619,9 +10663,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../public/scss/parts/profile.module.scss */ "./public/scss/parts/profile.module.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _api_get_follow_IsFollow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../api/get/follow/IsFollow */ "./resources/js/components/api/get/follow/IsFollow.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -10633,15 +10678,25 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 function Follow() {
+  // APIフォロー判定
+  var apiData = (0,_api_get_follow_IsFollow__WEBPACK_IMPORTED_MODULE_3__["default"])();
+
   // フォロー判定
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(apiData),
     _useState2 = _slicedToArray(_useState, 2),
     data = _useState2[0],
     setData = _useState2[1];
 
   // パラメータを取得
-  var paramsId = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)()['id'];
+  var paramsId = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)()['id'];
+
+  // APIを受け取ったら変数に取得
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setData(apiData);
+  }, [apiData]);
 
   // クリックしたらフォロー
   var FollowClick = function FollowClick() {
@@ -10653,17 +10708,17 @@ function Follow() {
       console.log(err);
     });
   };
-  if (!data) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].follow,
-      onClick: FollowClick,
-      children: "Follow"
-    });
-  } else {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+  if (data) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].unfollow,
       onClick: FollowClick,
       children: "Following"
+    });
+  } else {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].follow,
+      onClick: FollowClick,
+      children: "Follow"
     });
   }
 }
@@ -17928,7 +17983,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ee0lAkR4o5hS1NbBp8Nkyg\\=\\= {\n  width: 100vw;\n  height: 400px;\n  position: relative;\n}\n.ee0lAkR4o5hS1NbBp8Nkyg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  vertical-align: bottom;\n}\n\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  position: relative;\n  overflow: hidden;\n  border: 4px solid #fff;\n}\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  vertical-align: bottom;\n}\n\n.JihEBzUZTa5IgiPvMKYyuw\\=\\= {\n  font-size: 1.1rem;\n  font-weight: 600;\n}\n\n.EUO\\+ryr46YnR8WrsJ0dcCA\\=\\= {\n  color: #454668;\n  border: 1px solid #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}\n\n.DbiZuSgaM28weg5zg80blw\\=\\= {\n  color: #fff;\n  background-color: #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".ee0lAkR4o5hS1NbBp8Nkyg\\=\\= {\n  width: 100vw;\n  height: 400px;\n  position: relative;\n}\n.ee0lAkR4o5hS1NbBp8Nkyg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  vertical-align: bottom;\n}\n\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  position: relative;\n  overflow: hidden;\n  border: 4px solid #fff;\n}\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  vertical-align: bottom;\n}\n\n.JihEBzUZTa5IgiPvMKYyuw\\=\\= {\n  font-size: 1.1rem;\n  font-weight: 600;\n}\n\n.EUO\\+ryr46YnR8WrsJ0dcCA\\=\\= {\n  color: #454668;\n  border: 1px solid #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}\n.EUO\\+ryr46YnR8WrsJ0dcCA\\=\\=:hover {\n  cursor: pointer;\n}\n\n.DbiZuSgaM28weg5zg80blw\\=\\= {\n  color: #fff;\n  background-color: #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}\n.DbiZuSgaM28weg5zg80blw\\=\\=:hover {\n  cursor: pointer;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"backImage": "ee0lAkR4o5hS1NbBp8Nkyg==",
