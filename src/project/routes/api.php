@@ -39,6 +39,7 @@ Route::prefix('question')->group(function () {
     Route::get('/', [QuestionController::class,'index']); // 質問おすすめ一覧
     Route::get('/latest', [QuestionController::class,'latest']); // 質問最新順一覧
     Route::get('/like', [QuestionController::class,'like']); // 質問いいね一覧
+    Route::get('/{id}', [QuestionController::class,'show']); // 質問詳細
     Route::post('/store', [QuestionController::class,'store']); // 質問保存
 });
 

@@ -62,6 +62,17 @@ class QuestionController extends Controller
         return response()->json($data);
     }
 
+    public function show($id)
+    {
+        // モデル　インスタンス呼び出し
+        $question = new Question();
+
+        $data = $question->find($id);
+
+        // JSONで返す
+        return response()->json($data);
+    }
+
     /**
      * 質問保存
      *
