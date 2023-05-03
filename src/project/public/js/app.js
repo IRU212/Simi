@@ -9858,6 +9858,50 @@ function QuestionApi(props) {
 
 /***/ }),
 
+/***/ "./resources/js/components/api/get/like/QuestionDetailApi.jsx":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/api/get/like/QuestionDetailApi.jsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ QuestionDetailApi)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+function QuestionDetailApi() {
+  // API 取得データ用　変数
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState2 = _slicedToArray(_useState, 2),
+    data = _useState2[0],
+    setData = _useState2[1];
+
+  // パラメータ取得
+  var id = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useParams)()['id'];
+
+  // リロード時に実行
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    axios.get("/api/question/".concat(id)).then(function (res) {
+      setData(res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  }, []);
+  return data;
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/Auth/Login.jsx":
 /*!******************************************************!*\
   !*** ./resources/js/components/pages/Auth/Login.jsx ***!
@@ -10082,12 +10126,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Detail)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _templates_question_detail_Show__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../templates/question/detail/Show */ "./resources/js/components/templates/question/detail/Show.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
+
+
+// 質問詳細ページ
 
 function Detail() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: "Detail"
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_templates_question_detail_Show__WEBPACK_IMPORTED_MODULE_1__["default"], {})
   });
 }
 
@@ -11187,6 +11235,33 @@ function Form() {
 
 /***/ }),
 
+/***/ "./resources/js/components/parts/question/detail/QuestionDetail.jsx":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/parts/question/detail/QuestionDetail.jsx ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ QuestionDetail)
+/* harmony export */ });
+/* harmony import */ var _api_get_like_QuestionDetailApi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../api/get/like/QuestionDetailApi */ "./resources/js/components/api/get/like/QuestionDetailApi.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+// 質問詳細
+
+function QuestionDetail() {
+  var apiData = (0,_api_get_like_QuestionDetailApi__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  console.log(apiData);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: "QuestionDetail"
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/parts/question/like/IsLike.jsx":
 /*!****************************************************************!*\
   !*** ./resources/js/components/parts/question/like/IsLike.jsx ***!
@@ -12178,6 +12253,31 @@ function SideHeader() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: _public_scss_templates_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].sideHeader,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_question_Post__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_question_Subject__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_question_Course__WEBPACK_IMPORTED_MODULE_0__["default"], {})]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/templates/question/detail/Show.jsx":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/templates/question/detail/Show.jsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Show)
+/* harmony export */ });
+/* harmony import */ var _parts_question_detail_QuestionDetail__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../parts/question/detail/QuestionDetail */ "./resources/js/components/parts/question/detail/QuestionDetail.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+// 質問詳細
+
+function Show() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_parts_question_detail_QuestionDetail__WEBPACK_IMPORTED_MODULE_0__["default"], {})
   });
 }
 
