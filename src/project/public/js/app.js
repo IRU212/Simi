@@ -10708,10 +10708,21 @@ function Follow() {
       console.log(err);
     });
   };
+
+  // クリックしたらフォロー解除
+  var UnFollowClick = function UnFollowClick() {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/follow/destroy", {
+      follow_id: paramsId
+    }).then(function (res) {
+      setData(res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
   if (data) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].unfollow,
-      onClick: FollowClick,
+      onClick: UnFollowClick,
       children: "Following"
     });
   } else {

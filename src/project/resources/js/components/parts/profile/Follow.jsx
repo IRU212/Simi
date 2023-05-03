@@ -36,9 +36,23 @@ export default function Follow() {
             })
     }
 
+    // クリックしたらフォロー解除
+    const UnFollowClick = () => {
+        axios
+            .post("/api/follow/destroy",{
+                follow_id: paramsId
+            })
+            .then((res) => {
+                setData(res.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
     if (data) {
         return (
-            <div className={styles.unfollow} onClick={FollowClick}>
+            <div className={styles.unfollow} onClick={UnFollowClick}>
                 Following
             </div>
         )

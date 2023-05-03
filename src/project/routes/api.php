@@ -41,6 +41,7 @@ Route::prefix('user')->group(function () {
 Route::prefix('follow')->group(function () {
     Route::get('/show/{id}', [FollowController::class,'show']); // フォロー判定
     Route::post('/store', [FollowController::class,'store']); // フォローする
+    Route::post('/destroy', [FollowController::class,'destroy']); // フォロー解除
 });
 
 /**

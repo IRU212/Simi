@@ -46,4 +46,24 @@ class FollowController extends Controller
         // JSONで返却
         return response()->json(true,200);
     }
+
+    /**
+     * フォロー解除
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function destroy(Request $request)
+    {
+        // モデル　インスタンス呼び出し
+        $follow = new Follow();
+
+        // DBに保存
+        $follow->where('user_id','=',session('login_id')[0])
+               ->where('follow_id','=',$request->follow_id)
+               ->delete();
+
+        // JSONで返却
+        return response()->json(false,200);
+    }
 }
