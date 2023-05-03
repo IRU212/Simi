@@ -11641,6 +11641,14 @@ function List() {
       console.log(err);
     });
   }, [pathname]);
+
+  // 検索結果見つからない　メッセージ
+  function NotFoud() {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].noSearch,
+      children: "\u898B\u3064\u304B\u308A\u307E\u305B\u3093\u3067\u3057\u305F"
+    });
+  }
   if (getUrl == undefined) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].noSearch,
@@ -11649,7 +11657,7 @@ function List() {
   } else if (pathname == "/search") {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].List,
-      children: data.map(function (item, index) {
+      children: data.length <= 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(NotFoud, {}) : data.map(function (item, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].questionItem,
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
@@ -11676,7 +11684,7 @@ function List() {
   } else {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].List,
-      children: data.map(function (item, index) {
+      children: data.length <= 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(NotFoud, {}) : data.map(function (item, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].userItem,
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
