@@ -29,7 +29,7 @@ export default function List() {
     return (
         <div className={styles.List}>
             { data.map((item,index) =>
-                <div className={styles.questionItem} key={index}>
+                <Link to={`/question/detail/${item.id}`} className={styles.questionItem} key={index}>
                     <Link to={`/profile/${item.user_id}`} className={styles.icon}>
                         <img src="https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg" alt="アイコン" />
                     </Link>
@@ -42,7 +42,7 @@ export default function List() {
                         </div>
                     </div>
                     <IsLike questionId={item.id} />
-                </div>
+                </Link>
             )}
         </div>
     )

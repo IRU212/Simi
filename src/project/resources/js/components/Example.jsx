@@ -12,6 +12,8 @@ import Record from './pages/Record';
 
 // 質問
 import Question from './pages/Question';
+import Create from './pages/question/Create';
+import Detail from './pages/question/Detail';
 
 // アカウント認証　↓
 import Register from './pages/Auth/Register';
@@ -24,7 +26,6 @@ import Profile from './pages/Profile';
 import Account from './pages/setting/Account';
 import SettingProfile from './pages/setting/Profile';
 import Privacy from './pages/setting/Privacy';
-import Create from './pages/question/Create';
 import Search from './pages/Search';
 
 function Example() {
@@ -61,8 +62,10 @@ function Example() {
 
                     {/* 質問作成 */}
                     <Route path='/question/create' element={<Create />} />
-
                     <Route path='/question/course/:id' element={<Question />} />
+
+                    {/* 質問詳細 */}
+                    <Route path='/question/detail/:id' element={<Detail />} />
 
                     {/* 質問 ↑ */}
 
