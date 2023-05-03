@@ -313,3 +313,32 @@
 }
 
 // 質問詳細　↑
+
+// 質問詳細サブ　↓
+
+.detailSub{
+    width: 100%;
+    margin: 30px 0 0 0;
+    padding: 30px 0 0 0;
+    border-top: 1px solid #ccc;
+    display: flex;
+    gap: 0 20px;
+
+    %item-link{
+        color: #fff;
+        background-color: #454668;
+        padding: 8px 12px;
+        border-radius: 12px;
+        font-size: 0.8rem
+    }
+
+    .subjectLink{
+        @extend %item-link;
+    }
+
+    .courseLink{
+        @extend %item-link;
+    }
+}
+
+// 質問詳細サブ　↑
