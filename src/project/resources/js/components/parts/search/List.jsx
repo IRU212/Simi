@@ -35,7 +35,7 @@ export default function List() {
 
     if (getUrl == undefined) {
         return(
-            <div>
+            <div className={styles.noSearch}>
                 検索してください
             </div>
         )
@@ -62,8 +62,19 @@ export default function List() {
         )
     } else {
         return(
-            <div>
-                ユーザ
+            <div className={styles.List}>
+                { data.map((item,index) =>
+                    <div className={styles.userItem} key={index}>
+                        <Link to={`/profile/${item.id}`} className={styles.icon}>
+                            <img src="https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg" alt="アイコン" />
+                        </Link>
+                        <div className={styles.main}>
+                            <div className={styles.title}>
+                                { item.name }
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         )
     }

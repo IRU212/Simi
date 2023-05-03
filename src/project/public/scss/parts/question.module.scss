@@ -153,8 +153,44 @@
 
 // 質問一覧デザイン　↓
 
+.noSearch{
+    width: fit-content;
+    min-height: 60vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
 .List{
     width: 100%;
+
+    .userItem{
+        padding: 10px 20px;
+        border-bottom: 1px solid #34313f;
+        display: flex;
+        align-items: center;
+
+        .icon{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .main{
+            margin-left: 20px;
+
+            .title{
+                font-weight: 600;
+            }
+        }
+    }
 
     .questionItem{
         padding: 10px 20px;
