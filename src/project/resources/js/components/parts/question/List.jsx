@@ -38,7 +38,17 @@ export default function List() {
                             { item.name }
                         </div>
                         <div>
-                            { item.body }
+                            { item.body.split("\n").map((item,index) => {
+                                return(
+                                    <div key={index}>
+                                        { index > 2 ?
+                                            ""
+                                            :
+                                            item
+                                        }
+                                    </div>
+                                )
+                            }) }
                         </div>
                     </div>
                     <IsLike questionId={item.id} />

@@ -10912,7 +10912,11 @@ function List() {
             className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].title,
             children: item.name
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            children: item.body
+            children: item.body.split("\n").map(function (item, index) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                children: index > 2 ? "" : item
+              }, index);
+            })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_like_IsLike__WEBPACK_IMPORTED_MODULE_2__["default"], {
           questionId: item.id
@@ -11834,7 +11838,11 @@ function List() {
               className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].title,
               children: item.name
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              children: item.body
+              children: item.body.split("\n").map(function (item, index) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                  children: index > 2 ? "" : item
+                }, index);
+              })
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_question_like_IsLike__WEBPACK_IMPORTED_MODULE_2__["default"], {
             questionId: item.id
