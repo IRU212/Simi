@@ -21,6 +21,9 @@ class RegisterController extends Controller
         // model コンストラクタ呼び出し
         $user = new User();
 
+        // セッション削除
+        $request->session()->forget('login_id');
+
         $user->name = $request->name; // 名前
         $user->email = $request->email; // メールアドレス
         $user->password = Hash::make($request->password); // パスワード ・ハッシュ化

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
+use App\Models\Follow;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -61,6 +62,32 @@ class QuestionController extends Controller
         // JSONで返す
         return response()->json($data);
     }
+
+    /**
+     * フォローユーザ質問一覧
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function follow()
+    {
+        // モデル　インスタンス呼び出し
+        $question = new Question();
+
+        $data = $question->with('user')
+                         ->with('follow')
+                         ->whereHas('follow', function($q){
+                            $q->where('user_id','=',session('login_id')[0]);
+                        })
+                         ->latest()
+                         ->paginate(20);
+
+        // $data = $question->all();
+
+        // JSONで返す
+        return response()->json($data);
+    }
+
 
     public function show($id)
     {

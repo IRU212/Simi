@@ -33,6 +33,7 @@ Route::prefix('user')->group(function () {
     Route::post('edit',[UserController::class, 'edit']); // ユーザプロフィール情報
     Route::post('store', [RegisterController::class,'store']); // ユーザ新規登録
     Route::post('login',[LoginController::class, 'login']); // ユーザログイン
+    Route::post('logout',[LoginController::class, 'logout']); // ユーザログアウト
 });
 
 /**
@@ -51,6 +52,7 @@ Route::prefix('question')->group(function () {
     Route::get('/', [QuestionController::class,'index']); // 質問おすすめ一覧
     Route::get('/latest', [QuestionController::class,'latest']); // 質問最新順一覧
     Route::get('/like', [QuestionController::class,'like']); // 質問いいね一覧
+    Route::get('/follow', [QuestionController::class,'follow']); // フォローユーザ質問一覧
     Route::get('/{id}', [QuestionController::class,'show']); // 質問詳細
     Route::post('/store', [QuestionController::class,'store']); // 質問保存
 });

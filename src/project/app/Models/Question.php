@@ -16,7 +16,8 @@ class Question extends Model
         'body',
         'image',
         'subject',
-        'course'
+        'course',
+        'user_id'
     ];
 
     // userテーブル取得
@@ -29,5 +30,11 @@ class Question extends Model
     public function like()
     {
         return $this->hasOne(Like\Question::class,'question_id')->where('user_id','=',session('login_id')[0]);
+    }
+
+    // followテーブル取得
+    public function follow()
+    {
+        return $this->belongsTo(Follow::class,'user_id','follow_id')->where('user_id','=',session('login_id')[0]);
     }
 }
