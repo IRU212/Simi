@@ -9,10 +9,10 @@ export default function QuestionSubDetail() {
     return (
         <div className={styles.detailSub}>
             <div className={styles.subjectLink}>
-                数学
+                { apiData?.subject }
             </div>
             <div className={styles.courseLink}>
-                数学A
+                { apiData?.course }
             </div>
         </div>
     )

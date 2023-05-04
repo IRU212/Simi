@@ -11643,10 +11643,10 @@ function QuestionSubDetail() {
     className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].detailSub,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].subjectLink,
-      children: "\u6570\u5B66"
+      children: apiData === null || apiData === void 0 ? void 0 : apiData.subject
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].courseLink,
-      children: "\u6570\u5B66A"
+      children: apiData === null || apiData === void 0 ? void 0 : apiData.course
     })]
   });
 }
