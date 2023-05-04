@@ -6,6 +6,9 @@ import styles from '../../../../../../public/scss/parts/auth.module.scss'
 
 export default function Form() {
 
+    // 元URL
+    const urlOrigin = window.location.origin
+
     // 入力内容保持
     const [email,setEmail] = useState("") // メールアドレス
     const [password,setPassword] = useState("") // パスワード
@@ -33,7 +36,7 @@ export default function Form() {
                 password: password
             })
             .then(() => {
-                location.reload = "/"
+                location.href = urlOrigin
             })
             .catch((err) => {
 

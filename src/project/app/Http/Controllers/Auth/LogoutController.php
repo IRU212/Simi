@@ -19,6 +19,6 @@ class LogoutController extends Controller
         // セッション削除
         $request->session()->forget('login_id');
 
-        return response()->json(['message' => 'success']);
+        return response()->json("");
     }
 }
