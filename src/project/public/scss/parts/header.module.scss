@@ -1,3 +1,18 @@
+// トップリンク　↓
+
+.topLink{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+
+    &:hover{
+        color: #fff;
+    }
+}
+
+// トップリンク　↑
+
 // ヘッダー パーツ　リンク ↑
 
 .link{
