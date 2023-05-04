@@ -82,8 +82,6 @@ class QuestionController extends Controller
                          ->latest()
                          ->paginate(20);
 
-        // $data = $question->all();
-
         // JSONで返す
         return response()->json($data);
     }
