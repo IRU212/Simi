@@ -11638,17 +11638,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function QuestionSubDetail() {
+  // API受け取り
   var apiData = (0,_api_get_like_QuestionDetailApi__WEBPACK_IMPORTED_MODULE_0__["default"])();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].detailSub,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].subjectLink,
-      children: apiData === null || apiData === void 0 ? void 0 : apiData.subject
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].courseLink,
-      children: apiData === null || apiData === void 0 ? void 0 : apiData.course
-    })]
-  });
+
+  // 教科を科目がnullだったら非表示
+  if ((apiData === null || apiData === void 0 ? void 0 : apiData.subject) == null && (apiData === null || apiData === void 0 ? void 0 : apiData.course) == null) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {});
+  } else {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].detailSub,
+      children: [(apiData === null || apiData === void 0 ? void 0 : apiData.subject) == null ? "" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].subjectLink,
+        children: apiData === null || apiData === void 0 ? void 0 : apiData.subject
+      }), (apiData === null || apiData === void 0 ? void 0 : apiData.course) == null ? "" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].courseLink,
+        children: apiData === null || apiData === void 0 ? void 0 : apiData.course
+      })]
+    });
+  }
 }
 
 /***/ }),

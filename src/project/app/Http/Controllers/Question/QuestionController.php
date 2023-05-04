@@ -100,6 +100,7 @@ class QuestionController extends Controller
                                 WHEN 3 THEN '理科'
                                 WHEN 4 THEN '社会'
                                 WHEN 5 THEN '英語'
+                                ELSE NULL
                             END) as subject"
                          )
                          ->selectRaw( // 科目の名前を取得
@@ -142,6 +143,7 @@ class QuestionController extends Controller
                                 WHEN 36 THEN '英語表現A'
                                 WHEN 37 THEN '英語表現B'
                                 WHEN 38 THEN '英語会話'
+                                ELSE NULL
                             END) as course"
                          )
                          ->find($id);
