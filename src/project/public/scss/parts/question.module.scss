@@ -112,6 +112,13 @@
                 padding: 6px 10px;
             }
 
+            select{
+                width: 100%;
+                outline: none;
+                border-radius: 8px;
+                padding: 6px 10px;
+            }
+
             [ contenteditable="true" ] {
                 white-space: pre;
             }

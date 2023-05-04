@@ -11310,6 +11310,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 // 質問作成フォーム
 
 
+
 function Form() {
   // DB保存用変数
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
@@ -11320,6 +11321,14 @@ function Form() {
     _useState4 = _slicedToArray(_useState3, 2),
     body = _useState4[0],
     setBody = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState6 = _slicedToArray(_useState5, 2),
+    subject = _useState6[0],
+    setSubject = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState8 = _slicedToArray(_useState7, 2),
+    course = _useState8[0],
+    setCourse = _useState8[1];
 
   // 名前が変更されたらnameに保存
   var NameChange = function NameChange(e) {
@@ -11327,13 +11336,23 @@ function Form() {
   };
 
   // 本文が変更されたらbodyに保存
-  // const BodyInput = (e) => {
-  //     setBody(e.target.innerHTML)
-  //     console.log(body)
-  // }
   var BodyChange = function BodyChange(e) {
     setBody(e.target.value);
-    console.log(body);
+  };
+
+  // 本文が変更されたらsubjectに保存
+  var SubjectChange = function SubjectChange(e) {
+    if (e.target.value == "") {
+      setCourse("");
+      setSubject("");
+    } else {
+      setSubject(e.target.value);
+    }
+  };
+
+  // 本文が変更されたらsubjectに保存
+  var CourseChange = function CourseChange(e) {
+    setCourse(e.target.value);
   };
 
   // クリックしたらDBに保存
@@ -11341,7 +11360,11 @@ function Form() {
     var data = new FormData();
     data.append("name", name);
     data.append("body", body);
-    axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/question/store", data).then(function (res) {})["catch"](function (err) {
+    data.append("subject", subject);
+    data.append("course", course);
+    axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/question/store", data).then(function () {
+      location.href = "/question";
+    })["catch"](function (err) {
       console.log(err);
     });
   };
@@ -11369,29 +11392,171 @@ function Form() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].title,
-          children: "\u8CEA\u554F\u5185\u5BB9\u30D7\u30EC\u30D3\u30E5\u30FC"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].bodyTextArea,
-          value: body,
-          children: body.split("<div>").map(function (item, index) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              children: item.replace("</div>", '').replace("<br>", "")
-            }, index);
-          })
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].title,
           children: "\u6559\u79D1"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "text"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+          onChange: SubjectChange,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "",
+            hidden: true,
+            children: "\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "",
+            children: "\u672A\u9078\u629E"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "1",
+            children: "\u56FD\u8A9E"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "2",
+            children: "\u6570\u5B66"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "3",
+            children: "\u7406\u79D1"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "4",
+            children: "\u793E\u4F1A"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "5",
+            children: "\u82F1\u8A9E"
+          })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].title,
           children: "\u79D1\u76EE"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "text"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+          onChange: CourseChange,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "",
+            hidden: true,
+            children: "\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044"
+          }), subject == "" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "",
+            children: "\u6559\u79D1\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044"
+          }) : "", subject == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "1",
+              children: "\u56FD\u8A9E\u7DCF\u5408"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "2",
+              children: "\u56FD\u8A9E\u8868\u73FE"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "3",
+              children: "\u73FE\u4EE3\u6587A"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "4",
+              children: "\u73FE\u4EE3\u6587B"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "5",
+              children: "\u53E4\u5178A"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "6",
+              children: "\u53E4\u5178B"
+            })]
+          }) : "", subject == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "7",
+              children: "\u6570\u5B661"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "8",
+              children: "\u6570\u5B662"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "9",
+              children: "\u6570\u5B663"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "10",
+              children: "\u6570\u5B66A"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "11",
+              children: "\u6570\u5B66B"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "12",
+              children: "\u6570\u5B66\u6D3B\u7528"
+            })]
+          }) : "", subject == 3 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "13",
+              children: "\u79D1\u5B66\u3068\u4EBA\u9593\u751F\u6D3B"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "14",
+              children: "\u7269\u7406\u57FA\u790E"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "15",
+              children: "\u7269\u7406"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "16",
+              children: "\u79D1\u5B66\u57FA\u790E"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "17",
+              children: "\u79D1\u5B66"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "18",
+              children: "\u751F\u7269\u57FA\u790E"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "19",
+              children: "\u751F\u7269"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "20",
+              children: "\u5730\u5B66\u57FA\u790E"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "21",
+              children: "\u5730\u5B66"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "22",
+              children: "\u7406\u79D1\u8AB2\u984C\u7814\u7A76"
+            })]
+          }) : "", subject == 4 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "23",
+              children: "\u4E16\u754C\u53F2A"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "24",
+              children: "\u4E16\u754C\u53F2B"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "25",
+              children: "\u65E5\u672C\u53F2A"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "26",
+              children: "\u65E5\u672C\u53F2B"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "27",
+              children: "\u5730\u5B66A"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "28",
+              children: "\u5730\u5B66B"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "29",
+              children: "\u73FE\u4EE3\u793E\u4F1A"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "30",
+              children: "\u8AD6\u7406"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "31",
+              children: "\u653F\u6CBB\u30FB\u7D4C\u6E08"
+            })]
+          }) : "", subject == 5 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "32",
+              children: "\u30B3\u30DF\u30E5\u30CB\u30B1\u30FC\u30B7\u30E7\u30F3\u82F1\u8A9E\u57FA\u790E"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "33",
+              children: "\u30B3\u30DF\u30E5\u30CB\u30B1\u30FC\u30B7\u30E7\u30F3\u82F1\u8A9E1"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "34",
+              children: "\u30B3\u30DF\u30E5\u30CB\u30B1\u30FC\u30B7\u30E7\u30F3\u82F1\u8A9E2"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "35",
+              children: "\u30B3\u30DF\u30E5\u30CB\u30B1\u30FC\u30B7\u30E7\u30F3\u82F1\u8A9E3"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "36",
+              children: "\u82F1\u8A9E\u8868\u73FEA"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "37",
+              children: "\u82F1\u8A9E\u8868\u73FEB"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "38",
+              children: "\u82F1\u8A9E\u4F1A\u8A71"
+            })]
+          }) : ""]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].postButton,
@@ -18059,7 +18224,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.OROc7lFkxsGYIbZ2Xfp2wg\\=\\=, .QwXbrw5W33aKMGgRWHggDQ\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  border-radius: 15px;\n  background-color: #454668;\n  color: #fff;\n  padding: 20px;\n  margin: 0 0 40px 0;\n}\n.OROc7lFkxsGYIbZ2Xfp2wg\\=\\= .G15mq5EvrItpiOTBLhOAwQ\\=\\=, .QwXbrw5W33aKMGgRWHggDQ\\=\\= .G15mq5EvrItpiOTBLhOAwQ\\=\\= {\n  width: 300px;\n  font-size: 1.2rem;\n  font-weight: 600;\n}\n.OROc7lFkxsGYIbZ2Xfp2wg\\=\\= a, .QwXbrw5W33aKMGgRWHggDQ\\=\\= a {\n  margin: 5px;\n  display: block;\n  text-decoration: none;\n  color: #fff;\n}\n.OROc7lFkxsGYIbZ2Xfp2wg\\=\\= section, .QwXbrw5W33aKMGgRWHggDQ\\=\\= section {\n  width: auto;\n  height: auto;\n  margin: 5px;\n}\n.OROc7lFkxsGYIbZ2Xfp2wg\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\=, .QwXbrw5W33aKMGgRWHggDQ\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\= {\n  width: 80px;\n  display: flex;\n  align-items: center;\n  margin: 10px 0;\n}\n.OROc7lFkxsGYIbZ2Xfp2wg\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\=::before, .QwXbrw5W33aKMGgRWHggDQ\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\=::before {\n  content: \"\";\n  flex-grow: 1;\n  height: 1px; /* 線の太さ */\n  background: #fff; /* 線の色 */\n  margin: 0 10px 0 0; /* 文字と線の余白 */\n}\n.OROc7lFkxsGYIbZ2Xfp2wg\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\=::after, .QwXbrw5W33aKMGgRWHggDQ\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\=::after {\n  content: \"\";\n  flex-grow: 1;\n  height: 1px; /* 線の太さ */\n  background: #fff; /* 線の色 */\n  margin: 0 0 0 10px; /* 文字と線の余白 */\n}\n\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= {\n  display: flex;\n  padding: 0 0 0 25px;\n  border-bottom: 1px solid #222;\n}\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= a {\n  width: 80px;\n  padding: 18px 0 15px 0;\n  text-align: center;\n  text-decoration: none;\n  color: #fff;\n}\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= .V4VxGIpTyS0vFzi3Sik0MQ\\=\\= {\n  border-bottom: 3px solid #ccc;\n}\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= .AIhnY4yYtKkdjAcj6eTR9Q\\=\\= {\n  border-bottom: 1px solid #222;\n}\n\n._3PIS8v9I360RjK3xCWeqMg\\=\\= {\n  width: 100%;\n  height: 100%;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= {\n  max-width: 1000px;\n  width: 100%;\n  margin: 60px auto 0 auto;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= section {\n  width: 100%;\n  margin: 0 0 30px 0;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= section .HjR6OZryF6HktmaM2WxtrQ\\=\\= {\n  margin: 0 0 6px 0;\n  font-weight: 600;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= section input {\n  width: 100%;\n  outline: none;\n  border-radius: 8px;\n  padding: 6px 10px;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= section [contenteditable=true] {\n  white-space: pre;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= section ._9UFid\\+jvGbUkyv9F0DtIzA\\=\\= {\n  width: 100%;\n  height: 30rem;\n  resize: none;\n  outline: none;\n  border-radius: 8px;\n  padding: 6px 10px;\n  background-color: #fff;\n  border: 1px solid #222;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= section ._9UFid\\+jvGbUkyv9F0DtIzA\\=\\= span {\n  color: red;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= section ._9UFid\\+jvGbUkyv9F0DtIzA\\=\\= .gfBPBmlWXux-CbzwhCjMBw\\=\\= {\n  color: red;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= .GocgEAEOrtTZlZdia997-g\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 30px 0 60px auto;\n  color: #fff;\n  background-color: #454668;\n  font-size: 0.8rem;\n  padding: 6px 16px;\n  border-radius: 12px;\n}\n\n._6dMqXVawpTBxYgiI-1tmng\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: 60vh;\n  margin: 0 auto;\n  display: flex;\n  align-items: center;\n  font-size: 1.3rem;\n}\n\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= {\n  width: 100%;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= a {\n  text-decoration: none;\n  color: #fff;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .vEyhUzRc18YkBFYticvHvw\\=\\= {\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n  align-items: center;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .vEyhUzRc18YkBFYticvHvw\\=\\= ._6ZhyMKEw5WM4Jfvp6dJnGQ\\=\\= {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .vEyhUzRc18YkBFYticvHvw\\=\\= ._6ZhyMKEw5WM4Jfvp6dJnGQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .vEyhUzRc18YkBFYticvHvw\\=\\= .hyGhV93gZ12-5ULo9\\+26CQ\\=\\= {\n  margin-left: 20px;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .vEyhUzRc18YkBFYticvHvw\\=\\= .hyGhV93gZ12-5ULo9\\+26CQ\\=\\= .HjR6OZryF6HktmaM2WxtrQ\\=\\= {\n  font-weight: 600;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .ZUguHGbEGQjN5BnzkuaAkQ\\=\\= {\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .ZUguHGbEGQjN5BnzkuaAkQ\\=\\= ._6ZhyMKEw5WM4Jfvp6dJnGQ\\=\\= {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .ZUguHGbEGQjN5BnzkuaAkQ\\=\\= ._6ZhyMKEw5WM4Jfvp6dJnGQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .ZUguHGbEGQjN5BnzkuaAkQ\\=\\= .hyGhV93gZ12-5ULo9\\+26CQ\\=\\= {\n  margin-left: 20px;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .ZUguHGbEGQjN5BnzkuaAkQ\\=\\= .hyGhV93gZ12-5ULo9\\+26CQ\\=\\= .HjR6OZryF6HktmaM2WxtrQ\\=\\= {\n  font-weight: 600;\n}\n\n.kqrsQp5TAmB\\+Sgs4oz0U2g\\=\\=, ._2efcgSBEoQIcq\\+e3OoQetQ\\=\\= {\n  width: 20px;\n  height: 20px;\n  position: relative;\n  margin: 0 0 0 auto;\n}\n.kqrsQp5TAmB\\+Sgs4oz0U2g\\=\\=::before, ._2efcgSBEoQIcq\\+e3OoQetQ\\=\\=::before {\n  content: \"\";\n  position: absolute;\n  left: 10px; /* x位置 */\n  top: 0; /* y位置 */\n  width: 10px; /* 幅 */\n  height: 16.6666666667px; /* 高さ */\n  border-radius: 16.6666666667px 10px 0 0; /* 丸み */\n  transform: rotate(-45deg); /* 角度調整 */\n  transform-origin: 0 100%; /* 回転の基準点 */\n}\n.kqrsQp5TAmB\\+Sgs4oz0U2g\\=\\=::after, ._2efcgSBEoQIcq\\+e3OoQetQ\\=\\=::after {\n  content: \"\";\n  position: absolute;\n  left: 0; /* x位置 */\n  top: 0; /* y位置 */\n  width: 10px; /* 幅 */\n  height: 16.6666666667px; /* 高さ */\n  border-radius: 10px 16.6666666667px 0 0; /* 丸み */\n  transform: rotate(45deg); /* 角度調整 */\n  transform-origin: 100% 100%; /* 回転の基準点 */\n}\n.kqrsQp5TAmB\\+Sgs4oz0U2g\\=\\=:hover, ._2efcgSBEoQIcq\\+e3OoQetQ\\=\\=:hover {\n  cursor: pointer;\n}\n\n._2efcgSBEoQIcq\\+e3OoQetQ\\=\\=::before {\n  background: #FF5252; /* 色 */\n}\n._2efcgSBEoQIcq\\+e3OoQetQ\\=\\=::after {\n  background: #FF5252; /* 色 */\n}\n\n.kqrsQp5TAmB\\+Sgs4oz0U2g\\=\\=::before {\n  background: #fff; /* 色 */\n}\n.kqrsQp5TAmB\\+Sgs4oz0U2g\\=\\=::after {\n  background: #fff; /* 色 */\n}\n\n.z5Ts4XEEVw0CXIYUCtdSJw\\=\\= {\n  width: 100%;\n}\n.z5Ts4XEEVw0CXIYUCtdSJw\\=\\= .vlgmhI4AR0vD\\+PlwzzfKZQ\\=\\= {\n  font-size: 1.3rem;\n  margin: 20px 0 0 0;\n}\n.z5Ts4XEEVw0CXIYUCtdSJw\\=\\= .rB5VUb0M0wjGt9uD2x212Q\\=\\= {\n  padding: 20px 0;\n}\n.z5Ts4XEEVw0CXIYUCtdSJw\\=\\= .UYcoJLPk3MWDqWuIXS\\+T1g\\=\\= {\n  max-width: 400px;\n  border-radius: 15px;\n}\n\n.f56i5yHFy04lwwhktCXa1g\\=\\= {\n  width: 100%;\n  margin: 30px 0 0 0;\n  padding: 30px 0 0 0;\n  border-top: 1px solid #ccc;\n  display: flex;\n  gap: 0 20px;\n}\n.f56i5yHFy04lwwhktCXa1g\\=\\= .qDQL\\+YoEfDCU9OtbiZRL8w\\=\\=, .f56i5yHFy04lwwhktCXa1g\\=\\= .Gem0sBz--s43118cLTjbJg\\=\\= {\n  color: #fff;\n  background-color: #454668;\n  padding: 8px 12px;\n  border-radius: 12px;\n  font-size: 0.8rem;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.OROc7lFkxsGYIbZ2Xfp2wg\\=\\=, .QwXbrw5W33aKMGgRWHggDQ\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  border-radius: 15px;\n  background-color: #454668;\n  color: #fff;\n  padding: 20px;\n  margin: 0 0 40px 0;\n}\n.OROc7lFkxsGYIbZ2Xfp2wg\\=\\= .G15mq5EvrItpiOTBLhOAwQ\\=\\=, .QwXbrw5W33aKMGgRWHggDQ\\=\\= .G15mq5EvrItpiOTBLhOAwQ\\=\\= {\n  width: 300px;\n  font-size: 1.2rem;\n  font-weight: 600;\n}\n.OROc7lFkxsGYIbZ2Xfp2wg\\=\\= a, .QwXbrw5W33aKMGgRWHggDQ\\=\\= a {\n  margin: 5px;\n  display: block;\n  text-decoration: none;\n  color: #fff;\n}\n.OROc7lFkxsGYIbZ2Xfp2wg\\=\\= section, .QwXbrw5W33aKMGgRWHggDQ\\=\\= section {\n  width: auto;\n  height: auto;\n  margin: 5px;\n}\n.OROc7lFkxsGYIbZ2Xfp2wg\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\=, .QwXbrw5W33aKMGgRWHggDQ\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\= {\n  width: 80px;\n  display: flex;\n  align-items: center;\n  margin: 10px 0;\n}\n.OROc7lFkxsGYIbZ2Xfp2wg\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\=::before, .QwXbrw5W33aKMGgRWHggDQ\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\=::before {\n  content: \"\";\n  flex-grow: 1;\n  height: 1px; /* 線の太さ */\n  background: #fff; /* 線の色 */\n  margin: 0 10px 0 0; /* 文字と線の余白 */\n}\n.OROc7lFkxsGYIbZ2Xfp2wg\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\=::after, .QwXbrw5W33aKMGgRWHggDQ\\=\\= section ._1RjyyEN9R-ztZNe9ZsHnOg\\=\\=::after {\n  content: \"\";\n  flex-grow: 1;\n  height: 1px; /* 線の太さ */\n  background: #fff; /* 線の色 */\n  margin: 0 0 0 10px; /* 文字と線の余白 */\n}\n\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= {\n  display: flex;\n  padding: 0 0 0 25px;\n  border-bottom: 1px solid #222;\n}\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= a {\n  width: 80px;\n  padding: 18px 0 15px 0;\n  text-align: center;\n  text-decoration: none;\n  color: #fff;\n}\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= .V4VxGIpTyS0vFzi3Sik0MQ\\=\\= {\n  border-bottom: 3px solid #ccc;\n}\n.Je7dWxTSnpnd9hDSew8dDQ\\=\\= .AIhnY4yYtKkdjAcj6eTR9Q\\=\\= {\n  border-bottom: 1px solid #222;\n}\n\n._3PIS8v9I360RjK3xCWeqMg\\=\\= {\n  width: 100%;\n  height: 100%;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= {\n  max-width: 1000px;\n  width: 100%;\n  margin: 60px auto 0 auto;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= section {\n  width: 100%;\n  margin: 0 0 30px 0;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= section .HjR6OZryF6HktmaM2WxtrQ\\=\\= {\n  margin: 0 0 6px 0;\n  font-weight: 600;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= section input {\n  width: 100%;\n  outline: none;\n  border-radius: 8px;\n  padding: 6px 10px;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= section select {\n  width: 100%;\n  outline: none;\n  border-radius: 8px;\n  padding: 6px 10px;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= section [contenteditable=true] {\n  white-space: pre;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= section ._9UFid\\+jvGbUkyv9F0DtIzA\\=\\= {\n  width: 100%;\n  height: 30rem;\n  resize: none;\n  outline: none;\n  border-radius: 8px;\n  padding: 6px 10px;\n  background-color: #fff;\n  border: 1px solid #222;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= section ._9UFid\\+jvGbUkyv9F0DtIzA\\=\\= span {\n  color: red;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= section ._9UFid\\+jvGbUkyv9F0DtIzA\\=\\= .gfBPBmlWXux-CbzwhCjMBw\\=\\= {\n  color: red;\n}\n._3PIS8v9I360RjK3xCWeqMg\\=\\= .tJ86KDG5w2T7ygw5ck8cQA\\=\\= .GocgEAEOrtTZlZdia997-g\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 30px 0 60px auto;\n  color: #fff;\n  background-color: #454668;\n  font-size: 0.8rem;\n  padding: 6px 16px;\n  border-radius: 12px;\n}\n\n._6dMqXVawpTBxYgiI-1tmng\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: 60vh;\n  margin: 0 auto;\n  display: flex;\n  align-items: center;\n  font-size: 1.3rem;\n}\n\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= {\n  width: 100%;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= a {\n  text-decoration: none;\n  color: #fff;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .vEyhUzRc18YkBFYticvHvw\\=\\= {\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n  align-items: center;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .vEyhUzRc18YkBFYticvHvw\\=\\= ._6ZhyMKEw5WM4Jfvp6dJnGQ\\=\\= {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .vEyhUzRc18YkBFYticvHvw\\=\\= ._6ZhyMKEw5WM4Jfvp6dJnGQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .vEyhUzRc18YkBFYticvHvw\\=\\= .hyGhV93gZ12-5ULo9\\+26CQ\\=\\= {\n  margin-left: 20px;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .vEyhUzRc18YkBFYticvHvw\\=\\= .hyGhV93gZ12-5ULo9\\+26CQ\\=\\= .HjR6OZryF6HktmaM2WxtrQ\\=\\= {\n  font-weight: 600;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .ZUguHGbEGQjN5BnzkuaAkQ\\=\\= {\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .ZUguHGbEGQjN5BnzkuaAkQ\\=\\= ._6ZhyMKEw5WM4Jfvp6dJnGQ\\=\\= {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .ZUguHGbEGQjN5BnzkuaAkQ\\=\\= ._6ZhyMKEw5WM4Jfvp6dJnGQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .ZUguHGbEGQjN5BnzkuaAkQ\\=\\= .hyGhV93gZ12-5ULo9\\+26CQ\\=\\= {\n  margin-left: 20px;\n}\n.AFbVfkwUrC2zxcSOJ7qP5g\\=\\= .ZUguHGbEGQjN5BnzkuaAkQ\\=\\= .hyGhV93gZ12-5ULo9\\+26CQ\\=\\= .HjR6OZryF6HktmaM2WxtrQ\\=\\= {\n  font-weight: 600;\n}\n\n.kqrsQp5TAmB\\+Sgs4oz0U2g\\=\\=, ._2efcgSBEoQIcq\\+e3OoQetQ\\=\\= {\n  width: 20px;\n  height: 20px;\n  position: relative;\n  margin: 0 0 0 auto;\n}\n.kqrsQp5TAmB\\+Sgs4oz0U2g\\=\\=::before, ._2efcgSBEoQIcq\\+e3OoQetQ\\=\\=::before {\n  content: \"\";\n  position: absolute;\n  left: 10px; /* x位置 */\n  top: 0; /* y位置 */\n  width: 10px; /* 幅 */\n  height: 16.6666666667px; /* 高さ */\n  border-radius: 16.6666666667px 10px 0 0; /* 丸み */\n  transform: rotate(-45deg); /* 角度調整 */\n  transform-origin: 0 100%; /* 回転の基準点 */\n}\n.kqrsQp5TAmB\\+Sgs4oz0U2g\\=\\=::after, ._2efcgSBEoQIcq\\+e3OoQetQ\\=\\=::after {\n  content: \"\";\n  position: absolute;\n  left: 0; /* x位置 */\n  top: 0; /* y位置 */\n  width: 10px; /* 幅 */\n  height: 16.6666666667px; /* 高さ */\n  border-radius: 10px 16.6666666667px 0 0; /* 丸み */\n  transform: rotate(45deg); /* 角度調整 */\n  transform-origin: 100% 100%; /* 回転の基準点 */\n}\n.kqrsQp5TAmB\\+Sgs4oz0U2g\\=\\=:hover, ._2efcgSBEoQIcq\\+e3OoQetQ\\=\\=:hover {\n  cursor: pointer;\n}\n\n._2efcgSBEoQIcq\\+e3OoQetQ\\=\\=::before {\n  background: #FF5252; /* 色 */\n}\n._2efcgSBEoQIcq\\+e3OoQetQ\\=\\=::after {\n  background: #FF5252; /* 色 */\n}\n\n.kqrsQp5TAmB\\+Sgs4oz0U2g\\=\\=::before {\n  background: #fff; /* 色 */\n}\n.kqrsQp5TAmB\\+Sgs4oz0U2g\\=\\=::after {\n  background: #fff; /* 色 */\n}\n\n.z5Ts4XEEVw0CXIYUCtdSJw\\=\\= {\n  width: 100%;\n}\n.z5Ts4XEEVw0CXIYUCtdSJw\\=\\= .vlgmhI4AR0vD\\+PlwzzfKZQ\\=\\= {\n  font-size: 1.3rem;\n  margin: 20px 0 0 0;\n}\n.z5Ts4XEEVw0CXIYUCtdSJw\\=\\= .rB5VUb0M0wjGt9uD2x212Q\\=\\= {\n  padding: 20px 0;\n}\n.z5Ts4XEEVw0CXIYUCtdSJw\\=\\= .UYcoJLPk3MWDqWuIXS\\+T1g\\=\\= {\n  max-width: 400px;\n  border-radius: 15px;\n}\n\n.f56i5yHFy04lwwhktCXa1g\\=\\= {\n  width: 100%;\n  margin: 30px 0 0 0;\n  padding: 30px 0 0 0;\n  border-top: 1px solid #ccc;\n  display: flex;\n  gap: 0 20px;\n}\n.f56i5yHFy04lwwhktCXa1g\\=\\= .qDQL\\+YoEfDCU9OtbiZRL8w\\=\\=, .f56i5yHFy04lwwhktCXa1g\\=\\= .Gem0sBz--s43118cLTjbJg\\=\\= {\n  color: #fff;\n  background-color: #454668;\n  padding: 8px 12px;\n  border-radius: 12px;\n  font-size: 0.8rem;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"item": "OROc7lFkxsGYIbZ2Xfp2wg==",
