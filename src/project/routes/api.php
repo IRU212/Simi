@@ -9,7 +9,9 @@ use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\FollowController;
 
 // 質問
-use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\Question\QuestionController;
+use App\Http\Controllers\Question\SubjectController;
+use App\Http\Controllers\Question\CourseController;
 
 // いいね
 use App\Http\Controllers\Like\QuestionController as LikeQuestionController;
@@ -55,6 +57,14 @@ Route::prefix('question')->group(function () {
     Route::get('/follow', [QuestionController::class,'follow']); // フォローユーザ質問一覧
     Route::get('/{id}', [QuestionController::class,'show']); // 質問詳細
     Route::post('/store', [QuestionController::class,'store']); // 質問保存
+
+    // 質問教科絞り込み
+    Route::prefix('subject')->group(function () {
+        Route::get('{id}', [SubjectController::class,'index']); // 質問おすすめ一覧
+        Route::get('/latest/{id}', [SubjectController::class,'latest']); // 質問最新順一覧
+        Route::get('/like/{id}', [SubjectController::class,'like']); // 質問いいね一覧
+        Route::get('/follow/{id}', [SubjectController::class,'follow']); // フォローユーザ質問一覧
+    });
 });
 
 /**

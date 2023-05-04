@@ -1,24 +1,27 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Question;
 
+use App\Http\Controllers\Controller;
 use App\Models\Question;
-use App\Models\Follow;
 use Illuminate\Http\Request;
 
-class QuestionController extends Controller
+class SubjectController extends Controller
 {
     /**
      * おすすめ質問一覧
      *
      * @return void
      */
-    public function index()
+    public function index($id)
     {
         // モデル　インスタンス呼び出し
         $question = new Question();
 
-        $data = $question->with('user')->inRandomOrder()->paginate(20);
+        $data = $question->where('subject','=',$id)
+                         ->with('user')
+                         ->inRandomOrder()
+                         ->paginate(20);
 
         // JSONで返す
         return response()->json($data);
@@ -29,12 +32,15 @@ class QuestionController extends Controller
      *
      * @return void
      */
-    public function latest()
+    public function latest($id)
     {
         // モデル　インスタンス呼び出し
         $question = new Question();
 
-        $data = $question->with('user')->latest()->paginate(20);
+        $data = $question->with('user')
+                         ->where('subject','=',$id)
+                         ->latest()
+                         ->paginate(20);
 
         // JSONで返す
         return response()->json($data);
@@ -46,13 +52,14 @@ class QuestionController extends Controller
      * @param Request $request
      * @return void
      */
-    public function like()
+    public function like($id)
     {
         // モデル　インスタンス呼び出し
         $question = new Question();
 
         $data = $question->with('user')
                          ->with('like')
+                         ->where('subject','=',$id)
                          ->whereHas('like', function($q){
                             $q->where('question_id','!=',null);
                         })
@@ -69,13 +76,14 @@ class QuestionController extends Controller
      * @param Request $request
      * @return void
      */
-    public function follow()
+    public function follow($id)
     {
         // モデル　インスタンス呼び出し
         $question = new Question();
 
         $data = $question->with('user')
                          ->with('follow')
+                         ->where('subject','=',$id)
                          ->whereHas('follow', function($q){
                             $q->where('user_id','=',session('login_id')[0]);
                         })
@@ -84,38 +92,5 @@ class QuestionController extends Controller
 
         // JSONで返す
         return response()->json($data);
-    }
-
-
-    public function show($id)
-    {
-        // モデル　インスタンス呼び出し
-        $question = new Question();
-
-        $data = $question->find($id);
-
-        // JSONで返す
-        return response()->json($data);
-    }
-
-    /**
-     * 質問保存
-     *
-     * @param Request $request
-     * @return void
-     */
-    public function store(Request $request)
-    {
-        // モデル　インスタンス呼び出し
-        $question = new Question();
-
-        $question->name = $request->name;
-        $question->body = $request->body;
-        $question->subject = $request->subject;
-        $question->course = $request->course;
-        $question->user_id = session('login_id')[0];
-
-        // JSONで返す
-        $question->save();
     }
 }
