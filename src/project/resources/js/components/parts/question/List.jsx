@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../../../../../public/scss/parts/question.module.scss'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import IsLike from './like/IsLike'
 
 export default function List() {
@@ -10,6 +10,9 @@ export default function List() {
 
     // ドメイン以降のURLを取得
     const pathname = window.location.pathname
+
+    // パラメータを取得
+    const paramsId = useParams()['id']
 
     // 初期ページネイトページ数
     const [idPagenate,setIdPagenate] = useState(1)
@@ -24,7 +27,7 @@ export default function List() {
             .catch((err) => {
                 console.log(err)
             })
-    }, [pathname])
+    }, [pathname,paramsId])
 
     return (
         <div className={styles.List}>
