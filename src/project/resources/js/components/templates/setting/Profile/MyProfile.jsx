@@ -6,7 +6,7 @@ import styles from '../../../../../../public/scss/templates/setting.module.scss'
 // 設定プロフィール編集
 export default function MyProfile() {
     return (
-        <div className={styles.myProfile}>
+        <div className={styles.settingMain}>
 
             <div className={styles.title}>
                 プロフィール編集

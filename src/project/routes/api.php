@@ -2,6 +2,7 @@
 
 // ユーザ
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\UserController;
 
@@ -35,7 +36,8 @@ Route::prefix('user')->group(function () {
     Route::post('edit',[UserController::class, 'edit']); // ユーザプロフィール情報
     Route::post('store', [RegisterController::class,'store']); // ユーザ新規登録
     Route::post('login',[LoginController::class, 'login']); // ユーザログイン
-    Route::post('logout',[LoginController::class, 'logout']); // ユーザログアウト
+    Route::post('logout',[LogoutController::class, 'logout']); // ユーザログアウト
+    Route::get('logout',[LogoutController::class, 'logout']); // ユーザログアウト
 });
 
 /**
