@@ -10,6 +10,7 @@ export default function Detail() {
 
             {/* 質問詳細 */}
             <Show />
+
         </div>
     )
 }

@@ -349,3 +349,34 @@
 }
 
 // 質問詳細サブ　↑
+
+// 質問返信フォーム　↓
+
+.replyForm{
+    width: 100%;
+    margin: 30px 0 0 0;
+    padding: 30px 0 0 0;
+    border-top: 1px solid #ccc;
+    display: flex;
+    gap: 0 20px;
+
+    input{
+        width: 100%;
+        outline: none;
+        border: 1px solid #aaa;
+        border-radius: 8px;
+        padding: 6px 10px;
+    }
+
+    .replyButton{
+        color: #fff;
+        background-color: #454668;
+        padding: 8px 12px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        text-align: center;
+        width: 70px;
+    }
+}
+
+// 質問返信フォーム　↑
