@@ -17285,7 +17285,7 @@ function LoginUserApi() {
     setData = _useState2[1];
 
   // リロード時に実行
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_1___default().get('/api/user/index').then(function (res) {
       setData(res.data);
     })["catch"](function (err) {
@@ -20166,13 +20166,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ MainProfile)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _public_scss_templates_profile_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/scss/templates/profile.module.scss */ "./public/scss/templates/profile.module.scss");
-/* harmony import */ var _parts_profile_BackImage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../parts/profile/BackImage */ "./resources/js/components/parts/profile/BackImage.jsx");
-/* harmony import */ var _parts_profile_IconImage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../parts/profile/IconImage */ "./resources/js/components/parts/profile/IconImage.jsx");
-/* harmony import */ var _parts_profile_Name__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../parts/profile/Name */ "./resources/js/components/parts/profile/Name.jsx");
-/* harmony import */ var _parts_profile_Follow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../parts/profile/Follow */ "./resources/js/components/parts/profile/Follow.jsx");
-/* harmony import */ var _parts_profile_SettingButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../parts/profile/SettingButton */ "./resources/js/components/parts/profile/SettingButton.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _api_get_LoginUserApi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/get/LoginUserApi */ "./resources/js/components/api/get/LoginUserApi.jsx");
+/* harmony import */ var _parts_profile_BackImage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../parts/profile/BackImage */ "./resources/js/components/parts/profile/BackImage.jsx");
+/* harmony import */ var _parts_profile_IconImage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../parts/profile/IconImage */ "./resources/js/components/parts/profile/IconImage.jsx");
+/* harmony import */ var _parts_profile_Name__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../parts/profile/Name */ "./resources/js/components/parts/profile/Name.jsx");
+/* harmony import */ var _parts_profile_Follow__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../parts/profile/Follow */ "./resources/js/components/parts/profile/Follow.jsx");
+/* harmony import */ var _parts_profile_SettingButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../parts/profile/SettingButton */ "./resources/js/components/parts/profile/SettingButton.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
@@ -20185,18 +20189,32 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function MainProfile() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+  // ログインAPIデータ取得
+  var apiData = (0,_api_get_LoginUserApi__WEBPACK_IMPORTED_MODULE_2__["default"])();
+
+  // パラメータ取得
+  var id = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.useParams)()['id'];
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     className: _public_scss_templates_profile_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].mainProfile,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_parts_profile_BackImage__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("section", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_profile_BackImage__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("section", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         className: _public_scss_templates_profile_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].icon,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_parts_profile_IconImage__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_profile_IconImage__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         className: _public_scss_templates_profile_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].name,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_parts_profile_Name__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_profile_Name__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+      }), id == (apiData === null || apiData === void 0 ? void 0 : apiData.id) ?
+      /*#__PURE__*/
+      // プロフィール編集ボタン
+      (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         className: _public_scss_templates_profile_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].setting,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_parts_profile_SettingButton__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_profile_SettingButton__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+      }) :
+      /*#__PURE__*/
+      // フォロー
+      (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        className: _public_scss_templates_profile_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].follow,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_profile_Follow__WEBPACK_IMPORTED_MODULE_6__["default"], {})
       })]
     })]
   });

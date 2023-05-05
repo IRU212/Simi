@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import axios from 'axios'
 
 export default function LoginUserApi() {
@@ -7,7 +7,7 @@ export default function LoginUserApi() {
     const [data,setData] = useState()
 
     // リロード時に実行
-    useEffect(() => {
+    useLayoutEffect(() => {
         axios
             .get('/api/user/index')
             .then((res) => {
