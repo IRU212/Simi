@@ -13,6 +13,7 @@ use App\Http\Controllers\FollowController;
 use App\Http\Controllers\Question\QuestionController;
 use App\Http\Controllers\Question\SubjectController;
 use App\Http\Controllers\Question\CourseController;
+use App\Http\Controllers\Question\ReplyController;
 
 // いいね
 use App\Http\Controllers\Like\QuestionController as LikeQuestionController;
@@ -73,6 +74,12 @@ Route::prefix('question')->name('question.')->group(function () {
         Route::get('/latest/{id}', [CourseController::class,'latest'])->name('latest'); // 質問最新順一覧
         Route::get('/like/{id}', [CourseController::class,'like'])->name('like'); // 質問いいね一覧
         Route::get('/follow/{id}', [CourseController::class,'follow'])->name('follow'); // フォローユーザ質問一覧
+    });
+
+    // 返信
+    Route::prefix('reply')->name('course.')->group(function () {
+        Route::get('/{id}', [ReplyController::class,'index'])->name('index'); // 質問返信一覧
+        Route::post('/store', [ReplyController::class,'store'])->name('store'); // 質問おすすめ一覧
     });
 
 });
