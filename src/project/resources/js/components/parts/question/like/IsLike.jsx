@@ -40,7 +40,9 @@ export default function IsLike(props) {
         }
 
         return (
-            <div className={styles.like} onClick={DeleteClick}></div>
+            <div className={styles.likeButton} onClick={DeleteClick}>
+                <div className={styles.like}></div>
+            </div>
         )
 
     } else {
@@ -60,7 +62,9 @@ export default function IsLike(props) {
         }
 
         return (
-            <div className={styles.unlike} onClick={SaveClick}></div>
+            <div className={styles.likeButton} onClick={SaveClick}>
+                <div className={styles.unlike}></div>
+            </div>
         )
     }
 }

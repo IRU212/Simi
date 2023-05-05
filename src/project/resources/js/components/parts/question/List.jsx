@@ -59,7 +59,7 @@ export default function List() {
                                 }) }
                             </div>
                         </div>
-                        <IsLike questionId={item.id} />
+                        {/* <IsLike questionId={item.id} /> */}
                     </Link>
                 )
             }

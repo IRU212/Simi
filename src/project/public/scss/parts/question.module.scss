@@ -236,12 +236,19 @@
 // いいねボタン　↓
 
 %like-button{
-    width: 20px;
+    width: 33px;
 	height: 20px;
 	position: relative;
     margin: 0 0 0 auto;
+    z-index: 999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 
-    $heart-size-ratio: 6;
+    // pointer-events: none;
+
+    $heart-size-ratio: 3;
 
     &::before{
         content: "";
@@ -272,6 +279,20 @@
     }
 }
 
+.likeButton{
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    width: 60px;
+    height: 60px;
+    // border: 2px solid #ccc;
+    border-radius: 50%;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
 .like{
     @extend %like-button;
 
@@ -288,11 +309,11 @@
     @extend %like-button;
 
     &::before{
-        background: #fff; /* 色 */
+        background: #ccc; /* 色 */
     }
 
     &::after{
-        background: #fff; /* 色 */
+        background: #ccc; /* 色 */
     }
 }
 
