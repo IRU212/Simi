@@ -31,32 +31,39 @@ export default function List() {
 
     return (
         <div className={styles.List}>
-            { data.map((item,index) =>
-                <Link to={`/question/detail/${item.id}`} className={styles.questionItem} key={index}>
-                    <Link to={`/profile/${item.user_id}`} className={styles.icon}>
-                        <img src="https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg" alt="アイコン" />
+            { data.length <= 0 ?
+                <div className={styles.notList}>
+                    検索結果が見つかりませんでした
+                </div>
+                :
+                data.map((item,index) =>
+                    <Link to={`/question/detail/${item.id}`} className={styles.questionItem} key={index}>
+                        <Link to={`/profile/${item.user_id}`} className={styles.icon}>
+                            <img src="https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg" alt="アイコン" />
+                        </Link>
+                        <div className={styles.main}>
+                            <div className={styles.title}>
+                                { item.name }
+                            </div>
+                            <div>
+                                { item.body.split("\n").map((item,index) => {
+                                    return(
+                                        <div key={index}>
+                                            { index > 2 ?
+                                                ""
+                                                :
+                                                item
+                                            }
+                                        </div>
+                                    )
+                                }) }
+                            </div>
+                        </div>
+                        <IsLike questionId={item.id} />
                     </Link>
-                    <div className={styles.main}>
-                        <div className={styles.title}>
-                            { item.name }
-                        </div>
-                        <div>
-                            { item.body.split("\n").map((item,index) => {
-                                return(
-                                    <div key={index}>
-                                        { index > 2 ?
-                                            ""
-                                            :
-                                            item
-                                        }
-                                    </div>
-                                )
-                            }) }
-                        </div>
-                    </div>
-                    <IsLike questionId={item.id} />
-                </Link>
-            )}
+                )
+            }
+
         </div>
     )
 }
