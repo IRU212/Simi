@@ -1,22 +1,27 @@
 import axios from 'axios'
 import styles from '../../../../../../public/scss/parts/question.module.scss'
 import { useState } from 'react'
+import { useParams } from 'react-router-dom';
 
 export default function ReplyForm() {
 
     // DB保存用変数
     const [body,setBody] = useState() // 本文
 
+    // パラメータ取得
+    const id = useParams()['id']
+
     // クリックしたらDBに保存
     const SaveClick = () => {
 
         const data = new FormData()
         data.append("body",body)
+        data.append("question_id",id)
 
         axios
             .post("/api/question/reply/store",data)
             .then((() => {
-                location.href = "/"
+                location.reload()
             }))
             .catch((err) => {
                 console.log(err)

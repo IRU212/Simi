@@ -15,11 +15,9 @@ class CreateQuestionReplyTable extends Migration
     {
         Schema::create('question_reply', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->text('body');
-            $table->text('image');
-            $table->foreignId('user_id')
-            $table->foreignId('question_id')
+            $table->foreignId('user_id');
+            $table->foreignId('question_id');
             $table->timestamps();
         });
     }
