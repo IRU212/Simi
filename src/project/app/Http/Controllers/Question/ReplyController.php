@@ -8,9 +8,17 @@ use App\Models\Question\Reply;
 
 class ReplyController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        # code...
+        // モデル インスタンス呼び出し
+        $reply = new Reply();
+
+        $data = $reply->where('question_id',$id)
+                     ->latest()
+                     ->paginate(20);
+
+        // JSON形式で返す
+        return response()->json($data);
     }
 
     public function store(Request $request)

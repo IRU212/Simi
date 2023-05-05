@@ -77,7 +77,7 @@ Route::prefix('question')->name('question.')->group(function () {
     });
 
     // 返信
-    Route::prefix('reply')->name('course.')->group(function () {
+    Route::prefix('reply')->name('reply.')->group(function () {
         Route::get('/{id}', [ReplyController::class,'index'])->name('index'); // 質問返信一覧
         Route::post('/store', [ReplyController::class,'store'])->name('store'); // 質問おすすめ一覧
     });
