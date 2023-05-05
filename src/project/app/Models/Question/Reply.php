@@ -4,6 +4,7 @@ namespace App\Models\Question;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Reply extends Model
 {
@@ -18,4 +19,11 @@ class Reply extends Model
         "question_id",
         "user_id",
     ];
+
+    // userテーブル取得
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

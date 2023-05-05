@@ -13,7 +13,8 @@ class ReplyController extends Controller
         // モデル インスタンス呼び出し
         $reply = new Reply();
 
-        $data = $reply->where('question_id',$id)
+        $data = $reply->with('user')
+                     ->where('question_id',$id)
                      ->latest()
                      ->paginate(20);
 
