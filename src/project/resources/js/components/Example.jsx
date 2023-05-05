@@ -27,6 +27,7 @@ import Account from './pages/setting/Account';
 import SettingProfile from './pages/setting/Profile';
 import Privacy from './pages/setting/Privacy';
 import Search from './pages/Search';
+import Error404 from './pages/Error/Error404';
 
 function Example() {
     return (
@@ -96,6 +97,9 @@ function Example() {
                     <Route path="/register" element={<Register />} />
 
                     {/* アカウント認証　↑ */}
+
+                    {/* 404エラー */}
+                    <Route path="*" element={<Error404 />} />
 
                 </Routes>
             </BrowserRouter>

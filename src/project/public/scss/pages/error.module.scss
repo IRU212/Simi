@@ -1,0 +1,9 @@
+.error{
+    width: 100vw;
+    height: calc(100vh - 65px);
+    text-align: center; /* インライン要素の左右のセンタリングを指定する */
+    display: table-cell; /* インライン要素をテーブルセル化する */
+    vertical-align: middle; /* インライン要素の上下のセンタリングを指定する */
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
