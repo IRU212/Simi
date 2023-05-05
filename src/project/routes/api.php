@@ -30,66 +30,66 @@ use App\Http\Controllers\SearchController;
 /**
  *  ユーザ
 */
-Route::prefix('user')->group(function () {
-    Route::get('index', [UserController::class,'index']); // ユーザログイン情報
-    Route::get('show/{id}',[UserController::class, 'show']); // ユーザプロフィール情報
-    Route::post('edit',[UserController::class, 'edit']); // ユーザプロフィール情報
-    Route::post('store', [RegisterController::class,'store']); // ユーザ新規登録
-    Route::post('login',[LoginController::class, 'login']); // ユーザログイン
-    Route::post('logout',[LogoutController::class, 'logout']); // ユーザログアウト
-    Route::get('logout',[LogoutController::class, 'logout']); // ユーザログアウト
+Route::prefix('user')->name('user.')->group(function () {
+    Route::get('index', [UserController::class,'index'])->name('index'); // ユーザログイン情報
+    Route::get('show/{id}',[UserController::class, 'show'])->name('show'); // ユーザプロフィール情報
+    Route::post('edit',[UserController::class, 'edit'])->name('edit'); // ユーザプロフィール情報編集
+    Route::post('store', [RegisterController::class,'store'])->name('store'); // ユーザ新規登録
+    Route::post('login',[LoginController::class, 'login'])->name('login'); // ユーザログイン
+    Route::post('logout',[LogoutController::class, 'logout'])->name('logout'); // ユーザログアウト
 });
 
 /**
  * フォロー
  */
-Route::prefix('follow')->group(function () {
-    Route::get('/show/{id}', [FollowController::class,'show']); // フォロー判定
-    Route::post('/store', [FollowController::class,'store']); // フォローする
-    Route::post('/destroy', [FollowController::class,'destroy']); // フォロー解除
+Route::prefix('follow')->name('follow.')->group(function () {
+    Route::get('/show/{id}', [FollowController::class,'show'])->name('show'); // フォロー判定
+    Route::post('/store', [FollowController::class,'store'])->name('store'); // フォローする
+    Route::post('/destroy', [FollowController::class,'destroy'])->name('destroy'); // フォロー解除
 });
 
 /**
  *  質問
  */
-Route::prefix('question')->group(function () {
-    Route::get('/', [QuestionController::class,'index']); // 質問おすすめ一覧
-    Route::get('/latest', [QuestionController::class,'latest']); // 質問最新順一覧
-    Route::get('/like', [QuestionController::class,'like']); // 質問いいね一覧
-    Route::get('/follow', [QuestionController::class,'follow']); // フォローユーザ質問一覧
-    Route::get('/{id}', [QuestionController::class,'show']); // 質問詳細
-    Route::post('/store', [QuestionController::class,'store']); // 質問保存
+Route::prefix('question')->name('question.')->group(function () {
+    Route::get('/', [QuestionController::class,'index'])->name('index'); // 質問おすすめ一覧
+    Route::get('/latest', [QuestionController::class,'latest'])->name('latest'); // 質問最新順一覧
+    Route::get('/like', [QuestionController::class,'like'])->name('like'); // 質問いいね一覧
+    Route::get('/follow', [QuestionController::class,'follow'])->name('follow'); // フォローユーザ質問一覧
+    Route::get('/{id}', [QuestionController::class,'show'])->name('how'); // 質問詳細
+    Route::post('/store', [QuestionController::class,'store'])->name('store'); // 質問保存
 
     // 教科絞り込み
-    Route::prefix('subject')->group(function () {
-        Route::get('{id}', [SubjectController::class,'index']); // 質問おすすめ一覧
-        Route::get('/latest/{id}', [SubjectController::class,'latest']); // 質問最新順一覧
-        Route::get('/like/{id}', [SubjectController::class,'like']); // 質問いいね一覧
-        Route::get('/follow/{id}', [SubjectController::class,'follow']); // フォローユーザ質問一覧
+    Route::prefix('subject')->name('subject.')->group(function () {
+        Route::get('{id}', [SubjectController::class,'index'])->name('index'); // 質問おすすめ一覧
+        Route::get('/latest/{id}', [SubjectController::class,'latest'])->name('latest'); // 質問最新順一覧
+        Route::get('/like/{id}', [SubjectController::class,'like'])->name('like'); // 質問いいね一覧
+        Route::get('/follow/{id}', [SubjectController::class,'follow'])->name('follow'); // フォローユーザ質問一覧
     });
 
     // 科目絞り込み
-    Route::prefix('course')->group(function () {
-        Route::get('{id}', [CourseController::class,'index']); // 質問おすすめ一覧
-        Route::get('/latest/{id}', [CourseController::class,'latest']); // 質問最新順一覧
-        Route::get('/like/{id}', [CourseController::class,'like']); // 質問いいね一覧
-        Route::get('/follow/{id}', [CourseController::class,'follow']); // フォローユーザ質問一覧
+    Route::prefix('course')->name('course.')->group(function () {
+        Route::get('{id}', [CourseController::class,'index'])->name('index'); // 質問おすすめ一覧
+        Route::get('/latest/{id}', [CourseController::class,'latest'])->name('latest'); // 質問最新順一覧
+        Route::get('/like/{id}', [CourseController::class,'like'])->name('like'); // 質問いいね一覧
+        Route::get('/follow/{id}', [CourseController::class,'follow'])->name('follow'); // フォローユーザ質問一覧
     });
+
 });
 
 /**
  *  いいね
  */
-Route::prefix('like')->group(function () {
-    Route::get('index/{id}', [LikeQuestionController::class,'index']); // 質問いいね判定
-    Route::post('store', [LikeQuestionController::class,'store']); // いいね保存
-    Route::post('destroy', [LikeQuestionController::class,'destroy']); // いいね削除
+Route::prefix('like')->name('like.')->group(function () {
+    Route::get('index/{id}', [LikeQuestionController::class,'index'])->name('index'); // 質問いいね判定
+    Route::post('store', [LikeQuestionController::class,'store'])->name('store'); // いいね保存
+    Route::post('destroy', [LikeQuestionController::class,'destroy'])->name('destroy'); // いいね削除
 });
 
 /**
  *  検索
  */
-Route::prefix('search')->group(function () {
-    Route::get('{keyword}', [SearchController::class,'question']); // 質問検索
-    Route::get('user/{keyword}', [SearchController::class,'user']); // ユーザ検索
+Route::prefix('search')->name('search.')->group(function () {
+    Route::get('{keyword}', [SearchController::class,'question'])->name('question'); // 質問検索
+    Route::get('user/{keyword}', [SearchController::class,'user'])->name('user'); // ユーザ検索
 });
