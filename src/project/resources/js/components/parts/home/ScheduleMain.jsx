@@ -1,5 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from '../../../../../public/scss/parts/home.module.scss'
+
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 // カレンダーメインデザイン
 export default function ScheduleMain() {
@@ -21,23 +24,64 @@ export default function ScheduleMain() {
     const [date,setDate] = useState(nowDate) // 日
 
     // 現在の月の合計日数
-    const lastDate = new Date(nowYear,nowMonth,0).getDate()
+    const lastDateNow = sumWeek(nowYear,nowMonth)
+    const [lastDate,setLastData] = useState(lastDateNow)
 
     // 現在の週の数
     const countWeek = Math.ceil(lastDate / 7)
 
     // 現在の月の最初の日の曜日
-    const dayOfWeek = new Date(nowYear,nowMonth - 1).getDay()
+    const dayOfWeekNow = dayOfWeekGet(nowYear,nowMonth)
+    const [dayOfWeek,SetDayOfWeek] = useState(dayOfWeekNow)
 
     // 週のそれぞれの日にち計算
     function dayWeekEach(item,i) {
         return ( item + 1 ) + (7 * i)
     }
 
+    // 月の最初の日の曜日を取得
+    function dayOfWeekGet(year,month) {
+        return new Date(year,month - 1).getDay()
+    }
+
+    // 月の合計日数を取得
+    function sumWeek(year,month) {
+        return new Date(year,month,0).getDate()
+    }
+
+    // クリックしたら日にちを明日の日にする
+    const FowardClick = () => {
+        setDate(date + 1)
+
+        // 月の最後の日になったら実行
+        if (date == lastDate) {
+            setDate(1) // 一日にする
+            setMonth(month + 1) // 月を来月にする
+
+            // 12月以降になったら1月にする
+            if (month > 11) {
+                setMonth(1)
+                setYear(1)
+            }
+
+            // 月の合計に日数を取得
+            setLastData(sumWeek(year,month + 1))
+        }
+    }
+
+    // クリックしたら日にちを機能の日にする
+    const BackClick = () => {
+        setDate(date - 1)
+    }
+
     return (
         <div className={styles.scheduleMain}>
             <div className={styles.nowDate}>
-                { year } / { month } / { date }
+                <KeyboardArrowLeftIcon onClick={BackClick} className={styles.arrow} />
+                <div>
+                    { year } / { month } / { date }
+                </div>
+                <KeyboardArrowRightIcon onClick={FowardClick} className={styles.arrow} />
             </div>
             <table>
                 <thead>
@@ -58,21 +102,22 @@ export default function ScheduleMain() {
                                 { i == 0 ?
                                     [...Array(7)].map((_,item) => {
 
-                                        const date = dayWeekEach(item,i)
+                                        // カレンダーの日付
+                                        const dateItem = dayWeekEach(item,i)
 
                                         return(
                                             <>
-                                                { date <= dayOfWeek ?
-                                                    <td></td>
+                                                { dateItem <= dayOfWeek ?
+                                                    <td key={item}></td>
                                                     :
                                                     <>
-                                                        { date - dayOfWeek == nowDate ?
-                                                            <td className={styles.nowTd}>
-                                                                { date - dayOfWeek }
+                                                        { dateItem - dayOfWeek == date ?
+                                                            <td key={item} className={styles.nowTd}>
+                                                                { dateItem - dayOfWeek }
                                                             </td>
                                                             :
-                                                            <td>
-                                                                { date - dayOfWeek }
+                                                            <td key={item}>
+                                                                { dateItem - dayOfWeek }
                                                             </td>
                                                         }
                                                     </>
@@ -83,24 +128,25 @@ export default function ScheduleMain() {
                                     :
                                     [...Array(7)].map((_,item) => {
 
-                                        const date = dayWeekEach(item,i)
+                                        // カレンダーの日付
+                                        const dateItem = dayWeekEach(item,i)
 
                                         return(
                                             <>
-                                                { date <= lastDate + dayOfWeek ?
+                                                { dateItem <= lastDate + dayOfWeek ?
                                                     <>
-                                                        { date - dayOfWeek == nowDate ?
-                                                            <td className={styles.nowTd}>
-                                                                { date - dayOfWeek }
+                                                        { dateItem - dayOfWeek == date ?
+                                                            <td key={item} className={styles.nowTd}>
+                                                                { dateItem - dayOfWeek }
                                                             </td>
                                                             :
-                                                            <td>
-                                                                { date - dayOfWeek }
+                                                            <td key={item}>
+                                                                { dateItem - dayOfWeek }
                                                             </td>
                                                         }
                                                     </>
                                                     :
-                                                    <td></td>
+                                                    <td key={item}></td>
                                                 }
                                             </>
                                         )

@@ -2392,6 +2392,52 @@ var weakMemoize = function weakMemoize(func) {
 
 /***/ }),
 
+/***/ "./node_modules/@mui/icons-material/KeyboardArrowLeft.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@mui/icons-material/KeyboardArrowLeft.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@mui/icons-material/utils/createSvgIcon.js"));
+var _jsxRuntime = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+}), 'KeyboardArrowLeft');
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@mui/icons-material/KeyboardArrowRight.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@mui/icons-material/KeyboardArrowRight.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@mui/icons-material/utils/createSvgIcon.js"));
+var _jsxRuntime = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+}), 'KeyboardArrowRight');
+exports["default"] = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@mui/icons-material/Settings.js":
 /*!******************************************************!*\
   !*** ./node_modules/@mui/icons-material/Settings.js ***!
@@ -18262,6 +18308,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/scss/parts/home.module.scss */ "./public/scss/parts/home.module.scss");
+/* harmony import */ var _mui_icons_material_KeyboardArrowLeft__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/icons-material/KeyboardArrowLeft */ "./node_modules/@mui/icons-material/KeyboardArrowLeft.js");
+/* harmony import */ var _mui_icons_material_KeyboardArrowRight__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/icons-material/KeyboardArrowRight */ "./node_modules/@mui/icons-material/KeyboardArrowRight.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -18273,6 +18321,8 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -18307,23 +18357,74 @@ function ScheduleMain() {
     setDate = _useState6[1]; // 日
 
   // 現在の月の合計日数
-  var lastDate = new Date(nowYear, nowMonth, 0).getDate();
+  var lastDateNow = sumWeek(nowYear, nowMonth);
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(lastDateNow),
+    _useState8 = _slicedToArray(_useState7, 2),
+    lastDate = _useState8[0],
+    setLastData = _useState8[1];
 
   // 現在の週の数
   var countWeek = Math.ceil(lastDate / 7);
 
   // 現在の月の最初の日の曜日
-  var dayOfWeek = new Date(nowYear, nowMonth - 1).getDay();
+  var dayOfWeekNow = dayOfWeekGet(nowYear, nowMonth);
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(dayOfWeekNow),
+    _useState10 = _slicedToArray(_useState9, 2),
+    dayOfWeek = _useState10[0],
+    SetDayOfWeek = _useState10[1];
 
   // 週のそれぞれの日にち計算
   function dayWeekEach(item, i) {
     return item + 1 + 7 * i;
   }
+
+  // 月の最初の日の曜日を取得
+  function dayOfWeekGet(year, month) {
+    return new Date(year, month - 1).getDay();
+  }
+
+  // 月の合計日数を取得
+  function sumWeek(year, month) {
+    return new Date(year, month, 0).getDate();
+  }
+
+  // クリックしたら日にちを明日の日にする
+  var FowardClick = function FowardClick() {
+    setDate(date + 1);
+
+    // 月の最後の日になったら実行
+    if (date == lastDate) {
+      setDate(1); // 一日にする
+      setMonth(month + 1); // 月を来月にする
+
+      // 12月以降になったら1月にする
+      if (month > 11) {
+        setMonth(1);
+        setYear(1);
+      }
+
+      // 月の合計に日数を取得
+      setLastData(sumWeek(year, month + 1));
+    }
+  };
+
+  // クリックしたら日にちを機能の日にする
+  var BackClick = function BackClick() {
+    setDate(date - 1);
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].scheduleMain,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].nowDate,
-      children: [year, " / ", month, " / ", date]
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_icons_material_KeyboardArrowLeft__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onClick: BackClick,
+        className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].arrow
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: [year, " / ", month, " / ", date]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_icons_material_KeyboardArrowRight__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        onClick: FowardClick,
+        className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].arrow
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("table", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("thead", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
@@ -18347,28 +18448,30 @@ function ScheduleMain() {
         children: _toConsumableArray(Array(countWeek)).map(function (_, i) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("tr", {
             children: i == 0 ? _toConsumableArray(Array(7)).map(function (_, item) {
-              var date = dayWeekEach(item, i);
+              // カレンダーの日付
+              var dateItem = dayWeekEach(item, i);
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                children: date <= dayOfWeek ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                  children: date - dayOfWeek == nowDate ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+                children: dateItem <= dayOfWeek ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {}, item) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+                  children: dateItem - dayOfWeek == date ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
                     className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].nowTd,
-                    children: date - dayOfWeek
-                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
-                    children: date - dayOfWeek
-                  })
+                    children: dateItem - dayOfWeek
+                  }, item) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+                    children: dateItem - dayOfWeek
+                  }, item)
                 })
               });
             }) : _toConsumableArray(Array(7)).map(function (_, item) {
-              var date = dayWeekEach(item, i);
+              // カレンダーの日付
+              var dateItem = dayWeekEach(item, i);
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                children: date <= lastDate + dayOfWeek ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                  children: date - dayOfWeek == nowDate ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+                children: dateItem <= lastDate + dayOfWeek ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+                  children: dateItem - dayOfWeek == date ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
                     className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].nowTd,
-                    children: date - dayOfWeek
-                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
-                    children: date - dayOfWeek
-                  })
-                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {})
+                    children: dateItem - dayOfWeek
+                  }, item) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+                    children: dateItem - dayOfWeek
+                  }, item)
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {}, item)
               });
             })
           }, i);
@@ -26298,11 +26401,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".NI0zPNLT63AHy7L4Ib5RHg\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 60px auto 0 auto;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= .jbvOqPFiZFV1NTsc\\+17x5A\\=\\= {\n  margin: 0 0 6px 0;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table {\n  width: 100%;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table thead, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table tbody, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table tr, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td {\n  border: 1px solid #454668;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td {\n  width: 90px;\n  height: 60px;\n  text-align: center;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table .KcItB4QEOFUJj3t5OiqS5g\\=\\= {\n  color: #fff;\n  background-color: #454668;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".NI0zPNLT63AHy7L4Ib5RHg\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 60px auto 0 auto;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= .jbvOqPFiZFV1NTsc\\+17x5A\\=\\= {\n  margin: 0 0 6px 0;\n  display: flex;\n  align-items: center;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= .jbvOqPFiZFV1NTsc\\+17x5A\\=\\= ._5kDKlAr1bOPhG62iOSl9tg\\=\\=:hover {\n  cursor: pointer;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table {\n  width: 100%;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table thead, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table tbody, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table tr, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td {\n  border: 1px solid #454668;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td {\n  width: 90px;\n  height: 60px;\n  text-align: center;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table .KcItB4QEOFUJj3t5OiqS5g\\=\\= {\n  color: #fff;\n  background-color: #454668;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"scheduleMain": "NI0zPNLT63AHy7L4Ib5RHg==",
 	"nowDate": "jbvOqPFiZFV1NTsc+17x5A==",
+	"arrow": "_5kDKlAr1bOPhG62iOSl9tg==",
 	"nowTd": "KcItB4QEOFUJj3t5OiqS5g=="
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
