@@ -18412,6 +18412,11 @@ function ScheduleMain() {
   var BackClick = function BackClick() {
     setDate(date - 1);
   };
+
+  // 日付クリックしたらその日に切り替え
+  var DateClick = function DateClick(e) {
+    setDate(e);
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].scheduleMain,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -18453,9 +18458,15 @@ function ScheduleMain() {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
                 children: dateItem <= dayOfWeek ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {}, item) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
                   children: dateItem - dayOfWeek == date ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+                    onClick: function onClick() {
+                      return DateClick(dateItem - dayOfWeek);
+                    },
                     className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].nowTd,
                     children: dateItem - dayOfWeek
                   }, item) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+                    onClick: function onClick() {
+                      return DateClick(dateItem - dayOfWeek);
+                    },
                     children: dateItem - dayOfWeek
                   }, item)
                 })
@@ -18466,9 +18477,15 @@ function ScheduleMain() {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
                 children: dateItem <= lastDate + dayOfWeek ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
                   children: dateItem - dayOfWeek == date ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+                    onClick: function onClick() {
+                      return DateClick(dateItem - dayOfWeek);
+                    },
                     className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].nowTd,
                     children: dateItem - dayOfWeek
                   }, item) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+                    onClick: function onClick() {
+                      return DateClick(dateItem - dayOfWeek);
+                    },
                     children: dateItem - dayOfWeek
                   }, item)
                 }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {}, item)

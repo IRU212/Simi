@@ -74,6 +74,11 @@ export default function ScheduleMain() {
         setDate(date - 1)
     }
 
+    // 日付クリックしたらその日に切り替え
+    const DateClick = (e) => {
+        setDate(e);
+    }
+
     return (
         <div className={styles.scheduleMain}>
             <div className={styles.nowDate}>
@@ -112,11 +117,11 @@ export default function ScheduleMain() {
                                                     :
                                                     <>
                                                         { dateItem - dayOfWeek == date ?
-                                                            <td key={item} className={styles.nowTd}>
+                                                            <td key={item} onClick={() => DateClick(dateItem - dayOfWeek)} className={styles.nowTd}>
                                                                 { dateItem - dayOfWeek }
                                                             </td>
                                                             :
-                                                            <td key={item}>
+                                                            <td key={item} onClick={() => DateClick(dateItem - dayOfWeek)}>
                                                                 { dateItem - dayOfWeek }
                                                             </td>
                                                         }
@@ -136,11 +141,11 @@ export default function ScheduleMain() {
                                                 { dateItem <= lastDate + dayOfWeek ?
                                                     <>
                                                         { dateItem - dayOfWeek == date ?
-                                                            <td key={item} className={styles.nowTd}>
+                                                            <td key={item} onClick={() => DateClick(dateItem - dayOfWeek)} className={styles.nowTd}>
                                                                 { dateItem - dayOfWeek }
                                                             </td>
                                                             :
-                                                            <td key={item}>
+                                                            <td key={item} onClick={() => DateClick(dateItem - dayOfWeek)}>
                                                                 { dateItem - dayOfWeek }
                                                             </td>
                                                         }
