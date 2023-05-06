@@ -1,0 +1,22 @@
+//　カレンダー　デザイン　↓
+
+.scheduleMain{
+    width: fit-content;
+    margin: 60px auto 0 auto;
+
+    table{
+        width: 100%;
+
+        thead, tbody, tr, td {
+            border:1px solid #454668;
+        }
+
+        td{
+            width: 90px;
+            height: 60px;
+            text-align: center;
+        }
+    }
+}
+
+//　カレンダー　デザイン　↑
