@@ -2,7 +2,7 @@
 
 .scheduleMain{
     width: fit-content;
-    margin: 60px auto 0 auto;
+    margin: 0 0 0 0;
 
     .nowDate{
         margin: 0 0 6px 0;
@@ -20,20 +20,57 @@
         width: 100%;
 
         thead, tbody, tr, td {
-            border:1px solid #454668;
+            border: 10px solid rgba($color: #000000, $alpha: 0);
         }
 
         td{
-            width: 90px;
-            height: 60px;
+            width: 35px;
+            height: 30px;
             text-align: center;
+
+            &:hover{
+                cursor: pointer;
+            }
         }
 
         .nowTd{
             color: #fff;
             background-color: #454668;
+            border-radius: 50%;
+            font-size: 0.9rem;
         }
     }
 }
 
 //　カレンダー　デザイン　↑
+
+// detailTop[テンプレート]のアイテム ↓
+
+.detailTopItem{
+    width: 220px;
+    color: #fff;
+    background-color: #454668;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+
+    .contentDetail{
+        margin: 0 25px 0 10px;
+
+        .icon{
+            font-size: 3.5rem;
+        }
+
+        .name{
+            text-align: center;
+            letter-spacing: 1px;
+        }
+    }
+
+    .content{
+        margin: 32px 10px 0 0;
+    }
+}
+
+// detailTop[テンプレート]のアイテム ↑

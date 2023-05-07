@@ -6,6 +6,9 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\UserController;
 
+// ダッシュボード
+use App\Http\Controllers\DashbordController;
+
 // フォロー
 use App\Http\Controllers\FollowController;
 
@@ -38,6 +41,13 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::post('store', [RegisterController::class,'store'])->name('store'); // ユーザ新規登録
     Route::post('login',[LoginController::class, 'login'])->name('login'); // ユーザログイン
     Route::post('logout',[LogoutController::class, 'logout'])->name('logout'); // ユーザログアウト
+});
+
+/**
+ * ダッシュボード
+ */
+Route::prefix('dashbord')->name('dashbord.')->group(function () {
+    Route::get('index', [DashbordController::class,'index'])->name('index'); // ダッシュボード情報
 });
 
 /**

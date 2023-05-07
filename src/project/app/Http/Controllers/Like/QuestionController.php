@@ -22,7 +22,7 @@ class QuestionController extends Controller
         $question = new Question();
 
         $data = $question->where('question_id','=',$id)
-                         ->where('user_id','=',session('login_id'))
+                         ->where('user_id','=',session('login_id')[0])
                          ->exists();
 
         // JSONで表示
