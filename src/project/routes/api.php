@@ -48,6 +48,7 @@ Route::prefix('user')->name('user.')->group(function () {
  */
 Route::prefix('dashbord')->name('dashbord.')->group(function () {
     Route::get('index', [DashbordController::class,'index'])->name('index'); // ダッシュボード情報
+    Route::get('/show/{date}', [DashbordController::class,'show'])->name('show'); // ダッシュボード情報
 });
 
 /**

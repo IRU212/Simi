@@ -55,8 +55,10 @@
     overflow: hidden;
     display: flex;
 
+
     .contentDetail{
         margin: 0 25px 0 10px;
+        text-align: center;
 
         .icon{
             font-size: 3.5rem;
@@ -65,12 +67,49 @@
         .name{
             text-align: center;
             letter-spacing: 1px;
+            margin: 6px 0 0 0;
         }
     }
 
     .content{
+        width: 100%;
         margin: 32px 10px 0 0;
+        text-align: center;
     }
 }
 
 // detailTop[テンプレート]のアイテム ↑
+
+// 行動リスト　↓
+
+.List{
+    width: 100%;
+
+    .questionItem{
+        padding: 10px 20px;
+        border-bottom: 1px solid #34313f;
+        display: flex;
+
+        .icon{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .main{
+            margin-left: 20px;
+
+            .title{
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+// 行動リスト　↑

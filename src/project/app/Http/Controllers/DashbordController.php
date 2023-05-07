@@ -20,8 +20,27 @@ class DashbordController extends Controller
         $data = [
             'question' => $question->where('user_id','=',session('login_id')[0])->count(), // 質問投稿数
             'like' => $question_like->where('user_id','=',session('login_id')[0])->count(), // いいね数
-            'follower' => $follow->where('user_id','=',session('login_id')[0])->count() // フォロー数
+            'follow' => $follow->where('user_id','=',session('login_id')[0])->count() // フォロー数
         ];
+
+        // JSONで返す
+        return response()->json($data);
+    }
+
+    public function show($date)
+    {
+        $time_year = str_split($date, 4)[0]; // 年
+        $time_month = str_split($date, 2)[2]; // 月
+        $time_date = str_split($date, 2)[3]; // 月
+
+        // 検索する日付
+        $search_date = $time_year . "-" . $time_month . "-" . $time_date;
+
+        // モデル　インスタンス呼び出し
+        $question = new Question();
+
+        $data = $question->whereBetween('created_at', [$search_date . ' 00:00:00', $search_date . ' 23:59:59'])
+                         ->paginate(20);
 
         // JSONで返す
         return response()->json($data);

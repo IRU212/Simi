@@ -1,8 +1,13 @@
 import styles from '../../../../../../public/scss/parts/home.module.scss'
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import DashbordApi from '../../../api/get/DashbordApi';
 
 // いいねの合計数
 export default function Like() {
+
+    // api取得
+    const apiData = DashbordApi()
+
     return (
         <div className={styles.detailTopItem}>
 
@@ -14,7 +19,7 @@ export default function Like() {
             </div>
             <div className={styles.content}>
                 <div className={styles.number}>
-                    1111,111
+                    { apiData?.like }
                 </div>
             </div>
 
