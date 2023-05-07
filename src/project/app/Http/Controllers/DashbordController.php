@@ -39,7 +39,8 @@ class DashbordController extends Controller
         // モデル　インスタンス呼び出し
         $question = new Question();
 
-        $data = $question->whereBetween('created_at', [$search_date . ' 00:00:00', $search_date . ' 23:59:59'])
+        $data = $question->with('user')
+                         ->whereBetween('created_at', [$search_date . ' 00:00:00', $search_date . ' 23:59:59'])
                          ->paginate(20);
 
         // JSONで返す

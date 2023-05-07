@@ -41,6 +41,7 @@ function Example() {
 
                     {/* ホーム */}
                     <Route path="/" element={<Home />} />
+                    <Route path="/:date" element={<Home />} />
 
                     {/* 記録 */}
                     <Route path='/record' element={<Record />} />

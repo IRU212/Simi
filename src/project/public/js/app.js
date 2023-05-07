@@ -17301,6 +17301,9 @@ function Example() {
           path: "/",
           element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_3__["default"], {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          path: "/:date",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
           path: "/record",
           element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_pages_Record__WEBPACK_IMPORTED_MODULE_4__["default"], {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
@@ -18630,16 +18633,94 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ List)
 /* harmony export */ });
-/* harmony import */ var _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../public/scss/parts/home.module.scss */ "./public/scss/parts/home.module.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../public/scss/parts/home.module.scss */ "./public/scss/parts/home.module.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 // 行動リスト
 
+
 function List() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].List,
-    children: "List"
+  // Apiデータ取得
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState2 = _slicedToArray(_useState, 2),
+    data = _useState2[0],
+    setData = _useState2[1];
+
+  // ドメイン以降のURLを取得
+  var pathname = window.location.pathname;
+
+  // パラメータを取得
+  var paramsDate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)()['date'];
+
+  // 初期ページネイトページ数
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState4 = _slicedToArray(_useState3, 2),
+    idPagenate = _useState4[0],
+    setIdPagenate = _useState4[1];
+
+  // URLが変更されるたびに実行
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (paramsDate == undefined) {
+      var today = new Date();
+      var todayYear = today.getFullYear();
+      var todayMonth = String(today.getMonth() + 1).length == 1 ? String(0) + String(today.getMonth() + 1) : today.getMonth() + 1;
+      var todayDate = String(today.getDate()).length == 1 ? String(0) + String(today.getDate()) : today.getDate();
+      axios.get("http://localhost:8081/api/dashbord/show/".concat(todayYear + todayMonth + todayDate, "page=").concat(idPagenate)).then(function (res) {
+        setData(res.data.data);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    } else {
+      axios.get("http://localhost:8081/api/dashbord/show/".concat(paramsDate, "page=").concat(idPagenate)).then(function (res) {
+        setData(res.data.data);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  }, [pathname, paramsDate]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].List,
+    children: data.length <= 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].notList,
+      children: "\u691C\u7D22\u7D50\u679C\u304C\u898B\u3064\u304B\u308A\u307E\u305B\u3093\u3067\u3057\u305F"
+    }) : data.map(function (item, index) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+        to: "/question/detail/".concat(item.id),
+        className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].questionItem,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+          to: "/profile/".concat(item.user_id),
+          className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].icon,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+            src: "https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg",
+            alt: "\u30A2\u30A4\u30B3\u30F3"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].main,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].title,
+            children: item.name
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            children: item.body.split("\n").map(function (item, index) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                children: index > 2 ? "" : item
+              }, index);
+            })
+          })]
+        })]
+      }, index);
+    })
   });
 }
 
@@ -26792,7 +26873,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".NI0zPNLT63AHy7L4Ib5RHg\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 0 0 0 0;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= .jbvOqPFiZFV1NTsc\\+17x5A\\=\\= {\n  margin: 0 0 6px 0;\n  display: flex;\n  align-items: center;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= .jbvOqPFiZFV1NTsc\\+17x5A\\=\\= ._5kDKlAr1bOPhG62iOSl9tg\\=\\=:hover {\n  cursor: pointer;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table {\n  width: 100%;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table thead, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table tbody, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table tr, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td {\n  border: 10px solid rgba(0, 0, 0, 0);\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td {\n  width: 35px;\n  height: 30px;\n  text-align: center;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td:hover {\n  cursor: pointer;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table .KcItB4QEOFUJj3t5OiqS5g\\=\\= {\n  color: #fff;\n  background-color: #454668;\n  border-radius: 50%;\n  font-size: 0.9rem;\n}\n\n.G8nxaV0abtu-JDwFalryvw\\=\\= {\n  width: 220px;\n  color: #fff;\n  background-color: #454668;\n  padding: 20px;\n  border-radius: 10px;\n  overflow: hidden;\n  display: flex;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._3RcHhDCwBQbxZv\\+x1X2lcA\\=\\= {\n  margin: 0 25px 0 10px;\n  text-align: center;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._3RcHhDCwBQbxZv\\+x1X2lcA\\=\\= .UdkARw\\+nXO9NDNwnomGfzg\\=\\= {\n  font-size: 3.5rem;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._3RcHhDCwBQbxZv\\+x1X2lcA\\=\\= .NZ6ntYdcAYmMFj-ptB1-7A\\=\\= {\n  text-align: center;\n  letter-spacing: 1px;\n  margin: 6px 0 0 0;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._8SKDGfaGi3IY3o6D89psyA\\=\\= {\n  width: 100%;\n  margin: 32px 10px 0 0;\n  text-align: center;\n}\n\n.CkQfHrH3fdfGjwAajg2acg\\=\\= {\n  width: 100%;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= {\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .UdkARw\\+nXO9NDNwnomGfzg\\=\\= {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .UdkARw\\+nXO9NDNwnomGfzg\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .AZrlJhr45A0WQlwZzTeabw\\=\\= {\n  margin-left: 20px;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .AZrlJhr45A0WQlwZzTeabw\\=\\= .sSfMZQzb\\+XG7rKro2wuOaQ\\=\\= {\n  font-weight: 600;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".NI0zPNLT63AHy7L4Ib5RHg\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 0 0 0 0;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= .jbvOqPFiZFV1NTsc\\+17x5A\\=\\= {\n  margin: 0 0 6px 0;\n  display: flex;\n  align-items: center;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= .jbvOqPFiZFV1NTsc\\+17x5A\\=\\= ._5kDKlAr1bOPhG62iOSl9tg\\=\\=:hover {\n  cursor: pointer;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table {\n  width: 100%;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table thead, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table tbody, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table tr, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td {\n  border: 10px solid rgba(0, 0, 0, 0);\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td {\n  width: 35px;\n  height: 30px;\n  text-align: center;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td:hover {\n  cursor: pointer;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table .KcItB4QEOFUJj3t5OiqS5g\\=\\= {\n  color: #fff;\n  background-color: #454668;\n  border-radius: 50%;\n  font-size: 0.9rem;\n}\n\n.G8nxaV0abtu-JDwFalryvw\\=\\= {\n  width: 220px;\n  color: #fff;\n  background-color: #454668;\n  padding: 20px;\n  border-radius: 10px;\n  overflow: hidden;\n  display: flex;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._3RcHhDCwBQbxZv\\+x1X2lcA\\=\\= {\n  margin: 0 25px 0 10px;\n  text-align: center;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._3RcHhDCwBQbxZv\\+x1X2lcA\\=\\= .UdkARw\\+nXO9NDNwnomGfzg\\=\\= {\n  font-size: 3.5rem;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._3RcHhDCwBQbxZv\\+x1X2lcA\\=\\= .NZ6ntYdcAYmMFj-ptB1-7A\\=\\= {\n  text-align: center;\n  letter-spacing: 1px;\n  margin: 6px 0 0 0;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._8SKDGfaGi3IY3o6D89psyA\\=\\= {\n  width: 100%;\n  margin: 32px 10px 0 0;\n  text-align: center;\n}\n\n.lOH\\+kdme42\\+lmjSTbMutlQ\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: 60vh;\n  margin: 0 auto;\n  display: flex;\n  align-items: center;\n  font-size: 1.3rem;\n}\n\n.CkQfHrH3fdfGjwAajg2acg\\=\\= {\n  width: 100%;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= a {\n  text-decoration: none;\n  color: #fff;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= {\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .UdkARw\\+nXO9NDNwnomGfzg\\=\\= {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .UdkARw\\+nXO9NDNwnomGfzg\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .AZrlJhr45A0WQlwZzTeabw\\=\\= {\n  margin-left: 20px;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .AZrlJhr45A0WQlwZzTeabw\\=\\= .sSfMZQzb\\+XG7rKro2wuOaQ\\=\\= {\n  font-weight: 600;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"scheduleMain": "NI0zPNLT63AHy7L4Ib5RHg==",
@@ -26804,6 +26885,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"icon": "UdkARw+nXO9NDNwnomGfzg==",
 	"name": "NZ6ntYdcAYmMFj-ptB1-7A==",
 	"content": "_8SKDGfaGi3IY3o6D89psyA==",
+	"noSearch": "lOH+kdme42+lmjSTbMutlQ==",
 	"List": "CkQfHrH3fdfGjwAajg2acg==",
 	"questionItem": "R13cXg6decvsSSf1UEElAg==",
 	"main": "AZrlJhr45A0WQlwZzTeabw==",

@@ -82,8 +82,23 @@
 
 // 行動リスト　↓
 
+.noSearch{
+    width: fit-content;
+    min-height: 60vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+
 .List{
     width: 100%;
+
+    a{
+        text-decoration: none;
+        color: #fff;
+    }
 
     .questionItem{
         padding: 10px 20px;
