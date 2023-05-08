@@ -19,6 +19,13 @@
     table{
         width: 100%;
 
+        a{
+            width: 100%;
+            text-decoration: none;
+            color: #222;
+            display: block;
+        }
+
         thead, tbody, tr, td {
             border: 10px solid rgba($color: #000000, $alpha: 0);
         }
@@ -38,6 +45,11 @@
             background-color: #454668;
             border-radius: 50%;
             font-size: 0.9rem;
+
+            a{
+                text-decoration: none;
+                color: #fff;
+            }
         }
     }
 }
@@ -94,6 +106,15 @@
 
 .List{
     width: 100%;
+
+    .notList{
+        width: fit-content;
+        min-height: 60vh;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        font-size: 1.3rem;
+    }
 
     a{
         text-decoration: none;

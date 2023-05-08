@@ -8,7 +8,7 @@ export default function Home() {
         <div className={styles.home}>
 
             {/* スケジュール表 */}
-            <Schedule />
+            {/* <Schedule /> */}
 
             {/* メインコンテンツ */}
             <section>

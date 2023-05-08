@@ -40,7 +40,7 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::post('edit',[UserController::class, 'edit'])->name('edit'); // ユーザプロフィール情報編集
     Route::post('store', [RegisterController::class,'store'])->name('store'); // ユーザ新規登録
     Route::post('login',[LoginController::class, 'login'])->name('login'); // ユーザログイン
-    Route::post('logout',[LogoutController::class, 'logout'])->name('logout'); // ユーザログアウト
+    Route::get('logout',[LogoutController::class, 'logout'])->name('logout'); // ユーザログアウト
 });
 
 /**

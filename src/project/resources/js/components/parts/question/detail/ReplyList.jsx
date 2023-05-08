@@ -35,7 +35,11 @@ export default function ReplyList() {
                 return(
                     <div key={index} className={styles.replyItem}>
                         <Link to={`/profile/${item.user_id}`} className={styles.icon}>
-                            <img src="https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg" alt="アイコン" />
+                            { item.user.icon_image == null ?
+                                <AccountCircleIcon className={styles.humnanIcon}  />
+                                :
+                                <img src={`${item.user.icon_image}`} alt="アイコン" />
+                            }
                         </Link>
                         <div className={styles.main}>
                             { item?.body }

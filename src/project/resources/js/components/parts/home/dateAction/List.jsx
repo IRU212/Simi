@@ -63,7 +63,7 @@ export default function List() {
         <div className={styles.List}>
             { data.length <= 0 ?
                 <div className={styles.notList}>
-                    検索結果が見つかりませんでした
+                    何も行動していません
                 </div>
                 :
                 data.map((item,index) =>
