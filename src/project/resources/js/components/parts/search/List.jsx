@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../../../../../public/scss/parts/question.module.scss'
 import { Link } from 'react-router-dom'
-import IsLike from '../question/like/IsLike'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 // 検索結果　
 export default function List() {
@@ -57,7 +57,11 @@ export default function List() {
                     data.map((item,index) =>
                         <Link to={`/question/detail/${item.id}`} className={styles.questionItem} key={index}>
                             <Link to={`/profile/${item.user_id}`} className={styles.icon}>
-                                <img src="https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg" alt="アイコン" />
+                                { item.user.icon_image == null ?
+                                    <AccountCircleIcon className={styles.humnanIcon}  />
+                                    :
+                                    <img src={`${item.user.icon_image}`} alt="アイコン" />
+                                }
                             </Link>
                             <div className={styles.main}>
                                 <div className={styles.title}>
@@ -81,7 +85,6 @@ export default function List() {
                                     }
                                 </div>
                             </div>
-                            <IsLike questionId={item.id} />
                         </Link>
                     )
                 }
