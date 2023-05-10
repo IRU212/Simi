@@ -1,7 +1,11 @@
 .home{
-    width: fit-content;
+    width: 100%;
     display: flex;
     margin: 0 auto;
-    padding: 60px 0;
+    padding: 60px 30px;
     gap: 0 60px;
+
+    section{
+        width: 100%;
+    }
 }

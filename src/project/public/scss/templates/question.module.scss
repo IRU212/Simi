@@ -11,9 +11,10 @@
 
 .questionList{
     width: 100%;
+    min-height: calc(100vh - 90px);
     background-color: #454668;
     color: #fff;
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
     overflow: hidden;
 }
 
@@ -34,3 +35,15 @@
 // 質問詳細　↑
 
 
+// レスポンシブ
+
+@media screen and (max-width: 900px) {
+
+    .sideHeader{
+        width: 100%;
+        margin: 0 40px 0 0;
+        display: none;
+    }
+
+
+}

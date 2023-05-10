@@ -149,3 +149,17 @@
 }
 
 // 行動リスト　↑
+
+// レスポンシブ
+
+@media screen and (max-width: 878px) {
+
+    .detailTopItem{
+        width: 100%;
+    }
+
+    .detailTopItem{
+        margin: 0 0 40px 0;
+    }
+
+}

@@ -12,3 +12,11 @@
     border-radius: 15px;
     overflow: hidden;
 }
+
+// レスポンシブ
+
+@media screen and (max-width: 878px) {
+    .detailTop{
+        display: block;
+    }
+}
