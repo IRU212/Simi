@@ -18372,11 +18372,6 @@ function Link() {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("section", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/record",
-        children: "\u8A18\u9332"
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("section", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
         to: "/question",
         children: "\u8CEA\u554F"
       })
@@ -18622,6 +18617,64 @@ function ScheduleMain() {
         })
       })]
     })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/parts/home/dateAction/DateData.jsx":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/parts/home/dateAction/DateData.jsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ DateData)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../public/scss/parts/home.module.scss */ "./public/scss/parts/home.module.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+// 行動内容表示する日付
+
+
+function DateData() {
+  // 現在の日付を取得
+  var nowDateFormat = new Date();
+  var nowYear = nowDateFormat.getFullYear();
+  var nowMonth = nowDateFormat.getMonth() + 1;
+  var nowDate = nowDateFormat.getDate();
+
+  // 表示する日付
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(nowYear),
+    _useState2 = _slicedToArray(_useState, 2),
+    year = _useState2[0],
+    setYear = _useState2[1]; // 年
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(nowMonth),
+    _useState4 = _slicedToArray(_useState3, 2),
+    month = _useState4[0],
+    setMonth = _useState4[1]; // 月
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(nowDate),
+    _useState6 = _slicedToArray(_useState5, 2),
+    date = _useState6[0],
+    setDate = _useState6[1]; // 日
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].date,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: _public_scss_parts_home_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].mainDate,
+      children: [year, " / ", month, " / ", date]
+    })
   });
 }
 
@@ -20746,9 +20799,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function SettingHeader() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].settingHeader,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].title,
         children: "\u30E6\u30FC\u30B6\u8A2D\u5B9A"
@@ -20759,15 +20812,7 @@ function SettingHeader() {
         to: "/setting/profile",
         children: "\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u7DE8\u96C6"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].title,
-        children: "\u30A2\u30D7\u30EA\u8A2D\u5B9A"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/setting/privacy",
-        children: "\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC"
-      })]
-    })]
+    })
   });
 }
 
@@ -21029,17 +21074,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ DateAction)
 /* harmony export */ });
 /* harmony import */ var _public_scss_templates_home_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../public/scss/templates/home.module.scss */ "./public/scss/templates/home.module.scss");
-/* harmony import */ var _parts_home_dateAction_List__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../parts/home/dateAction/List */ "./resources/js/components/parts/home/dateAction/List.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _parts_home_dateAction_DateData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../parts/home/dateAction/DateData */ "./resources/js/components/parts/home/dateAction/DateData.jsx");
+/* harmony import */ var _parts_home_dateAction_List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../parts/home/dateAction/List */ "./resources/js/components/parts/home/dateAction/List.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 // 行動内容
 
+
 function DateAction() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: _public_scss_templates_home_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].dateAction,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_parts_home_dateAction_List__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_parts_home_dateAction_DateData__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_parts_home_dateAction_List__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
   });
 }
 
@@ -26888,7 +26936,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".NI0zPNLT63AHy7L4Ib5RHg\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 0 0 0 0;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= .jbvOqPFiZFV1NTsc\\+17x5A\\=\\= {\n  margin: 0 0 6px 0;\n  display: flex;\n  align-items: center;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= .jbvOqPFiZFV1NTsc\\+17x5A\\=\\= ._5kDKlAr1bOPhG62iOSl9tg\\=\\=:hover {\n  cursor: pointer;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table {\n  width: 100%;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table a {\n  width: 100%;\n  text-decoration: none;\n  color: #222;\n  display: block;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table thead, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table tbody, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table tr, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td {\n  border: 10px solid rgba(0, 0, 0, 0);\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td {\n  width: 35px;\n  height: 30px;\n  text-align: center;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td:hover {\n  cursor: pointer;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table .KcItB4QEOFUJj3t5OiqS5g\\=\\= {\n  color: #fff;\n  background-color: #454668;\n  border-radius: 50%;\n  font-size: 0.9rem;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table .KcItB4QEOFUJj3t5OiqS5g\\=\\= a {\n  text-decoration: none;\n  color: #fff;\n}\n\n.G8nxaV0abtu-JDwFalryvw\\=\\= {\n  width: 220px;\n  color: #fff;\n  background-color: #454668;\n  padding: 20px;\n  border-radius: 10px;\n  overflow: hidden;\n  display: flex;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._3RcHhDCwBQbxZv\\+x1X2lcA\\=\\= {\n  margin: 0 25px 0 10px;\n  text-align: center;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._3RcHhDCwBQbxZv\\+x1X2lcA\\=\\= .UdkARw\\+nXO9NDNwnomGfzg\\=\\= {\n  font-size: 3.5rem;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._3RcHhDCwBQbxZv\\+x1X2lcA\\=\\= .NZ6ntYdcAYmMFj-ptB1-7A\\=\\= {\n  text-align: center;\n  letter-spacing: 1px;\n  margin: 6px 0 0 0;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._8SKDGfaGi3IY3o6D89psyA\\=\\= {\n  width: 100%;\n  margin: 32px 10px 0 0;\n  text-align: center;\n}\n\n.lOH\\+kdme42\\+lmjSTbMutlQ\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: 60vh;\n  margin: 0 auto;\n  display: flex;\n  align-items: center;\n  font-size: 1.3rem;\n}\n\n.CkQfHrH3fdfGjwAajg2acg\\=\\= {\n  width: 100%;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .moAulU3fgNqObpupSHQOjA\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: 60vh;\n  margin: 0 auto;\n  display: flex;\n  align-items: center;\n  font-size: 1.3rem;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= a {\n  text-decoration: none;\n  color: #fff;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= {\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .UdkARw\\+nXO9NDNwnomGfzg\\=\\= {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .UdkARw\\+nXO9NDNwnomGfzg\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .AZrlJhr45A0WQlwZzTeabw\\=\\= {\n  margin-left: 20px;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .AZrlJhr45A0WQlwZzTeabw\\=\\= .sSfMZQzb\\+XG7rKro2wuOaQ\\=\\= {\n  font-weight: 600;\n}\n\n@media screen and (max-width: 878px) {\n  .G8nxaV0abtu-JDwFalryvw\\=\\= {\n    width: 100%;\n  }\n  .G8nxaV0abtu-JDwFalryvw\\=\\= {\n    margin: 0 0 40px 0;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".NI0zPNLT63AHy7L4Ib5RHg\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 0 0 0 0;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= .jbvOqPFiZFV1NTsc\\+17x5A\\=\\= {\n  margin: 0 0 6px 0;\n  display: flex;\n  align-items: center;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= .jbvOqPFiZFV1NTsc\\+17x5A\\=\\= ._5kDKlAr1bOPhG62iOSl9tg\\=\\=:hover {\n  cursor: pointer;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table {\n  width: 100%;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table a {\n  width: 100%;\n  text-decoration: none;\n  color: #222;\n  display: block;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table thead, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table tbody, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table tr, .NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td {\n  border: 10px solid rgba(0, 0, 0, 0);\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td {\n  width: 35px;\n  height: 30px;\n  text-align: center;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table td:hover {\n  cursor: pointer;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table .KcItB4QEOFUJj3t5OiqS5g\\=\\= {\n  color: #fff;\n  background-color: #454668;\n  border-radius: 50%;\n  font-size: 0.9rem;\n}\n.NI0zPNLT63AHy7L4Ib5RHg\\=\\= table .KcItB4QEOFUJj3t5OiqS5g\\=\\= a {\n  text-decoration: none;\n  color: #fff;\n}\n\n.G8nxaV0abtu-JDwFalryvw\\=\\= {\n  width: 220px;\n  color: #fff;\n  background-color: #454668;\n  padding: 20px;\n  border-radius: 10px;\n  overflow: hidden;\n  display: flex;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._3RcHhDCwBQbxZv\\+x1X2lcA\\=\\= {\n  margin: 0 25px 0 10px;\n  text-align: center;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._3RcHhDCwBQbxZv\\+x1X2lcA\\=\\= .UdkARw\\+nXO9NDNwnomGfzg\\=\\= {\n  font-size: 3.5rem;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._3RcHhDCwBQbxZv\\+x1X2lcA\\=\\= .NZ6ntYdcAYmMFj-ptB1-7A\\=\\= {\n  text-align: center;\n  letter-spacing: 1px;\n  margin: 6px 0 0 0;\n}\n.G8nxaV0abtu-JDwFalryvw\\=\\= ._8SKDGfaGi3IY3o6D89psyA\\=\\= {\n  width: 100%;\n  margin: 32px 10px 0 0;\n  text-align: center;\n}\n\n.sujyNlkmzHst6FHw3vPcNA\\=\\= {\n  display: flex;\n  padding: 0 0 0 25px;\n  border-bottom: 1px solid #222;\n}\n.sujyNlkmzHst6FHw3vPcNA\\=\\= .OEeS5RF9hQ69PVIvu8m3YA\\=\\= {\n  padding: 18px 0 15px 0;\n}\n\n.lOH\\+kdme42\\+lmjSTbMutlQ\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: 60vh;\n  margin: 0 auto;\n  display: flex;\n  align-items: center;\n  font-size: 1.3rem;\n}\n\n.CkQfHrH3fdfGjwAajg2acg\\=\\= {\n  width: 100%;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .moAulU3fgNqObpupSHQOjA\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: 60vh;\n  margin: 0 auto;\n  display: flex;\n  align-items: center;\n  font-size: 1.3rem;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= a {\n  text-decoration: none;\n  color: #fff;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= {\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .UdkARw\\+nXO9NDNwnomGfzg\\=\\= {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .UdkARw\\+nXO9NDNwnomGfzg\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .AZrlJhr45A0WQlwZzTeabw\\=\\= {\n  margin-left: 20px;\n}\n.CkQfHrH3fdfGjwAajg2acg\\=\\= .R13cXg6decvsSSf1UEElAg\\=\\= .AZrlJhr45A0WQlwZzTeabw\\=\\= .sSfMZQzb\\+XG7rKro2wuOaQ\\=\\= {\n  font-weight: 600;\n}\n\n@media screen and (max-width: 878px) {\n  .G8nxaV0abtu-JDwFalryvw\\=\\= {\n    width: 100%;\n  }\n  .G8nxaV0abtu-JDwFalryvw\\=\\= {\n    margin: 0 0 40px 0;\n  }\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"scheduleMain": "NI0zPNLT63AHy7L4Ib5RHg==",
@@ -26900,6 +26948,8 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"icon": "UdkARw+nXO9NDNwnomGfzg==",
 	"name": "NZ6ntYdcAYmMFj-ptB1-7A==",
 	"content": "_8SKDGfaGi3IY3o6D89psyA==",
+	"date": "sujyNlkmzHst6FHw3vPcNA==",
+	"mainDate": "OEeS5RF9hQ69PVIvu8m3YA==",
 	"noSearch": "lOH+kdme42+lmjSTbMutlQ==",
 	"List": "CkQfHrH3fdfGjwAajg2acg==",
 	"notList": "moAulU3fgNqObpupSHQOjA==",
@@ -27266,7 +27316,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Kug-y6oMtJ0o5rZnk0U8Tg\\=\\= {\n  width: 34vw;\n  background-color: #eae6e6;\n}\n\n.Qj3cV115FkaZObwOOsS3Tw\\=\\= {\n  width: auto;\n  padding: 40px 0 0 40px;\n}\n.Qj3cV115FkaZObwOOsS3Tw\\=\\= ._4UAvlpzrq-lX1zLl26tUfA\\=\\= {\n  color: #222;\n  font-size: 1.2rem;\n  margin-bottom: 30px;\n  font-weight: 600;\n  letter-spacing: 1px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Kug-y6oMtJ0o5rZnk0U8Tg\\=\\= {\n  width: 34vw;\n  min-width: 180px;\n  background-color: #eae6e6;\n}\n\n.Qj3cV115FkaZObwOOsS3Tw\\=\\= {\n  width: 100%;\n  padding: 40px 0 0 40px;\n}\n.Qj3cV115FkaZObwOOsS3Tw\\=\\= ._4UAvlpzrq-lX1zLl26tUfA\\=\\= {\n  color: #222;\n  font-size: 1.2rem;\n  margin-bottom: 30px;\n  font-weight: 600;\n  letter-spacing: 1px;\n}\n\n@media screen and (max-width: 878px) {\n  .Qj3cV115FkaZObwOOsS3Tw\\=\\= {\n    width: -moz-fit-content;\n    width: fit-content;\n    padding: 40px 0 0 20px;\n  }\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"sideHeader": "Kug-y6oMtJ0o5rZnk0U8Tg==",

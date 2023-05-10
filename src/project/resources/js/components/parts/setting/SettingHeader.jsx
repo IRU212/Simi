@@ -19,7 +19,7 @@ export default function SettingHeader() {
 
             </section>
 
-            <section>
+            {/* <section>
 
                 <div className={styles.title}>アプリ設定</div>
 
@@ -27,7 +27,7 @@ export default function SettingHeader() {
                     プライバシー
                 </Link>
 
-            </section>
+            </section> */}
 
         </div>
     )

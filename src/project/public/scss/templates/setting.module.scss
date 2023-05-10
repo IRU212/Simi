@@ -1,10 +1,11 @@
 .sideHeader{
     width: 34vw;
+    min-width: 180px;
     background-color: #eae6e6;
 }
 
 .settingMain{
-    width: auto;
+    width: 100%;
     padding: 40px 0 0 40px;
 
     .title{
@@ -23,3 +24,14 @@
 // 設定　アカウント　↓
 
 // 設定　アカウント　↑
+
+// レスポンシブ
+
+@media screen and (max-width: 878px) {
+
+    .settingMain{
+        width: fit-content;
+        padding: 40px 0 0 20px;
+    }
+
+}

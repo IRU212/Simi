@@ -12,11 +12,11 @@ export default function Link() {
                     検索
                 </RouterLink>
             </section>
-            <section>
+            {/* <section>
                 <RouterLink to="/record">
                     記録
                 </RouterLink>
-            </section>
+            </section> */}
             <section>
                 <RouterLink to="/question">
                     質問
