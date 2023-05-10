@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -27,85 +27,136 @@ import Account from './pages/setting/Account';
 import SettingProfile from './pages/setting/Profile';
 import Privacy from './pages/setting/Privacy';
 import Search from './pages/Search';
-import Error404 from './pages/Error/Error404';
+import Error404 from './pages/Error/Error404'
+
+import LoginUserApi from './api/get/LoginUserApi';
+import LoginRedirect from './LoginRedirect';
 
 function Example() {
-    return (
-        <div>
-            <BrowserRouter>
 
-                {/* ヘッダー */}
-                <Header />
+    LoginRedirect()
 
-                <Routes>
+    // ログインAPI取得
+    const apiData = LoginUserApi()
 
-                    {/* ホーム */}
-                    <Route path="/" element={<Home />} />
-                    <Route path="/:date" element={<Home />} />
+    if (apiData == false) {
+        return (
+            <div>
+                <BrowserRouter>
 
-                    {/* 記録 */}
-                    <Route path='/record' element={<Record />} />
+                    {/* ヘッダー */}
+                    <Header />
 
-                    {/* 質問 ↓ */}
+                    <Routes>
 
-                    {/* 質問教科未選択 ↓ */}
-                    <Route path='/question' element={<Question />} />
-                    <Route path='/question/follow' element={<Question />} />
-                    <Route path='/question/latest' element={<Question />} />
-                    <Route path='/question/like' element={<Question />} />
-                    {/* 質問教科未選択 ↑ */}
+                        {/* アカウント認証　↓ */}
 
-                    {/* 質問教科指定　↓ */}
-                    <Route path='/question/subject/:id' element={<Question />} />
-                    <Route path='/question/subject/follow/:id' element={<Question />} />
-                    <Route path='/question/subject/latest/:id' element={<Question />} />
-                    <Route path='/question/subject/like/:id' element={<Question />} />
-                    {/* 質問教科指定　↑ */}
+                        {/* ログイン */}
+                        <Route path="/login" element={<Login />} />
 
-                    {/* 質問作成 */}
-                    <Route path='/question/create' element={<Create />} />
-                    <Route path='/question/course/:id' element={<Question />} />
+                        {/* 新規登録 */}
+                        <Route path="/register" element={<Register />} />
 
-                    {/* 質問詳細 */}
-                    <Route path='/question/detail/:id' element={<Detail />} />
+                        {/* ログイン画面以外でログイン表示 */}
+                        <Route path="/" element={<Login />} />
+                        <Route path="/:date" element={<Login />} />
+                        <Route path='/record' element={<Login />} />
+                        <Route path='/question' element={<Login />} />
+                        <Route path='/question/follow' element={<Login />} />
+                        <Route path='/question/latest' element={<Login />} />
+                        <Route path='/question/like' element={<Login />} />
+                        <Route path='/question/subject/:id' element={<Login />} />
+                        <Route path='/question/subject/follow/:id' element={<Login />} />
+                        <Route path='/question/subject/latest/:id' element={<Login />} />
+                        <Route path='/question/subject/like/:id' element={<Login />} />
+                        <Route path='/question/create' element={<Login />} />
+                        <Route path='/question/course/:id' element={<Login />} />
+                        <Route path='/question/detail/:id' element={<Login />} />
+                        <Route path="/search" element={<Login />} />
+                        <Route path="/search/user" element={<Login />} />
+                        <Route path="/setting" element={<Login />} />
+                        <Route path="/setting/profile" element={<Login />} />
+                        <Route path="/setting/privacy" element={<Login />} />
+                        <Route path="/profile/:id" element={<Login />} />
 
-                    {/* 質問 ↑ */}
+                        {/* 404エラー */}
+                        <Route path="*" element={<Error404 />} />
 
-                    {/* 検索　↓ */}
+                    </Routes>
 
-                    <Route path="/search" element={<Search />} />
-                    <Route path="/search/user" element={<Search />} />
+                </BrowserRouter>
+            </div>
+        );
+    } else {
+        return (
+            <div>
+                <BrowserRouter>
 
-                    {/* 検索　↑ */}
+                    {/* ヘッダー */}
+                    <Header />
 
-                    {/* 設定 ↓ */}
+                    <Routes>
 
-                    <Route path="/setting" element={<Account />} />
-                    <Route path="/setting/profile" element={<SettingProfile />} />
-                    <Route path="/setting/privacy" element={<Privacy />} />
 
-                    {/* 設定 ↑ */}
+                        {/* ホーム */}
+                        <Route path="/" element={<Home />} />
+                        <Route path="/:date" element={<Home />} />
 
-                    {/* プロフィール */}
-                    <Route path="/profile/:id" element={<Profile />} />
+                        {/* 記録 */}
+                        <Route path='/record' element={<Record />} />
 
-                    {/* アカウント認証　↓ */}
+                        {/* 質問 ↓ */}
 
-                    {/* ログイン */}
-                    <Route path="/login" element={<Login />} />
+                        {/* 質問教科未選択 ↓ */}
+                        <Route path='/question' element={<Question />} />
+                        <Route path='/question/follow' element={<Question />} />
+                        <Route path='/question/latest' element={<Question />} />
+                        <Route path='/question/like' element={<Question />} />
+                        {/* 質問教科未選択 ↑ */}
 
-                    {/* 新規登録 */}
-                    <Route path="/register" element={<Register />} />
+                        {/* 質問教科指定　↓ */}
+                        <Route path='/question/subject/:id' element={<Question />} />
+                        <Route path='/question/subject/follow/:id' element={<Question />} />
+                        <Route path='/question/subject/latest/:id' element={<Question />} />
+                        <Route path='/question/subject/like/:id' element={<Question />} />
+                        {/* 質問教科指定　↑ */}
 
-                    {/* アカウント認証　↑ */}
+                        {/* 質問作成 */}
+                        <Route path='/question/create' element={<Create />} />
+                        <Route path='/question/course/:id' element={<Question />} />
 
-                    {/* 404エラー */}
-                    <Route path="*" element={<Error404 />} />
+                        {/* 質問詳細 */}
+                        <Route path='/question/detail/:id' element={<Detail />} />
 
-                </Routes>
-            </BrowserRouter>
-        </div>
-    );
+                        {/* 質問 ↑ */}
+
+                        {/* 検索　↓ */}
+
+                        <Route path="/search" element={<Search />} />
+                        <Route path="/search/user" element={<Search />} />
+
+                        {/* 検索　↑ */}
+
+                        {/* 設定 ↓ */}
+
+                        <Route path="/setting" element={<Account />} />
+                        <Route path="/setting/profile" element={<SettingProfile />} />
+                        <Route path="/setting/privacy" element={<Privacy />} />
+
+                        {/* 設定 ↑ */}
+
+                        {/* プロフィール */}
+                        <Route path="/profile/:id" element={<Profile />} />
+
+                        {/* 404エラー */}
+                        <Route path="*" element={<Error404 />} />
+
+                    </Routes>
+
+                </BrowserRouter>
+            </div>
+        );
+    }
 }
 
 export default Example;

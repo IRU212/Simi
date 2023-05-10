@@ -21,7 +21,7 @@ export default function Icon() {
                 </Link>
                 :
                 <Link to={`/profile/${loginData?.id}`} className={styles.icon}>
-                    <img src="https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg" alt="アイコン" />
+                    <img src={`${loginData?.icon_image}`} alt="アイコン" />
                 </Link>
             }
         </>
