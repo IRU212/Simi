@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 // スタイル
 import styles from '../../../../../../public/scss/parts/auth.module.scss'
@@ -51,7 +52,7 @@ export default function Form() {
     }
 
     return (
-        <div className={styles.register}>
+        <div className={styles.auth}>
 
             <div className={styles.FormCover}>
 
@@ -76,9 +77,17 @@ export default function Form() {
 
             </div>
 
-            {/* ログインボタン */}
-            <div onClick={PostClick}>
-                ログイン
+            <div className={styles.subContent}>
+
+                <Link to="/register" className={styles.linkAuth} >
+                    新規登録
+                </Link>
+
+                {/* ログインボタン */}
+                <div onClick={PostClick} className={styles.saveButton}>
+                    ログイン
+                </div>
+
             </div>
 
         </div>

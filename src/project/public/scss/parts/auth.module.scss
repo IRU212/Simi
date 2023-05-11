@@ -1,7 +1,15 @@
 // 新規アカウント登録 ↓
 
-.register{
+.auth{
     width: fit-content;
+    padding: 50px 70px;
+    background-color: #fff;
+    border-radius: 15px;
+    border: 1px solid #454668;
+    position: absolute;
+    top: 27%;
+    left: 50%;
+    transform: translate(-50%);
 
     .FormCover{
         width: 380px;
@@ -19,6 +27,31 @@
                 border-radius: 4px;
                 border: 1px solid #666;
                 outline: none;
+            }
+        }
+    }
+
+    .subContent{
+        display: flex;
+        text-align: center;
+
+        .linkAuth{
+            display: block;
+            text-decoration: none;
+            color: #222;
+        }
+
+        .saveButton{
+            width: fit-content;
+            margin: 0 0 0 auto;
+            border-radius: 9px;
+            padding: 7px 12px;
+            background-color: #454668;
+            color: #fff;
+            font-size: 0.7rem;
+
+            &:hover{
+                cursor: pointer;
             }
         }
     }

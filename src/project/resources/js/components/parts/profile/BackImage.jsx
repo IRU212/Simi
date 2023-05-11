@@ -11,10 +11,10 @@ export default function BackImage() {
 
     return (
         <div className={styles.backImage}>
-            { apiData == false ?
+            { apiData?.back_image == null ?
                 ""
                 :
-                <img src="https://prtimes.jp/i/30865/238/origin/d30865-238-463172-2.png" alt="背景画像" />
+                <img src={`${apiData?.back_image}`} alt="背景画像" />
             }
         </div>
     )

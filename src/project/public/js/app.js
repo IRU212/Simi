@@ -18177,6 +18177,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../public/scss/parts/auth.module.scss */ "./public/scss/parts/auth.module.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -18185,6 +18186,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -18244,7 +18246,7 @@ function Form() {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].register,
+    className: _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].auth,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].FormCover,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
@@ -18264,9 +18266,17 @@ function Form() {
           onChange: PasswordChange
         }), errorPassword !== undefined ? errorPassword : ""]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      onClick: PostClick,
-      children: "\u30ED\u30B0\u30A4\u30F3"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].subContent,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+        to: "/register",
+        className: _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].linkAuth,
+        children: "\u65B0\u898F\u767B\u9332"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        onClick: PostClick,
+        className: _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].saveButton,
+        children: "\u30ED\u30B0\u30A4\u30F3"
+      })]
     })]
   });
 }
@@ -18287,6 +18297,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../public/scss/parts/auth.module.scss */ "./public/scss/parts/auth.module.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -18295,6 +18306,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -18368,7 +18380,7 @@ function Form() {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].register,
+    className: _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].auth,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].FormCover,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
@@ -18396,9 +18408,17 @@ function Form() {
           onChange: PasswordChange
         }), errorPassword !== undefined ? errorPassword : ""]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      onClick: PostClick,
-      children: "\u30ED\u30B0\u30A4\u30F3"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].subContent,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+        to: "/login",
+        className: _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].linkAuth,
+        children: "\u30ED\u30B0\u30A4\u30F3"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        onClick: PostClick,
+        className: _public_scss_parts_auth_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].saveButton,
+        children: "\u65B0\u898F\u767B\u9332"
+      })]
     })]
   });
 }
@@ -19074,8 +19094,8 @@ function BackImage() {
   var apiData = (0,_api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_1__["default"])();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].backImage,
-    children: apiData == false ? "" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-      src: "https://prtimes.jp/i/30865/238/origin/d30865-238-463172-2.png",
+    children: (apiData === null || apiData === void 0 ? void 0 : apiData.back_image) == null ? "" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+      src: "".concat(apiData === null || apiData === void 0 ? void 0 : apiData.back_image),
       alt: "\u80CC\u666F\u753B\u50CF"
     })
   });
@@ -19196,8 +19216,8 @@ function IconImage() {
   var apiData = (0,_api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_1__["default"])();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].iconImage,
-    children: apiData == false ? "" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-      src: "https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg",
+    children: (apiData === null || apiData === void 0 ? void 0 : apiData.icon_image) == null ? "" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+      src: "".concat(apiData === null || apiData === void 0 ? void 0 : apiData.icon_image),
       alt: "\u80CC\u666F\u753B\u50CF"
     })
   });
@@ -27000,12 +27020,15 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".hDbwl6SGiY7nyejCqMjijA\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n}\n.hDbwl6SGiY7nyejCqMjijA\\=\\= .muRBmIZ8drkzlgpMNHC2Bw\\=\\= {\n  width: 380px;\n}\n.hDbwl6SGiY7nyejCqMjijA\\=\\= .muRBmIZ8drkzlgpMNHC2Bw\\=\\= section {\n  margin: 0 0 30px 0;\n}\n.hDbwl6SGiY7nyejCqMjijA\\=\\= .muRBmIZ8drkzlgpMNHC2Bw\\=\\= section .yhah9YuCJnkYSje-hg2aZg\\=\\= {\n  margin: 0 0 4px 0;\n}\n.hDbwl6SGiY7nyejCqMjijA\\=\\= .muRBmIZ8drkzlgpMNHC2Bw\\=\\= section input {\n  width: 100%;\n  padding: 6px;\n  border-radius: 4px;\n  border: 1px solid #666;\n  outline: none;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".dVTV0YAF7fV52E4\\+puTtfg\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  padding: 50px 70px;\n  background-color: #fff;\n  border-radius: 15px;\n  border: 1px solid #454668;\n  position: absolute;\n  top: 27%;\n  left: 50%;\n  transform: translate(-50%);\n}\n.dVTV0YAF7fV52E4\\+puTtfg\\=\\= .muRBmIZ8drkzlgpMNHC2Bw\\=\\= {\n  width: 380px;\n}\n.dVTV0YAF7fV52E4\\+puTtfg\\=\\= .muRBmIZ8drkzlgpMNHC2Bw\\=\\= section {\n  margin: 0 0 30px 0;\n}\n.dVTV0YAF7fV52E4\\+puTtfg\\=\\= .muRBmIZ8drkzlgpMNHC2Bw\\=\\= section .yhah9YuCJnkYSje-hg2aZg\\=\\= {\n  margin: 0 0 4px 0;\n}\n.dVTV0YAF7fV52E4\\+puTtfg\\=\\= .muRBmIZ8drkzlgpMNHC2Bw\\=\\= section input {\n  width: 100%;\n  padding: 6px;\n  border-radius: 4px;\n  border: 1px solid #666;\n  outline: none;\n}\n.dVTV0YAF7fV52E4\\+puTtfg\\=\\= .XqQGzXGFQA88alDjXLefIA\\=\\= {\n  display: flex;\n  text-align: center;\n}\n.dVTV0YAF7fV52E4\\+puTtfg\\=\\= .XqQGzXGFQA88alDjXLefIA\\=\\= .zELHuDCnWEyI56mGYYzXdg\\=\\= {\n  display: block;\n  text-decoration: none;\n  color: #222;\n}\n.dVTV0YAF7fV52E4\\+puTtfg\\=\\= .XqQGzXGFQA88alDjXLefIA\\=\\= .eeMb5s-\\+PiopVRjUqjJTPg\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 0 0 0 auto;\n  border-radius: 9px;\n  padding: 7px 12px;\n  background-color: #454668;\n  color: #fff;\n  font-size: 0.7rem;\n}\n.dVTV0YAF7fV52E4\\+puTtfg\\=\\= .XqQGzXGFQA88alDjXLefIA\\=\\= .eeMb5s-\\+PiopVRjUqjJTPg\\=\\=:hover {\n  cursor: pointer;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	"register": "hDbwl6SGiY7nyejCqMjijA==",
+	"auth": "dVTV0YAF7fV52E4+puTtfg==",
 	"FormCover": "muRBmIZ8drkzlgpMNHC2Bw==",
-	"name": "yhah9YuCJnkYSje-hg2aZg=="
+	"name": "yhah9YuCJnkYSje-hg2aZg==",
+	"subContent": "XqQGzXGFQA88alDjXLefIA==",
+	"linkAuth": "zELHuDCnWEyI56mGYYzXdg==",
+	"saveButton": "eeMb5s-+PiopVRjUqjJTPg=="
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

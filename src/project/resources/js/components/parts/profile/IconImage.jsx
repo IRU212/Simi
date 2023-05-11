@@ -11,10 +11,10 @@ export default function IconImage() {
 
     return (
         <div className={styles.iconImage}>
-            { apiData == false ?
+            { apiData?.icon_image == null ?
                 ""
                 :
-                <img src="https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg" alt="背景画像" />
+                <img src={`${apiData?.icon_image}`} alt="背景画像" />
             }
         </div>
     )
