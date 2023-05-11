@@ -18459,7 +18459,7 @@ function Icon() {
   // apiデータ取得
   var loginData = (0,_api_get_LoginUserApi__WEBPACK_IMPORTED_MODULE_1__["default"])();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: loginData == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+    children: loginData == false || (loginData === null || loginData === void 0 ? void 0 : loginData.icon_image) == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
       to: "/login",
       className: _public_scss_parts_header_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].icon,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_icons_material_AccountCircle__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -21023,6 +21023,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _mui_icons_material_AccountCircle__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/icons-material/AccountCircle */ "./node_modules/@mui/icons-material/AccountCircle.js");
 /* harmony import */ var _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../public/scss/parts/setting.module.scss */ "./public/scss/parts/setting.module.scss");
 /* harmony import */ var _api_get_LoginUserApi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../api/get/LoginUserApi */ "./resources/js/components/api/get/LoginUserApi.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -21036,12 +21037,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 // コンポネート呼び出し
 
 
 
 
 function Edit() {
+  // api取得　ユーザログインデータ
   var loginData = (0,_api_get_LoginUserApi__WEBPACK_IMPORTED_MODULE_3__["default"])();
 
   // DB保存用変数
@@ -21133,9 +21136,11 @@ function Edit() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
         htmlFor: "backImage",
         className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].backImage,
-        children: previewBackImage == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-          src: "".concat(loginData === null || loginData === void 0 ? void 0 : loginData.back_image),
-          alt: "\u80CC\u666F\u753B\u50CF"
+        children: previewBackImage == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: (loginData === null || loginData === void 0 ? void 0 : loginData.back_image) == null ? "" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+            src: "".concat(loginData === null || loginData === void 0 ? void 0 : loginData.back_image),
+            alt: "\u80CC\u666F\u753B\u50CF"
+          })
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
           src: "".concat(previewBackImage)
         })
@@ -21149,9 +21154,13 @@ function Edit() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
           htmlFor: "iconImage",
           className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].iconImage,
-          children: previewIconImage == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-            src: "".concat(loginData === null || loginData === void 0 ? void 0 : loginData.icon_image),
-            alt: "\u30A2\u30A4\u30B3\u30F3"
+          children: previewIconImage == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+            children: (loginData === null || loginData === void 0 ? void 0 : loginData.icon_image) == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mui_icons_material_AccountCircle__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].humanIcon
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+              src: "".concat(loginData === null || loginData === void 0 ? void 0 : loginData.icon_image),
+              alt: "\u30A2\u30A4\u30B3\u30F3"
+            })
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
             src: "".concat(previewIconImage)
           })
@@ -27294,7 +27303,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: calc(100vh - 65px);\n  margin: 0 0 0 auto;\n  padding: 10px 20px 0 0;\n  border-right: 1px solid #ccc;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section {\n  padding: 10px;\n  border-bottom: 1px solid #fff;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a, .ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  margin: 8px 0;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  font-size: 0.9rem;\n  color: #6f6e6e;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a {\n  font-size: 1rem;\n  display: block;\n  text-decoration: none;\n  color: #222;\n}\n\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= {\n  width: 600px;\n  background-color: #6f6e6e;\n  border-radius: 20px;\n  overflow: hidden;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= input[type=file] {\n  display: none;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= {\n  width: 100%;\n  height: 160px;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\=:hover {\n  cursor: pointer;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section {\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  overflow: hidden;\n  transform: translateY(-30%);\n  margin: 0 0 0 10%;\n  border: 3px solid #6f6e6e;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\=:hover {\n  cursor: pointer;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .Apuwqm-HFH6qc85jwalCTw\\=\\= {\n  color: #fff;\n  margin: 0 0 0 8%;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .lNdstIBSZeyOl7eYz-QYfQ\\=\\= {\n  margin: 0 0 0 8%;\n  padding: 4px;\n  font-size: 0.75rem;\n  border-radius: 6px;\n  outline: none;\n  border: none;\n  color: #fff;\n  background-color: #3f3f3f;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\= {\n  color: #fff;\n  margin: 0 10% 0 auto;\n  font-size: 0.65rem;\n  background-color: #434242;\n  padding: 8px;\n  border-radius: 10px;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\=:hover {\n  cursor: pointer;\n}\n\n.m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 30px 0 0 auto;\n  color: #fff;\n  background-color: #5c5c5c;\n  padding: 8px 16px;\n  border-radius: 10px;\n  font-size: 0.8rem;\n}\n.m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\=:hover {\n  cursor: pointer;\n}\n\n.JUWqyFCG9D\\+61ewppInOQg\\=\\=:hover {\n  cursor: pointer;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: calc(100vh - 65px);\n  margin: 0 0 0 auto;\n  padding: 10px 20px 0 0;\n  border-right: 1px solid #ccc;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section {\n  padding: 10px;\n  border-bottom: 1px solid #fff;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a, .ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  margin: 8px 0;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  font-size: 0.9rem;\n  color: #6f6e6e;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a {\n  font-size: 1rem;\n  display: block;\n  text-decoration: none;\n  color: #222;\n}\n\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= {\n  width: 600px;\n  background-color: #6f6e6e;\n  border-radius: 20px;\n  overflow: hidden;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= input[type=file] {\n  display: none;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= {\n  width: 100%;\n  height: 160px;\n  background-color: #454668;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\=:hover {\n  cursor: pointer;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section {\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  overflow: hidden;\n  transform: translateY(-30%);\n  margin: 0 0 0 10%;\n  border: 3px solid #6f6e6e;\n  position: relative;\n  background-color: #fff;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\=:hover {\n  cursor: pointer;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= .xU\\+FAq7rKaC0ojac\\+ULHOA\\=\\= {\n  font-size: 80px;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .Apuwqm-HFH6qc85jwalCTw\\=\\= {\n  color: #fff;\n  margin: 0 0 0 8%;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .lNdstIBSZeyOl7eYz-QYfQ\\=\\= {\n  margin: 0 0 0 8%;\n  padding: 4px;\n  font-size: 0.75rem;\n  border-radius: 6px;\n  outline: none;\n  border: none;\n  color: #fff;\n  background-color: #3f3f3f;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\= {\n  color: #fff;\n  margin: 0 10% 0 auto;\n  font-size: 0.65rem;\n  background-color: #434242;\n  padding: 8px;\n  border-radius: 10px;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\=:hover {\n  cursor: pointer;\n}\n\n.m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 30px 0 0 auto;\n  color: #fff;\n  background-color: #5c5c5c;\n  padding: 8px 16px;\n  border-radius: 10px;\n  font-size: 0.8rem;\n}\n.m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\=:hover {\n  cursor: pointer;\n}\n\n.JUWqyFCG9D\\+61ewppInOQg\\=\\=:hover {\n  cursor: pointer;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"settingHeader": "ku7Gh6W-n4bJ0XvlXLd9sw==",
@@ -27302,6 +27311,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"edit": "vUdty3WtCKaWNYCbgkK8ZQ==",
 	"backImage": "CrpmA+wPSjxykGysdn2IOQ==",
 	"iconImage": "G25fVEenH1vKV7-d376dNg==",
+	"humanIcon": "xU+FAq7rKaC0ojac+ULHOA==",
 	"name": "Apuwqm-HFH6qc85jwalCTw==",
 	"nameInput": "lNdstIBSZeyOl7eYz-QYfQ==",
 	"nameChange": "_4flEee6KCk7LKm4WAYPrUw==",

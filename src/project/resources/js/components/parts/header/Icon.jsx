@@ -15,7 +15,7 @@ export default function Icon() {
 
     return (
         <>
-            { loginData == false ?
+            { loginData == false || loginData?.icon_image == null ?
                 <Link to={`/login`} className={styles.icon}>
                     <AccountCircleIcon className={styles.humanIcon} />
                 </Link>

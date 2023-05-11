@@ -50,6 +50,7 @@
     .backImage{
         width: 100%;
         height: 160px;
+        background-color: #454668;
 
         &:hover{
             cursor: pointer;
@@ -77,9 +78,19 @@
             transform: translateY(-30%);
             margin: 0 0 0 10%;
             border: 3px solid #6f6e6e;
+            position: relative;
+            background-color: #fff;
 
             &:hover{
                 cursor: pointer;
+            }
+
+            .humanIcon{
+                font-size: $icon-profile-size;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
             }
 
             img{

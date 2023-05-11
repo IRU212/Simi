@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import styles from '../../../../../../public/scss/parts/setting.module.scss'
 
@@ -8,6 +9,7 @@ import LoginUserApi from '../../../api/get/LoginUserApi'
 
 export default function Edit() {
 
+    // api取得　ユーザログインデータ
     const loginData = LoginUserApi()
 
     // DB保存用変数
@@ -86,7 +88,13 @@ export default function Edit() {
                 <input type="file" id='backImage' accept="image/*" multiple onChange={BackFileChange} />
                 <label htmlFor='backImage' className={styles.backImage}>
                     { previewBackImage == null ?
-                        <img src={`${loginData?.back_image}`} alt="背景画像" />
+                        <>
+                            { loginData?.back_image == null ?
+                                ""
+                                :
+                                <img src={`${loginData?.back_image}`} alt="背景画像" />
+                            }
+                        </>
                         :
                         <img src={`${previewBackImage}`} />
                     }
@@ -99,7 +107,13 @@ export default function Edit() {
                     <input type="file" id='iconImage' accept="image/*" multiple onChange={IconFileChange} />
                     <label htmlFor='iconImage' className={styles.iconImage}>
                         { previewIconImage == null ?
-                            <img src={`${loginData?.icon_image}`} alt="アイコン" />
+                            <>
+                                { loginData?.icon_image == null ?
+                                    <AccountCircleIcon className={styles.humanIcon} />
+                                    :
+                                    <img src={`${loginData?.icon_image}`} alt="アイコン" />
+                                }
+                            </>
                             :
                             <img src={`${previewIconImage}`} />
                         }
