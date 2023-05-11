@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\ProfileController;
 
 // ダッシュボード
 use App\Http\Controllers\DashbordController;
@@ -41,6 +42,11 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::post('store', [RegisterController::class,'store'])->name('store'); // ユーザ新規登録
     Route::post('login',[LoginController::class, 'login'])->name('login'); // ユーザログイン
     Route::get('logout',[LogoutController::class, 'logout'])->name('logout'); // ユーザログアウト
+
+    // ユーザプロフィール情報
+    Route::prefix('/{id}/list')->name('list.')->group(function () {
+        Route::get('question', [ProfileController::class,'question'])->name('question'); // ユーザ 投稿一覧
+    });
 });
 
 /**

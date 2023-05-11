@@ -19292,7 +19292,7 @@ function List() {
 
   // URLが変更されるたびに実行
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    axios.get("http://localhost:8081/api/question?page=".concat(idPagenate)).then(function (res) {
+    axios.get("http://localhost:8081/api/user/".concat(paramsId, "/list/question?page=").concat(idPagenate)).then(function (res) {
       setData(res.data.data);
     })["catch"](function (err) {
       console.log(err);
@@ -19348,7 +19348,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ ListHeader)
 /* harmony export */ });
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../public/scss/parts/profile.module.scss */ "./public/scss/parts/profile.module.scss");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -19363,7 +19362,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 // プロフィール　質問リスト　ヘッダー
-
 
 function ListHeader() {
   // home判定用変数
@@ -19383,70 +19381,78 @@ function ListHeader() {
       setHomeUrl(false);
     }
   }, [window.location.pathname]);
-  if (paramsId == undefined) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].listHeader,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
-        className: "".concat(homeUrl ? _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : ""),
-        to: "/question",
-        children: "\u304A\u3059\u3059\u3081"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
-        className: function className(_ref) {
-          var isActive = _ref.isActive;
-          return isActive ? _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
-        },
-        to: "/question/follow",
-        children: "\u30D5\u30A9\u30ED\u30FC"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
-        className: function className(_ref2) {
-          var isActive = _ref2.isActive;
-          return isActive ? _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
-        },
-        to: "/question/latest",
-        children: "\u6700\u65B0"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
-        className: function className(_ref3) {
-          var isActive = _ref3.isActive;
-          return isActive ? _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
-        },
-        to: "/question/like",
-        children: "\u3044\u3044\u306D"
-      })]
-    });
-  } else {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].listHeader,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
-        className: function className(_ref4) {
-          var isActive = _ref4.isActive;
-          return isActive ? _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
-        },
-        to: "/question/subject/".concat(paramsId),
-        children: "\u304A\u3059\u3059\u3081"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
-        className: function className(_ref5) {
-          var isActive = _ref5.isActive;
-          return isActive ? _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
-        },
-        to: "/question/subject/follow/".concat(paramsId),
-        children: "\u30D5\u30A9\u30ED\u30FC"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
-        className: function className(_ref6) {
-          var isActive = _ref6.isActive;
-          return isActive ? _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
-        },
-        to: "/question/subject/latest/".concat(paramsId),
-        children: "\u6700\u65B0"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
-        className: function className(_ref7) {
-          var isActive = _ref7.isActive;
-          return isActive ? _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].NowUrlLink : undefined;
-        },
-        to: "/question/subject/like/".concat(paramsId),
-        children: "\u3044\u3044\u306D"
-      })]
-    });
-  }
+
+  // if (paramsId == undefined) {
+  //     return (
+  //         <div className={styles.listHeader}>
+
+  //             <NavLink
+  //                 className={`${homeUrl ? styles.NowUrlLink : ""}`}
+  //                 to={`/question`}
+  //             >
+  //                 おすすめ
+  //             </NavLink>
+  //             <NavLink
+  //                 className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
+  //                 to={`/question/follow`}
+  //             >
+  //                 フォロー
+  //             </NavLink>
+  //             <NavLink
+  //                 className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
+  //                 to={`/question/latest`}
+  //             >
+  //                 最新
+  //             </NavLink>
+  //             <NavLink
+  //                 className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
+  //                 to={`/question/like`}
+  //             >
+  //                 いいね
+  //             </NavLink>
+
+  //         </div>
+  //     )
+  // } else {
+  //     return (
+  //         <div className={styles.listHeader}>
+
+  //             <NavLink
+  //                 className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
+  //                 to={`/question/subject/${paramsId}`}
+  //             >
+  //                 おすすめ
+  //             </NavLink>
+  //             <NavLink
+  //                 className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
+  //                 to={`/question/subject/follow/${paramsId}`}
+  //             >
+  //                 フォロー
+  //             </NavLink>
+  //             <NavLink
+  //                 className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
+  //                 to={`/question/subject/latest/${paramsId}`}
+  //             >
+  //                 最新
+  //             </NavLink>
+  //             <NavLink
+  //                 className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
+  //                 to={`/question/subject/like/${paramsId}`}
+  //             >
+  //                 いいね
+  //             </NavLink>
+
+  //         </div>
+  //     )
+  // }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].listHeader,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].item,
+      children: "\u8CEA\u554F\u4E00\u89A7"
+    })
+  });
 }
 
 /***/ }),
@@ -27421,7 +27427,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ee0lAkR4o5hS1NbBp8Nkyg\\=\\= {\n  width: 100%;\n  max-width: 100vw;\n  height: 400px;\n  position: relative;\n  background-color: #ccc;\n}\n.ee0lAkR4o5hS1NbBp8Nkyg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  vertical-align: bottom;\n}\n\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  position: relative;\n  transform: translateY(-30%);\n  overflow: hidden;\n  border: 4px solid #fff;\n  background-color: #fff;\n}\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= .P\\+NVr2n0bViIt2G712JnbA\\=\\= {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 120px;\n}\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  vertical-align: bottom;\n}\n\n.JihEBzUZTa5IgiPvMKYyuw\\=\\= {\n  font-size: 1.1rem;\n  font-weight: 600;\n}\n\n.EUO\\+ryr46YnR8WrsJ0dcCA\\=\\= {\n  color: #454668;\n  border: 1px solid #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}\n.EUO\\+ryr46YnR8WrsJ0dcCA\\=\\=:hover {\n  cursor: pointer;\n}\n\n.DbiZuSgaM28weg5zg80blw\\=\\= {\n  color: #fff;\n  background-color: #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}\n.DbiZuSgaM28weg5zg80blw\\=\\=:hover {\n  cursor: pointer;\n}\n\n._8jYnXNR\\+hPSPdNPIvG8Sxw\\=\\= {\n  color: #222;\n}\n\n.QKchST2w-IhH7hcAceGc5A\\=\\= {\n  display: flex;\n  padding: 0 0 0 25px;\n  border-bottom: 1px solid #222;\n}\n.QKchST2w-IhH7hcAceGc5A\\=\\= a {\n  width: 80px;\n  padding: 18px 0 15px 0;\n  text-align: center;\n  text-decoration: none;\n  color: #fff;\n}\n.QKchST2w-IhH7hcAceGc5A\\=\\= .tcTQ7xpgrG3Nkf5w9zwUpA\\=\\= {\n  border-bottom: 3px solid #ccc;\n}\n.QKchST2w-IhH7hcAceGc5A\\=\\= .DNQGooncPboT6Q9gdYM4zQ\\=\\= {\n  border-bottom: 1px solid #222;\n}\n\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= {\n  width: 100%;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= a {\n  text-decoration: none;\n  color: #fff;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .tcTQ7xpgrG3Nkf5w9zwUpA\\=\\= {\n  border-bottom: 3px solid #ccc;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .DNQGooncPboT6Q9gdYM4zQ\\=\\= {\n  border-bottom: 1px solid #222;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= {\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n  align-items: center;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= .O63tJK-l7ZBjceC9Jhgy2Q\\=\\= {\n  font-size: 40px;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= {\n  margin-left: 20px;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= .-EwzV5Gla2NsLHvXbIGDqg\\=\\= {\n  font-weight: 600;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= {\n  width: 100%;\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= {\n  width: 40px;\n  height: 40px;\n  min-width: 40px;\n  min-height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= .O63tJK-l7ZBjceC9Jhgy2Q\\=\\= {\n  font-size: 40px;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= {\n  margin-left: 20px;\n  word-break: break-all;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= .-EwzV5Gla2NsLHvXbIGDqg\\=\\= {\n  font-weight: 600;\n}\n\n._87aIX52j8u4lyuJCk156UA\\=\\= {\n  text-align: center;\n  margin: 80px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".ee0lAkR4o5hS1NbBp8Nkyg\\=\\= {\n  width: 100%;\n  max-width: 100vw;\n  height: 400px;\n  position: relative;\n  background-color: #ccc;\n}\n.ee0lAkR4o5hS1NbBp8Nkyg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  vertical-align: bottom;\n}\n\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  position: relative;\n  transform: translateY(-30%);\n  overflow: hidden;\n  border: 4px solid #fff;\n  background-color: #fff;\n}\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= .P\\+NVr2n0bViIt2G712JnbA\\=\\= {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 120px;\n}\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  vertical-align: bottom;\n}\n\n.JihEBzUZTa5IgiPvMKYyuw\\=\\= {\n  font-size: 1.1rem;\n  font-weight: 600;\n}\n\n.EUO\\+ryr46YnR8WrsJ0dcCA\\=\\= {\n  color: #454668;\n  border: 1px solid #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}\n.EUO\\+ryr46YnR8WrsJ0dcCA\\=\\=:hover {\n  cursor: pointer;\n}\n\n.DbiZuSgaM28weg5zg80blw\\=\\= {\n  color: #fff;\n  background-color: #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}\n.DbiZuSgaM28weg5zg80blw\\=\\=:hover {\n  cursor: pointer;\n}\n\n._8jYnXNR\\+hPSPdNPIvG8Sxw\\=\\= {\n  color: #222;\n}\n\n.QKchST2w-IhH7hcAceGc5A\\=\\= {\n  display: flex;\n  padding: 0 0 0 25px;\n  border-bottom: 1px solid #222;\n}\n.QKchST2w-IhH7hcAceGc5A\\=\\= a {\n  width: 80px;\n  padding: 18px 0 15px 0;\n  text-align: center;\n  text-decoration: none;\n  color: #fff;\n}\n.QKchST2w-IhH7hcAceGc5A\\=\\= .sIOioFPJlTf8VU6bSfdHXA\\=\\= {\n  width: 80px;\n  padding: 18px 0 15px 0;\n  text-align: center;\n  text-decoration: none;\n  color: #fff;\n}\n.QKchST2w-IhH7hcAceGc5A\\=\\= .tcTQ7xpgrG3Nkf5w9zwUpA\\=\\= {\n  border-bottom: 3px solid #ccc;\n}\n.QKchST2w-IhH7hcAceGc5A\\=\\= .DNQGooncPboT6Q9gdYM4zQ\\=\\= {\n  border-bottom: 1px solid #222;\n}\n\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= {\n  width: 100%;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= a {\n  text-decoration: none;\n  color: #fff;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .tcTQ7xpgrG3Nkf5w9zwUpA\\=\\= {\n  border-bottom: 3px solid #ccc;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .DNQGooncPboT6Q9gdYM4zQ\\=\\= {\n  border-bottom: 1px solid #222;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= {\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n  align-items: center;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= .O63tJK-l7ZBjceC9Jhgy2Q\\=\\= {\n  font-size: 40px;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= {\n  margin-left: 20px;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= .-EwzV5Gla2NsLHvXbIGDqg\\=\\= {\n  font-weight: 600;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= {\n  width: 100%;\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= {\n  width: 40px;\n  height: 40px;\n  min-width: 40px;\n  min-height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= .O63tJK-l7ZBjceC9Jhgy2Q\\=\\= {\n  font-size: 40px;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= {\n  margin-left: 20px;\n  word-break: break-all;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= .-EwzV5Gla2NsLHvXbIGDqg\\=\\= {\n  font-weight: 600;\n}\n\n._87aIX52j8u4lyuJCk156UA\\=\\= {\n  text-align: center;\n  margin: 80px;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"backImage": "ee0lAkR4o5hS1NbBp8Nkyg==",
@@ -27432,6 +27438,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"unfollow": "DbiZuSgaM28weg5zg80blw==",
 	"settingButton": "_8jYnXNR+hPSPdNPIvG8Sxw==",
 	"listHeader": "QKchST2w-IhH7hcAceGc5A==",
+	"item": "sIOioFPJlTf8VU6bSfdHXA==",
 	"NowUrlLink": "tcTQ7xpgrG3Nkf5w9zwUpA==",
 	"AnotherUrlLink": "DNQGooncPboT6Q9gdYM4zQ==",
 	"List": "xMyGFvvLrp++bdEGFQcY3Q==",

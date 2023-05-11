@@ -20,7 +20,7 @@ export default function List() {
     // URLが変更されるたびに実行
     useEffect(() => {
         axios
-            .get(`http://localhost:8081/api/question?page=${idPagenate}`)
+            .get(`http://localhost:8081/api/user/${paramsId}/list/question?page=${idPagenate}`)
             .then((res) => {
                 setData(res.data.data)
             })
