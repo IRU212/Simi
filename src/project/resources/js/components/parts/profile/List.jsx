@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import styles from '../../../../../public/scss/parts/question.module.scss'
+import styles from '../../../../../public/scss/parts/profile.module.scss'
 import { Link, useParams } from 'react-router-dom'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
@@ -20,7 +20,7 @@ export default function List() {
     // URLが変更されるたびに実行
     useEffect(() => {
         axios
-            .get(`http://localhost:8081/api${pathname}?page=${idPagenate}`)
+            .get(`http://localhost:8081/api/question?page=${idPagenate}`)
             .then((res) => {
                 setData(res.data.data)
             })

@@ -15,13 +15,17 @@ export default function Icon() {
 
     return (
         <>
-            { loginData == false || loginData?.icon_image == null ?
+            { loginData == false ?
                 <Link to={`/login`} className={styles.icon}>
                     <AccountCircleIcon className={styles.humanIcon} />
                 </Link>
                 :
                 <Link to={`/profile/${loginData?.id}`} className={styles.icon}>
-                    <img src={`${loginData?.icon_image}`} alt="アイコン" />
+                    { loginData?.icon_image == null ?
+                        <AccountCircleIcon className={styles.humanIcon} />
+                        :
+                        <img src={`${loginData?.icon_image}`} alt="アイコン" />
+                    }
                 </Link>
             }
         </>

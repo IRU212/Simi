@@ -1,0 +1,22 @@
+.profile{
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+
+    .content{
+        width: 100%;
+        margin: 40px 0 0 0;
+        padding: 0 60px 0 40px;
+        box-sizing: border-box;
+    }
+}
+
+// *{
+//     outline: 2px red solid;
+// }
+
+// 謎の余白を消すため
+// 後に修正
+body{
+    overflow-x: hidden;
+}
