@@ -3,6 +3,7 @@ import DateAction from '../templates/home/DateAction'
 import DetailTop from '../templates/home/DetailTop'
 import Schedule from '../templates/home/Schedule'
 
+//　トップページ
 export default function Home() {
     return (
         <div className={styles.home}>

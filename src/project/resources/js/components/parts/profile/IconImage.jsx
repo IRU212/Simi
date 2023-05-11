@@ -1,4 +1,5 @@
 import styles from '../../../../../public/scss/parts/profile.module.scss'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 // コンポネート呼び出し
 import ProfileUserApi from '../../api/get/ProfileUserApi'
@@ -12,7 +13,7 @@ export default function IconImage() {
     return (
         <div className={styles.iconImage}>
             { apiData?.icon_image == null ?
-                ""
+                <AccountCircleIcon className={styles.humanIcon} />
                 :
                 <img src={`${apiData?.icon_image}`} alt="背景画像" />
             }

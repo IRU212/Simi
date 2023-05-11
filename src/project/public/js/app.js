@@ -17888,6 +17888,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+//　トップページ
+
 
 function Home() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -19202,8 +19204,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ IconImage)
 /* harmony export */ });
 /* harmony import */ var _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../public/scss/parts/profile.module.scss */ "./public/scss/parts/profile.module.scss");
+/* harmony import */ var _mui_icons_material_AccountCircle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/icons-material/AccountCircle */ "./node_modules/@mui/icons-material/AccountCircle.js");
 /* harmony import */ var _api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api/get/ProfileUserApi */ "./resources/js/components/api/get/ProfileUserApi.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 // コンポネート呼び出し
@@ -19216,7 +19220,9 @@ function IconImage() {
   var apiData = (0,_api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_1__["default"])();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].iconImage,
-    children: (apiData === null || apiData === void 0 ? void 0 : apiData.icon_image) == null ? "" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+    children: (apiData === null || apiData === void 0 ? void 0 : apiData.icon_image) == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_icons_material_AccountCircle__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].humanIcon
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
       src: "".concat(apiData === null || apiData === void 0 ? void 0 : apiData.icon_image),
       alt: "\u80CC\u666F\u753B\u50CF"
     })
@@ -27129,11 +27135,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ee0lAkR4o5hS1NbBp8Nkyg\\=\\= {\n  width: 100vw;\n  height: 400px;\n  position: relative;\n}\n.ee0lAkR4o5hS1NbBp8Nkyg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  vertical-align: bottom;\n}\n\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  position: relative;\n  overflow: hidden;\n  border: 4px solid #fff;\n}\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  vertical-align: bottom;\n}\n\n.JihEBzUZTa5IgiPvMKYyuw\\=\\= {\n  font-size: 1.1rem;\n  font-weight: 600;\n}\n\n.EUO\\+ryr46YnR8WrsJ0dcCA\\=\\= {\n  color: #454668;\n  border: 1px solid #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}\n.EUO\\+ryr46YnR8WrsJ0dcCA\\=\\=:hover {\n  cursor: pointer;\n}\n\n.DbiZuSgaM28weg5zg80blw\\=\\= {\n  color: #fff;\n  background-color: #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}\n.DbiZuSgaM28weg5zg80blw\\=\\=:hover {\n  cursor: pointer;\n}\n\n._8jYnXNR\\+hPSPdNPIvG8Sxw\\=\\= {\n  color: #222;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".ee0lAkR4o5hS1NbBp8Nkyg\\=\\= {\n  width: 100vw;\n  height: 400px;\n  position: relative;\n  background-color: #ccc;\n}\n.ee0lAkR4o5hS1NbBp8Nkyg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  vertical-align: bottom;\n}\n\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  position: relative;\n  overflow: hidden;\n  border: 4px solid #fff;\n  background-color: #fff;\n}\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= .P\\+NVr2n0bViIt2G712JnbA\\=\\= {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 120px;\n}\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  vertical-align: bottom;\n}\n\n.JihEBzUZTa5IgiPvMKYyuw\\=\\= {\n  font-size: 1.1rem;\n  font-weight: 600;\n}\n\n.EUO\\+ryr46YnR8WrsJ0dcCA\\=\\= {\n  color: #454668;\n  border: 1px solid #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}\n.EUO\\+ryr46YnR8WrsJ0dcCA\\=\\=:hover {\n  cursor: pointer;\n}\n\n.DbiZuSgaM28weg5zg80blw\\=\\= {\n  color: #fff;\n  background-color: #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}\n.DbiZuSgaM28weg5zg80blw\\=\\=:hover {\n  cursor: pointer;\n}\n\n._8jYnXNR\\+hPSPdNPIvG8Sxw\\=\\= {\n  color: #222;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"backImage": "ee0lAkR4o5hS1NbBp8Nkyg==",
 	"iconImage": "+8xk31IbrwsU-Q8Iiq9qNQ==",
+	"humanIcon": "P+NVr2n0bViIt2G712JnbA==",
 	"name": "JihEBzUZTa5IgiPvMKYyuw==",
 	"follow": "EUO+ryr46YnR8WrsJ0dcCA==",
 	"unfollow": "DbiZuSgaM28weg5zg80blw==",
@@ -27466,7 +27473,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Kug-y6oMtJ0o5rZnk0U8Tg\\=\\= {\n  width: 34vw;\n  min-width: 180px;\n  background-color: #eae6e6;\n}\n\n.Qj3cV115FkaZObwOOsS3Tw\\=\\= {\n  width: 100%;\n  padding: 40px 0 0 40px;\n}\n.Qj3cV115FkaZObwOOsS3Tw\\=\\= ._4UAvlpzrq-lX1zLl26tUfA\\=\\= {\n  color: #222;\n  font-size: 1.2rem;\n  margin-bottom: 30px;\n  font-weight: 600;\n  letter-spacing: 1px;\n}\n\n@media screen and (max-width: 878px) {\n  .Qj3cV115FkaZObwOOsS3Tw\\=\\= {\n    width: -moz-fit-content;\n    width: fit-content;\n    padding: 40px 0 0 20px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Kug-y6oMtJ0o5rZnk0U8Tg\\=\\= {\n  width: 34vw;\n  min-width: 180px;\n  background-color: #eae6e6;\n}\n\n.Qj3cV115FkaZObwOOsS3Tw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  padding: 40px 0 0 40px;\n}\n.Qj3cV115FkaZObwOOsS3Tw\\=\\= ._4UAvlpzrq-lX1zLl26tUfA\\=\\= {\n  color: #222;\n  font-size: 1.2rem;\n  margin-bottom: 30px;\n  font-weight: 600;\n  letter-spacing: 1px;\n}\n\n@media screen and (max-width: 878px) {\n  .Qj3cV115FkaZObwOOsS3Tw\\=\\= {\n    width: -moz-fit-content;\n    width: fit-content;\n    padding: 40px 0 0 20px;\n  }\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"sideHeader": "Kug-y6oMtJ0o5rZnk0U8Tg==",
