@@ -19,7 +19,7 @@ export default function ProfileUserApi() {
             .catch((err) => {
                 console.log(err)
             })
-    },[])
+    },[id])
 
     return data
 }
