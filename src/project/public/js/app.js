@@ -20731,6 +20731,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 // 検索結果　
 
 
+
 function List() {
   // Apiデータ取得
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
@@ -20778,17 +20779,20 @@ function List() {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].List,
       children: data.length <= 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(NotFoud, {}) : data.map(function (item, index) {
+        var _item$user, _item$user2;
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
           to: "/question/detail/".concat(item.id),
           className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].questionItem,
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
             to: "/profile/".concat(item.user_id),
             className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].icon,
-            children: item.user.icon_image == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_icons_material_AccountCircle__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            children: ((_item$user = item.user) === null || _item$user === void 0 ? void 0 : _item$user.icon_image) == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_icons_material_AccountCircle__WEBPACK_IMPORTED_MODULE_4__["default"], {
               className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].humnanIcon
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-              src: "".concat(item.user.icon_image),
-              alt: "\u30A2\u30A4\u30B3\u30F3"
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                src: "".concat((_item$user2 = item.user) === null || _item$user2 === void 0 ? void 0 : _item$user2.icon_image),
+                alt: "\u30A2\u30A4\u30B3\u30F3"
+              })
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].main,
@@ -20816,10 +20820,10 @@ function List() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
             to: "/profile/".concat(item.id),
             className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].icon,
-            children: item.icon_image == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_icons_material_AccountCircle__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            children: (item === null || item === void 0 ? void 0 : item.icon_image) == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_icons_material_AccountCircle__WEBPACK_IMPORTED_MODULE_4__["default"], {
               className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].humnanIcon
             }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-              src: "".concat(item.icon_image),
+              src: "".concat(item === null || item === void 0 ? void 0 : item.icon_image),
               alt: "\u30A2\u30A4\u30B3\u30F3"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
