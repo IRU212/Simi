@@ -18328,6 +18328,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Form() {
+  // 元URL
+  var urlOrigin = window.location.origin;
+
   // 入力内容保持
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState2 = _slicedToArray(_useState, 2),
@@ -18377,8 +18380,8 @@ function Form() {
       name: name,
       email: email,
       password: password
-    }).then(function (res) {
-      console.log(res);
+    }).then(function () {
+      location.href = urlOrigin;
     })["catch"](function (err) {
       // バリデーション内容の取得
       var errorMessage = err.response.data || err.message;

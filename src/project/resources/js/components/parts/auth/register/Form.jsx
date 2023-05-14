@@ -8,6 +8,9 @@ import styles from '../../../../../../public/scss/parts/auth.module.scss'
 // 新規アカウントログイン　フォーム
 export default function Form() {
 
+    // 元URL
+    const urlOrigin = window.location.origin
+
     // 入力内容保持
     const [name,setName] = useState("") // 名前
     const [email,setEmail] = useState("") // メールアドレス
@@ -42,8 +45,8 @@ export default function Form() {
                 email: email,
                 password: password
             })
-            .then((res) => {
-                console.log(res)
+            .then(() => {
+                location.href = urlOrigin
             })
             .catch((err) => {
 

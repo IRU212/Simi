@@ -41,6 +41,7 @@ class DashbordController extends Controller
 
         $data = $question->with('user')
                          ->whereBetween('created_at', [$search_date . ' 00:00:00', $search_date . ' 23:59:59'])
+                         ->where('user_id',session('login_id')[0])
                          ->paginate(20);
 
         // JSONで返す
