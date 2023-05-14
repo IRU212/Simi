@@ -37,4 +37,10 @@ class Question extends Model
     {
         return $this->belongsTo(Follow::class,'user_id','follow_id')->where('user_id','=',session('login_id')[0]);
     }
+
+    // question_image テーブル取得
+    public function image()
+    {
+        return $this->hasMany(Question\Image::class,'question_id');
+    }
 }

@@ -93,7 +93,8 @@ class QuestionController extends Controller
         // モデル　インスタンス呼び出し
         $question = new Question();
 
-        $data = $question->select('id','name','body','subject as subject_id','course as couse_id','user_id')
+        $data = $question->with('image')
+                         ->select('id','name','body','subject as subject_id','course as couse_id','user_id')
                          ->selectRaw( // 教科の名前を取得
                             "(CASE subject
                                 WHEN 1 THEN '国語'

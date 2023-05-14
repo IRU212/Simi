@@ -18,4 +18,13 @@ class Image extends Model
 
     // タイムスタンプ無効
     public $timestamps = false;
+
+    /**
+     * 非表示にするカラム
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'question_id',
+    ];
 }
