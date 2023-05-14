@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import styles from '../../../../../../public/scss/parts/home.module.scss'
 
 // 行動リスト
@@ -69,7 +70,11 @@ export default function List() {
                 data.map((item,index) =>
                     <Link to={`/question/detail/${item.id}`} className={styles.questionItem} key={index}>
                         <Link to={`/profile/${item.user_id}`} className={styles.icon}>
-                            <img src="https://start-nerve.jp/wp-content/uploads/2021/05/kDPQYANH_400x400-400x360.jpg" alt="アイコン" />
+                            { item.user.icon_image !== null  ?
+                                <AccountCircleIcon className={styles.humnanIcon}  />
+                                :
+                                <img src={item.user.icon_image} alt="アイコン" />
+                            }
                         </Link>
                         <div className={styles.main}>
                             <div className={styles.title}>
