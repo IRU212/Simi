@@ -20297,10 +20297,6 @@ function QuestionDetail() {
           children: item
         }, index);
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-      src: "https://prtimes.jp/i/30865/238/origin/d30865-238-463172-2.png",
-      className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].image,
-      alt: "\u753B\u50CF"
     })]
   });
 }
