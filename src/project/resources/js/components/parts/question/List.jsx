@@ -6,28 +6,17 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 // 質問一覧表示
 export default function List() {
 
-    // スクロールするたびに実行
-    const changeBottom = useCallback(() => {
-        const bottomPosition = document.body.offsetHeight - (window.scrollY + window.innerHeight);
-
-        // スクロール位置が10以下になったら発火
-        if (bottomPosition < 10) {
-            setIdPagenate(idPagenate + 1)
-        }
-    }, []);
-
-    // リロード時にスクロールイベントを呼び出し
-    // スクロールするたびにchnageBottomを実行
-    useEffect(() => {
-        window.addEventListener('scroll', changeBottom);
-        return () => window.removeEventListener('scroll', changeBottom);
-    }, [])
-
     // Apiデータ取得
     const [data,setData] = useState([])
 
+    // 次のデータ取得判定
+    const [nextPage,setNextPage] = useState()
+
     // ドメイン以降のURLを取得
     const pathname = window.location.pathname
+
+    // 前のURLを取得
+    const [urlHistory,setUrlHistory] = useState(pathname)
 
     // パラメータを取得
     const paramsId = useParams()['id']
@@ -37,15 +26,60 @@ export default function List() {
 
     // URLが変更されるたびに実行
     useEffect(() => {
+
+
         axios
             .get(`http://localhost:8081/api${pathname}?page=${idPagenate}`)
             .then((res) => {
-                setData([...data, ...res.data.data])
+
+                if (urlHistory == pathname) {
+
+                    //タイマー処理
+                    setTimeout(() => {
+
+                        setData([...data, ...res.data.data])
+                        setNextPage(res.next_page_url)
+
+                    }, 3000);
+
+                } else {
+
+                    //タイマー処理
+                    setTimeout(() => {
+
+                        setData(res.data.data)
+                        setIdPagenate(1)
+
+                    }, 3000);
+                }
+
+                // setUrlHistory(pathname)
+
             })
             .catch((err) => {
                 console.log(err)
             })
     }, [pathname,paramsId,idPagenate])
+
+    // スクロールするたびに実行
+    const changeBottom = useCallback(() => {
+        const bottomPosition = document.body.offsetHeight - (window.scrollY + window.innerHeight);
+
+        // スクロール位置が10以下になったら発火
+        if (bottomPosition < 10) {
+
+            if (nextPage !== null) {
+                setIdPagenate(idPagenate + 1)
+            }
+        }
+    }, []);
+
+    // リロード時にスクロールイベントを呼び出し
+    // スクロールするたびにchnageBottomを実行
+    useEffect(() => {
+        window.addEventListener('scroll', changeBottom);
+        return () => window.removeEventListener('scroll', changeBottom);
+    }, [])
 
     return (
         <div className={styles.List}>

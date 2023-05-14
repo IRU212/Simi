@@ -19773,13 +19773,68 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function List() {
+  // Apiデータ取得
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState2 = _slicedToArray(_useState, 2),
+    data = _useState2[0],
+    setData = _useState2[1];
+
+  // 次のデータ取得判定
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState4 = _slicedToArray(_useState3, 2),
+    nextPage = _useState4[0],
+    setNextPage = _useState4[1];
+
+  // ドメイン以降のURLを取得
+  var pathname = window.location.pathname;
+
+  // 前のURLを取得
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(pathname),
+    _useState6 = _slicedToArray(_useState5, 2),
+    urlHistory = _useState6[0],
+    setUrlHistory = _useState6[1];
+
+  // パラメータを取得
+  var paramsId = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)()['id'];
+
+  // 初期ページネイトページ数
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState8 = _slicedToArray(_useState7, 2),
+    idPagenate = _useState8[0],
+    setIdPagenate = _useState8[1];
+
+  // URLが変更されるたびに実行
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    axios.get("http://localhost:8081/api".concat(pathname, "?page=").concat(idPagenate)).then(function (res) {
+      if (urlHistory == pathname) {
+        //タイマー処理
+        setTimeout(function () {
+          setData([].concat(_toConsumableArray(data), _toConsumableArray(res.data.data)));
+          setNextPage(res.next_page_url);
+        }, 3000);
+      } else {
+        //タイマー処理
+        setTimeout(function () {
+          setData(res.data.data);
+          setIdPagenate(1);
+        }, 3000);
+      }
+
+      // setUrlHistory(pathname)
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  }, [pathname, paramsId, idPagenate]);
+
   // スクロールするたびに実行
   var changeBottom = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () {
     var bottomPosition = document.body.offsetHeight - (window.scrollY + window.innerHeight);
 
     // スクロール位置が10以下になったら発火
     if (bottomPosition < 10) {
-      setIdPagenate(idPagenate + 1);
+      if (nextPage !== null) {
+        setIdPagenate(idPagenate + 1);
+      }
     }
   }, []);
 
@@ -19791,33 +19846,6 @@ function List() {
       return window.removeEventListener('scroll', changeBottom);
     };
   }, []);
-
-  // Apiデータ取得
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState2 = _slicedToArray(_useState, 2),
-    data = _useState2[0],
-    setData = _useState2[1];
-
-  // ドメイン以降のURLを取得
-  var pathname = window.location.pathname;
-
-  // パラメータを取得
-  var paramsId = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)()['id'];
-
-  // 初期ページネイトページ数
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
-    _useState4 = _slicedToArray(_useState3, 2),
-    idPagenate = _useState4[0],
-    setIdPagenate = _useState4[1];
-
-  // URLが変更されるたびに実行
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    axios.get("http://localhost:8081/api".concat(pathname, "?page=").concat(idPagenate)).then(function (res) {
-      setData([].concat(_toConsumableArray(data), _toConsumableArray(res.data.data)));
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  }, [pathname, paramsId, idPagenate]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].List,
     children: data.length <= 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
