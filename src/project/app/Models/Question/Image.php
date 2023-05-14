@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    use HasFactory;
+    // テーブル名
+    protected $table = "question_image";
+
+    // カラム名
+    protected $fillable = [
+        'image',
+        'question_id'
+    ];
 }

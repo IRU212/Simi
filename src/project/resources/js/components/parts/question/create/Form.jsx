@@ -11,6 +11,10 @@ export default function Form() {
     const [body,setBody] = useState("")
     const [subject,setSubject] = useState("")
     const [course,setCourse] = useState("")
+    const [image,setImage] = useState("")
+
+    // プレビュー画像
+    const [previewImage,setPreviewIconImage] = useState(null)
 
     // 名前が変更されたらnameに保存
     const NameChange = (e) => {
@@ -20,6 +24,14 @@ export default function Form() {
     // 本文が変更されたらbodyに保存
     const BodyChange = (e) => {
         setBody(e.target.value)
+    }
+
+    // 画像が変更されたらbodyに保存
+    const ImageChange = (e) => {
+        setImage(e.target.files[0])
+
+        // オブジェクトURLを生成し、useState()を更新
+        setPreviewIconImage(window.URL.createObjectURL(e.target.files[0]))
     }
 
     // 本文が変更されたらsubjectに保存
@@ -47,6 +59,7 @@ export default function Form() {
         data.append("body",body)
         data.append("subject",subject)
         data.append("course",course)
+        data.append("image",image)
 
         axios
             .post("/api/question/store",data)
@@ -80,6 +93,22 @@ export default function Form() {
                     <textarea rows="18" className={styles.bodyTextArea} onChange={BodyChange}>
 
                     </textarea>
+                </section>
+
+                <section>
+
+                    <div className={styles.title}>
+                        画像
+                    </div>
+                    <input type="file" id='image' accept="image/*" multiple onChange={ImageChange} />
+                    <label htmlFor="image">
+                        { previewImage == null ?
+                            ""
+                            :
+                            <img src={`${previewImage}`} className={styles.previewImage} />
+                        }
+                    </label>
+
                 </section>
 
                 <section>
