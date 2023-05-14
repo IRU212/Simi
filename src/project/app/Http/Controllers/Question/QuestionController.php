@@ -164,7 +164,6 @@ class QuestionController extends Controller
     {
         // モデル　インスタンス呼び出し
         $question = new Question();
-        $question_image = new Image();
 
         // リクエスト取得
         $question->name = $request->name;
@@ -173,20 +172,25 @@ class QuestionController extends Controller
         $question->course = $request->course;
         $question->user_id = session('login_id')[0];
 
-        // アップロードされたファイル名を取得
-        $file_name = $request->image->getClientOriginalName();
+        if ($request->image !== null) {
 
-        // 取得したファイル名で保存
-        $image = $request->image->storeAs('public/image', $file_name);
+            // モデル インスタンス呼び出し
+            $question_image = new Image();
 
-        $question_image->image = $request->getUriForPath('') . '/storage/image/' . $file_name;
-        $question_image->question_id = $question->orderBy('id', 'desc')->first()['id'] + 1;
+            // アップロードされたファイル名を取得
+            $file_name = $request->image->getClientOriginalName();
 
+            // 取得したファイル名で保存
+            $image = $request->image->storeAs('public/image', $file_name);
 
-        print_r($question->orderBy('id', 'desc')->first());
+            $question_image->image = $request->getUriForPath('') . '/storage/image/' . $file_name;
+            $question_image->question_id = $question->orderBy('id', 'desc')->first()['id'] + 1;
+
+            // dbに保存
+            $question_image->save();
+        }
 
         // dbに保存
         $question->save();
-        $question_image->save();
     }
 }
