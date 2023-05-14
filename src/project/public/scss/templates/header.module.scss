@@ -7,4 +7,11 @@
     position: relative;
     color: #fff;
     background-color: #454668;
+
+    .profileInfo{
+        display: flex;
+        align-items: center;
+        margin: 0 0 0 auto;
+        gap: 0 20px;
+    }
 }

@@ -70,7 +70,7 @@ export default function List() {
                 data.map((item,index) =>
                     <Link to={`/question/detail/${item.id}`} className={styles.questionItem} key={index}>
                         <Link to={`/profile/${item.user_id}`} className={styles.icon}>
-                            { item.user.icon_image !== null  ?
+                            { item.user.icon_image == null  ?
                                 <AccountCircleIcon className={styles.humnanIcon}  />
                                 :
                                 <img src={item.user.icon_image} alt="アイコン" />
