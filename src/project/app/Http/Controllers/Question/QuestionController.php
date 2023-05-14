@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Question;
 
 use App\Http\Controllers\Controller;
 use App\Models\Question;
+use App\Models\Question\Image;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -162,14 +163,29 @@ class QuestionController extends Controller
     {
         // モデル　インスタンス呼び出し
         $question = new Question();
+        $question_image = new Image();
 
+        // リクエスト取得
         $question->name = $request->name;
         $question->body = $request->body;
         $question->subject = $request->subject;
         $question->course = $request->course;
         $question->user_id = session('login_id')[0];
 
-        // JSONで返す
+        // アップロードされたファイル名を取得
+        $file_name = $request->image->getClientOriginalName();
+
+        // 取得したファイル名で保存
+        $image = $request->image->storeAs('public/image', $file_name);
+
+        $question_image->image = $request->getUriForPath('') . '/storage/image/' . $file_name;
+        $question_image->question_id = $question->orderBy('id', 'desc')->first()['id'] + 1;
+
+
+        print_r($question->orderBy('id', 'desc')->first());
+
+        // dbに保存
         $question->save();
+        $question_image->save();
     }
 }

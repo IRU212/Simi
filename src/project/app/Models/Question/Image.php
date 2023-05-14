@@ -15,4 +15,7 @@ class Image extends Model
         'image',
         'question_id'
     ];
+
+    // タイムスタンプ無効
+    public $timestamps = false;
 }
