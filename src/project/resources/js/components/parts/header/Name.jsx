@@ -15,7 +15,9 @@ export default function Name() {
     return (
         <div className={styles.name}>
             { loginData == false ?
-                "aaaaa"
+                <Link to={`/login`} >
+                    ログイン
+                </Link>
                 :
                 <Link to={`/profile/${loginData?.id}`}>
                     { loginData?.name }

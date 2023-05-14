@@ -18574,7 +18574,10 @@ function Name() {
   var loginData = (0,_api_get_LoginUserApi__WEBPACK_IMPORTED_MODULE_1__["default"])();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: _public_scss_parts_header_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].name,
-    children: loginData == false ? "aaaaa" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+    children: loginData == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+      to: "/login",
+      children: "\u30ED\u30B0\u30A4\u30F3"
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
       to: "/profile/".concat(loginData === null || loginData === void 0 ? void 0 : loginData.id),
       children: loginData === null || loginData === void 0 ? void 0 : loginData.name
     })
