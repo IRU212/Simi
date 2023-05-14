@@ -1,9 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styles from '../../../../../public/scss/parts/question.module.scss'
 import { Link, useParams } from 'react-router-dom'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
+// 質問一覧表示
 export default function List() {
+
+    // スクロールするたびに実行
+    const changeBottom = useCallback(() => {
+        const bottomPosition = document.body.offsetHeight - (window.scrollY + window.innerHeight);
+
+        // スクロール位置が10以下になったら発火
+        if (bottomPosition < 10) {
+            setIdPagenate(idPagenate + 1)
+        }
+    }, []);
+
+    // リロード時にスクロールイベントを呼び出し
+    // スクロールするたびにchnageBottomを実行
+    useEffect(() => {
+        window.addEventListener('scroll', changeBottom);
+        return () => window.removeEventListener('scroll', changeBottom);
+    }, [])
 
     // Apiデータ取得
     const [data,setData] = useState([])
@@ -22,12 +40,12 @@ export default function List() {
         axios
             .get(`http://localhost:8081/api${pathname}?page=${idPagenate}`)
             .then((res) => {
-                setData(res.data.data)
+                setData([...data, ...res.data.data])
             })
             .catch((err) => {
                 console.log(err)
             })
-    }, [pathname,paramsId])
+    }, [pathname,paramsId,idPagenate])
 
     return (
         <div className={styles.List}>
@@ -36,38 +54,42 @@ export default function List() {
                     検索結果が見つかりませんでした
                 </div>
                 :
-                data.map((item,index) =>
-                    <Link to={`/question/detail/${item.id}`} className={styles.questionItem} key={index}>
-                        <Link to={`/profile/${item.user_id}`} className={styles.icon}>
-                            { item.user.icon_image == null ?
-                                <AccountCircleIcon className={styles.humnanIcon}  />
-                                :
-                                <img src={`${item.user.icon_image}`} alt="アイコン" />
-                            }
-                        </Link>
-                        <div className={styles.main}>
-                            <div className={styles.title}>
-                                { item.name }
-                            </div>
-                            <div>
-                                { item.body.split("\n").map((item,index) => {
-                                    return(
-                                        <div key={index}>
-                                            { index > 2 ?
-                                                ""
-                                                :
-                                                item
-                                            }
-                                        </div>
-                                    )
-                                }) }
-                            </div>
-                        </div>
-                        {/* <IsLike questionId={item.id} /> */}
-                    </Link>
-                )
+                <div>
+                    { data.map((item,index) => {
+                        return(
+                            <Link to={`/question/detail/${item.id}`} className={styles.questionItem} key={index}>
+                                <Link to={`/profile/${item.user_id}`} className={styles.icon}>
+                                    { item.user.icon_image == null ?
+                                        <AccountCircleIcon className={styles.humnanIcon}  />
+                                        :
+                                        <img src={`${item.user.icon_image}`} alt="アイコン" />
+                                    }
+                                </Link>
+                                <div className={styles.main}>
+                                    <div className={styles.title}>
+                                        { item.name }
+                                    </div>
+                                    <div>
+                                        { item.body.split("\n").map((item,index) => {
+                                            return(
+                                                <div key={index}>
+                                                    { index > 2 ?
+                                                        ""
+                                                        :
+                                                        item
+                                                    }
+                                                </div>
+                                            )
+                                        }) }
+                                    </div>
+                                </div>
+                            </Link>
+                        )
+                    }) }
+                </div>
             }
 
         </div>
     )
 }
+

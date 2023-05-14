@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 // スタイル
 import styles from '../../../../../public/scss/parts/header.module.scss'
