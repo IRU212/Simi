@@ -25,11 +25,15 @@ export default function QuestionDetail() {
                 ) }
             </div>
             {/* 画像 */}
-            {/* { apiData?.image = null ?
+            { apiData?.image.length <= 0 ?
                 ""
                 :
-                <img src="https://prtimes.jp/i/30865/238/origin/d30865-238-463172-2.png" className={styles.image} alt="画像" />
-            } */}
+                <>
+                    { apiData?.image.map((item,index) =>
+                        <img src={item?.image}key={index} className={styles.image} alt="画像" />
+                    ) }
+                </>
+            }
 
         </div>
     )

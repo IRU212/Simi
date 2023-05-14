@@ -20319,6 +20319,7 @@ __webpack_require__.r(__webpack_exports__);
 // 質問詳細
 
 
+
 function QuestionDetail() {
   var apiData = (0,_api_get_like_QuestionDetailApi__WEBPACK_IMPORTED_MODULE_0__["default"])();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -20331,6 +20332,14 @@ function QuestionDetail() {
       children: apiData === null || apiData === void 0 ? void 0 : apiData.body.split("\n").map(function (item, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           children: item
+        }, index);
+      })
+    }), (apiData === null || apiData === void 0 ? void 0 : apiData.image.length) <= 0 ? "" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+      children: apiData === null || apiData === void 0 ? void 0 : apiData.image.map(function (item, index) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+          src: item === null || item === void 0 ? void 0 : item.image,
+          className: _public_scss_parts_question_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].image,
+          alt: "\u753B\u50CF"
         }, index);
       })
     })]
