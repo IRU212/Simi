@@ -19807,20 +19807,16 @@ function List() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     axios.get("http://localhost:8081/api".concat(pathname, "?page=").concat(idPagenate)).then(function (res) {
       if (urlHistory == pathname) {
-        //タイマー処理
+        //タイマー処理 3秒後に実行
         setTimeout(function () {
-          setData([].concat(_toConsumableArray(data), _toConsumableArray(res.data.data)));
-          setNextPage(res.next_page_url);
-        }, 3000);
+          setData([].concat(_toConsumableArray(data), _toConsumableArray(res.data.data))); // 表示リスト取得
+          setNextPage(res.next_page_url); // 次にページがあるか取得　ない場合は null
+        }, 0);
       } else {
-        //タイマー処理
-        setTimeout(function () {
-          setData(res.data.data);
-          setIdPagenate(1);
-        }, 3000);
+        setData(res.data.data); // 新規ページ　表示リスト取得
+        setIdPagenate(1); // ページ番号を1にリセット
+        setUrlHistory(pathname);
       }
-
-      // setUrlHistory(pathname)
     })["catch"](function (err) {
       console.log(err);
     });
@@ -19828,13 +19824,12 @@ function List() {
 
   // スクロールするたびに実行
   var changeBottom = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () {
+    // スクロール位置を取得
     var bottomPosition = document.body.offsetHeight - (window.scrollY + window.innerHeight);
 
     // スクロール位置が10以下になったら発火
-    if (bottomPosition < 10) {
-      if (nextPage !== null) {
-        setIdPagenate(idPagenate + 1);
-      }
+    if (bottomPosition < 0 && bottomPosition !== null) {
+      setIdPagenate(idPagenate + 1);
     }
   }, []);
 

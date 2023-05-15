@@ -27,33 +27,27 @@ export default function List() {
     // URLが変更されるたびに実行
     useEffect(() => {
 
-
         axios
             .get(`http://localhost:8081/api${pathname}?page=${idPagenate}`)
             .then((res) => {
 
                 if (urlHistory == pathname) {
 
-                    //タイマー処理
+                    //タイマー処理 3秒後に実行
                     setTimeout(() => {
 
-                        setData([...data, ...res.data.data])
-                        setNextPage(res.next_page_url)
+                        setData([...data, ...res.data.data]) // 表示リスト取得
+                        setNextPage(res.next_page_url) // 次にページがあるか取得　ない場合は null
 
-                    }, 3000);
+                    }, 0);
 
                 } else {
 
-                    //タイマー処理
-                    setTimeout(() => {
+                    setData(res.data.data) // 新規ページ　表示リスト取得
+                    setIdPagenate(1) // ページ番号を1にリセット
+                    setUrlHistory(pathname)
 
-                        setData(res.data.data)
-                        setIdPagenate(1)
-
-                    }, 3000);
                 }
-
-                // setUrlHistory(pathname)
 
             })
             .catch((err) => {
@@ -63,15 +57,15 @@ export default function List() {
 
     // スクロールするたびに実行
     const changeBottom = useCallback(() => {
+
+        // スクロール位置を取得
         const bottomPosition = document.body.offsetHeight - (window.scrollY + window.innerHeight);
 
         // スクロール位置が10以下になったら発火
-        if (bottomPosition < 10) {
-
-            if (nextPage !== null) {
-                setIdPagenate(idPagenate + 1)
-            }
+        if (bottomPosition < 0 && bottomPosition !== null) {
+            setIdPagenate(idPagenate + 1)
         }
+
     }, []);
 
     // リロード時にスクロールイベントを呼び出し
