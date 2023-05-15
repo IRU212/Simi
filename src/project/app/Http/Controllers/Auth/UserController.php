@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -72,14 +73,23 @@ class UserController extends Controller
         // アイコン画像ファイルアップロード成功　判定
         if($icon_image !== null) {
 
-            // アップロードされたファイル名を取得
-            $file_name = $icon_image->getClientOriginalName();
+            // // アップロードされたファイル名を取得
+            // $file_name = $icon_image->getClientOriginalName();
 
-            // 取得したファイル名で保存
-            $image = $icon_image->storeAs('public/image', $file_name);
+            // // 取得したファイル名で保存
+            // $image = $icon_image->storeAs('public/image', $file_name);
+
+            // 保存ディレクトリ
+            $dir = "/user/" . session('login_id')[0];
+
+            // S3へファイルをアップロード
+            $path = Storage::disk('s3')->put($dir, $icon_image);
+
+            // アップロードした画像のフルパスを取得
+            $file_name = Storage::disk('s3')->url($path);
 
             // ユーザ情報の編集
-            $user->where('id','=',session('login_id'))->update(['icon_image' => $request->getUriForPath('') . '/storage/image/' . $file_name]);
+            $user->where('id','=',session('login_id'))->update(['icon_image' => $file_name]);
         }
 
         // 背景画像ファイルアップロード成功　判定
