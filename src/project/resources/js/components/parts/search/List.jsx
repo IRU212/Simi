@@ -24,7 +24,7 @@ export default function List() {
     // URLが変更されるたびに実行
     useEffect(() => {
         axios
-            .get(`http://localhost:8081/api${pathname}/${getUrl}`)
+            .get(`${location.origin}/api${pathname}/${getUrl}`)
             .then((res) => {
                 setData(res.data.data)
             })

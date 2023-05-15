@@ -28,7 +28,7 @@ export default function List() {
     useEffect(() => {
 
         axios
-            .get(`http://localhost:8081/api${pathname}?page=${idPagenate}`)
+            .get(`${location.origin}/api${pathname}?page=${idPagenate}`)
             .then((res) => {
 
                 if (urlHistory == pathname) {

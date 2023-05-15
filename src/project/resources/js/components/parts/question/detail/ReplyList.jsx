@@ -20,7 +20,7 @@ export default function ReplyList() {
     // URLが変更されるたびに実行
     useEffect(() => {
         axios
-            .get(`http://localhost:8081/api/question/reply/${paramsId}?page=${idPagenate}`)
+            .get(`${location.origin}/api/question/reply/${paramsId}?page=${idPagenate}`)
             .then((res) => {
                 setData(res.data.data)
             })

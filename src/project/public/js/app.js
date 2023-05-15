@@ -18936,13 +18936,13 @@ function List() {
       var todayYear = today.getFullYear();
       var todayMonth = String(today.getMonth() + 1).length == 1 ? String(0) + String(today.getMonth() + 1) : today.getMonth() + 1;
       var todayDate = String(today.getDate()).length == 1 ? String(0) + String(today.getDate()) : today.getDate();
-      axios.get("http://localhost:8081/api/dashbord/show/".concat(todayYear + todayMonth + todayDate, "page=").concat(idPagenate)).then(function (res) {
+      axios.get("".concat(location.origin, "/api/dashbord/show/").concat(todayYear + todayMonth + todayDate, "page=").concat(idPagenate)).then(function (res) {
         setData(res.data.data);
       })["catch"](function (err) {
         console.log(err);
       });
     } else {
-      axios.get("http://localhost:8081/api/dashbord/show/".concat(paramsDate, "page=").concat(idPagenate)).then(function (res) {
+      axios.get("".concat(location.origin, "/api/dashbord/show/").concat(paramsDate, "page=").concat(idPagenate)).then(function (res) {
         setData(res.data.data);
       })["catch"](function (err) {
         console.log(err);
@@ -19339,7 +19339,7 @@ function List() {
 
   // URLが変更されるたびに実行
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    axios.get("http://localhost:8081/api/user/".concat(paramsId, "/list/question?page=").concat(idPagenate)).then(function (res) {
+    axios.get("".concat(location.origin, "/api/user/").concat(paramsId, "/list/question?page=").concat(idPagenate)).then(function (res) {
       setData(res.data.data);
     })["catch"](function (err) {
       console.log(err);
@@ -19805,7 +19805,7 @@ function List() {
 
   // URLが変更されるたびに実行
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    axios.get("http://localhost:8081/api".concat(pathname, "?page=").concat(idPagenate)).then(function (res) {
+    axios.get("".concat(location.origin, "/api").concat(pathname, "?page=").concat(idPagenate)).then(function (res) {
       if (urlHistory == pathname) {
         //タイマー処理 3秒後に実行
         setTimeout(function () {
@@ -20609,7 +20609,7 @@ function ReplyList() {
 
   // URLが変更されるたびに実行
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    axios.get("http://localhost:8081/api/question/reply/".concat(paramsId, "?page=").concat(idPagenate)).then(function (res) {
+    axios.get("".concat(location.origin, "/api/question/reply/").concat(paramsId, "?page=").concat(idPagenate)).then(function (res) {
       setData(res.data.data);
     })["catch"](function (err) {
       console.log(err);
@@ -21124,7 +21124,7 @@ function List() {
 
   // URLが変更されるたびに実行
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    axios.get("http://localhost:8081/api".concat(pathname, "/").concat(getUrl)).then(function (res) {
+    axios.get("".concat(location.origin, "/api").concat(pathname, "/").concat(getUrl)).then(function (res) {
       setData(res.data.data);
     })["catch"](function (err) {
       console.log(err);

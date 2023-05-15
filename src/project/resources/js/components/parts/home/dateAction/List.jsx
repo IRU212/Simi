@@ -38,7 +38,7 @@ export default function List() {
                                 (today.getDate())
 
             axios
-                .get(`http://localhost:8081/api/dashbord/show/${todayYear + todayMonth + todayDate}page=${idPagenate}`)
+                .get(`${location.origin}/api/dashbord/show/${todayYear + todayMonth + todayDate}page=${idPagenate}`)
                 .then((res) => {
                     setData(res.data.data)
                 })
@@ -49,7 +49,7 @@ export default function List() {
         } else {
 
             axios
-                .get(`http://localhost:8081/api/dashbord/show/${paramsDate}page=${idPagenate}`)
+                .get(`${location.origin}/api/dashbord/show/${paramsDate}page=${idPagenate}`)
                 .then((res) => {
                     setData(res.data.data)
                 })
