@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Services\ImageService;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -87,7 +86,7 @@ class UserController extends Controller
                 $dir = "/user/" . session('login_id')[0];
 
                 // ユーザ情報の編集
-                $user->where('id','=',session('login_id'))->update(['icon_image' => $this->image_save->production($request->icon_image,$dir)]);
+                $user->where('id','=',session('login_id'))->update(['icon_image' => $this->$icon_image->production($icon_image,$dir)]);
 
             } else if (config("app.env") === "local") {
 
@@ -100,14 +99,22 @@ class UserController extends Controller
         // 背景画像ファイルアップロード成功　判定
         if($back_image !== null) {
 
-            // アップロードされたファイル名を取得
-            $file_name = $back_image->getClientOriginalName();
+            // デプロイ環境でS3を使用
+            if (config("app.env") === "production") {
 
-            // 取得したファイル名で保存
-            $image = $back_image->storeAs('public/image', $file_name);
+                // 保存ディレクトリ
+                $dir = "/user/" . session('login_id')[0];
 
-            // ユーザ情報の編集
-            $user->where('id','=',session('login_id'))->update(['back_image' => $request->getUriForPath('') . '/storage/image/' . $file_name]);
+                // ユーザ情報の編集
+                $user->where('id','=',session('login_id'))->update(['back_image' => $this->image_save->production($back_image,$dir)]);
+
+            } else if (config("app.env") === "local") {
+
+                // ユーザ情報の編集
+                $user->where('id','=',session('login_id'))->update(['back_image' => $this->image_save->local($back_image)]);
+
+            }
+
         }
     }
 }

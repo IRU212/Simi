@@ -5,10 +5,17 @@ namespace App\Http\Controllers\Question;
 use App\Http\Controllers\Controller;
 use App\Models\Question;
 use App\Models\Question\Image;
+use App\Services\ImageService;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
+    private $image_save;
+
+    public function __construct(ImageService $image_service) {
+        $this->image_save = $image_service;
+    }
+
     /**
      * おすすめ質問一覧
      *
@@ -177,13 +184,22 @@ class QuestionController extends Controller
             // モデル インスタンス呼び出し
             $question_image = new Image();
 
-            // アップロードされたファイル名を取得
-            $file_name = $request->image->getClientOriginalName();
+            // デプロイ環境でS3を使用
+            if (config("app.env") === "production") {
 
-            // 取得したファイル名で保存
-            $image = $request->image->storeAs('public/image', $file_name);
+                // 保存ディレクトリ
+                $dir = "/question/" . $question->id;
 
-            $question_image->image = $request->getUriForPath('') . '/storage/image/' . $file_name;
+                // 画像保存 パス取得
+                $question_image->image = $this->image_save->production($request->image,$dir);
+
+            } else if (config("app.env") === "local") {
+
+                // 画像保存 パス取得
+                $question_image->image = $this->image_save->local($request->image);
+
+            }
+
             $question_image->question_id = $question->orderBy('id', 'desc')->first()['id'] + 1;
 
             // dbに保存
