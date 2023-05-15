@@ -3,12 +3,19 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
+use App\Services\ImageService;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+    private $image_save;
+
+    public function __construct(ImageService $image_service) {
+        $this->image_save = $image_service;
+    }
 
     /**
      * アカウントログイン情報
@@ -73,23 +80,27 @@ class UserController extends Controller
         // アイコン画像ファイルアップロード成功　判定
         if($icon_image !== null) {
 
-            // // アップロードされたファイル名を取得
-            // $file_name = $icon_image->getClientOriginalName();
+            // デプロイ環境でS3を使用
+            if (config("app.env") === "production") {
 
-            // // 取得したファイル名で保存
-            // $image = $icon_image->storeAs('public/image', $file_name);
+                // 保存ディレクトリ
+                $dir = "/user/" . session('login_id')[0];
 
-            // 保存ディレクトリ
-            $dir = "/user/" . session('login_id')[0];
+                // S3へファイルをアップロード
+                $path = Storage::disk('s3')->put($dir, $icon_image);
 
-            // S3へファイルをアップロード
-            $path = Storage::disk('s3')->put($dir, $icon_image);
+                // アップロードした画像のフルパスを取得
+                $file_name = Storage::disk('s3')->url($path);
 
-            // アップロードした画像のフルパスを取得
-            $file_name = Storage::disk('s3')->url($path);
+                // ユーザ情報の編集
+                $user->where('id','=',session('login_id'))->update(['icon_image' => $file_name]);
 
-            // ユーザ情報の編集
-            $user->where('id','=',session('login_id'))->update(['icon_image' => $file_name]);
+            } else if (config("app.env") === "local") {
+
+                // ユーザ情報の編集
+                $user->where('id','=',session('login_id'))->update(['icon_image' => $this->image_save->local($request->icon_image)]);
+
+            }
         }
 
         // 背景画像ファイルアップロード成功　判定
