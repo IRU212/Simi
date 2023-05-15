@@ -86,14 +86,8 @@ class UserController extends Controller
                 // 保存ディレクトリ
                 $dir = "/user/" . session('login_id')[0];
 
-                // S3へファイルをアップロード
-                $path = Storage::disk('s3')->put($dir, $icon_image);
-
-                // アップロードした画像のフルパスを取得
-                $file_name = Storage::disk('s3')->url($path);
-
                 // ユーザ情報の編集
-                $user->where('id','=',session('login_id'))->update(['icon_image' => $file_name]);
+                $user->where('id','=',session('login_id'))->update(['icon_image' => $this->image_save->production($request->icon_image,$dir)]);
 
             } else if (config("app.env") === "local") {
 
