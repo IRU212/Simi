@@ -188,7 +188,7 @@ class QuestionController extends Controller
             if (config("app.env") === "production") {
 
                 // 保存ディレクトリ
-                $dir = "/question/" . $question->id;
+                $dir = "/question/" . $question->orderBy('id', 'desc')->first()['id'] + 1;
 
                 // 画像保存 パス取得
                 $question_image->image = $this->image_save->production($request->image,$dir);
