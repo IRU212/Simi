@@ -224,9 +224,15 @@ export default function Form() {
 
                 </section>
 
-                <div className={styles.postButton} onClick={SaveClick}>
-                    投稿
-                </div>
+                { name == "" || body == "" ?
+                    <div className={styles.postNoButton} >
+                        投稿
+                    </div>
+                    :
+                    <div className={styles.postButton} onClick={SaveClick}>
+                        投稿
+                    </div>
+                }
 
             </div>
 
