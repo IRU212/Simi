@@ -86,12 +86,12 @@ class UserController extends Controller
                 $dir = "/user/" . session('login_id')[0];
 
                 // ユーザ情報の編集
-                $user->where('id','=',session('login_id'))->update(['icon_image' => $this->$icon_image->production($icon_image,$dir)]);
+                $user->where('id','=',session('login_id')[0])->update(['icon_image' => $this->icon_image->production($icon_image,$dir)]);
 
             } else if (config("app.env") === "local") {
 
                 // ユーザ情報の編集
-                $user->where('id','=',session('login_id'))->update(['icon_image' => $this->image_save->local($request->icon_image)]);
+                $user->where('id','=',session('login_id')[0])->update(['icon_image' => $this->image_save->local($request->icon_image)]);
 
             }
         }
@@ -106,12 +106,12 @@ class UserController extends Controller
                 $dir = "/user/" . session('login_id')[0];
 
                 // ユーザ情報の編集
-                $user->where('id','=',session('login_id'))->update(['back_image' => $this->image_save->production($back_image,$dir)]);
+                $user->where('id','=',session('login_id')[0])->update(['back_image' => $this->image_save->production($back_image,$dir)]);
 
             } else if (config("app.env") === "local") {
 
                 // ユーザ情報の編集
-                $user->where('id','=',session('login_id'))->update(['back_image' => $this->image_save->local($back_image)]);
+                $user->where('id','=',session('login_id')[0])->update(['back_image' => $this->image_save->local($back_image)]);
 
             }
 
