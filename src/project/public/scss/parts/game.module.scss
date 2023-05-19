@@ -1,0 +1,58 @@
+// キーボードデザイン　↓
+
+.keybord{
+    max-width: 1100px;
+    margin: 60px auto ;
+
+    .headerKeybord{
+        width: 100%;
+        display: flex;
+
+        .point{
+            width: fit-content;
+            margin: 0 0 0 auto;
+        }
+    }
+
+    .answer{
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+        margin: 60px 0;
+        text-align: center;
+    }
+
+    .keybordCover{
+        width: 100%;
+
+        section{
+            display: flex;
+
+            div{
+                margin: 0 auto;
+                border: 1px solid #ccc;
+                width: 60px;
+                height: 60px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .secoundSection{
+            margin: 30px 0 0 0;
+            padding: 0 20px;
+        }
+
+        .thirdSection{
+            margin: 30px 0 0 0;
+            padding: 0 160px;
+        }
+    }
+}
+
+// キーボードデザイン　↑
