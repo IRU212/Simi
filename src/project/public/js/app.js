@@ -18486,6 +18486,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/scss/parts/game.module.scss */ "./public/scss/parts/game.module.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -18493,9 +18499,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Keybord() {
+  // キー取得変数
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState2 = _slicedToArray(_useState, 2),
+    key = _useState2[0],
+    setKey = _useState2[1];
+
   // 使用キー取得
   var handleKeyDown = function handleKeyDown(e) {
-    console.log(e.key);
+    setKey(e.key);
+    setTimeout(function () {
+      setKey(null);
+    }, 500);
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     document.addEventListener('keydown', handleKeyDown, false);
@@ -18519,62 +18534,88 @@ function Keybord() {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
         className: _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].firstSection,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "q" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "Q"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "w" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "W"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "e" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "E"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "r" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "R"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "t" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "T"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "y" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "Y"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "u" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "U"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "i" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "I"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "o" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "O"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "p" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "P"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
         className: _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].secoundSection,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "a" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "A"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "s" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "S"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "d" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "D"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "f" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "F"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "g" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "G"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "h" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "H"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "j" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "J"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "k" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "K"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "l" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "L"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
         className: _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].thirdSection,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "z" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "Z"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "x" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "X"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "c" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "C"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "v" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "V"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "b" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "B"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "n" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "N"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "".concat(key === "m" ? _public_scss_parts_game_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].keyNow : ""),
           children: "M"
         })]
       })]
@@ -27699,7 +27740,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._3UtWcVEGYZHUuG6bYYmVPA\\=\\= {\n  max-width: 1100px;\n  margin: 60px auto;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .xVDu6Xa-FIRl4I61dxoDHw\\=\\= {\n  width: 100%;\n  display: flex;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .xVDu6Xa-FIRl4I61dxoDHw\\=\\= .J5ncu2Gt1Gkmv0GOHQwaeA\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 0 0 0 auto;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= ._754-zmpuc10RYpDz0mB1LA\\=\\= {\n  font-size: 1.3rem;\n  letter-spacing: 1px;\n  margin: 60px 0;\n  text-align: center;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .qU3pNw7y\\+cRqvc1Brsbt2Q\\=\\= {\n  width: 100%;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .qU3pNw7y\\+cRqvc1Brsbt2Q\\=\\= section {\n  display: flex;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .qU3pNw7y\\+cRqvc1Brsbt2Q\\=\\= section div {\n  margin: 0 auto;\n  border: 1px solid #ccc;\n  width: 60px;\n  height: 60px;\n  border-radius: 10px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .qU3pNw7y\\+cRqvc1Brsbt2Q\\=\\= section div:hover {\n  cursor: pointer;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .qU3pNw7y\\+cRqvc1Brsbt2Q\\=\\= .s-tl97OvVq0nyDO4ivIJrQ\\=\\= {\n  margin: 30px 0 0 0;\n  padding: 0 20px;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .qU3pNw7y\\+cRqvc1Brsbt2Q\\=\\= .xle\\+F\\+tk9Z3LD\\+gTM4WYTw\\=\\= {\n  margin: 30px 0 0 0;\n  padding: 0 160px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "._3UtWcVEGYZHUuG6bYYmVPA\\=\\= {\n  max-width: 1100px;\n  margin: 60px auto;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .xVDu6Xa-FIRl4I61dxoDHw\\=\\= {\n  width: 100%;\n  display: flex;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .xVDu6Xa-FIRl4I61dxoDHw\\=\\= .J5ncu2Gt1Gkmv0GOHQwaeA\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 0 0 0 auto;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= ._754-zmpuc10RYpDz0mB1LA\\=\\= {\n  font-size: 1.3rem;\n  letter-spacing: 1px;\n  margin: 60px 0;\n  text-align: center;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .qU3pNw7y\\+cRqvc1Brsbt2Q\\=\\= {\n  width: 100%;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .qU3pNw7y\\+cRqvc1Brsbt2Q\\=\\= section {\n  display: flex;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .qU3pNw7y\\+cRqvc1Brsbt2Q\\=\\= section div {\n  margin: 0 auto;\n  border: 2px solid #ccc;\n  width: 60px;\n  height: 60px;\n  border-radius: 10px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .qU3pNw7y\\+cRqvc1Brsbt2Q\\=\\= section div:hover {\n  cursor: pointer;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .qU3pNw7y\\+cRqvc1Brsbt2Q\\=\\= section .Mzh4g8iH4xLLVl9an2jBeQ\\=\\= {\n  background-color: #ccc;\n  color: #fff;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .qU3pNw7y\\+cRqvc1Brsbt2Q\\=\\= .s-tl97OvVq0nyDO4ivIJrQ\\=\\= {\n  margin: 30px 0 0 0;\n  padding: 0 60px;\n}\n._3UtWcVEGYZHUuG6bYYmVPA\\=\\= .qU3pNw7y\\+cRqvc1Brsbt2Q\\=\\= .xle\\+F\\+tk9Z3LD\\+gTM4WYTw\\=\\= {\n  margin: 30px 0 0 0;\n  padding: 0 160px;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"keybord": "_3UtWcVEGYZHUuG6bYYmVPA==",
@@ -27707,6 +27748,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"point": "J5ncu2Gt1Gkmv0GOHQwaeA==",
 	"answer": "_754-zmpuc10RYpDz0mB1LA==",
 	"keybordCover": "qU3pNw7y+cRqvc1Brsbt2Q==",
+	"keyNow": "Mzh4g8iH4xLLVl9an2jBeQ==",
 	"secoundSection": "s-tl97OvVq0nyDO4ivIJrQ==",
 	"thirdSection": "xle+F+tk9Z3LD+gTM4WYTw=="
 };
