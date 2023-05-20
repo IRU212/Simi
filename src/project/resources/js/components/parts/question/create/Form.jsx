@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import axios from 'axios'
+import CloseIcon from '@mui/icons-material/Close';
 
 import styles from '../../../../../../public/scss/parts/question.module.scss'
 
@@ -101,13 +101,22 @@ export default function Form() {
                         画像
                     </div>
                     <input type="file" id='image' accept="image/*" multiple onChange={ImageChange} />
-                    <label htmlFor="image">
-                        { previewImage == null ?
-                            ""
-                            :
-                            <img src={`${previewImage}`} className={styles.previewImage} />
-                        }
-                    </label>
+                    <div className={styles.imagePreviewCover}>
+                        <label htmlFor="image">
+                            { previewImage == null ?
+                                ""
+                                :
+                                <>
+                                    <img src={`${previewImage}`} className={styles.previewImage} />
+                                </>
+                            }
+                        </label>
+                            { previewImage == null ?
+                                ""
+                                :
+                                <CloseIcon className={styles.crossIcon} />
+                            }
+                    </div>
 
                 </section>
 

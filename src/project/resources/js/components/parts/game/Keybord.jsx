@@ -4,16 +4,22 @@ import styles from '../../../../../public/scss/parts/game.module.scss'
 // キーボードデザイン
 export default function Keybord() {
 
+    // 入力文字変数
+    const [answer,setAnswer] = useState("")
+
     // キー取得変数
     const [key,setKey] = useState(null)
 
     // 使用キー取得
     const handleKeyDown = (e) => {
         setKey(e.key)
+        setAnswer(answer + e.key)
 
         setTimeout(() => {
             setKey(null)
         },500)
+
+        console.log(answer);
     }
 
     useEffect(() => {
@@ -21,7 +27,7 @@ export default function Keybord() {
     }, [])
 
     return (
-        <div className={styles.keybord}>
+        <div className={styles.keybord} >
 
             <div className={styles.headerKeybord}>
 
@@ -34,7 +40,7 @@ export default function Keybord() {
             </div>
 
             <div className={styles.answer}>
-                anser
+                { answer }
             </div>
 
             <div className={styles.keybordCover}>

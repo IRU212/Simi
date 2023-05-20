@@ -116,11 +116,31 @@
                 padding: 6px 10px;
             }
 
+            label{
+                position: relative;
+            }
+
+            .imagePreviewCover{
+                width: fit-content;
+                position: relative;
+            }
+
             // プレビュー機能　画像
             .previewImage{
                 max-width: 400px;
                 width: 100%;
+            }
 
+            // プレビュー画像キャンセル
+            .crossIcon{
+                position: absolute;
+                top: -15px;
+                right: -15px;
+                font-size: 40px;
+                background-color: #222;
+                border-radius: 50%;
+                color: #fff;
+                padding: 5px;
             }
 
             select{
