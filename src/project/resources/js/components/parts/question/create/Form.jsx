@@ -71,6 +71,12 @@ export default function Form() {
             })
     }
 
+    // クリックしたら画像キャンセル
+    const ImageCancelClick = () => {
+        setImage("")
+        setPreviewIconImage(null)
+    }
+
     return (
         <div className={styles.form}>
 
@@ -100,22 +106,33 @@ export default function Form() {
                     <div className={styles.title}>
                         画像
                     </div>
-                    <input type="file" id='image' accept="image/*" multiple onChange={ImageChange} />
-                    <div className={styles.imagePreviewCover}>
-                        <label htmlFor="image">
+                    <div className={styles.inputImageCover}>
+                        { previewImage == null ?
+                            <>
+                                <input type="file" id='image' accept="image/*" multiple onChange={ImageChange} className={styles.inputNone} />
+                                <label htmlFor="image" className={styles.imageSelect}>
+                                    画像を追加
+                                </label>
+                            </>
+                            :
+                            ""
+                        }
+                        <div className={styles.imagePreviewCover}>
+                            <label htmlFor="image">
+                                { previewImage == null ?
+                                    ""
+                                    :
+                                    <>
+                                        <img src={`${previewImage}`} className={styles.previewImage} />
+                                    </>
+                                }
+                            </label>
                             { previewImage == null ?
                                 ""
                                 :
-                                <>
-                                    <img src={`${previewImage}`} className={styles.previewImage} />
-                                </>
+                                <CloseIcon className={styles.crossIcon} onClick={ImageCancelClick} />
                             }
-                        </label>
-                            { previewImage == null ?
-                                ""
-                                :
-                                <CloseIcon className={styles.crossIcon} />
-                            }
+                        </div>
                     </div>
 
                 </section>
