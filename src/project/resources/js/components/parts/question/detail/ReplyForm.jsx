@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 export default function ReplyForm() {
 
     // DB保存用変数
-    const [body,setBody] = useState() // 本文
+    const [body,setBody] = useState("") // 本文
 
     // パラメータ取得
     const id = useParams()['id']
@@ -37,9 +37,16 @@ export default function ReplyForm() {
         <div className={styles.replyForm}>
 
             <input type="text" placeholder='質問の返信を入力してください' onChange={BodyChange} />
-            <div className={styles.replyButton} onClick={SaveClick} >
-                返信
-            </div>
+
+            { body.length <= 0 ?
+                <div className={styles.replyNoneButton} onClick={SaveClick} >
+                    返信
+                </div>
+                :
+                <div className={styles.replyButton} onClick={SaveClick} >
+                    返信
+                </div>
+            }
 
         </div>
     )

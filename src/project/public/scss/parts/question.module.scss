@@ -490,6 +490,17 @@
             cursor: pointer;
         }
     }
+
+    .replyNoneButton{
+        color: #fff;
+        background-color: #454668;
+        padding: 8px 12px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        text-align: center;
+        width: 70px;
+        opacity: 0.7;
+    }
 }
 
 // 質問返信フォーム　↑
