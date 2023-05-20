@@ -117,3 +117,4 @@ Route::prefix('search')->name('search.')->group(function () {
     Route::get('{keyword}', [SearchController::class,'question'])->name('question'); // 質問検索
     Route::get('user/{keyword}', [SearchController::class,'user'])->name('user'); // ユーザ検索
 });
+

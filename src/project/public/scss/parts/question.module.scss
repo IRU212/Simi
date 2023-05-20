@@ -116,11 +116,60 @@
                 padding: 6px 10px;
             }
 
+            .inputImageCover{
+                background-color: #676767;
+                height: 310px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            label{
+                width: 100%;
+                height: 270px;
+                position: relative;
+            }
+
+            .imagePreviewCover{
+                width: fit-content;
+                position: relative;
+            }
+
+            .imageSelect{
+                width: fit-content;
+                height: fit-content;
+                background-color: #eaeaea;
+                padding: 13px 18px;
+                font-size: 0.85rem;
+                border-radius: 8px;
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+
             // プレビュー機能　画像
             .previewImage{
-                max-width: 400px;
                 width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
 
+            // プレビュー画像キャンセル
+            .crossIcon{
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                font-size: 35px;
+                background-color: #222;
+                border-radius: 50%;
+                color: #fff;
+                padding: 5px;
+
+                &:hover{
+                    cursor: pointer;
+                }
             }
 
             select{

@@ -27,10 +27,11 @@ import Account from './pages/setting/Account';
 import SettingProfile from './pages/setting/Profile';
 import Privacy from './pages/setting/Privacy';
 import Search from './pages/Search';
-import Error404 from './pages/Error/Error404'
 
+import Error404 from './pages/Error/Error404'
 import LoginUserApi from './api/get/LoginUserApi';
 import LoginRedirect from './LoginRedirect';
+import Game from './pages/game/Game';
 
 function Example() {
 
@@ -136,6 +137,13 @@ function Example() {
                         <Route path="/search/user" element={<Search />} />
 
                         {/* 検索　↑ */}
+
+                        {/* ゲーム  ↓ */}
+
+                        <Route path='/game' element={<Game />} />
+
+                        {/* ゲーム  ↑ */}
+
 
                         {/* 設定 ↓ */}
 
