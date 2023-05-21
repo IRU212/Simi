@@ -18,7 +18,7 @@ export default function Form() {
         <div className={styles.form}>
 
             <div className={styles.ImageCover}>
-                <img src="https://pbs.twimg.com/media/EjELaMQU8AAx4TL.jpg" alt="画像" />
+                {/* <img src="https://pbs.twimg.com/media/EjELaMQU8AAx4TL.jpg" alt="画像" /> */}
             </div>
 
             <div className={styles.MainCover}>

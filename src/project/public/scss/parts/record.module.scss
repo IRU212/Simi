@@ -3,7 +3,7 @@
 .form{
     width: fit-content;
     display: flex;
-    margin: 60px auto 0 auto;
+    margin: 30px auto 0 auto;
 
     .ImageCover{
         max-width: 500px;
@@ -18,7 +18,8 @@
     }
 
     .MainCover{
-        margin: 0 0 0 80px;
+        margin: 0 0 0 0px;
+        padding: 0 20px;
 
         section{
             margin: 0 0 20px 0;
@@ -28,7 +29,8 @@
             }
 
             input{
-                width: 500px;
+                max-width: 600px;
+                width: 600px;
                 margin-top: 6px;
             }
         }
@@ -50,7 +52,7 @@
 
 .timerecord{
     width: 100%;
-    margin: 60px 0 0 0;
+    margin: 0 0 0 0;
     text-align: center;
 
     .mainTime{
