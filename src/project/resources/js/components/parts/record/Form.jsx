@@ -4,33 +4,57 @@ import { createContext, useEffect, useState } from "react"
 import styles from '../../../../../public/scss/parts/record.module.scss'
 import axios from "axios"
 
-// // 入力データ受け渡し
-// export const BodyContext = createContext(body)
-
 // 勉強記録[parts]
 export default function Form() {
 
     // Google Books APIs 検索キーワード
     const [keyword,setKeyword] = useState("")
 
+    // Google Books APIs 検索結果候補
+    const [bookCandidate,setBookCandidate] = useState([])
+
     // Google Books APIs 呼び出し
     useEffect(() => {
+
+        if (keyword !== "") {
+            axios
+                .get(`https://www.googleapis.com/books/v1/volumes?q=${keyword}&maxResults=6`)
+                .then((res) => {
+                    setBookCandidate(res.data.items)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        } else {
+            setBookCandidate([])
+        }
+    },[keyword])
+
+    // クリックしたらバック　API送信
+    const PostClick = () => {
         axios
-            .get(`https://www.googleapis.com/books/v1/volumes?q=%E3%83%81%E3%83%A3%E3%83%BC%E3%83%88`)
-            .then((res) => {
-                console.log(res.data);
+            .post("",{
+                body: body, // 学習一言メモ
+                subject: subject, // 教科
+                course: course // 科目
+            })
+            .then(() => {
+                location.href = "/"
             })
             .catch((err) => {
                 console.log(err)
             })
-    },[])
+    }
 
     // DB保存用変数
-    const [name,setName] = useState("")
     const [body,setBody] = useState("")
     const [subject,setSubject] = useState("")
     const [course,setCourse] = useState("")
-    const [image,setImage] = useState("")
+    const [bookName,setBookName] = useState("")
+
+    const NameChange = (e) => {
+        setBody(e.target.value)
+    }
 
     // 教科が変更されたらsubjectに保存
     const SubjectChange = (e) => {
@@ -47,6 +71,11 @@ export default function Form() {
     // 科目が変更されたらsubjectに保存
     const CourseChange = (e) => {
         setCourse(e.target.value)
+    }
+
+    // 本検索キーワード
+    const BookKeywordSearch = (e) => {
+        setKeyword(e.target.value)
     }
 
     // タイマー時刻　リスト
@@ -161,7 +190,7 @@ export default function Form() {
                     <div className="name">
                         学習一言メモ
                     </div>
-                    <input type="text" />
+                    <input type="text" onChange={NameChange} />
                 </section>
                 <section>
                     <div className="name">
@@ -276,8 +305,21 @@ export default function Form() {
 
                     </select>
                 </section>
+                <section>
+                    <div className="name">
+                        書籍
+                    </div>
+                    <input type="text" onChange={BookKeywordSearch} />
+                    { bookCandidate.map((item,index) => {
+                        return(
+                            <div key={index}>
+                                { item.volumeInfo.title }
+                            </div>
+                        )
+                    }) }
+                </section>
 
-                <div className={styles.postButton}>
+                <div className={styles.postButton} onClick={PostClick}>
                     記録
                 </div>
 

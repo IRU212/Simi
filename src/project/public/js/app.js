@@ -21007,9 +21007,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-// // 入力データ受け渡し
-// export const BodyContext = createContext(body)
-
 // 勉強記録[parts]
 
 
@@ -21021,20 +21018,41 @@ function Form() {
     keyword = _useState2[0],
     setKeyword = _useState2[1];
 
+  // Google Books APIs 検索結果候補
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState4 = _slicedToArray(_useState3, 2),
+    bookCandidate = _useState4[0],
+    setBookCandidate = _useState4[1];
+
   // Google Books APIs 呼び出し
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    axios__WEBPACK_IMPORTED_MODULE_2___default().get("https://www.googleapis.com/books/v1/volumes?q=%E3%83%81%E3%83%A3%E3%83%BC%E3%83%88").then(function (res) {
-      console.log(res.data);
+    if (keyword !== "") {
+      axios__WEBPACK_IMPORTED_MODULE_2___default().get("https://www.googleapis.com/books/v1/volumes?q=".concat(keyword, "&maxResults=6")).then(function (res) {
+        setBookCandidate(res.data.items);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    } else {
+      setBookCandidate([]);
+    }
+  }, [keyword]);
+
+  // クリックしたらバック　API送信
+  var PostClick = function PostClick() {
+    axios__WEBPACK_IMPORTED_MODULE_2___default().post("", {
+      body: body,
+      // 学習一言メモ
+      subject: subject,
+      // 教科
+      course: course // 科目
+    }).then(function () {
+      location.href = "/";
     })["catch"](function (err) {
       console.log(err);
     });
-  }, []);
+  };
 
   // DB保存用変数
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-    _useState4 = _slicedToArray(_useState3, 2),
-    name = _useState4[0],
-    setName = _useState4[1];
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState6 = _slicedToArray(_useState5, 2),
     body = _useState6[0],
@@ -21049,8 +21067,11 @@ function Form() {
     setCourse = _useState10[1];
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState12 = _slicedToArray(_useState11, 2),
-    image = _useState12[0],
-    setImage = _useState12[1];
+    bookName = _useState12[0],
+    setBookName = _useState12[1];
+  var NameChange = function NameChange(e) {
+    setBody(e.target.value);
+  };
 
   // 教科が変更されたらsubjectに保存
   var SubjectChange = function SubjectChange(e) {
@@ -21065,6 +21086,11 @@ function Form() {
   // 科目が変更されたらsubjectに保存
   var CourseChange = function CourseChange(e) {
     setCourse(e.target.value);
+  };
+
+  // 本検索キーワード
+  var BookKeywordSearch = function BookKeywordSearch(e) {
+    setKeyword(e.target.value);
   };
 
   // タイマー時刻　リスト
@@ -21188,7 +21214,8 @@ function Form() {
           className: "name",
           children: "\u5B66\u7FD2\u4E00\u8A00\u30E1\u30E2"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "text"
+          type: "text",
+          onChange: NameChange
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -21366,8 +21393,21 @@ function Form() {
             })]
           }) : ""]
         })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "name",
+          children: "\u66F8\u7C4D"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: "text",
+          onChange: BookKeywordSearch
+        }), bookCandidate.map(function (item, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: item.volumeInfo.title
+          }, index);
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].postButton,
+        onClick: PostClick,
         children: "\u8A18\u9332"
       })]
     })]
