@@ -30,6 +30,13 @@ export default function Form() {
         }
     },[keyword])
 
+    // 検索候補をクリック
+    const BookCandidateClick = (e) => {
+        setKeyword(e.volumeInfo.title)
+
+        setBookName(e.volumeInfo.title)
+    }
+
     // クリックしたらバック　API送信
     const PostClick = () => {
         axios
@@ -46,11 +53,27 @@ export default function Form() {
             })
     }
 
+    // 検索候補モーダル
+    const [isModal,setIsModal] = useState(false)
+
+    // モーダルフォーム切り替えクリック
+    const ModalFormClick = () => {
+        setIsModal(true)
+    }
+
+    // モーダルをクリック
+    const ModalClick = (e) => {
+
+        if (e.target == e.currentTarget) {
+            setIsModal(false)
+        }
+    }
+
     // DB保存用変数
     const [body,setBody] = useState("")
     const [subject,setSubject] = useState("")
     const [course,setCourse] = useState("")
-    const [bookName,setBookName] = useState("")
+    const [bookName,setBookName] = useState([])
 
     const NameChange = (e) => {
         setBody(e.target.value)
@@ -155,6 +178,12 @@ export default function Form() {
     return (
         <div className={styles.form}>
 
+            { isModal ?
+                <div className={styles.ModalCover} onClick={(e) => ModalClick(e)}></div>
+                :
+                ""
+            }
+
             <div className={styles.timerecord}>
 
                 <div className={styles.mainTime}>
@@ -192,12 +221,12 @@ export default function Form() {
                     </div>
                     <input type="text" onChange={NameChange} />
                 </section>
-                <section>
+                {/* <section>
                     <div className="name">
                         時間
                     </div>
                     <input type="text" />
-                </section>
+                </section> */}
                 <section>
                     <div className="name">
                         教科
@@ -309,14 +338,26 @@ export default function Form() {
                     <div className="name">
                         書籍
                     </div>
-                    <input type="text" onChange={BookKeywordSearch} />
-                    { bookCandidate.map((item,index) => {
-                        return(
-                            <div key={index}>
-                                { item.volumeInfo.title }
-                            </div>
-                        )
-                    }) }
+                    <input type="text" className={styles.textBook} value={keyword} onChange={BookKeywordSearch} onClick={ModalFormClick} />
+                    { isModal ?
+                        <>
+                            { bookCandidate.length >= 1 ?
+                                <div className={styles.candidateCover}>
+                                    { bookCandidate.map((item,index) => {
+                                        return(
+                                            <div onClick={() => BookCandidateClick(item)} key={index} className={styles.candidateItem}>
+                                                { item.volumeInfo.title }
+                                            </div>
+                                        )
+                                    }) }
+                                </div>
+                                :
+                                ""
+                            }
+                        </>
+                        :
+                        ""
+                    }
                 </section>
 
                 <div className={styles.postButton} onClick={PostClick}>
