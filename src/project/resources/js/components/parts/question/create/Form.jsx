@@ -34,7 +34,7 @@ export default function Form() {
         setPreviewIconImage(window.URL.createObjectURL(e.target.files[0]))
     }
 
-    // 本文が変更されたらsubjectに保存
+    // 教科が変更されたらsubjectに保存
     const SubjectChange = (e) => {
 
         if (e.target.value == "") {
@@ -46,7 +46,7 @@ export default function Form() {
 
     }
 
-    // 本文が変更されたらsubjectに保存
+    // 科目が変更されたらsubjectに保存
     const CourseChange = (e) => {
         setCourse(e.target.value)
     }

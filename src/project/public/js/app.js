@@ -18018,11 +18018,10 @@ __webpack_require__.r(__webpack_exports__);
 
 // 勉強記録[pages]
 
-
 function Record() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: _public_scss_pages_record_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].record,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_templates_record_Time__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_parts_record_Form__WEBPACK_IMPORTED_MODULE_0__["default"], {})]
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_parts_record_Form__WEBPACK_IMPORTED_MODULE_0__["default"], {})
   });
 }
 
@@ -20368,7 +20367,7 @@ function Form() {
     setPreviewIconImage(window.URL.createObjectURL(e.target.files[0]));
   };
 
-  // 本文が変更されたらsubjectに保存
+  // 教科が変更されたらsubjectに保存
   var SubjectChange = function SubjectChange(e) {
     if (e.target.value == "") {
       setCourse("");
@@ -20378,7 +20377,7 @@ function Form() {
     }
   };
 
-  // 本文が変更されたらsubjectに保存
+  // 科目が変更されたらsubjectに保存
   var CourseChange = function CourseChange(e) {
     setCourse(e.target.value);
   };
@@ -20993,7 +20992,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/scss/parts/record.module.scss */ "./public/scss/parts/record.module.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -21005,55 +21006,368 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 // スタイル
 
 
+
 // // 入力データ受け渡し
 // export const BodyContext = createContext(body)
 
 // 勉強記録[parts]
 
 
+
 function Form() {
-  // 保存用データ
+  // Google Books APIs 検索キーワード
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState2 = _slicedToArray(_useState, 2),
-    body = _useState2[0],
-    setBody = _useState2[1]; // 内容
+    keyword = _useState2[0],
+    setKeyword = _useState2[1];
+
+  // Google Books APIs 呼び出し
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    axios__WEBPACK_IMPORTED_MODULE_2___default().get("https://www.googleapis.com/books/v1/volumes?q=%E3%83%81%E3%83%A3%E3%83%BC%E3%83%88").then(function (res) {
+      console.log(res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  }, []);
+
+  // DB保存用変数
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState4 = _slicedToArray(_useState3, 2),
-    time = _useState4[0],
-    setTime = _useState4[1]; // 時間
+    name = _useState4[0],
+    setName = _useState4[1];
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState6 = _slicedToArray(_useState5, 2),
-    subject = _useState6[0],
-    setSubject = _useState6[1]; // 科目
+    body = _useState6[0],
+    setBody = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState8 = _slicedToArray(_useState7, 2),
+    subject = _useState8[0],
+    setSubject = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState10 = _slicedToArray(_useState9, 2),
+    course = _useState10[0],
+    setCourse = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState12 = _slicedToArray(_useState11, 2),
+    image = _useState12[0],
+    setImage = _useState12[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+  // 教科が変更されたらsubjectに保存
+  var SubjectChange = function SubjectChange(e) {
+    if (e.target.value == "") {
+      setCourse("");
+      setSubject("");
+    } else {
+      setSubject(e.target.value);
+    }
+  };
+
+  // 科目が変更されたらsubjectに保存
+  var CourseChange = function CourseChange(e) {
+    setCourse(e.target.value);
+  };
+
+  // タイマー時刻　リスト
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState14 = _slicedToArray(_useState13, 2),
+    hourCount = _useState14[0],
+    setHourCount = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState16 = _slicedToArray(_useState15, 2),
+    minutesCount = _useState16[0],
+    setMinutesCount = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState18 = _slicedToArray(_useState17, 2),
+    secondsCount = _useState18[0],
+    setSecondsCount = _useState18[1];
+
+  // タイマー実行判定
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState20 = _slicedToArray(_useState19, 2),
+    time = _useState20[0],
+    setTime = _useState20[1];
+
+  // リセット・ストップボタン表示判定
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState22 = _slicedToArray(_useState21, 2),
+    resetButton = _useState22[0],
+    setResetButton = _useState22[1];
+
+  // リロード時に一回実行
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    // 1秒ごとに実行
+    var interval = setInterval(function () {
+      if (time) {
+        // 秒数に一秒足す
+        setSecondsCount(function (c) {
+          return c + 1;
+        });
+      }
+    }, 1000);
+
+    // 一定間隔ごとに実行する処理を解除
+    // このメソッドがないとタイマーがバグる
+    return function () {
+      return clearInterval(interval);
+    };
+  }, [time]);
+
+  // 秒数が足されるたびに実行
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    // 秒数が60秒になったら1分ずつ追加
+    if (secondsCount == 60) {
+      // 秒数を0に戻す
+      setSecondsCount(0);
+
+      // 1分タイマーを足す
+      setMinutesCount(minutesCount + 1);
+    }
+
+    // 分数が60分になったら1時間ずつ追加
+    if (minutesCount == 60) {
+      // 秒数を0に戻す
+      setMinutesCount(0);
+
+      // 1分タイマーを足す
+      setHourCount(hourCount + 1);
+    }
+  }, [secondsCount]);
+
+  // クリックしたらタイマー実行
+  var StartClick = function StartClick() {
+    setTime(true);
+  };
+
+  // クリックしたらタイマーをリセット
+  var ResetClick = function ResetClick() {
+    setHourCount(0);
+    setMinutesCount(0);
+    setSecondsCount(0);
+    setResetButton(true); // ストップ・リセットボタン切り替え
+  };
+
+  // クリックしたらタイマー止める
+  var StopClick = function StopClick() {
+    setTime(false);
+    setResetButton(false); // ストップ・リセットボタン切り替え
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].form,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].ImageCover
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].timerecord,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].mainTime,
+        children: [hourCount, " : ", minutesCount, " : ", secondsCount]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].buttonCover,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          onClick: StartClick,
+          className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].startButton,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+            children: "START"
+          })
+        }), resetButton ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          onClick: StopClick,
+          className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].stopButton,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+            children: "STOP"
+          })
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          onClick: ResetClick,
+          className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].startButton,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+            children: "RESET"
+          })
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].MainCover,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "name",
-          children: "\u5B66\u7FD2\u5185\u5BB9"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+          children: "\u5B66\u7FD2\u4E00\u8A00\u30E1\u30E2"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           type: "text"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "name",
           children: "\u6642\u9593"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           type: "text"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "name",
+          children: "\u6559\u79D1"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+          onChange: SubjectChange,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "",
+            hidden: true,
+            children: "\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "",
+            children: "\u672A\u9078\u629E"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "1",
+            children: "\u56FD\u8A9E"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "2",
+            children: "\u6570\u5B66"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "3",
+            children: "\u7406\u79D1"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "4",
+            children: "\u793E\u4F1A"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "5",
+            children: "\u82F1\u8A9E"
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "name",
           children: "\u79D1\u76EE"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-          type: "text"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+          onChange: CourseChange,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "",
+            hidden: true,
+            children: "\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044"
+          }), subject == "" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "",
+            children: "\u6559\u79D1\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044"
+          }) : "", subject == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "1",
+              children: "\u56FD\u8A9E\u7DCF\u5408"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "2",
+              children: "\u56FD\u8A9E\u8868\u73FE"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "3",
+              children: "\u73FE\u4EE3\u6587A"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "4",
+              children: "\u73FE\u4EE3\u6587B"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "5",
+              children: "\u53E4\u5178A"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "6",
+              children: "\u53E4\u5178B"
+            })]
+          }) : "", subject == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "7",
+              children: "\u6570\u5B661"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "8",
+              children: "\u6570\u5B662"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "9",
+              children: "\u6570\u5B663"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "10",
+              children: "\u6570\u5B66A"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "11",
+              children: "\u6570\u5B66B"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "12",
+              children: "\u6570\u5B66\u6D3B\u7528"
+            })]
+          }) : "", subject == 3 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "13",
+              children: "\u79D1\u5B66\u3068\u4EBA\u9593\u751F\u6D3B"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "14",
+              children: "\u7269\u7406\u57FA\u790E"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "15",
+              children: "\u7269\u7406"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "16",
+              children: "\u79D1\u5B66\u57FA\u790E"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "17",
+              children: "\u79D1\u5B66"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "18",
+              children: "\u751F\u7269\u57FA\u790E"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "19",
+              children: "\u751F\u7269"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "20",
+              children: "\u5730\u5B66\u57FA\u790E"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "21",
+              children: "\u5730\u5B66"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "22",
+              children: "\u7406\u79D1\u8AB2\u984C\u7814\u7A76"
+            })]
+          }) : "", subject == 4 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "23",
+              children: "\u4E16\u754C\u53F2A"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "24",
+              children: "\u4E16\u754C\u53F2B"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "25",
+              children: "\u65E5\u672C\u53F2A"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "26",
+              children: "\u65E5\u672C\u53F2B"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "27",
+              children: "\u5730\u5B66A"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "28",
+              children: "\u5730\u5B66B"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "29",
+              children: "\u73FE\u4EE3\u793E\u4F1A"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "30",
+              children: "\u8AD6\u7406"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "31",
+              children: "\u653F\u6CBB\u30FB\u7D4C\u6E08"
+            })]
+          }) : "", subject == 5 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "32",
+              children: "\u30B3\u30DF\u30E5\u30CB\u30B1\u30FC\u30B7\u30E7\u30F3\u82F1\u8A9E\u57FA\u790E"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "33",
+              children: "\u30B3\u30DF\u30E5\u30CB\u30B1\u30FC\u30B7\u30E7\u30F3\u82F1\u8A9E1"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "34",
+              children: "\u30B3\u30DF\u30E5\u30CB\u30B1\u30FC\u30B7\u30E7\u30F3\u82F1\u8A9E2"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "35",
+              children: "\u30B3\u30DF\u30E5\u30CB\u30B1\u30FC\u30B7\u30E7\u30F3\u82F1\u8A9E3"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "36",
+              children: "\u82F1\u8A9E\u8868\u73FEA"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "37",
+              children: "\u82F1\u8A9E\u8868\u73FEB"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "38",
+              children: "\u82F1\u8A9E\u4F1A\u8A71"
+            })]
+          }) : ""]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].postButton,
         children: "\u8A18\u9332"
       })]
     })]
@@ -28047,13 +28361,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".jIPyO9pjXyb8xKftby5N8A\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  display: flex;\n  margin: 30px auto 0 auto;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .I2r-fVI6uQOZ4PHIsKuU0g\\=\\= {\n  max-width: 500px;\n  width: 100%;\n  border-radius: 15px;\n  overflow: hidden;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .I2r-fVI6uQOZ4PHIsKuU0g\\=\\= img {\n  width: 100%;\n  vertical-align: bottom;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= {\n  margin: 0 0 0 0px;\n  padding: 0 20px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section {\n  margin: 0 0 20px 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section .fgGfVs5uff15g2bqeaLfoQ\\=\\= {\n  margin: 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section input {\n  max-width: 600px;\n  width: 600px;\n  margin-top: 6px;\n}\n\n.z\\+fN758-29SNKKu\\+7VoB7A\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 20px auto 0 auto;\n}\n\n.S743GJ8YDDQKpGyreg7wRw\\=\\= {\n  width: 100%;\n  margin: 0 0 0 0;\n  text-align: center;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .HZYF-uSp0JTae8Ibp82aJg\\=\\= {\n  font-size: 2.3rem;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  display: inline-flex;\n  margin: 30px 0 0 0;\n  gap: 0 30px;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\=, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\= {\n  border: 1px solid #222;\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  text-align: center;\n  vertical-align: middle;\n  position: relative;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\= p, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\= p {\n  width: -moz-fit-content;\n  width: fit-content;\n  position: absolute;\n  top: 38%;\n  left: 50%;\n  transform: translate(-50%);\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\=:hover, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\=:hover {\n  cursor: pointer;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".jIPyO9pjXyb8xKftby5N8A\\=\\= {\n  max-width: 1000px;\n  width: 100%;\n  margin: 30px auto 0 auto;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .I2r-fVI6uQOZ4PHIsKuU0g\\=\\= {\n  max-width: 500px;\n  width: 100%;\n  border-radius: 15px;\n  overflow: hidden;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .I2r-fVI6uQOZ4PHIsKuU0g\\=\\= img {\n  width: 100%;\n  vertical-align: bottom;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= {\n  width: 100%;\n  margin: 30px 0 0 0px;\n  padding: 0 20px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section {\n  width: 100%;\n  margin: 0 0 35px 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section .fgGfVs5uff15g2bqeaLfoQ\\=\\= {\n  margin: 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section input {\n  width: 100%;\n  outline: none;\n  border-radius: 8px;\n  margin-top: 6px;\n  padding: 6px 10px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section select {\n  width: 100%;\n  outline: none;\n  border-radius: 8px;\n  padding: 6px 10px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._5kRzhOwKzR4RrXo5vWrzSA\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 30px 0 60px auto;\n  color: #fff;\n  background-color: #454668;\n  font-size: 0.8rem;\n  padding: 10px 22px;\n  border-radius: 12px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._5kRzhOwKzR4RrXo5vWrzSA\\=\\=:hover {\n  cursor: pointer;\n}\n\n.z\\+fN758-29SNKKu\\+7VoB7A\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 20px auto 0 auto;\n}\n\n.S743GJ8YDDQKpGyreg7wRw\\=\\= {\n  width: 100%;\n  margin: 0 0 0 0;\n  text-align: center;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .HZYF-uSp0JTae8Ibp82aJg\\=\\= {\n  font-size: 2.3rem;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  display: inline-flex;\n  margin: 30px 0 0 0;\n  gap: 0 30px;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\=, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\= {\n  border: 1px solid #222;\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  text-align: center;\n  vertical-align: middle;\n  position: relative;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\= p, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\= p {\n  width: -moz-fit-content;\n  width: fit-content;\n  position: absolute;\n  top: 38%;\n  left: 50%;\n  transform: translate(-50%);\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\=:hover, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\=:hover {\n  cursor: pointer;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"form": "jIPyO9pjXyb8xKftby5N8A==",
 	"ImageCover": "I2r-fVI6uQOZ4PHIsKuU0g==",
 	"MainCover": "E81QJhpX7N2Gq78ktGedIQ==",
 	"name": "fgGfVs5uff15g2bqeaLfoQ==",
+	"postButton": "_5kRzhOwKzR4RrXo5vWrzSA==",
 	"nowtime": "z+fN758-29SNKKu+7VoB7A==",
 	"timerecord": "S743GJ8YDDQKpGyreg7wRw==",
 	"mainTime": "HZYF-uSp0JTae8Ibp82aJg==",

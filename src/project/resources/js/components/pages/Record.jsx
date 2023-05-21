@@ -9,7 +9,7 @@ export default function Record() {
         <div className={styles.record}>
 
             {/* 時間表示 */}
-            <Time />
+            {/* <Time /> */}
 
             {/* 勉強記録入力フォーム */}
             <Form />

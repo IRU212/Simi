@@ -1,8 +1,9 @@
 // 学習記録入力フォーム ↓
 
 .form{
-    width: fit-content;
-    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    // display: flex;
     margin: 30px auto 0 auto;
 
     .ImageCover{
@@ -18,20 +19,46 @@
     }
 
     .MainCover{
-        margin: 0 0 0 0px;
+        width: 100%;
+        margin: 30px 0 0 0px;
         padding: 0 20px;
 
         section{
-            margin: 0 0 20px 0;
+            width: 100%;
+            margin: 0 0 35px 0;
 
             .name{
                 margin: 0;
             }
 
             input{
-                max-width: 600px;
-                width: 600px;
+                width: 100%;
+                outline: none;
+                border-radius: 8px;
                 margin-top: 6px;
+                padding: 6px 10px;
+            }
+
+            select{
+                width: 100%;
+                outline: none;
+                border-radius: 8px;
+                padding: 6px 10px;
+            }
+        }
+
+        // 保存ボタン
+        .postButton{
+            width: fit-content;
+            margin: 30px 0 60px auto;
+            color: #fff;
+            background-color: #454668;
+            font-size: 0.8rem;
+            padding: 10px 22px;
+            border-radius: 12px;
+
+            &:hover{
+                cursor: pointer;
             }
         }
     }
