@@ -64,6 +64,17 @@
             .candidateItem{
                 width: 100%;
                 padding: 8px 20px;
+                display: flex;
+                align-items: center;
+
+                .mainItem{
+                    width: 100%;
+                }
+
+                .addIcon{
+                    display: block;
+                    margin: 0 0 0 auto;
+                }
 
                 &:hover{
                     cursor: pointer;

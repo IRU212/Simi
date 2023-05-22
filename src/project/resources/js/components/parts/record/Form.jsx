@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react"
+import AddIcon from '@mui/icons-material/Add';
 
 // スタイル
 import styles from '../../../../../public/scss/parts/record.module.scss'
@@ -6,6 +7,9 @@ import axios from "axios"
 
 // 勉強記録[parts]
 export default function Form() {
+
+    // Google Books リスト
+    const [bookList,setBookList] = useState([])
 
     // Google Books APIs 検索キーワード
     const [keyword,setKeyword] = useState("")
@@ -35,6 +39,13 @@ export default function Form() {
         setKeyword(e.volumeInfo.title)
 
         setBookName(e.volumeInfo.title)
+    }
+
+    // 検索候補の本を追加
+    const BookAddClick = (e) => {
+        bookList.push({'title' : e.volumeInfo.title, 'selfLink' : e.selfLink})
+
+        console.log(bookList);
     }
 
     // クリックしたらバック　API送信
@@ -345,8 +356,11 @@ export default function Form() {
                                 <div className={styles.candidateCover}>
                                     { bookCandidate.map((item,index) => {
                                         return(
-                                            <div onClick={() => BookCandidateClick(item)} key={index} className={styles.candidateItem}>
-                                                { item.volumeInfo.title }
+                                            <div key={index} className={styles.candidateItem}>
+                                                <div onClick={() => BookCandidateClick(item)} className={styles.mainItem}>
+                                                    { item.volumeInfo.title }
+                                                </div>
+                                                <AddIcon onClick={() => BookAddClick(item)} className={styles.addIcon} />
                                             </div>
                                         )
                                     }) }
@@ -359,6 +373,27 @@ export default function Form() {
                         ""
                     }
                 </section>
+                <section>
+                    <div className="name">
+                        使用書籍一覧
+                    </div>
+                    { bookList.length <= 0 ?
+                        <div>
+                            勉強書籍がありません
+                        </div>
+                        :
+                        <>
+                            { bookList.map((item,index) => {
+                                return(
+                                    <div key={index}>
+                                        { item.title }
+                                    </div>
+                                )
+                            }) }
+                        </>
+                    }
+                </section>
+
 
                 <div className={styles.postButton} onClick={PostClick}>
                     記録

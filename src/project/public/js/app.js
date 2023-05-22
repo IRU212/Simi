@@ -2415,6 +2415,29 @@ exports["default"] = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@mui/icons-material/Add.js":
+/*!*************************************************!*\
+  !*** ./node_modules/@mui/icons-material/Add.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@mui/icons-material/utils/createSvgIcon.js"));
+var _jsxRuntime = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+}), 'Add');
+exports["default"] = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@mui/icons-material/Close.js":
 /*!***************************************************!*\
   !*** ./node_modules/@mui/icons-material/Close.js ***!
@@ -20991,6 +21014,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Form)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _mui_icons_material_Add__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/icons-material/Add */ "./node_modules/@mui/icons-material/Add.js");
 /* harmony import */ var _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/scss/parts/record.module.scss */ "./public/scss/parts/record.module.scss");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
@@ -21003,6 +21027,7 @@ function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefine
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
+
 // スタイル
 
 
@@ -21012,17 +21037,23 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Form() {
-  // Google Books APIs 検索キーワード
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  // Google Books リスト
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
-    keyword = _useState2[0],
-    setKeyword = _useState2[1];
+    bookList = _useState2[0],
+    setBookList = _useState2[1];
+
+  // Google Books APIs 検索キーワード
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState4 = _slicedToArray(_useState3, 2),
+    keyword = _useState4[0],
+    setKeyword = _useState4[1];
 
   // Google Books APIs 検索結果候補
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState4 = _slicedToArray(_useState3, 2),
-    bookCandidate = _useState4[0],
-    setBookCandidate = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState6 = _slicedToArray(_useState5, 2),
+    bookCandidate = _useState6[0],
+    setBookCandidate = _useState6[1];
 
   // Google Books APIs 呼び出し
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -21043,6 +21074,15 @@ function Form() {
     setBookName(e.volumeInfo.title);
   };
 
+  // 検索候補の本を追加
+  var BookAddClick = function BookAddClick(e) {
+    bookList.push({
+      'title': e.volumeInfo.title,
+      'selfLink': e.selfLink
+    });
+    console.log(bookList);
+  };
+
   // クリックしたらバック　API送信
   var PostClick = function PostClick() {
     axios__WEBPACK_IMPORTED_MODULE_2___default().post("", {
@@ -21059,10 +21099,10 @@ function Form() {
   };
 
   // 検索候補モーダル
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState6 = _slicedToArray(_useState5, 2),
-    isModal = _useState6[0],
-    setIsModal = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState8 = _slicedToArray(_useState7, 2),
+    isModal = _useState8[0],
+    setIsModal = _useState8[1];
 
   // モーダルフォーム切り替えクリック
   var ModalFormClick = function ModalFormClick() {
@@ -21077,22 +21117,22 @@ function Form() {
   };
 
   // DB保存用変数
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-    _useState8 = _slicedToArray(_useState7, 2),
-    body = _useState8[0],
-    setBody = _useState8[1];
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState10 = _slicedToArray(_useState9, 2),
-    subject = _useState10[0],
-    setSubject = _useState10[1];
+    body = _useState10[0],
+    setBody = _useState10[1];
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState12 = _slicedToArray(_useState11, 2),
-    course = _useState12[0],
-    setCourse = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    subject = _useState12[0],
+    setSubject = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState14 = _slicedToArray(_useState13, 2),
-    bookName = _useState14[0],
-    setBookName = _useState14[1];
+    course = _useState14[0],
+    setCourse = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState16 = _slicedToArray(_useState15, 2),
+    bookName = _useState16[0],
+    setBookName = _useState16[1];
   var NameChange = function NameChange(e) {
     setBody(e.target.value);
   };
@@ -21118,30 +21158,30 @@ function Form() {
   };
 
   // タイマー時刻　リスト
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-    _useState16 = _slicedToArray(_useState15, 2),
-    hourCount = _useState16[0],
-    setHourCount = _useState16[1];
   var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState18 = _slicedToArray(_useState17, 2),
-    minutesCount = _useState18[0],
-    setMinutesCount = _useState18[1];
+    hourCount = _useState18[0],
+    setHourCount = _useState18[1];
   var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState20 = _slicedToArray(_useState19, 2),
-    secondsCount = _useState20[0],
-    setSecondsCount = _useState20[1];
+    minutesCount = _useState20[0],
+    setMinutesCount = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState22 = _slicedToArray(_useState21, 2),
+    secondsCount = _useState22[0],
+    setSecondsCount = _useState22[1];
 
   // タイマー実行判定
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState22 = _slicedToArray(_useState21, 2),
-    time = _useState22[0],
-    setTime = _useState22[1];
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState24 = _slicedToArray(_useState23, 2),
+    time = _useState24[0],
+    setTime = _useState24[1];
 
   // リセット・ストップボタン表示判定
-  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-    _useState24 = _slicedToArray(_useState23, 2),
-    resetButton = _useState24[0],
-    setResetButton = _useState24[1];
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState26 = _slicedToArray(_useState25, 2),
+    resetButton = _useState26[0],
+    setResetButton = _useState26[1];
 
   // リロード時に一回実行
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -21429,16 +21469,37 @@ function Form() {
           children: bookCandidate.length >= 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].candidateCover,
             children: bookCandidate.map(function (item, index) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                onClick: function onClick() {
-                  return BookCandidateClick(item);
-                },
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                 className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].candidateItem,
-                children: item.volumeInfo.title
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                  onClick: function onClick() {
+                    return BookCandidateClick(item);
+                  },
+                  className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].mainItem,
+                  children: item.volumeInfo.title
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material_Add__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                  onClick: function onClick() {
+                    return BookAddClick(item);
+                  },
+                  className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].addIcon
+                })]
               }, index);
             })
           }) : ""
         }) : ""]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "name",
+          children: "\u4F7F\u7528\u66F8\u7C4D\u4E00\u89A7"
+        }), bookList.length <= 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: "\u52C9\u5F37\u66F8\u7C4D\u304C\u3042\u308A\u307E\u305B\u3093"
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+          children: bookList.map(function (item, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              children: item.title
+            }, index);
+          })
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].postButton,
         onClick: PostClick,
@@ -28435,7 +28496,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".jIPyO9pjXyb8xKftby5N8A\\=\\= {\n  max-width: 1000px;\n  width: 100%;\n  margin: 30px auto 0 auto;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= ._9xZ23AShbJC3\\+\\+xxIwTX4g\\=\\= {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0);\n  width: 100vw;\n  height: 100vh;\n  z-index: 100;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= {\n  width: 100%;\n  margin: 30px 0 0 0px;\n  padding: 0 20px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section {\n  width: 100%;\n  margin: 0 0 35px 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section .fgGfVs5uff15g2bqeaLfoQ\\=\\= {\n  margin: 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section input {\n  width: 100%;\n  outline: none;\n  border-radius: 8px;\n  margin-top: 6px;\n  padding: 6px 10px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section .z6sQ2NMzBeUMcr9kJfLH0g\\=\\= {\n  z-index: 999;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section select {\n  width: 100%;\n  outline: none;\n  border-radius: 8px;\n  padding: 6px 10px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= {\n  max-width: 960px;\n  width: 100%;\n  position: absolute;\n  padding: 20px 10px;\n  background-color: #fff;\n  border-radius: 8px;\n  margin: 3px 20px 0 0;\n  z-index: 999;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= .Vyq9u0DHXO2xXp7WZeXr8Q\\=\\= {\n  width: 100%;\n  padding: 8px 20px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= .Vyq9u0DHXO2xXp7WZeXr8Q\\=\\=:hover {\n  cursor: pointer;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._5kRzhOwKzR4RrXo5vWrzSA\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 30px 0 60px auto;\n  color: #fff;\n  background-color: #454668;\n  font-size: 0.8rem;\n  padding: 10px 22px;\n  border-radius: 12px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._5kRzhOwKzR4RrXo5vWrzSA\\=\\=:hover {\n  cursor: pointer;\n}\n\n.z\\+fN758-29SNKKu\\+7VoB7A\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 20px auto 0 auto;\n}\n\n.S743GJ8YDDQKpGyreg7wRw\\=\\= {\n  width: 100%;\n  margin: 0 0 0 0;\n  text-align: center;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .HZYF-uSp0JTae8Ibp82aJg\\=\\= {\n  font-size: 2.3rem;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  display: inline-flex;\n  margin: 30px 0 0 0;\n  gap: 0 30px;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\=, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\= {\n  border: 1px solid #222;\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  text-align: center;\n  vertical-align: middle;\n  position: relative;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\= p, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\= p {\n  width: -moz-fit-content;\n  width: fit-content;\n  position: absolute;\n  top: 38%;\n  left: 50%;\n  transform: translate(-50%);\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\=:hover, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\=:hover {\n  cursor: pointer;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".jIPyO9pjXyb8xKftby5N8A\\=\\= {\n  max-width: 1000px;\n  width: 100%;\n  margin: 30px auto 0 auto;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= ._9xZ23AShbJC3\\+\\+xxIwTX4g\\=\\= {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0);\n  width: 100vw;\n  height: 100vh;\n  z-index: 100;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= {\n  width: 100%;\n  margin: 30px 0 0 0px;\n  padding: 0 20px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section {\n  width: 100%;\n  margin: 0 0 35px 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section .fgGfVs5uff15g2bqeaLfoQ\\=\\= {\n  margin: 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section input {\n  width: 100%;\n  outline: none;\n  border-radius: 8px;\n  margin-top: 6px;\n  padding: 6px 10px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section .z6sQ2NMzBeUMcr9kJfLH0g\\=\\= {\n  z-index: 999;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section select {\n  width: 100%;\n  outline: none;\n  border-radius: 8px;\n  padding: 6px 10px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= {\n  max-width: 960px;\n  width: 100%;\n  position: absolute;\n  padding: 20px 10px;\n  background-color: #fff;\n  border-radius: 8px;\n  margin: 3px 20px 0 0;\n  z-index: 999;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= .Vyq9u0DHXO2xXp7WZeXr8Q\\=\\= {\n  width: 100%;\n  padding: 8px 20px;\n  display: flex;\n  align-items: center;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= .Vyq9u0DHXO2xXp7WZeXr8Q\\=\\= .D5SQ5BFR6DN\\+RNsspuAIqA\\=\\= {\n  width: 100%;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= .Vyq9u0DHXO2xXp7WZeXr8Q\\=\\= ._160EnGWTsus9NZ5fmgu0Lg\\=\\= {\n  display: block;\n  margin: 0 0 0 auto;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= .Vyq9u0DHXO2xXp7WZeXr8Q\\=\\=:hover {\n  cursor: pointer;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._5kRzhOwKzR4RrXo5vWrzSA\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 30px 0 60px auto;\n  color: #fff;\n  background-color: #454668;\n  font-size: 0.8rem;\n  padding: 10px 22px;\n  border-radius: 12px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._5kRzhOwKzR4RrXo5vWrzSA\\=\\=:hover {\n  cursor: pointer;\n}\n\n.z\\+fN758-29SNKKu\\+7VoB7A\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 20px auto 0 auto;\n}\n\n.S743GJ8YDDQKpGyreg7wRw\\=\\= {\n  width: 100%;\n  margin: 0 0 0 0;\n  text-align: center;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .HZYF-uSp0JTae8Ibp82aJg\\=\\= {\n  font-size: 2.3rem;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  display: inline-flex;\n  margin: 30px 0 0 0;\n  gap: 0 30px;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\=, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\= {\n  border: 1px solid #222;\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  text-align: center;\n  vertical-align: middle;\n  position: relative;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\= p, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\= p {\n  width: -moz-fit-content;\n  width: fit-content;\n  position: absolute;\n  top: 38%;\n  left: 50%;\n  transform: translate(-50%);\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\=:hover, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\=:hover {\n  cursor: pointer;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"form": "jIPyO9pjXyb8xKftby5N8A==",
@@ -28445,6 +28506,8 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"textBook": "z6sQ2NMzBeUMcr9kJfLH0g==",
 	"candidateCover": "Pe4hw6RWUf6VmyMTcWqPkg==",
 	"candidateItem": "Vyq9u0DHXO2xXp7WZeXr8Q==",
+	"mainItem": "D5SQ5BFR6DN+RNsspuAIqA==",
+	"addIcon": "_160EnGWTsus9NZ5fmgu0Lg==",
 	"postButton": "_5kRzhOwKzR4RrXo5vWrzSA==",
 	"nowtime": "z+fN758-29SNKKu+7VoB7A==",
 	"timerecord": "S743GJ8YDDQKpGyreg7wRw==",
