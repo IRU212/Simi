@@ -21084,14 +21084,18 @@ function Form() {
 
   // クリックしたらバック　API送信
   var PostClick = function PostClick() {
-    var data = new FormData();
-    data.append("body", body); // 学習一言コメント
-    data.append("subject", 3); // 教科
-    data.append("course", course); // 科目
-    data.append("time", hourCount + ":" + minutesCount + ":" + secondsCount); // 勉強時間
-
-    axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/record/store", data).then(function () {
-      location.href = "/";
+    axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/record/store", {
+      body: body,
+      // 学習一言コメント
+      subject: subject,
+      // 教科
+      course: course,
+      // 科目
+      time: time,
+      // 勉強時間
+      book_list: bookList // 書籍一覧
+    }).then(function () {
+      // location.href = "/"
     })["catch"](function (err) {
       console.log(err);
     });

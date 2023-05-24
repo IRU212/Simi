@@ -12,7 +12,7 @@ class Book extends Model
 
     protected $fillable = [
         "title",
-        "selfLink"
+        "selfLink",
         "record_id",
         "user_id"
     ];
