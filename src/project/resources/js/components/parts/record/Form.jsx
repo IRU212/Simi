@@ -54,7 +54,8 @@ export default function Form() {
             .post("",{
                 body: body, // 学習一言メモ
                 subject: subject, // 教科
-                course: course // 科目
+                course: course, // 科目
+                bookList: bookList // 本リスト
             })
             .then(() => {
                 location.href = "/"
@@ -378,19 +379,19 @@ export default function Form() {
                         使用書籍一覧
                     </div>
                     { bookList.length <= 0 ?
-                        <div>
-                            勉強書籍がありません
+                        <div className={styles.bookListCover}>
+                            勉強書籍が登録されていません
                         </div>
                         :
-                        <>
+                        <div className={styles.bookListCover}>
                             { bookList.map((item,index) => {
                                 return(
-                                    <div key={index}>
+                                    <div key={index} className={styles.bookListItem}>
                                         { item.title }
                                     </div>
                                 )
                             }) }
-                        </>
+                        </div>
                     }
                 </section>
 
