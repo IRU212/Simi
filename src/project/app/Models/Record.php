@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Record extends Model
 {
-    use HasFactory;
+    protected $table = "record";
+
+    protected $fillable = [
+        "body",
+        "subject",
+        "course",
+        "time",
+        "user_id"
+    ];
 }

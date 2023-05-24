@@ -25,6 +25,9 @@ use App\Http\Controllers\Like\QuestionController as LikeQuestionController;
 // 検索
 use App\Http\Controllers\SearchController;
 
+// 記録
+use App\Http\Controllers\RecordController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -118,3 +121,9 @@ Route::prefix('search')->name('search.')->group(function () {
     Route::get('user/{keyword}', [SearchController::class,'user'])->name('user'); // ユーザ検索
 });
 
+/**
+ *  記録
+ */
+Route::prefix('record')->name('record.')->group(function () {
+    Route::post('store', [RecordController::class,'store'])->name('store'); // 記録保存
+});

@@ -44,19 +44,19 @@ export default function Form() {
     // 検索候補の本を追加
     const BookAddClick = (e) => {
         bookList.push({'title' : e.volumeInfo.title, 'selfLink' : e.selfLink})
-
-        console.log(bookList);
     }
 
     // クリックしたらバック　API送信
     const PostClick = () => {
+
+        const data = new FormData()
+        data.append("body",body) // 学習一言コメント
+        data.append("subject",3) // 教科
+        data.append("course",course) // 科目
+        data.append("time",hourCount + ":" + minutesCount + ":" + secondsCount) // 勉強時間
+
         axios
-            .post("",{
-                body: body, // 学習一言メモ
-                subject: subject, // 教科
-                course: course, // 科目
-                bookList: bookList // 本リスト
-            })
+            .post("/api/record/store",data)
             .then(() => {
                 location.href = "/"
             })

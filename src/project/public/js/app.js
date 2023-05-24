@@ -21080,20 +21080,17 @@ function Form() {
       'title': e.volumeInfo.title,
       'selfLink': e.selfLink
     });
-    console.log(bookList);
   };
 
   // クリックしたらバック　API送信
   var PostClick = function PostClick() {
-    axios__WEBPACK_IMPORTED_MODULE_2___default().post("", {
-      body: body,
-      // 学習一言メモ
-      subject: subject,
-      // 教科
-      course: course,
-      // 科目
-      bookList: bookList // 本リスト
-    }).then(function () {
+    var data = new FormData();
+    data.append("body", body); // 学習一言コメント
+    data.append("subject", 3); // 教科
+    data.append("course", course); // 科目
+    data.append("time", hourCount + ":" + minutesCount + ":" + secondsCount); // 勉強時間
+
+    axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/record/store", data).then(function () {
       location.href = "/";
     })["catch"](function (err) {
       console.log(err);
