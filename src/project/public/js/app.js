@@ -21080,7 +21080,7 @@ function Form() {
       // 教科
       course: course,
       // 科目
-      time: time,
+      time: hourCount + ":" + minutesCount + ":" + secondsCount,
       // 勉強時間
       book_list: bookList // 書籍一覧
     }).then(function () {
@@ -21121,10 +21121,6 @@ function Form() {
     _useState14 = _slicedToArray(_useState13, 2),
     course = _useState14[0],
     setCourse = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState16 = _slicedToArray(_useState15, 2),
-    bookName = _useState16[0],
-    setBookName = _useState16[1];
   var NameChange = function NameChange(e) {
     setBody(e.target.value);
   };
@@ -21150,30 +21146,30 @@ function Form() {
   };
 
   // タイマー時刻　リスト
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState16 = _slicedToArray(_useState15, 2),
+    hourCount = _useState16[0],
+    setHourCount = _useState16[1];
   var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState18 = _slicedToArray(_useState17, 2),
-    hourCount = _useState18[0],
-    setHourCount = _useState18[1];
+    minutesCount = _useState18[0],
+    setMinutesCount = _useState18[1];
   var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState20 = _slicedToArray(_useState19, 2),
-    minutesCount = _useState20[0],
-    setMinutesCount = _useState20[1];
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-    _useState22 = _slicedToArray(_useState21, 2),
-    secondsCount = _useState22[0],
-    setSecondsCount = _useState22[1];
+    secondsCount = _useState20[0],
+    setSecondsCount = _useState20[1];
 
   // タイマー実行判定
-  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState24 = _slicedToArray(_useState23, 2),
-    time = _useState24[0],
-    setTime = _useState24[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState22 = _slicedToArray(_useState21, 2),
+    time = _useState22[0],
+    setTime = _useState22[1];
 
   // リセット・ストップボタン表示判定
-  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-    _useState26 = _slicedToArray(_useState25, 2),
-    resetButton = _useState26[0],
-    setResetButton = _useState26[1];
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState24 = _slicedToArray(_useState23, 2),
+    resetButton = _useState24[0],
+    setResetButton = _useState24[1];
 
   // リロード時に一回実行
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {

@@ -54,7 +54,7 @@ export default function Form() {
                 body: body, // 学習一言コメント
                 subject: subject, // 教科
                 course: course, // 科目
-                time: time, // 勉強時間
+                time: hourCount + ":" + minutesCount + ":" + secondsCount, // 勉強時間
                 book_list: bookList // 書籍一覧
             })
             .then(() => {
@@ -85,7 +85,6 @@ export default function Form() {
     const [body,setBody] = useState("")
     const [subject,setSubject] = useState("")
     const [course,setCourse] = useState("")
-    const [bookName,setBookName] = useState([])
 
     const NameChange = (e) => {
         setBody(e.target.value)

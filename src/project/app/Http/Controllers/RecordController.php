@@ -13,8 +13,7 @@ class RecordController extends Controller
         // モデルインスタンス呼び出し
         $record = new Record();
 
-        // $data = $record->get();
-        $data = $record->latest('id')->first()->id;
+        $data = $record->get();
 
         return response()->json($data, 200);
     }
