@@ -32,6 +32,7 @@ import Error404 from './pages/Error/Error404'
 import LoginUserApi from './api/get/LoginUserApi';
 import LoginRedirect from './LoginRedirect';
 import Game from './pages/game/Game';
+import Save from './pages/record/Save';
 
 function Example() {
 
@@ -105,6 +106,7 @@ function Example() {
 
                         {/* 記録 */}
                         <Route path='/record' element={<Record />} />
+                        <Route path='/record/save' element={<Save />} />
 
                         {/* 質問 ↓ */}
 

@@ -42,7 +42,7 @@ class RecordController extends Controller
             $book->user_id = session('login_id')[0]; // ログインID
 
             // DBに保存
-            // $book->save();
+            $book->save();
 
         }
     }

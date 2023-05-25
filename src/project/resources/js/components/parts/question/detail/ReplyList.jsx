@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import styles from '../../../../../../public/scss/parts/question.module.scss'
-import QuestionReplyApi from '../../../api/get/question/QuestionReplyApi'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 export default function ReplyList() {
 
