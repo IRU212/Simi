@@ -125,5 +125,6 @@ Route::prefix('search')->name('search.')->group(function () {
  *  記録
  */
 Route::prefix('record')->name('record.')->group(function () {
+    Route::get('index', [RecordController::class,'index'])->name('index'); // 記録一覧
     Route::post('store', [RecordController::class,'store'])->name('store'); // 記録保存
 });

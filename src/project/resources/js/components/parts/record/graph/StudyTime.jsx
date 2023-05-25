@@ -27,7 +27,7 @@ export default function StudyTime() {
         datasets: [
             {
                 label: "勉強時間",
-                data: [40, 60, 70, 40, 50, 80, 40, 60, 70, 40, 50, 80],
+                data: [40, 60, 70, 40, 50, 80, 40, 60, 70, 40, 50, 160],
                 borderColor: "rgb(75, 192, 192)",
             },
         ],

@@ -21084,7 +21084,7 @@ function Form() {
       // 勉強時間
       book_list: bookList // 書籍一覧
     }).then(function () {
-      // location.href = "/"
+      location.href = "../";
     })["catch"](function (err) {
       console.log(err);
     });
@@ -21540,7 +21540,7 @@ function StudyTime() {
     labels: labels,
     datasets: [{
       label: "勉強時間",
-      data: [40, 60, 70, 40, 50, 80, 40, 60, 70, 40, 50, 80],
+      data: [40, 60, 70, 40, 50, 80, 40, 60, 70, 40, 50, 160],
       borderColor: "rgb(75, 192, 192)"
     }]
   };

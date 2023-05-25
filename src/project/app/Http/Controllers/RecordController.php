@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 
 class RecordController extends Controller
 {
+    public function index()
+    {
+        // モデルインスタンス呼び出し
+        $record = new Record();
+
+        // $data = $record->get();
+        $data = $record->latest('id')->first()->id;
+
+        return response()->json($data, 200);
+    }
+
     /**
      * 勉強記録保存
      *
@@ -29,7 +40,7 @@ class RecordController extends Controller
         $record->save();
 
         // record最新主キー取得ID
-        $record_id = $record->latest('id')->first();
+        $record_id = $record->latest('id')->first()->id;
 
         foreach ($request->book_list as $index => $item) {
 

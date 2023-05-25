@@ -58,7 +58,7 @@ export default function Form() {
                 book_list: bookList // 書籍一覧
             })
             .then(() => {
-                // location.href = "/"
+                location.href = "../"
             })
             .catch((err) => {
                 console.log(err)
