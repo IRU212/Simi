@@ -1,8 +1,9 @@
+import styles from '../../../../../../public/scss/parts/record.module.scss'
+
 import { Chart, registerables } from "chart.js"
 import { Line } from "react-chartjs-2"
 Chart.register(...registerables)
 
-import styles from '../../../../../../public/scss/parts/record.module.scss'
 import { useEffect, useState } from "react"
 import axios from "axios"
 
@@ -20,8 +21,12 @@ export default function StudyTime() {
                 setApiData(res.data)
 
                 setStudyTimeGraph([
-                    res.data[0]["time"], res.data[1]["time"], res.data[2]["time"], res.data[3]["time"], res.data[4]["time"], res.data[5]["time"],
-                    res.data[6]["time"], res.data[7]["time"], res.data[8]["time"], res.data[9]["time"], res.data[10]["time"], res.data[11]["time"]
+                    res.data["study_time"][0]["time"], res.data["study_time"][1]["time"],
+                    res.data["study_time"][2]["time"], res.data["study_time"][3]["time"],
+                    res.data["study_time"][4]["time"], res.data["study_time"][5]["time"],
+                    res.data["study_time"][6]["time"], res.data["study_time"][7]["time"],
+                    res.data["study_time"][8]["time"], res.data["study_time"][9]["time"],
+                    res.data["study_time"][10]["time"], res.data["study_time"][11]["time"]
                 ])
             })
             .catch((err) => {
