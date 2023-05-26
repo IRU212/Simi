@@ -18,8 +18,8 @@ export default function Link() {
                 </RouterLink>
             </section>
             <section>
-                <RouterLink to={`/profile/${loginData?.id}`}>
-                    プロフィール
+                <RouterLink to={`/record`}>
+                    記録
                 </RouterLink>
             </section>
             <section>
