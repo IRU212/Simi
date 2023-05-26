@@ -59,9 +59,42 @@ class RecordController extends Controller
                           ->take(3)
                           ->get('selfLink');
 
+        // 本詳細リスト
+        $book_list = [];
+
+        foreach ($book_data as $index => $item) {
+
+            // コネクションを開く
+            $get_curl = curl_init();
+
+            // 読み込みURL
+            $get_http_url = $item["selfLink"];
+
+            // 2. HTTP通信のRequest-設定情報をSetする
+            curl_setopt($get_curl, CURLOPT_URL, $get_http_url); // url-setting
+            curl_setopt($get_curl, CURLOPT_CUSTOMREQUEST, "GET"); // メソッド指定 Ver. GET
+            curl_setopt($get_curl, CURLOPT_HTTPHEADER, array("Content-type: application/json","Accept: application/json",)); // HTTP-HeaderをSetting
+            curl_setopt($get_curl, CURLOPT_SSL_VERIFYPEER, false); // サーバ証明書の検証は行わない。
+            curl_setopt($get_curl, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($get_curl, CURLOPT_RETURNTRANSFER, true); // レスポンスを文字列で受け取る
+
+            // curl(HTTP通信)を実行する
+            $get_response = curl_exec($get_curl);
+
+            // HTTP通信の情報を得る
+            $get_http_info = curl_getinfo($get_curl);
+
+            // curlの処理を終了 => コネクションを切断
+            curl_close($get_curl);
+
+            // 配列に挿入
+            $book_list[$index] = json_decode($get_response);
+
+        }
+
         $data = [
             "study_time" => $month_array,
-            "book" => $book_data
+            "book" => $book_list
         ];
 
         return response()->json($data, 200);
