@@ -14,6 +14,7 @@ class RecordController extends Controller
     {
         // モデルインスタンス呼び出し
         $record = new Record();
+        $book = new Book();
 
         // 月ごとの勉強時間を取得
         $month_each_data = $record->select(
@@ -43,10 +44,6 @@ class RecordController extends Controller
         // DB取得データ
         foreach ($month_each_data as $index => $item) {
 
-            function up($time) {
-
-            }
-
             // DB取得データ　月の位置を取得
             $month_array_position = array_search($item["month"], array_column($month_array,"month"));
 
@@ -55,7 +52,19 @@ class RecordController extends Controller
 
         }
 
-        return response()->json($month_array, 200);
+        // 本ランキング取得
+        $book_data = $book->select('selfLink')
+                          ->selectRaw("count(*) as number")
+                          ->groupBy('selfLink')
+                          ->take(3)
+                          ->get('selfLink');
+
+        $data = [
+            "study_time" => $month_array,
+            "book" => $book_data
+        ];
+
+        return response()->json($data, 200);
     }
 
     /**
