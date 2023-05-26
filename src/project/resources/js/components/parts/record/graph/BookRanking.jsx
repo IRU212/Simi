@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import styles from '../../../../../../public/scss/parts/record.module.scss'
 import axios from 'axios'
-import StudyApi from '../../../api/get/record/StudyApi'
+import ImageIcon from '@mui/icons-material/Image';
 
 // 本ランキング
 export default function BookRanking() {
@@ -27,7 +27,18 @@ export default function BookRanking() {
 
     return (
         <div className={styles.bookRanking}>
-
+            { apiData.map((item,index) => {
+                return(
+                    <div className={styles.item} key={index}>
+                        { item.volumeInfo.imageLinks?.smallThumbnail.length > 0 ?
+                            <img src={`${item.volumeInfo.imageLinks?.smallThumbnail}`} className={styles.bookImage} alt="画像" />
+                            :
+                            <ImageIcon className={styles.imageIcon} />
+                        }
+                        { item.volumeInfo.title }
+                    </div>
+                )
+            }) }
         </div>
     )
 }
