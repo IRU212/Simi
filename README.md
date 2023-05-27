@@ -1,6 +1,9 @@
 # **Simi**
 
 ### [作品紹介動画](hhttps://www.youtube.com/watch?v=ifSLo4aLnT0)
+
+##### 動画時間が長いためreadMeに動画を添付出来なかったので<br />Youtubeに動画を限定公開致したリンクを上のURLに載せています
+
 ---
 
 ### 作品概要
