@@ -55,6 +55,9 @@
     * #### git
     * #### GitHub
 
+* #### 外部API
+    * #### Google Books API
+
 --- 
 
 ### 機能一覧 
