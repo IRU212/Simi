@@ -56,6 +56,19 @@
 
 // プロフィールアイコン名前 ↑
 
+// フォロー・フォロワー数　↓
+
+.followCountCover{
+    display: flex;
+    gap: 0 25px;
+
+    div{
+        font-weight: 600;
+    }
+}
+
+// フォロー・フォロワー数　↑
+
 // フォローボタン ↓
 
 .follow{

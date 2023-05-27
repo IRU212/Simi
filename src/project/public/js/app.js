@@ -19507,6 +19507,42 @@ function Follow() {
 
 /***/ }),
 
+/***/ "./resources/js/components/parts/profile/FollowCount.jsx":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/parts/profile/FollowCount.jsx ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FollowCount)
+/* harmony export */ });
+/* harmony import */ var _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../public/scss/parts/profile.module.scss */ "./public/scss/parts/profile.module.scss");
+/* harmony import */ var _api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api/get/ProfileUserApi */ "./resources/js/components/api/get/ProfileUserApi.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+// コンポネート呼び出し
+
+
+// フォロー・フォロワー数
+
+function FollowCount() {
+  // プロフィール情報 API 取得
+  var apiData = (0,_api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].followCountCover,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: [apiData === null || apiData === void 0 ? void 0 : apiData.follow_count, "follow"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: [apiData === null || apiData === void 0 ? void 0 : apiData.follower_count, "follower"]
+    })]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/parts/profile/IconImage.jsx":
 /*!*************************************************************!*\
   !*** ./resources/js/components/parts/profile/IconImage.jsx ***!
@@ -22397,7 +22433,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ MainProfile)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _public_scss_templates_profile_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/scss/templates/profile.module.scss */ "./public/scss/templates/profile.module.scss");
 /* harmony import */ var _api_get_LoginUserApi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/get/LoginUserApi */ "./resources/js/components/api/get/LoginUserApi.jsx");
 /* harmony import */ var _parts_profile_BackImage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../parts/profile/BackImage */ "./resources/js/components/parts/profile/BackImage.jsx");
@@ -22405,7 +22441,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _parts_profile_Name__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../parts/profile/Name */ "./resources/js/components/parts/profile/Name.jsx");
 /* harmony import */ var _parts_profile_Follow__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../parts/profile/Follow */ "./resources/js/components/parts/profile/Follow.jsx");
 /* harmony import */ var _parts_profile_SettingButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../parts/profile/SettingButton */ "./resources/js/components/parts/profile/SettingButton.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _parts_profile_FollowCount__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../parts/profile/FollowCount */ "./resources/js/components/parts/profile/FollowCount.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -22424,28 +22462,31 @@ function MainProfile() {
   var apiData = (0,_api_get_LoginUserApi__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
   // パラメータ取得
-  var id = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.useParams)()['id'];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+  var id = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_10__.useParams)()['id'];
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
     className: _public_scss_templates_profile_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].mainProfile,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_profile_BackImage__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("section", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_profile_BackImage__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("section", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: _public_scss_templates_profile_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].icon,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_profile_IconImage__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_profile_IconImage__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: _public_scss_templates_profile_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].name,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_profile_Name__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_profile_Name__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        className: _public_scss_templates_profile_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].followCount,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_profile_FollowCount__WEBPACK_IMPORTED_MODULE_8__["default"], {})
       }), id == (apiData === null || apiData === void 0 ? void 0 : apiData.id) ?
       /*#__PURE__*/
       // プロフィール編集ボタン
-      (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: _public_scss_templates_profile_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].setting,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_profile_SettingButton__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_profile_SettingButton__WEBPACK_IMPORTED_MODULE_7__["default"], {})
       }) :
       /*#__PURE__*/
       // フォロー
-      (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: _public_scss_templates_profile_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].follow,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_profile_Follow__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_profile_Follow__WEBPACK_IMPORTED_MODULE_6__["default"], {})
       })]
     })]
   });
@@ -28406,13 +28447,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ee0lAkR4o5hS1NbBp8Nkyg\\=\\= {\n  width: 100%;\n  max-width: 100vw;\n  height: 400px;\n  position: relative;\n  background-color: #ccc;\n}\n.ee0lAkR4o5hS1NbBp8Nkyg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  vertical-align: bottom;\n}\n\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  position: relative;\n  transform: translateY(-30%);\n  overflow: hidden;\n  border: 4px solid #fff;\n  background-color: #fff;\n}\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= .P\\+NVr2n0bViIt2G712JnbA\\=\\= {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 120px;\n}\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  vertical-align: bottom;\n}\n\n.JihEBzUZTa5IgiPvMKYyuw\\=\\= {\n  font-size: 1.1rem;\n  font-weight: 600;\n}\n\n.EUO\\+ryr46YnR8WrsJ0dcCA\\=\\= {\n  color: #454668;\n  border: 1px solid #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}\n.EUO\\+ryr46YnR8WrsJ0dcCA\\=\\=:hover {\n  cursor: pointer;\n}\n\n.DbiZuSgaM28weg5zg80blw\\=\\= {\n  color: #fff;\n  background-color: #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}\n.DbiZuSgaM28weg5zg80blw\\=\\=:hover {\n  cursor: pointer;\n}\n\n._8jYnXNR\\+hPSPdNPIvG8Sxw\\=\\= {\n  color: #222;\n}\n\n.QKchST2w-IhH7hcAceGc5A\\=\\= {\n  display: flex;\n  padding: 0 0 0 25px;\n  border-bottom: 1px solid #222;\n}\n.QKchST2w-IhH7hcAceGc5A\\=\\= a {\n  width: 80px;\n  padding: 18px 0 15px 0;\n  text-align: center;\n  text-decoration: none;\n  color: #fff;\n}\n.QKchST2w-IhH7hcAceGc5A\\=\\= .sIOioFPJlTf8VU6bSfdHXA\\=\\= {\n  width: 80px;\n  padding: 18px 0 15px 0;\n  text-align: center;\n  text-decoration: none;\n  color: #fff;\n}\n.QKchST2w-IhH7hcAceGc5A\\=\\= .tcTQ7xpgrG3Nkf5w9zwUpA\\=\\= {\n  border-bottom: 3px solid #ccc;\n}\n.QKchST2w-IhH7hcAceGc5A\\=\\= .DNQGooncPboT6Q9gdYM4zQ\\=\\= {\n  border-bottom: 1px solid #222;\n}\n\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= {\n  width: 100%;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= a {\n  text-decoration: none;\n  color: #fff;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .tcTQ7xpgrG3Nkf5w9zwUpA\\=\\= {\n  border-bottom: 3px solid #ccc;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .DNQGooncPboT6Q9gdYM4zQ\\=\\= {\n  border-bottom: 1px solid #222;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= {\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n  align-items: center;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= .O63tJK-l7ZBjceC9Jhgy2Q\\=\\= {\n  font-size: 40px;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= {\n  margin-left: 20px;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= .-EwzV5Gla2NsLHvXbIGDqg\\=\\= {\n  font-weight: 600;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= {\n  width: 100%;\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= {\n  width: 40px;\n  height: 40px;\n  min-width: 40px;\n  min-height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= .O63tJK-l7ZBjceC9Jhgy2Q\\=\\= {\n  font-size: 40px;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= {\n  margin-left: 20px;\n  word-break: break-all;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= .-EwzV5Gla2NsLHvXbIGDqg\\=\\= {\n  font-weight: 600;\n}\n\n._87aIX52j8u4lyuJCk156UA\\=\\= {\n  text-align: center;\n  margin: 80px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".ee0lAkR4o5hS1NbBp8Nkyg\\=\\= {\n  width: 100%;\n  max-width: 100vw;\n  height: 400px;\n  position: relative;\n  background-color: #ccc;\n}\n.ee0lAkR4o5hS1NbBp8Nkyg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  vertical-align: bottom;\n}\n\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  position: relative;\n  transform: translateY(-30%);\n  overflow: hidden;\n  border: 4px solid #fff;\n  background-color: #fff;\n}\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= .P\\+NVr2n0bViIt2G712JnbA\\=\\= {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 120px;\n}\n.\\+8xk31IbrwsU-Q8Iiq9qNQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  vertical-align: bottom;\n}\n\n.JihEBzUZTa5IgiPvMKYyuw\\=\\= {\n  font-size: 1.1rem;\n  font-weight: 600;\n}\n\n.yBIdRVWIXgg2tOrrd2dhww\\=\\= {\n  display: flex;\n  gap: 0 25px;\n}\n.yBIdRVWIXgg2tOrrd2dhww\\=\\= div {\n  font-weight: 600;\n}\n\n.EUO\\+ryr46YnR8WrsJ0dcCA\\=\\= {\n  color: #454668;\n  border: 1px solid #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}\n.EUO\\+ryr46YnR8WrsJ0dcCA\\=\\=:hover {\n  cursor: pointer;\n}\n\n.DbiZuSgaM28weg5zg80blw\\=\\= {\n  color: #fff;\n  background-color: #454668;\n  border-radius: 18px;\n  padding: 8px 18px;\n  font-size: 0.8rem;\n}\n.DbiZuSgaM28weg5zg80blw\\=\\=:hover {\n  cursor: pointer;\n}\n\n._8jYnXNR\\+hPSPdNPIvG8Sxw\\=\\= {\n  color: #222;\n}\n\n.QKchST2w-IhH7hcAceGc5A\\=\\= {\n  display: flex;\n  padding: 0 0 0 25px;\n  border-bottom: 1px solid #222;\n}\n.QKchST2w-IhH7hcAceGc5A\\=\\= a {\n  width: 80px;\n  padding: 18px 0 15px 0;\n  text-align: center;\n  text-decoration: none;\n  color: #fff;\n}\n.QKchST2w-IhH7hcAceGc5A\\=\\= .sIOioFPJlTf8VU6bSfdHXA\\=\\= {\n  width: 80px;\n  padding: 18px 0 15px 0;\n  text-align: center;\n  text-decoration: none;\n  color: #fff;\n}\n.QKchST2w-IhH7hcAceGc5A\\=\\= .tcTQ7xpgrG3Nkf5w9zwUpA\\=\\= {\n  border-bottom: 3px solid #ccc;\n}\n.QKchST2w-IhH7hcAceGc5A\\=\\= .DNQGooncPboT6Q9gdYM4zQ\\=\\= {\n  border-bottom: 1px solid #222;\n}\n\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= {\n  width: 100%;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= a {\n  text-decoration: none;\n  color: #fff;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .tcTQ7xpgrG3Nkf5w9zwUpA\\=\\= {\n  border-bottom: 3px solid #ccc;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .DNQGooncPboT6Q9gdYM4zQ\\=\\= {\n  border-bottom: 1px solid #222;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= {\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n  align-items: center;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= .O63tJK-l7ZBjceC9Jhgy2Q\\=\\= {\n  font-size: 40px;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= {\n  margin-left: 20px;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .PrP\\+uigIL628G\\+Lt1S7TRg\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= .-EwzV5Gla2NsLHvXbIGDqg\\=\\= {\n  font-weight: 600;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= {\n  width: 100%;\n  padding: 10px 20px;\n  border-bottom: 1px solid #34313f;\n  display: flex;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= {\n  width: 40px;\n  height: 40px;\n  min-width: 40px;\n  min-height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= img {\n  width: 100%;\n  height: 100%;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= .M\\+VPz7PTyS8AVXNEQQMB3g\\=\\= .O63tJK-l7ZBjceC9Jhgy2Q\\=\\= {\n  font-size: 40px;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= {\n  margin-left: 20px;\n  word-break: break-all;\n}\n.xMyGFvvLrp\\+\\+bdEGFQcY3Q\\=\\= .RuDxlJ1z8\\+AO7DQKKbYJAQ\\=\\= ._1hDvV\\+DOuEcbB0e6gu3-3g\\=\\= .-EwzV5Gla2NsLHvXbIGDqg\\=\\= {\n  font-weight: 600;\n}\n\n._87aIX52j8u4lyuJCk156UA\\=\\= {\n  text-align: center;\n  margin: 80px;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"backImage": "ee0lAkR4o5hS1NbBp8Nkyg==",
 	"iconImage": "+8xk31IbrwsU-Q8Iiq9qNQ==",
 	"humanIcon": "P+NVr2n0bViIt2G712JnbA==",
 	"name": "JihEBzUZTa5IgiPvMKYyuw==",
+	"followCountCover": "yBIdRVWIXgg2tOrrd2dhww==",
 	"follow": "EUO+ryr46YnR8WrsJ0dcCA==",
 	"unfollow": "DbiZuSgaM28weg5zg80blw==",
 	"settingButton": "_8jYnXNR+hPSPdNPIvG8Sxw==",
@@ -28695,12 +28737,13 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Hv7xzXcnPUV7ZVGgDFVRwQ\\=\\= {\n  width: 100%;\n}\n.Hv7xzXcnPUV7ZVGgDFVRwQ\\=\\= section {\n  width: 100%;\n  padding: 0 10%;\n  display: flex;\n  align-items: center;\n}\n.Hv7xzXcnPUV7ZVGgDFVRwQ\\=\\= section .VNwJTUGqZDCkibUGeucGYQ\\=\\= {\n  transform: translateY(-30%);\n}\n.Hv7xzXcnPUV7ZVGgDFVRwQ\\=\\= section .sKTYkVZKX3I603MGG3dR\\+A\\=\\= {\n  margin-left: 80px;\n}\n.Hv7xzXcnPUV7ZVGgDFVRwQ\\=\\= section .d5SO2p9jvYqeLNcKHguq8Q\\=\\= {\n  margin: 0 0 0 auto;\n}\n.Hv7xzXcnPUV7ZVGgDFVRwQ\\=\\= section .rg6iE4YIl4KEKeGoTkw5Vg\\=\\= {\n  margin: 0 0 0 auto;\n}\n\n.tGBxMaOXvxygOo2YoWZS6Q\\=\\= {\n  width: 100%;\n  display: block;\n  min-height: calc(100vh - 90px);\n  background-color: #454668;\n  color: #fff;\n  border-radius: 15px 15px 0 0;\n  overflow: hidden;\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Hv7xzXcnPUV7ZVGgDFVRwQ\\=\\= {\n  width: 100%;\n}\n.Hv7xzXcnPUV7ZVGgDFVRwQ\\=\\= section {\n  width: 100%;\n  padding: 0 10%;\n  display: flex;\n  align-items: center;\n}\n.Hv7xzXcnPUV7ZVGgDFVRwQ\\=\\= section .VNwJTUGqZDCkibUGeucGYQ\\=\\= {\n  transform: translateY(-30%);\n}\n.Hv7xzXcnPUV7ZVGgDFVRwQ\\=\\= section .sKTYkVZKX3I603MGG3dR\\+A\\=\\= {\n  margin-left: 80px;\n}\n.Hv7xzXcnPUV7ZVGgDFVRwQ\\=\\= section .WZ\\+9HMqJWREh\\+\\+7dYlL7HA\\=\\= {\n  margin: 0 auto;\n}\n.Hv7xzXcnPUV7ZVGgDFVRwQ\\=\\= section .d5SO2p9jvYqeLNcKHguq8Q\\=\\= {\n  margin: 0 0 0 auto;\n}\n.Hv7xzXcnPUV7ZVGgDFVRwQ\\=\\= section .rg6iE4YIl4KEKeGoTkw5Vg\\=\\= {\n  margin: 0 0 0 auto;\n}\n\n.tGBxMaOXvxygOo2YoWZS6Q\\=\\= {\n  width: 100%;\n  display: block;\n  min-height: calc(100vh - 90px);\n  background-color: #454668;\n  color: #fff;\n  border-radius: 15px 15px 0 0;\n  overflow: hidden;\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"mainProfile": "Hv7xzXcnPUV7ZVGgDFVRwQ==",
 	"icon": "VNwJTUGqZDCkibUGeucGYQ==",
 	"name": "sKTYkVZKX3I603MGG3dR+A==",
+	"followCount": "WZ+9HMqJWREh++7dYlL7HA==",
 	"follow": "d5SO2p9jvYqeLNcKHguq8Q==",
 	"setting": "rg6iE4YIl4KEKeGoTkw5Vg==",
 	"questionList": "tGBxMaOXvxygOo2YoWZS6Q=="

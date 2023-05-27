@@ -10,6 +10,7 @@ import IconImage from '../../parts/profile/IconImage'
 import Name from '../../parts/profile/Name'
 import Follow from '../../parts/profile/Follow'
 import SettingButton from '../../parts/profile/SettingButton'
+import FollowCount from '../../parts/profile/FollowCount';
 
 // プロフィールユーザ情報
 export default function MainProfile() {
@@ -36,6 +37,11 @@ export default function MainProfile() {
                 {/* ユーザ名 */}
                 <div className={styles.name}>
                     <Name />
+                </div>
+
+                {/* フォロー・フォロワー */}
+                <div className={styles.followCount}>
+                    <FollowCount />
                 </div>
 
                 {/* プロフィールidとログインidが一致なかったらフォロー表示 */}
