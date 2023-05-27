@@ -1,5 +1,8 @@
 # **Simi**
 
+### [作品紹介動画](https://studio.youtube.com/video/lsqtzEJqMVc/translations)
+---
+
 ### 作品概要
 
 - #### 学生を対象とした学習サイト(e-learning)
