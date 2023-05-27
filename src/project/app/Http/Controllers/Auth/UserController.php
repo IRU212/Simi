@@ -57,15 +57,23 @@ class UserController extends Controller
         // ユーザプロフィール情報
         $profile = $user->find($id);
 
+        // フォローユーザ
+        $follow_user = $follow->where('user_id','=',$id)->with('user')->get();
+
+        // フォロワーユーザ
+        $follower_user = $follow->where('follow_id','=',$id)->with('user')->get();
+
         // フォロー数
-        $follow_count = $follow->where('follow_id','=',$id)->count();
+        $follow_count = $follow->where('user_id','=',$id)->count();
 
         // フォロワー数
-        $follower_count = $follow->where('user_id','=',$id)->count();
+        $follower_count = $follow->where('follow_id','=',$id)->count();
 
         $data = [
             "profile" => $profile,
+            "follow_user" => $follow_user,
             "follow_count" => $follow_count,
+            "follower_user" => $follower_user,
             "follower_count" => $follower_count
         ];
 

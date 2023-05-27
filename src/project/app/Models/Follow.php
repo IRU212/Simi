@@ -18,4 +18,10 @@ class Follow extends Model
 
     // タイムスタンプ無効
     public $timestamps = false;
+
+    // userテーブル取得
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
