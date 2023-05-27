@@ -19411,8 +19411,8 @@ function BackImage() {
   var apiData = (0,_api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_1__["default"])();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].backImage,
-    children: (apiData === null || apiData === void 0 ? void 0 : apiData.back_image) == null ? "" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-      src: "".concat(apiData === null || apiData === void 0 ? void 0 : apiData.back_image),
+    children: (apiData === null || apiData === void 0 ? void 0 : apiData.profile.back_image) == null ? "" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+      src: "".concat(apiData === null || apiData === void 0 ? void 0 : apiData.profile.back_image),
       alt: "\u80CC\u666F\u753B\u50CF"
     })
   });
@@ -19535,10 +19535,10 @@ function IconImage() {
   var apiData = (0,_api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_1__["default"])();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].iconImage,
-    children: (apiData === null || apiData === void 0 ? void 0 : apiData.icon_image) == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_icons_material_AccountCircle__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: (apiData === null || apiData === void 0 ? void 0 : apiData.profile.icon_image) == null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_icons_material_AccountCircle__WEBPACK_IMPORTED_MODULE_3__["default"], {
       className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].humanIcon
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-      src: "".concat(apiData === null || apiData === void 0 ? void 0 : apiData.icon_image),
+      src: "".concat(apiData === null || apiData === void 0 ? void 0 : apiData.profile.icon_image),
       alt: "\u80CC\u666F\u753B\u50CF"
     })
   });
@@ -19685,71 +19685,6 @@ function ListHeader() {
       setHomeUrl(false);
     }
   }, [window.location.pathname]);
-
-  // if (paramsId == undefined) {
-  //     return (
-  //         <div className={styles.listHeader}>
-
-  //             <NavLink
-  //                 className={`${homeUrl ? styles.NowUrlLink : ""}`}
-  //                 to={`/question`}
-  //             >
-  //                 おすすめ
-  //             </NavLink>
-  //             <NavLink
-  //                 className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
-  //                 to={`/question/follow`}
-  //             >
-  //                 フォロー
-  //             </NavLink>
-  //             <NavLink
-  //                 className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
-  //                 to={`/question/latest`}
-  //             >
-  //                 最新
-  //             </NavLink>
-  //             <NavLink
-  //                 className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
-  //                 to={`/question/like`}
-  //             >
-  //                 いいね
-  //             </NavLink>
-
-  //         </div>
-  //     )
-  // } else {
-  //     return (
-  //         <div className={styles.listHeader}>
-
-  //             <NavLink
-  //                 className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
-  //                 to={`/question/subject/${paramsId}`}
-  //             >
-  //                 おすすめ
-  //             </NavLink>
-  //             <NavLink
-  //                 className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
-  //                 to={`/question/subject/follow/${paramsId}`}
-  //             >
-  //                 フォロー
-  //             </NavLink>
-  //             <NavLink
-  //                 className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
-  //                 to={`/question/subject/latest/${paramsId}`}
-  //             >
-  //                 最新
-  //             </NavLink>
-  //             <NavLink
-  //                 className={({ isActive }) => (isActive ? styles.NowUrlLink : undefined)}
-  //                 to={`/question/subject/like/${paramsId}`}
-  //             >
-  //                 いいね
-  //             </NavLink>
-
-  //         </div>
-  //     )
-  // }
-
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].listHeader,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -19787,7 +19722,7 @@ function Name() {
   var apiData = (0,_api_get_ProfileUserApi__WEBPACK_IMPORTED_MODULE_1__["default"])();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: _public_scss_parts_profile_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].name,
-    children: apiData === null || apiData === void 0 ? void 0 : apiData.name
+    children: apiData === null || apiData === void 0 ? void 0 : apiData.profile.name
   });
 }
 

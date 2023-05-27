@@ -12,10 +12,10 @@ export default function IconImage() {
 
     return (
         <div className={styles.iconImage}>
-            { apiData?.icon_image == null ?
+            { apiData?.profile.icon_image == null ?
                 <AccountCircleIcon className={styles.humanIcon} />
                 :
-                <img src={`${apiData?.icon_image}`} alt="背景画像" />
+                <img src={`${apiData?.profile.icon_image}`} alt="背景画像" />
             }
         </div>
     )

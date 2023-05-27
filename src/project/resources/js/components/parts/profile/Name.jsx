@@ -11,7 +11,7 @@ export default function Name() {
 
     return (
         <div className={styles.name}>
-            { apiData?.name }
+            { apiData?.profile.name }
         </div>
     )
 }

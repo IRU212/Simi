@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Follow;
 use App\Services\ImageService;
 use Illuminate\Http\Request;
 
@@ -51,8 +52,22 @@ class UserController extends Controller
     {
         // モデル　コンストラクタ呼び出し
         $user = new User();
+        $follow = new Follow();
 
-        $data = $user->find($id);
+        // ユーザプロフィール情報
+        $profile = $user->find($id);
+
+        // フォロー数
+        $follow_count = $follow->where('follow_id','=',$id)->count();
+
+        // フォロワー数
+        $follower_count = $follow->where('user_id','=',$id)->count();
+
+        $data = [
+            "profile" => $profile,
+            "follow_count" => $follow_count,
+            "follower_count" => $follower_count
+        ];
 
         if (!$data) {
             return response()->json(false);

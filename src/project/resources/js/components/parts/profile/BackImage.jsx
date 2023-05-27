@@ -11,10 +11,10 @@ export default function BackImage() {
 
     return (
         <div className={styles.backImage}>
-            { apiData?.back_image == null ?
+            { apiData?.profile.back_image == null ?
                 ""
                 :
-                <img src={`${apiData?.back_image}`} alt="背景画像" />
+                <img src={`${apiData?.profile.back_image}`} alt="背景画像" />
             }
         </div>
     )
