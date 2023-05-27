@@ -58,6 +58,9 @@
 * #### 外部API
     * #### Google Books API
 
+* #### デザイン
+    * #### Material UI
+
 --- 
 
 ### 機能一覧 
