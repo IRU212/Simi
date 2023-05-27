@@ -6,10 +6,10 @@
     background-color: #fff;
     border-radius: 15px;
     border: 1px solid #454668;
-    position: absolute;
-    top: 27%;
-    left: 50%;
-    transform: translate(-50%);
+    // position: absolute;
+    // top: 27%;
+    // left: 50%;
+    // transform: translate(-50%);
 
     .FormCover{
         width: 380px;
@@ -58,3 +58,13 @@
 }
 
 // 新規アカウント登録 ↑
+
+// エラーメッセージ　↓
+
+.errorMessage{
+    color: red;
+    font-size: 0.8rem;
+    margin: 8px 0 0 0;
+}
+
+// エラーメッセージ　↑

@@ -41,7 +41,7 @@
 * #### バックエンド
     * PHP
     * Laravel
-    * * PHPUnit
+    * PHPUnit
 
 * #### データベース
     * MySQL

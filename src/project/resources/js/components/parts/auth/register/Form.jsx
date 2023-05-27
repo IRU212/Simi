@@ -73,7 +73,7 @@ export default function Form() {
                     <input type="text" onChange={NameChange} />
 
                     {/* バリテージョンメッセージ[ユーザ名] */}
-                    { errorName !== undefined ? errorName : "" }
+                    { errorName !== undefined ? <div className={styles.errorMessage}>{ errorName }</div> : "" }
 
                 </section>
                 <section>
@@ -82,7 +82,7 @@ export default function Form() {
                     <input type="text" onChange={EmailChange} />
 
                     {/* バリテージョンメッセージ[メールアドレス] */}
-                    { errorEmail !== undefined ? errorEmail : "" }
+                    { errorEmail !== undefined ? <div className={styles.errorMessage}>{ errorEmail }</div> : "" }
 
                 </section>
                 <section>
@@ -91,7 +91,7 @@ export default function Form() {
                     <input type="password" onChange={PasswordChange} />
 
                     {/* バリテージョンメッセージ[パスワード] */}
-                    { errorPassword !== undefined ? errorPassword : "" }
+                    { errorPassword !== undefined ? <div className={styles.errorMessage}>{ errorPassword }</div> : "" }
 
                 </section>
 
