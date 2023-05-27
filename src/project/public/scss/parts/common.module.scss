@@ -1,0 +1,24 @@
+// ローディングデザイン
+
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(359deg);
+    }
+}
+
+.threeQuarterSpinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #333;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin .7s linear 0s infinite;
+    display: block;
+    position: absolute;
+    top: 40%;
+    left: 43%;
+    transform: translate(-50%,-50%);
+  }

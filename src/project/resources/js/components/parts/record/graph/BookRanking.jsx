@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
-import styles from '../../../../../../public/scss/parts/record.module.scss'
 import axios from 'axios'
 import ImageIcon from '@mui/icons-material/Image';
+
+import styles from '../../../../../../public/scss/parts/record.module.scss'
+import loading from '../../../../../../public/scss/parts/common.module.scss'
 
 // 本ランキング
 export default function BookRanking() {
@@ -26,19 +28,37 @@ export default function BookRanking() {
     console.log(apiData);
 
     return (
-        <div className={styles.bookRanking}>
-            { apiData.map((item,index) => {
-                return(
-                    <div className={styles.item} key={index}>
-                        { item.volumeInfo.imageLinks?.smallThumbnail.length > 0 ?
-                            <img src={`${item.volumeInfo.imageLinks?.smallThumbnail}`} className={styles.bookImage} alt="画像" />
-                            :
-                            <ImageIcon className={styles.imageIcon} />
-                        }
-                        { item.volumeInfo.title }
+        <>
+            <div className={styles.bookRanking}>
+                { apiData.length == 0 ?
+                    <div className={styles.Coverloading}>
+                        <div className={styles.loadingItem}>
+                            <div className={loading.threeQuarterSpinner}></div>
+                        </div>
+                        <div className={styles.loadingItem}>
+                            <div className={loading.threeQuarterSpinner}></div>
+                        </div>
+                        <div className={styles.loadingItem}>
+                            <div className={loading.threeQuarterSpinner}></div>
+                        </div>
                     </div>
-                )
-            }) }
-        </div>
+                    :
+                    <>
+                        { apiData.map((item,index) => {
+                            return(
+                                <div className={styles.item} key={index}>
+                                    { item.volumeInfo.imageLinks?.smallThumbnail.length > 0 ?
+                                        <img src={`${item.volumeInfo.imageLinks?.smallThumbnail}`} className={styles.bookImage} alt="画像" />
+                                        :
+                                        <ImageIcon className={styles.imageIcon} />
+                                    }
+                                    { item.volumeInfo.title }
+                                </div>
+                            )
+                        }) }
+                    </>
+                }
+            </div>
+        </>
     )
 }
