@@ -1,6 +1,6 @@
 # **Simi**
 
-### [作品紹介動画](https://studio.youtube.com/video/lsqtzEJqMVc/translations)
+### [作品紹介動画](https://studio.youtube.com/video/lsqtzEJqMVc/translations](https://www.youtube.com/watch?v=lsqtzEJqMVc)
 ---
 
 ### 作品概要
