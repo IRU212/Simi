@@ -126,6 +126,24 @@
 
             .bookListItem{
                 margin: 10px 0;
+                display: flex;
+                font-weight: normal;
+
+                .title{
+                    width: fit-content;
+                    font-size: 0.9rem;
+                    font-weight: normal;
+                }
+
+                .icon{
+                    font-size: 0.9rem;
+                    font-weight: normal;
+                    margin: 0 0 0 auto;
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
             }
         }
 

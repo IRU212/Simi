@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react"
 import AddIcon from '@mui/icons-material/Add';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 // スタイル
 import styles from '../../../../../public/scss/parts/record.module.scss'
@@ -105,6 +106,19 @@ export default function Form() {
     // 科目が変更されたらsubjectに保存
     const CourseChange = (e) => {
         setCourse(e.target.value)
+    }
+
+    // クリックしたらリストから削除
+    const ClickBookDelete = (e) => {
+
+        // 削除する配列データを取得
+        const deleteBookList = [...bookList]
+
+        // 配列のe要素の1つを削除
+        deleteBookList.splice(e,1)
+
+        // 要素を削除した配列を変数に代入
+        setBookList(deleteBookList)
     }
 
     // 本検索キーワード
@@ -386,7 +400,12 @@ export default function Form() {
                             { bookList.map((item,index) => {
                                 return(
                                     <div key={index} className={styles.bookListItem}>
-                                        { item.title }
+                                        <div className={styles.title}>
+                                            { item.title }
+                                        </div>
+                                        <div className={styles.icon}>
+                                            <DeleteForeverIcon onClick={() => ClickBookDelete(index)} />
+                                        </div>
                                     </div>
                                 )
                             }) }

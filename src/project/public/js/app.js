@@ -2461,6 +2461,29 @@ exports["default"] = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@mui/icons-material/DeleteForever.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@mui/icons-material/DeleteForever.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@mui/icons-material/utils/createSvgIcon.js"));
+var _jsxRuntime = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12 1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"
+}), 'DeleteForever');
+exports["default"] = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@mui/icons-material/Favorite.js":
 /*!******************************************************!*\
   !*** ./node_modules/@mui/icons-material/Favorite.js ***!
@@ -21020,16 +21043,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _mui_icons_material_Add__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/icons-material/Add */ "./node_modules/@mui/icons-material/Add.js");
+/* harmony import */ var _mui_icons_material_DeleteForever__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/icons-material/DeleteForever */ "./node_modules/@mui/icons-material/DeleteForever.js");
 /* harmony import */ var _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/scss/parts/record.module.scss */ "./public/scss/parts/record.module.scss");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -21154,6 +21183,18 @@ function Form() {
   // 科目が変更されたらsubjectに保存
   var CourseChange = function CourseChange(e) {
     setCourse(e.target.value);
+  };
+
+  // クリックしたらリストから削除
+  var ClickBookDelete = function ClickBookDelete(e) {
+    // 削除する配列データを取得
+    var deleteBookList = _toConsumableArray(bookList);
+
+    // 配列のe要素の1つを削除
+    deleteBookList.splice(e, 1);
+
+    // 要素を削除した配列を変数に代入
+    setBookList(deleteBookList);
   };
 
   // 本検索キーワード
@@ -21501,9 +21542,19 @@ function Form() {
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].bookListCover,
           children: bookList.map(function (item, index) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].bookListItem,
-              children: item.title
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].title,
+                children: item.title
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: _public_scss_parts_record_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].icon,
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material_DeleteForever__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                  onClick: function onClick() {
+                    return ClickBookDelete(index);
+                  }
+                })
+              })]
             }, index);
           })
         })]
@@ -28662,7 +28713,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Z1PfJNnjNzkG9CR3EgjNDQ\\=\\= {\n  font-weight: 600;\n  margin: 10px 0 30px 0;\n}\n\n.cYjipd4Bh2T1785-yo3gGA\\=\\= {\n  width: 100%;\n  display: flex;\n  margin: 0 0 50px 0;\n}\n.cYjipd4Bh2T1785-yo3gGA\\=\\= .WdOdpXI2RxWjjdrlqCHASA\\=\\= {\n  width: 300px;\n  height: 310px;\n  min-height: 310px;\n  border: 2px solid #ccc;\n  padding: 18px;\n  position: relative;\n  text-align: center;\n  vertical-align: middle;\n  border-radius: 10px;\n}\n.cYjipd4Bh2T1785-yo3gGA\\=\\= .WdOdpXI2RxWjjdrlqCHASA\\=\\=:nth-child(2) {\n  margin: 0 auto;\n}\n\n.jIPyO9pjXyb8xKftby5N8A\\=\\= {\n  max-width: 1000px;\n  width: 100%;\n  margin: 30px auto 0 auto;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= ._9xZ23AShbJC3\\+\\+xxIwTX4g\\=\\= {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0);\n  width: 100vw;\n  height: 100vh;\n  z-index: 100;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= {\n  width: 100%;\n  margin: 30px 0 0 0px;\n  padding: 0 20px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section {\n  width: 100%;\n  margin: 0 0 35px 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section .fgGfVs5uff15g2bqeaLfoQ\\=\\= {\n  margin: 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section input {\n  width: 100%;\n  outline: none;\n  border-radius: 8px;\n  margin-top: 6px;\n  padding: 6px 10px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section .z6sQ2NMzBeUMcr9kJfLH0g\\=\\= {\n  z-index: 999;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section select {\n  width: 100%;\n  outline: none;\n  border-radius: 8px;\n  padding: 6px 10px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= {\n  max-width: 960px;\n  width: 100%;\n  position: absolute;\n  padding: 20px 10px;\n  background-color: #fff;\n  border-radius: 8px;\n  margin: 3px 20px 0 0;\n  z-index: 999;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= .Vyq9u0DHXO2xXp7WZeXr8Q\\=\\= {\n  width: 100%;\n  padding: 8px 20px;\n  display: flex;\n  align-items: center;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= .Vyq9u0DHXO2xXp7WZeXr8Q\\=\\= .D5SQ5BFR6DN\\+RNsspuAIqA\\=\\= {\n  width: 100%;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= .Vyq9u0DHXO2xXp7WZeXr8Q\\=\\= ._160EnGWTsus9NZ5fmgu0Lg\\=\\= {\n  display: block;\n  margin: 0 0 0 auto;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= .Vyq9u0DHXO2xXp7WZeXr8Q\\=\\=:hover {\n  cursor: pointer;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._3h2EdrZ1OCzw77f3SdcJjw\\=\\= {\n  margin: 10px 0 0 0;\n  padding: 10px 20px;\n  background-color: #fff;\n  border-radius: 8px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._3h2EdrZ1OCzw77f3SdcJjw\\=\\= .sE6mhjU-sqE5L7fLnvfNFg\\=\\= {\n  margin: 10px 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._5kRzhOwKzR4RrXo5vWrzSA\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 30px 0 60px auto;\n  color: #fff;\n  background-color: #454668;\n  font-size: 0.8rem;\n  padding: 10px 22px;\n  border-radius: 12px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._5kRzhOwKzR4RrXo5vWrzSA\\=\\=:hover {\n  cursor: pointer;\n}\n\n.z\\+fN758-29SNKKu\\+7VoB7A\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 20px auto 0 auto;\n}\n\n.S743GJ8YDDQKpGyreg7wRw\\=\\= {\n  width: 100%;\n  margin: 0 0 0 0;\n  text-align: center;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .HZYF-uSp0JTae8Ibp82aJg\\=\\= {\n  font-size: 2.3rem;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  display: inline-flex;\n  margin: 30px 0 0 0;\n  gap: 0 30px;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\=, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\= {\n  border: 1px solid #222;\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  text-align: center;\n  vertical-align: middle;\n  position: relative;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\= p, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\= p {\n  width: -moz-fit-content;\n  width: fit-content;\n  position: absolute;\n  top: 38%;\n  left: 50%;\n  transform: translate(-50%);\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\=:hover, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\=:hover {\n  cursor: pointer;\n}\n.cqYFAwnzMyLl\\+95ZHp\\+v6g\\=\\= {\n  font-size: 1.3rem;\n  font-weight: 600;\n}\n\n.gw-K9x8xjbrE\\+6qyYFQPow\\=\\= {\n  color: #454668;\n  text-decoration: none;\n  display: block;\n  margin: 0 0 0 auto;\n}\n\n._7CCOjFngef1Q8P5x17tzeA\\=\\= {\n  width: 100%;\n  display: flex;\n  margin: 0 0 50px 0;\n}\n._7CCOjFngef1Q8P5x17tzeA\\=\\= .aTZ7gvq4-tU8FRJZaE3qdQ\\=\\= {\n  width: 300px;\n  height: 100%;\n  min-height: 310px;\n  border: 2px solid #ccc;\n  padding: 18px;\n  position: relative;\n  text-align: center;\n  border-radius: 10px;\n}\n._7CCOjFngef1Q8P5x17tzeA\\=\\= .aTZ7gvq4-tU8FRJZaE3qdQ\\=\\= .T81Oy6LtG1vLtrwX-7icZw\\=\\= {\n  margin: 20px auto;\n  display: block;\n}\n._7CCOjFngef1Q8P5x17tzeA\\=\\= .aTZ7gvq4-tU8FRJZaE3qdQ\\=\\= .r6e9YderymoQVV04Rr5BLg\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  display: block;\n  font-size: 10rem;\n  margin: 30px auto;\n}\n._7CCOjFngef1Q8P5x17tzeA\\=\\= .aTZ7gvq4-tU8FRJZaE3qdQ\\=\\=:nth-child(2) {\n  margin: 0 auto;\n}\n\n.Xpy0psX1mEz\\+FZDL-Dc04Q\\=\\= {\n  width: 100%;\n}\n.Xpy0psX1mEz\\+FZDL-Dc04Q\\=\\= .yUqDbdItc-fGypJKQINC6A\\=\\= {\n  width: 1000px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Z1PfJNnjNzkG9CR3EgjNDQ\\=\\= {\n  font-weight: 600;\n  margin: 10px 0 30px 0;\n}\n\n.cYjipd4Bh2T1785-yo3gGA\\=\\= {\n  width: 100%;\n  display: flex;\n  margin: 0 0 50px 0;\n}\n.cYjipd4Bh2T1785-yo3gGA\\=\\= .WdOdpXI2RxWjjdrlqCHASA\\=\\= {\n  width: 300px;\n  height: 310px;\n  min-height: 310px;\n  border: 2px solid #ccc;\n  padding: 18px;\n  position: relative;\n  text-align: center;\n  vertical-align: middle;\n  border-radius: 10px;\n}\n.cYjipd4Bh2T1785-yo3gGA\\=\\= .WdOdpXI2RxWjjdrlqCHASA\\=\\=:nth-child(2) {\n  margin: 0 auto;\n}\n\n.jIPyO9pjXyb8xKftby5N8A\\=\\= {\n  max-width: 1000px;\n  width: 100%;\n  margin: 30px auto 0 auto;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= ._9xZ23AShbJC3\\+\\+xxIwTX4g\\=\\= {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0);\n  width: 100vw;\n  height: 100vh;\n  z-index: 100;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= {\n  width: 100%;\n  margin: 30px 0 0 0px;\n  padding: 0 20px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section {\n  width: 100%;\n  margin: 0 0 35px 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section .fgGfVs5uff15g2bqeaLfoQ\\=\\= {\n  margin: 0;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section input {\n  width: 100%;\n  outline: none;\n  border-radius: 8px;\n  margin-top: 6px;\n  padding: 6px 10px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section .z6sQ2NMzBeUMcr9kJfLH0g\\=\\= {\n  z-index: 999;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= section select {\n  width: 100%;\n  outline: none;\n  border-radius: 8px;\n  padding: 6px 10px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= {\n  max-width: 960px;\n  width: 100%;\n  position: absolute;\n  padding: 20px 10px;\n  background-color: #fff;\n  border-radius: 8px;\n  margin: 3px 20px 0 0;\n  z-index: 999;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= .Vyq9u0DHXO2xXp7WZeXr8Q\\=\\= {\n  width: 100%;\n  padding: 8px 20px;\n  display: flex;\n  align-items: center;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= .Vyq9u0DHXO2xXp7WZeXr8Q\\=\\= .D5SQ5BFR6DN\\+RNsspuAIqA\\=\\= {\n  width: 100%;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= .Vyq9u0DHXO2xXp7WZeXr8Q\\=\\= ._160EnGWTsus9NZ5fmgu0Lg\\=\\= {\n  display: block;\n  margin: 0 0 0 auto;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= .Pe4hw6RWUf6VmyMTcWqPkg\\=\\= .Vyq9u0DHXO2xXp7WZeXr8Q\\=\\=:hover {\n  cursor: pointer;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._3h2EdrZ1OCzw77f3SdcJjw\\=\\= {\n  margin: 10px 0 0 0;\n  padding: 10px 20px;\n  background-color: #fff;\n  border-radius: 8px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._3h2EdrZ1OCzw77f3SdcJjw\\=\\= .sE6mhjU-sqE5L7fLnvfNFg\\=\\= {\n  margin: 10px 0;\n  display: flex;\n  font-weight: normal;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._3h2EdrZ1OCzw77f3SdcJjw\\=\\= .sE6mhjU-sqE5L7fLnvfNFg\\=\\= .cqYFAwnzMyLl\\+95ZHp\\+v6g\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  font-size: 0.9rem;\n  font-weight: normal;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._3h2EdrZ1OCzw77f3SdcJjw\\=\\= .sE6mhjU-sqE5L7fLnvfNFg\\=\\= .oZEN13IE5hw6oJoAj4VbMw\\=\\= {\n  font-size: 0.9rem;\n  font-weight: normal;\n  margin: 0 0 0 auto;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._3h2EdrZ1OCzw77f3SdcJjw\\=\\= .sE6mhjU-sqE5L7fLnvfNFg\\=\\= .oZEN13IE5hw6oJoAj4VbMw\\=\\=:hover {\n  cursor: pointer;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._5kRzhOwKzR4RrXo5vWrzSA\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 30px 0 60px auto;\n  color: #fff;\n  background-color: #454668;\n  font-size: 0.8rem;\n  padding: 10px 22px;\n  border-radius: 12px;\n}\n.jIPyO9pjXyb8xKftby5N8A\\=\\= .E81QJhpX7N2Gq78ktGedIQ\\=\\= ._5kRzhOwKzR4RrXo5vWrzSA\\=\\=:hover {\n  cursor: pointer;\n}\n\n.z\\+fN758-29SNKKu\\+7VoB7A\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 20px auto 0 auto;\n}\n\n.S743GJ8YDDQKpGyreg7wRw\\=\\= {\n  width: 100%;\n  margin: 0 0 0 0;\n  text-align: center;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .HZYF-uSp0JTae8Ibp82aJg\\=\\= {\n  font-size: 2.3rem;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  display: inline-flex;\n  margin: 30px 0 0 0;\n  gap: 0 30px;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\=, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\= {\n  border: 1px solid #222;\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  text-align: center;\n  vertical-align: middle;\n  position: relative;\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\= p, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\= p {\n  width: -moz-fit-content;\n  width: fit-content;\n  position: absolute;\n  top: 38%;\n  left: 50%;\n  transform: translate(-50%);\n}\n.S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .K-ti\\+CK8u60TRg99WCSxdw\\=\\=:hover, .S743GJ8YDDQKpGyreg7wRw\\=\\= .jT6A0qNGbj3YMVLaI1tvSw\\=\\= .CK-Srxwbvx27e7t6iNBXIQ\\=\\=:hover {\n  cursor: pointer;\n}\n.cqYFAwnzMyLl\\+95ZHp\\+v6g\\=\\= {\n  font-size: 1.3rem;\n  font-weight: 600;\n}\n\n.gw-K9x8xjbrE\\+6qyYFQPow\\=\\= {\n  color: #454668;\n  text-decoration: none;\n  display: block;\n  margin: 0 0 0 auto;\n}\n\n._7CCOjFngef1Q8P5x17tzeA\\=\\= {\n  width: 100%;\n  display: flex;\n  margin: 0 0 50px 0;\n}\n._7CCOjFngef1Q8P5x17tzeA\\=\\= .aTZ7gvq4-tU8FRJZaE3qdQ\\=\\= {\n  width: 300px;\n  height: 100%;\n  min-height: 310px;\n  border: 2px solid #ccc;\n  padding: 18px;\n  position: relative;\n  text-align: center;\n  border-radius: 10px;\n}\n._7CCOjFngef1Q8P5x17tzeA\\=\\= .aTZ7gvq4-tU8FRJZaE3qdQ\\=\\= .T81Oy6LtG1vLtrwX-7icZw\\=\\= {\n  margin: 20px auto;\n  display: block;\n}\n._7CCOjFngef1Q8P5x17tzeA\\=\\= .aTZ7gvq4-tU8FRJZaE3qdQ\\=\\= .r6e9YderymoQVV04Rr5BLg\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  display: block;\n  font-size: 10rem;\n  margin: 30px auto;\n}\n._7CCOjFngef1Q8P5x17tzeA\\=\\= .aTZ7gvq4-tU8FRJZaE3qdQ\\=\\=:nth-child(2) {\n  margin: 0 auto;\n}\n\n.Xpy0psX1mEz\\+FZDL-Dc04Q\\=\\= {\n  width: 100%;\n}\n.Xpy0psX1mEz\\+FZDL-Dc04Q\\=\\= .yUqDbdItc-fGypJKQINC6A\\=\\= {\n  width: 1000px;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"subTitle": "Z1PfJNnjNzkG9CR3EgjNDQ==",
@@ -28679,6 +28730,8 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"addIcon": "_160EnGWTsus9NZ5fmgu0Lg==",
 	"bookListCover": "_3h2EdrZ1OCzw77f3SdcJjw==",
 	"bookListItem": "sE6mhjU-sqE5L7fLnvfNFg==",
+	"title": "cqYFAwnzMyLl+95ZHp+v6g==",
+	"icon": "oZEN13IE5hw6oJoAj4VbMw==",
 	"postButton": "_5kRzhOwKzR4RrXo5vWrzSA==",
 	"nowtime": "z+fN758-29SNKKu+7VoB7A==",
 	"timerecord": "S743GJ8YDDQKpGyreg7wRw==",
@@ -28686,7 +28739,6 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"buttonCover": "jT6A0qNGbj3YMVLaI1tvSw==",
 	"stopButton": "K-ti+CK8u60TRg99WCSxdw==",
 	"startButton": "CK-Srxwbvx27e7t6iNBXIQ==",
-	"title": "cqYFAwnzMyLl+95ZHp+v6g==",
 	"link": "gw-K9x8xjbrE+6qyYFQPow==",
 	"bookRanking": "_7CCOjFngef1Q8P5x17tzeA==",
 	"item": "aTZ7gvq4-tU8FRJZaE3qdQ==",
