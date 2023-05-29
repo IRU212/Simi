@@ -249,8 +249,14 @@
 .link{
     color: #454668;
     text-decoration: none;
-    display: block;
     margin: 0 0 0 auto;
+    gap: 5px;
+    display: flex;
+    align-items: center;
+
+    &:hover{
+        transition: 0.8s;
+    }
 }
 
 // リンク　↑
