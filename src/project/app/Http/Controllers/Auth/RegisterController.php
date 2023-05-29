@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Http\Requests\Auth\RegisterRequest;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -27,7 +28,7 @@ class RegisterController extends Controller
         $user->name = $request->name; // 名前
         $user->email = $request->email; // メールアドレス
         $user->password = Hash::make($request->password); // パスワード ・ハッシュ化
-        $user->api_token => str_random(60),
+        $user->api_token = Hash::make(Str::random(60)); // トークンハッシュ化
 
         // request 受け取りデータ 保存
         $user->save();
