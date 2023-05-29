@@ -21,6 +21,12 @@ export default function Edit() {
     const [previewIconImage, setPreviewIconImage] = useState(null)
     const [previewBackImage, setPreviewBackImage] = useState(null)
 
+    // 変更ボタン表示判定
+    const [IsSaveBotton,setIsSaveButton] = useState(false)
+
+    // 画像サイズエラーメッセージ表示判定
+    const [isImageSizeMessage,setIsImageSizeMessage] = useState(false)
+
     // 名前入力許可判定
     const [isNameInput,setIsNameInput] = useState(false)
 
@@ -52,6 +58,9 @@ export default function Edit() {
         // 1GB以上だと保存不可
         if (e.target.files[0].size > 1000000) {
             setIsSaveButton(false)
+            setIsImageSizeMessage(true)
+        } else {
+            setIsImageSizeMessage(false)
         }
     }
 
@@ -71,6 +80,8 @@ export default function Edit() {
         // 1GB以上だと保存不可
         if (e.target.files[0].size > 1000000) {
             setIsSaveButton(false)
+        } else {
+            setIsImageSizeMessage(false)
         }
     }
 
@@ -116,10 +127,9 @@ export default function Edit() {
 
         setIsSaveButton(false) // 保存ボタン表示判定
 
-    }
+        setIsImageSizeMessage(false)  // 画像サイズエラーメッセージ判定
 
-    // 変更ボタン表示判定
-    const [IsSaveBotton,setIsSaveButton] = useState(false)
+    }
 
     return (
         <>
@@ -181,6 +191,23 @@ export default function Edit() {
                 </section>
 
             </div>
+
+            {/* 画像サイズエラーメッセージ */}
+            { isImageSizeMessage ?
+                <div className={styles.imageSizeMessageCover}>
+
+                    <div className={styles.imageSizeMessage}>
+                        画像サイズを1GB以内にしてください
+                    </div>
+                    {/* リセットボタン */}
+                    <div className={styles.ResetButton} onClick={ResetClick}>
+                        リセット
+                    </div>
+
+                </div>
+                :
+                ""
+            }
 
             {/* プロフィール編集内容がある際に変更ボタン・リセットボタンを表示 */}
             { IsSaveBotton ?

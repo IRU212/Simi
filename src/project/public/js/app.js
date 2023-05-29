@@ -22243,11 +22243,23 @@ function Edit() {
     previewBackImage = _useState10[0],
     setPreviewBackImage = _useState10[1];
 
-  // 名前入力許可判定
+  // 変更ボタン表示判定
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState12 = _slicedToArray(_useState11, 2),
-    isNameInput = _useState12[0],
-    setIsNameInput = _useState12[1];
+    IsSaveBotton = _useState12[0],
+    setIsSaveButton = _useState12[1];
+
+  // 画像サイズエラーメッセージ表示判定
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState14 = _slicedToArray(_useState13, 2),
+    isImageSizeMessage = _useState14[0],
+    setIsImageSizeMessage = _useState14[1];
+
+  // 名前入力許可判定
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState16 = _slicedToArray(_useState15, 2),
+    isNameInput = _useState16[0],
+    setIsNameInput = _useState16[1];
 
   // 名前の変更内容を変数に代入
   var NameChange = function NameChange(e) {
@@ -22276,6 +22288,9 @@ function Edit() {
     // 1GB以上だと保存不可
     if (e.target.files[0].size > 1000000) {
       setIsSaveButton(false);
+      setIsImageSizeMessage(true);
+    } else {
+      setIsImageSizeMessage(false);
     }
   };
 
@@ -22294,6 +22309,8 @@ function Edit() {
     // 1GB以上だと保存不可
     if (e.target.files[0].size > 1000000) {
       setIsSaveButton(false);
+    } else {
+      setIsImageSizeMessage(false);
     }
   };
 
@@ -22331,13 +22348,10 @@ function Edit() {
     setPreviewBackImage(null); // プレビュー背景画像
 
     setIsSaveButton(false); // 保存ボタン表示判定
+
+    setIsImageSizeMessage(false); // 画像サイズエラーメッセージ判定
   };
 
-  // 変更ボタン表示判定
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState14 = _slicedToArray(_useState13, 2),
-    IsSaveBotton = _useState14[0],
-    setIsSaveButton = _useState14[1];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].edit,
@@ -22397,7 +22411,17 @@ function Edit() {
           children: "\u540D\u524D\u3092\u5909\u66F4"
         })]
       })]
-    }), IsSaveBotton ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), isImageSizeMessage ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].imageSizeMessageCover,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].imageSizeMessage,
+        children: "\u753B\u50CF\u30B5\u30A4\u30BA\u30921GB\u4EE5\u5185\u306B\u3057\u3066\u304F\u3060\u3055\u3044"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].ResetButton,
+        onClick: ResetClick,
+        children: "\u30EA\u30BB\u30C3\u30C8"
+      })]
+    }) : "", IsSaveBotton ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].buttonCover,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].ResetButton,
@@ -28851,7 +28875,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: calc(100vh - 65px);\n  margin: 0 0 0 auto;\n  padding: 10px 20px 0 0;\n  border-right: 1px solid #ccc;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section {\n  padding: 10px;\n  border-bottom: 1px solid #fff;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a, .ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  margin: 8px 0;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  font-size: 0.9rem;\n  color: #6f6e6e;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a {\n  font-size: 1rem;\n  display: block;\n  text-decoration: none;\n  color: #222;\n}\n\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= {\n  width: 600px;\n  background-color: #6f6e6e;\n  border-radius: 20px;\n  overflow: hidden;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= input[type=file] {\n  display: none;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= {\n  width: 100%;\n  height: 160px;\n  background-color: #454668;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\=:hover {\n  cursor: pointer;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section {\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  overflow: hidden;\n  transform: translateY(-30%);\n  margin: 0 0 0 10%;\n  border: 3px solid #6f6e6e;\n  position: relative;\n  background-color: #fff;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\=:hover {\n  cursor: pointer;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= .xU\\+FAq7rKaC0ojac\\+ULHOA\\=\\= {\n  font-size: 80px;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .Apuwqm-HFH6qc85jwalCTw\\=\\= {\n  color: #fff;\n  margin: 0 0 0 8%;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .lNdstIBSZeyOl7eYz-QYfQ\\=\\= {\n  margin: 0 0 0 8%;\n  padding: 4px;\n  font-size: 0.75rem;\n  border-radius: 6px;\n  outline: none;\n  border: none;\n  color: #fff;\n  background-color: #3f3f3f;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\= {\n  color: #fff;\n  margin: 0 10% 0 auto;\n  font-size: 0.65rem;\n  background-color: #434242;\n  padding: 8px;\n  border-radius: 10px;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\=:hover {\n  cursor: pointer;\n}\n\n.rcgCGnnJm1OiB2L9AgiD7Q\\=\\= {\n  width: 100%;\n  display: flex;\n  margin: 40px 0 0 0;\n}\n.rcgCGnnJm1OiB2L9AgiD7Q\\=\\= .m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 0 0 0 auto;\n  color: #fff;\n  background-color: #5c5c5c;\n  padding: 8px 16px;\n  border-radius: 10px;\n  font-size: 0.8rem;\n}\n.rcgCGnnJm1OiB2L9AgiD7Q\\=\\= .m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\=:hover {\n  cursor: pointer;\n}\n.rcgCGnnJm1OiB2L9AgiD7Q\\=\\= .PATOZVbac2XU0EY9Kk-ZNA\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  color: #fff;\n  background-color: #5c5c5c;\n  padding: 8px 16px;\n  border-radius: 10px;\n  font-size: 0.8rem;\n  opacity: 0.9;\n}\n.rcgCGnnJm1OiB2L9AgiD7Q\\=\\= .PATOZVbac2XU0EY9Kk-ZNA\\=\\=:hover {\n  cursor: pointer;\n}\n\n.JUWqyFCG9D\\+61ewppInOQg\\=\\=:hover {\n  cursor: pointer;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: calc(100vh - 65px);\n  margin: 0 0 0 auto;\n  padding: 10px 20px 0 0;\n  border-right: 1px solid #ccc;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section {\n  padding: 10px;\n  border-bottom: 1px solid #fff;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a, .ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  margin: 8px 0;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section .a07nSlVXdbNyhch2mp9f0A\\=\\= {\n  font-size: 0.9rem;\n  color: #6f6e6e;\n}\n.ku7Gh6W-n4bJ0XvlXLd9sw\\=\\= section a {\n  font-size: 1rem;\n  display: block;\n  text-decoration: none;\n  color: #222;\n}\n\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= {\n  width: 600px;\n  background-color: #6f6e6e;\n  border-radius: 20px;\n  overflow: hidden;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= input[type=file] {\n  display: none;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= {\n  width: 100%;\n  height: 160px;\n  background-color: #454668;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\=:hover {\n  cursor: pointer;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= .CrpmA\\+wPSjxykGysdn2IOQ\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section {\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  overflow: hidden;\n  transform: translateY(-30%);\n  margin: 0 0 0 10%;\n  border: 3px solid #6f6e6e;\n  position: relative;\n  background-color: #fff;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\=:hover {\n  cursor: pointer;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= .xU\\+FAq7rKaC0ojac\\+ULHOA\\=\\= {\n  font-size: 80px;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .G25fVEenH1vKV7-d376dNg\\=\\= img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .Apuwqm-HFH6qc85jwalCTw\\=\\= {\n  color: #fff;\n  margin: 0 0 0 8%;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section .lNdstIBSZeyOl7eYz-QYfQ\\=\\= {\n  margin: 0 0 0 8%;\n  padding: 4px;\n  font-size: 0.75rem;\n  border-radius: 6px;\n  outline: none;\n  border: none;\n  color: #fff;\n  background-color: #3f3f3f;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\= {\n  color: #fff;\n  margin: 0 10% 0 auto;\n  font-size: 0.65rem;\n  background-color: #434242;\n  padding: 8px;\n  border-radius: 10px;\n}\n.vUdty3WtCKaWNYCbgkK8ZQ\\=\\= section ._4flEee6KCk7LKm4WAYPrUw\\=\\=:hover {\n  cursor: pointer;\n}\n\n._50N3iLGETUGX977k9tNLiw\\=\\= {\n  width: 100%;\n  display: flex;\n  margin: 30px 0 0 0;\n  align-items: center;\n}\n._50N3iLGETUGX977k9tNLiw\\=\\= .UX8JFW7Z2UNC3xMBI85Axw\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  color: red;\n}\n._50N3iLGETUGX977k9tNLiw\\=\\= .PATOZVbac2XU0EY9Kk-ZNA\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  color: #fff;\n  background-color: #5c5c5c;\n  padding: 8px 16px;\n  border-radius: 10px;\n  font-size: 0.8rem;\n  opacity: 0.9;\n  margin: 0 0 0 auto;\n}\n._50N3iLGETUGX977k9tNLiw\\=\\= .PATOZVbac2XU0EY9Kk-ZNA\\=\\=:hover {\n  cursor: pointer;\n}\n\n.rcgCGnnJm1OiB2L9AgiD7Q\\=\\= {\n  width: 100%;\n  display: flex;\n  margin: 30px 0 0 0;\n}\n.rcgCGnnJm1OiB2L9AgiD7Q\\=\\= .m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 0 0 0 auto;\n  color: #fff;\n  background-color: #5c5c5c;\n  padding: 8px 16px;\n  border-radius: 10px;\n  font-size: 0.8rem;\n}\n.rcgCGnnJm1OiB2L9AgiD7Q\\=\\= .m-Lx-vxid\\+\\+58Yv0Ft5W9w\\=\\=:hover {\n  cursor: pointer;\n}\n.rcgCGnnJm1OiB2L9AgiD7Q\\=\\= .PATOZVbac2XU0EY9Kk-ZNA\\=\\= {\n  width: -moz-fit-content;\n  width: fit-content;\n  color: #fff;\n  background-color: #5c5c5c;\n  padding: 8px 16px;\n  border-radius: 10px;\n  font-size: 0.8rem;\n  opacity: 0.9;\n}\n.rcgCGnnJm1OiB2L9AgiD7Q\\=\\= .PATOZVbac2XU0EY9Kk-ZNA\\=\\=:hover {\n  cursor: pointer;\n}\n\n.JUWqyFCG9D\\+61ewppInOQg\\=\\=:hover {\n  cursor: pointer;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"settingHeader": "ku7Gh6W-n4bJ0XvlXLd9sw==",
@@ -28863,9 +28887,11 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"name": "Apuwqm-HFH6qc85jwalCTw==",
 	"nameInput": "lNdstIBSZeyOl7eYz-QYfQ==",
 	"nameChange": "_4flEee6KCk7LKm4WAYPrUw==",
+	"imageSizeMessageCover": "_50N3iLGETUGX977k9tNLiw==",
+	"imageSizeMessage": "UX8JFW7Z2UNC3xMBI85Axw==",
+	"ResetButton": "PATOZVbac2XU0EY9Kk-ZNA==",
 	"buttonCover": "rcgCGnnJm1OiB2L9AgiD7Q==",
 	"SaveButton": "m-Lx-vxid++58Yv0Ft5W9w==",
-	"ResetButton": "PATOZVbac2XU0EY9Kk-ZNA==",
 	"logoutButton": "JUWqyFCG9D+61ewppInOQg=="
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
