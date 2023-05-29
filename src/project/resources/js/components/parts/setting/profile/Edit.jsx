@@ -47,6 +47,12 @@ export default function Edit() {
 
         // 変更許可ボタンを表示
         setIsSaveButton(true)
+
+        // 画像サイズ判定
+        // 1GB以上だと保存不可
+        if (e.target.files[0].size > 1000000) {
+            setIsSaveButton(false)
+        }
     }
 
     // 画像の変更内容を変数に代入 アイコン
@@ -60,6 +66,12 @@ export default function Edit() {
 
         // 変更許可ボタンを表示
         setIsSaveButton(true)
+
+        // 画像サイズ判定
+        // 1GB以上だと保存不可
+        if (e.target.files[0].size > 1000000) {
+            setIsSaveButton(false)
+        }
     }
 
     // 名前の入力のキャンセル
