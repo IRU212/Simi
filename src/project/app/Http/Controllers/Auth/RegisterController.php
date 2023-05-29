@@ -27,6 +27,7 @@ class RegisterController extends Controller
         $user->name = $request->name; // 名前
         $user->email = $request->email; // メールアドレス
         $user->password = Hash::make($request->password); // パスワード ・ハッシュ化
+        $user->api_token => str_random(60),
 
         // request 受け取りデータ 保存
         $user->save();
