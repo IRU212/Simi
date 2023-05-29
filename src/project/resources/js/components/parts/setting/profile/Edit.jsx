@@ -105,6 +105,19 @@ export default function Edit() {
             })
     }
 
+    // 変更内容リセットボタン
+    const ResetClick = () => {
+
+        setName("") // 名前
+        setIconImage("") // アイコン
+        setBackImage("") // 背景画像
+        setPreviewIconImage(null) // プレビューアイコン
+        setPreviewBackImage(null) // プレビュー背景画像
+
+        setIsSaveButton(false) // 保存ボタン表示判定
+
+    }
+
     // 変更ボタン表示判定
     const [IsSaveBotton,setIsSaveButton] = useState(false)
 
@@ -169,10 +182,19 @@ export default function Edit() {
 
             </div>
 
-            {/* プロフィール編集内容がある際に変更ボタンを表示 */}
+            {/* プロフィール編集内容がある際に変更ボタン・リセットボタンを表示 */}
             { IsSaveBotton ?
-                <div className={styles.SaveButton} onClick={SaveClick}>
-                    保存
+                <div className={styles.buttonCover}>
+
+                    {/* リセットボタン */}
+                    <div className={styles.ResetButton} onClick={ResetClick}>
+                        リセット
+                    </div>
+                    {/* 変更ボタン */}
+                    <div className={styles.SaveButton} onClick={SaveClick}>
+                        保存
+                    </div>
+
                 </div>
                 :
                 ""
