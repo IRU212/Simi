@@ -22249,6 +22249,13 @@ function Edit() {
   // 名前の変更内容を変数に代入
   var NameChange = function NameChange(e) {
     setName(e.target.value);
+
+    // 5文字以上入力で保存可能
+    if (e.target.value.length >= 5) {
+      setIsSaveButton(true);
+    } else {
+      setIsSaveButton(false);
+    }
   };
 
   // 画像の変更内容を変数に代入 背景画像
@@ -22258,6 +22265,9 @@ function Edit() {
 
     // オブジェクトURLを生成し、useState()を更新
     setPreviewBackImage(window.URL.createObjectURL(e.target.files[0]));
+
+    // 変更許可ボタンを表示
+    setIsSaveButton(true);
   };
 
   // 画像の変更内容を変数に代入 アイコン
@@ -22267,6 +22277,9 @@ function Edit() {
 
     // オブジェクトURLを生成し、useState()を更新
     setPreviewIconImage(window.URL.createObjectURL(e.target.files[0]));
+
+    // 変更許可ボタンを表示
+    setIsSaveButton(true);
   };
 
   // 名前の入力のキャンセル
@@ -22293,6 +22306,12 @@ function Edit() {
       console.log(err);
     });
   };
+
+  // 変更ボタン表示判定
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState14 = _slicedToArray(_useState13, 2),
+    IsSaveBotton = _useState14[0],
+    setIsSaveButton = _useState14[1];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].edit,
@@ -22352,11 +22371,11 @@ function Edit() {
           children: "\u540D\u524D\u3092\u5909\u66F4"
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    }), IsSaveBotton ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: _public_scss_parts_setting_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].SaveButton,
       onClick: SaveClick,
       children: "\u4FDD\u5B58"
-    })]
+    }) : ""]
   });
 }
 

@@ -27,6 +27,13 @@ export default function Edit() {
     // 名前の変更内容を変数に代入
     const NameChange = (e) => {
         setName(e.target.value)
+
+        // 5文字以上入力で保存可能
+        if (e.target.value.length >= 5) {
+            setIsSaveButton(true)
+        } else {
+            setIsSaveButton(false)
+        }
     }
 
     // 画像の変更内容を変数に代入 背景画像
@@ -37,6 +44,9 @@ export default function Edit() {
 
         // オブジェクトURLを生成し、useState()を更新
         setPreviewBackImage(window.URL.createObjectURL(e.target.files[0]))
+
+        // 変更許可ボタンを表示
+        setIsSaveButton(true)
     }
 
     // 画像の変更内容を変数に代入 アイコン
@@ -47,6 +57,9 @@ export default function Edit() {
 
         // オブジェクトURLを生成し、useState()を更新
         setPreviewIconImage(window.URL.createObjectURL(e.target.files[0]))
+
+        // 変更許可ボタンを表示
+        setIsSaveButton(true)
     }
 
     // 名前の入力のキャンセル
@@ -79,6 +92,9 @@ export default function Edit() {
                 console.log(err)
             })
     }
+
+    // 変更ボタン表示判定
+    const [IsSaveBotton,setIsSaveButton] = useState(false)
 
     return (
         <>
@@ -141,9 +157,15 @@ export default function Edit() {
 
             </div>
 
-            <div className={styles.SaveButton} onClick={SaveClick}>
-                保存
-            </div>
+            {/* プロフィール編集内容がある際に変更ボタンを表示 */}
+            { IsSaveBotton ?
+                <div className={styles.SaveButton} onClick={SaveClick}>
+                    保存
+                </div>
+                :
+                ""
+            }
+
         </>
     )
 }
