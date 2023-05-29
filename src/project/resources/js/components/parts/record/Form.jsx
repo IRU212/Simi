@@ -413,11 +413,15 @@ export default function Form() {
                     }
                 </section>
 
-
-                <div className={styles.postButton} onClick={PostClick}>
-                    記録
-                </div>
-
+                { body.length > 0 && subject > 0 ?
+                    <div className={styles.postButton} onClick={PostClick}>
+                        記録
+                    </div>
+                    :
+                    <div className={styles.postNoButton} >
+                        記録
+                    </div>
+                }
 
             </div>
 

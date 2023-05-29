@@ -147,19 +147,28 @@
             }
         }
 
-        // 保存ボタン
-        .postButton{
+        %button-style{
             width: fit-content;
             margin: 30px 0 60px auto;
             color: #fff;
             background-color: #454668;
             font-size: 0.8rem;
-            padding: 10px 22px;
+            padding: 8px 18px;
             border-radius: 12px;
+        }
+
+        // 保存ボタン
+        .postButton{
+            @extend %button-style;
 
             &:hover{
                 cursor: pointer;
             }
+        }
+
+        .postNoButton{
+            @extend %button-style;
+            opacity: 0.6;
         }
     }
 }
