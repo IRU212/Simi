@@ -53,7 +53,8 @@ class RecordController extends Controller
         }
 
         // 本ランキング取得
-        $book_data = $book->select('selfLink')
+        $book_data = $book->where('user_id','=',session('login_id')[0])
+                          ->select('selfLink')
                           ->selectRaw("count(*) as number")
                           ->groupBy('selfLink')
                           ->take(3)
