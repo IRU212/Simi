@@ -10,6 +10,7 @@ export default function BookRanking() {
 
     // APIデータ
     const [apiData,setApiData]  = useState([])
+    const [apiGetData,setApiGetData] = useState(false) // 受け取り判定
 
     // リロード時に実行
     useEffect(() => {
@@ -17,7 +18,12 @@ export default function BookRanking() {
             .get('/api/record/index')
             .then((res) => {
                 if (res.data !== undefined) {
-                    setApiData(res.data?.book)
+
+                    // 3秒後に実行
+                    setTimeout(() => {
+                        setApiData(res.data?.book)
+                        setApiGetData(true)
+                    },3000)
                 }
             })
             .catch((err) => {
@@ -26,11 +32,39 @@ export default function BookRanking() {
     },[])
 
     console.log(apiData);
+    console.log(apiGetData);
 
     return (
         <>
             <div className={styles.bookRanking}>
-                { apiData.length == 0 ?
+
+                {/* ロード中 */}
+                { apiGetData ?
+                    <>
+                        { apiData.length == 0 ?
+                            <div className={styles.Coverloading}>
+                                <div className={styles.noBookList}>
+                                    使用書籍がありません
+                                </div>
+                            </div>
+                            :
+                            <>
+                                { apiData.map((item,index) => {
+                                    return(
+                                        <div className={styles.item} key={index}>
+                                            { item.volumeInfo.imageLinks?.smallThumbnail.length > 0 ?
+                                                <img src={`${item.volumeInfo.imageLinks?.smallThumbnail}`} className={styles.bookImage} alt="画像" />
+                                                :
+                                                <ImageIcon className={styles.imageIcon} />
+                                            }
+                                            { item.volumeInfo.title }
+                                        </div>
+                                    )
+                                }) }
+                            </>
+                        }
+                    </>
+                    :
                     <div className={styles.Coverloading}>
                         <div className={styles.loadingItem}>
                             <div className={loading.threeQuarterSpinner}></div>
@@ -42,21 +76,6 @@ export default function BookRanking() {
                             <div className={loading.threeQuarterSpinner}></div>
                         </div>
                     </div>
-                    :
-                    <>
-                        { apiData.map((item,index) => {
-                            return(
-                                <div className={styles.item} key={index}>
-                                    { item.volumeInfo.imageLinks?.smallThumbnail.length > 0 ?
-                                        <img src={`${item.volumeInfo.imageLinks?.smallThumbnail}`} className={styles.bookImage} alt="画像" />
-                                        :
-                                        <ImageIcon className={styles.imageIcon} />
-                                    }
-                                    { item.volumeInfo.title }
-                                </div>
-                            )
-                        }) }
-                    </>
                 }
             </div>
         </>
