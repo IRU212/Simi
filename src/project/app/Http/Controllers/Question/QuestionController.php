@@ -179,6 +179,12 @@ class QuestionController extends Controller
         $question->course = $request->course;
         $question->user_id = session('login_id')[0];
 
+        // 画像以外のデータをdbに保存
+        $question->save();
+
+        // 最新質問IDを取得
+        $question_id_latest = $question->orderBy('id', 'desc')->first()['id'];
+
         if ($request->image !== null) {
 
             // モデル インスタンス呼び出し
@@ -188,7 +194,7 @@ class QuestionController extends Controller
             if (config("app.env") === "production") {
 
                 // 保存ディレクトリ
-                $dir = "/question/" . $question->orderBy('id', 'desc')->first()['id'] + 1;
+                $dir = "/question/" . $question_id_latest;
 
                 // 画像保存 パス取得
                 $question_image->image = $this->image_save->production($request->image,$dir);
@@ -200,7 +206,8 @@ class QuestionController extends Controller
 
             }
 
-            $question_image->question_id = $question->orderBy('id', 'desc')->first()['id'] + 1;
+            // 画像投稿の質問ID
+            $question_image->question_id = $question_id_latest;
 
             // dbに保存
             $question_image->save();
