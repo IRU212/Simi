@@ -56,7 +56,7 @@ function Example() {
                         {/* ログイン */}
                         <Route path="/login" element={<Login />} />
 
-                        {/* 新規登録 */}
+                        新規登録
                         <Route path="/register" element={<Register />} />
 
                         {/* ログイン画面以外でログイン表示 */}
@@ -82,7 +82,7 @@ function Example() {
                         <Route path="/profile/:id" element={<Login />} />
 
                         {/* 404エラー */}
-                        <Route path="*" element={<Error404 />} />
+                        <Route path="*" element={<Login />} />
 
                     </Routes>
 
