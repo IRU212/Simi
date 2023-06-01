@@ -24,7 +24,7 @@ export default function Subject() {
         if (urlGanre == undefined) {
             setUrl("/question/subject")
         } else {
-            setUrl(`/question/subject/${urlGanre}`)
+            setUrl(`/question/subject${urlGanre}`)
         }
 
     },[urlPath])

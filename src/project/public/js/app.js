@@ -20742,7 +20742,7 @@ function Subject() {
     if (urlGanre == undefined) {
       setUrl("/question/subject");
     } else {
-      setUrl("/question/subject/".concat(urlGanre));
+      setUrl("/question/subject".concat(urlGanre));
     }
   }, [urlPath]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
