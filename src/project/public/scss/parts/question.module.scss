@@ -3,32 +3,50 @@
     border-radius: 15px;
     background-color: #454668;
     color: #fff;
-    padding: 20px;
+    padding: 20px 0;
     margin: 0 0 40px 0;
 
     .titleMain{
         width: 300px;
         font-size: 1.2rem;
         font-weight: 600;
+        margin: 0 25px;
     }
 
     a{
-        margin: 5px;
+        padding: 5px 25px;
         display: block;
         text-decoration: none;
         color: #fff;
+        background-color: #454668;
+    }
+
+    .link{
+        padding: 5px 25px;
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        background-color: #454668;
+    }
+
+    .nowLink{
+        padding: 5px 25px;
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        background-color: rgb(87, 87, 106);
     }
 
     section {
         width: auto;
         height: auto;
-        margin: 5px;
+        margin: 5px 0px;
 
         .titleSub{
             width: 80px;
             display: flex;
 	        align-items: center;
-            margin: 10px 0;
+            margin: 10px 30px;
 
             &::before{
                 content: "";

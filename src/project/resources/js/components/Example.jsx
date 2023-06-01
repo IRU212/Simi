@@ -127,6 +127,9 @@ function Example() {
                         {/* 質問作成 */}
                         <Route path='/question/create' element={<Create />} />
                         <Route path='/question/course/:id' element={<Question />} />
+                        <Route path='/question/course/follow/:id' element={<Question />} />
+                        <Route path='/question/course/latest/:id' element={<Question />} />
+                        <Route path='/question/course/like/:id' element={<Question />} />
 
                         {/* 質問詳細 */}
                         <Route path='/question/detail/:id' element={<Detail />} />
