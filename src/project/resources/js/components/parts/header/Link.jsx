@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
+import SearchIcon from '@mui/icons-material/Search';
+import SettingsIcon from '@mui/icons-material/Settings';
+import HelpIcon from '@mui/icons-material/Help';
+
 // スタイル
 import styles from '../../../../../public/scss/parts/header.module.scss'
 import LoginUserApi from '../../api/get/LoginUserApi'
@@ -53,7 +57,11 @@ export default function Link() {
             {/* ドロワーメニュー */}
             { isDrower ?
                 <div className={styles.drowerBackCover} onClick={(e) => DrowerClick(e)}>
+
                     <div className={styles.drowerCover}>
+                        <div className={styles.titleLink}>
+                            リンク
+                        </div>
                         <section>
                             <RouterLink to="/search">
                                 検索

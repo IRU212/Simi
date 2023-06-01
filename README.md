@@ -47,7 +47,7 @@
     * MySQL
 
 * #### インフラ
-    * AWS(EC2・S3)
+    * AWS(EC2・S3・RDS)
     * Docker/Docker-compose
     * Nginx
 
