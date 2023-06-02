@@ -1,9 +1,5 @@
 # **Simi**
 
-### [作品紹介動画](https://www.youtube.com/watch?v=ifSLo4aLnT0)
-
-##### 動画時間が長いためreadMeに動画を添付出来なかったので<br />Youtubeに動画を限定公開致したリンクを上のURLに載せています
-
 ---
 
 ### 作品概要
@@ -26,11 +22,18 @@
     * ユーザ名 - aaaaa
     * メールアドレス - aaaaa@gmail.com
     * パスワード -  aaaaa
-    
+
+---
+
+### 技術概要
+
+フロントエンドとバックエンドの通信ではwebpackを使用しています。
 
 ---
 
 ### 使用技術
+
+[![My Skills](https://skillicons.dev/icons?i=html,css,scss,php,laravel,js,react,webpack,aws)](https://skillicons.dev)
 
 * #### フロントエンド
     * JavaScript
