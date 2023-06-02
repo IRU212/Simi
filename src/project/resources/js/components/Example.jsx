@@ -33,6 +33,10 @@ import LoginUserApi from './api/get/LoginUserApi';
 import LoginRedirect from './LoginRedirect';
 import Game from './pages/game/Game';
 import Save from './pages/record/Save';
+import Dashbord from './pages/admin/Dashbord';
+
+// 管理者
+import AdminHeader from './templates/admin/Header'
 
 function Example() {
 
@@ -82,7 +86,7 @@ function Example() {
                         <Route path="/profile/:id" element={<Login />} />
 
                         {/* 404エラー */}
-                        <Route path="*" element={<Login />} />
+                        <Route path="*" element={<Error404 />} />
 
                     </Routes>
 
@@ -92,7 +96,22 @@ function Example() {
     } else if (apiData?.role === 1 && apiData !== false) {
         return(
             <div>
-                aaa
+                <BrowserRouter>
+
+                    {/* ヘッダー */}
+                    <AdminHeader />
+
+                    <Routes>
+
+                        {/* トップページ */}
+                        <Route path="/" element={<Dashbord />} />
+
+                        {/* 404エラー */}
+                        <Route path="*" element={<Error404 />} />
+
+                    </Routes>
+                </BrowserRouter>
+
             </div>
         )
     } else {
