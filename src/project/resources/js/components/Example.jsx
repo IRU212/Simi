@@ -89,6 +89,12 @@ function Example() {
                 </BrowserRouter>
             </div>
         );
+    } else if (apiData?.role === 1 && apiData !== false) {
+        return(
+            <div>
+                aaa
+            </div>
+        )
     } else {
         return (
             <div>

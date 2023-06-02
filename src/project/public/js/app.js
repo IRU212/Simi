@@ -17521,6 +17521,10 @@ function Example() {
         })]
       })
     });
+  } else if ((apiData === null || apiData === void 0 ? void 0 : apiData.role) === 1 && apiData !== false) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+      children: "aaa"
+    });
   } else {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.BrowserRouter, {
