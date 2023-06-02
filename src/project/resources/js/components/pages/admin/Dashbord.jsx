@@ -1,11 +1,10 @@
-import React from 'react'
-import Header from '../../templates/admin/Header'
+import styles from '../../../../../public/scss/pages/admin/dashbord.module.scss'
 
 // 管理者トップページ
 export default function Dashbord() {
     return (
-        <div>
-
+        <div className={styles.dashbord}>
+            aaa
 
         </div>
     )

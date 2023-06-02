@@ -37,6 +37,8 @@ import Dashbord from './pages/admin/Dashbord';
 
 // 管理者
 import AdminHeader from './templates/admin/Header'
+import SideHeader from './templates/admin/SideHeader';
+import MainHeader from './templates/admin/MainHeader';
 
 function Example() {
 
@@ -95,21 +97,31 @@ function Example() {
         );
     } else if (apiData?.role === 1 && apiData !== false) {
         return(
-            <div>
+            <div style={{
+                display: "flex"
+            }}>
                 <BrowserRouter>
 
-                    {/* ヘッダー */}
-                    <AdminHeader />
+                    {/* サイドヘッダー */}
+                    <SideHeader />
 
-                    <Routes>
+                    <div style={{
+                        width: "100%"
+                    }}>
 
-                        {/* トップページ */}
-                        <Route path="/" element={<Dashbord />} />
+                        {/* メインヘッダー */}
+                        <MainHeader />
 
-                        {/* 404エラー */}
-                        <Route path="*" element={<Error404 />} />
+                        <Routes>
+                            {/* トップページ */}
+                            <Route path="/" element={<Dashbord />} />
 
-                    </Routes>
+                            {/* 404エラー */}
+                            <Route path="*" element={<Error404 />} />
+                        </Routes>
+
+                    </div>
+
                 </BrowserRouter>
 
             </div>
