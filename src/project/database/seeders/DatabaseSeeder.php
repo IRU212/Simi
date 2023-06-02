@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UserSeeder::class);
+        $this->call(UserSeeder::class); // 一般ユーザ
+        $this->call(AdminUserSeeder::class); // 管理者ユーザ
     }
 }
