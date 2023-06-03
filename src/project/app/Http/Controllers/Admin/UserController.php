@@ -20,7 +20,23 @@ class UserController extends Controller
         $user = new User();
 
         // Eloquant データベース
-        $data = $user->paginate(10);
+        $data = $user->select('*')
+                    ->selectRaw( // 教科の名前を取得
+                        "(CASE role
+                            WHEN 0 THEN 'ユーザ'
+                            WHEN 1 THEN '管理者'
+                            WHEN 2 THEN '管理者'
+                            ELSE NULL
+                        END) as role"
+                    )
+                    ->selectRaw( // 教科の名前を取得
+                        "(CASE situation
+                            WHEN 0 THEN '稼働中'
+                            WHEN 1 THEN '停止中'
+                            ELSE NULL
+                        END) as situation"
+                    )
+                    ->paginate(10);
 
         // 200の時にJSONを返す
         return response()->json($data, 200);
