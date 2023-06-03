@@ -13,22 +13,35 @@ export default function List() {
     // リスト表示データ
     const [datas,setDatas] = useState()
 
+    // ページネート数
+    const [pagenate,setPagenate] = useState(1)
+
     // リロード時に実行
     useEffect(() => {
 
+        console.log(pagenate);
+
         // APIを呼び出し
         axios
-            .get('/api/admin/user/index')
+            .get(`http://localhost:8081/api/admin/user/index?page=${pagenate}`)
             .then((res) => {
                 setDatas(res.data)
             })
             .catch((err) => {
                 console.log(err)
             })
-    },[])
 
-    // ページネート数
-    const [pagenate,setPagenate] = useState(1)
+    },[pagenate])
+
+    // クリックしたらページ数を増やす
+    const AddPagenateClick = () => {
+        setPagenate(() => setPagenate(pagenate + 1))
+    }
+
+    // クリックしたらページ数減らす
+    const DownPagenateClick = () => {
+        setPagenate(() => setPagenate(pagenate - 1))
+    }
 
     //
     const [checked, setChecked] = useState(false);
@@ -101,9 +114,17 @@ export default function List() {
                     10 rows
                 </div>
                 <div className={styles.pagenateCover}>
-                    <KeyboardArrowLeftIcon className={styles.arrowIcon} />
+                    { pagenate !== 1 ?
+                        <KeyboardArrowLeftIcon className={styles.arrowIcon} onClick={DownPagenateClick} />
+                        :
+                        <KeyboardArrowLeftIcon className={styles.arrowNoIcon} />
+                    }
                     { pagenate }
-                    <KeyboardArrowRightIcon className={styles.arrowIcon} />
+                    { datas?.next_page_url == null ?
+                        <KeyboardArrowRightIcon className={styles.arrowNoIcon} />
+                        :
+                        <KeyboardArrowRightIcon className={styles.arrowIcon} onClick={AddPagenateClick} />
+                    }
                 </div>
             </tr>
 
