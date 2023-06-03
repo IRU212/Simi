@@ -92,3 +92,9 @@
 * プレビュー機能(画像)
 * 無限スクロール(ページネーション)
 
+---
+
+### データベース設計
+<br />
+<img src="https://github.com/IRU212/Simi/assets/100505506/ed7815fe-50b1-413e-ba6c-169ce882fef1" width="800px">
+
