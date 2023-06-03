@@ -28,6 +28,10 @@ use App\Http\Controllers\SearchController;
 // 記録
 use App\Http\Controllers\RecordController;
 
+// 管理者
+use App\Http\Controllers\Admin\UserController as AdminUserController;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -127,4 +131,14 @@ Route::prefix('search')->name('search.')->group(function () {
 Route::prefix('record')->name('record.')->group(function () {
     Route::get('index', [RecordController::class,'index'])->name('index'); // 記録一覧
     Route::post('store', [RecordController::class,'store'])->name('store'); // 記録保存
+});
+
+/**
+ *  管理者
+ */
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::prefix('user')->name('user.')->group(function () {
+        Route::get('index', [AdminUserController::class,'index'])->name('index'); // ユーザ一覧
+    });
 });

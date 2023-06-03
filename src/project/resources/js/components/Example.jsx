@@ -36,9 +36,9 @@ import Save from './pages/record/Save';
 import Dashbord from './pages/admin/Dashbord';
 
 // 管理者
-import AdminHeader from './templates/admin/Header'
 import SideHeader from './templates/admin/SideHeader';
 import MainHeader from './templates/admin/MainHeader';
+import AdminUser from './pages/admin/User';
 
 function Example() {
 
@@ -113,11 +113,16 @@ function Example() {
                         <MainHeader />
 
                         <Routes>
+
                             {/* トップページ */}
                             <Route path="/" element={<Dashbord />} />
 
+                            {/* トップページ */}
+                            <Route path="/user" element={<AdminUser />} />
+
                             {/* 404エラー */}
                             <Route path="*" element={<Error404 />} />
+
                         </Routes>
 
                     </div>
