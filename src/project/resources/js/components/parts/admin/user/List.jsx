@@ -4,6 +4,8 @@ import axios from 'axios'
 
 import LaunchIcon from '@mui/icons-material/Launch';
 import Checkbox from '@mui/material/Checkbox';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 // ユーザ一覧リスト
 export default function List() {
@@ -25,6 +27,10 @@ export default function List() {
             })
     },[])
 
+    // ページネート数
+    const [pagenate,setPagenate] = useState(1)
+
+    //
     const [checked, setChecked] = useState(false);
 
     const handleChange = (event) => {
@@ -90,6 +96,16 @@ export default function List() {
                     </tr>
                 )
             }) }
+            <tr className={styles.footer}>
+                <div className={styles.row}>
+                    10 rows
+                </div>
+                <div className={styles.pagenateCover}>
+                    <KeyboardArrowLeftIcon className={styles.arrowIcon} />
+                    { pagenate }
+                    <KeyboardArrowRightIcon className={styles.arrowIcon} />
+                </div>
+            </tr>
 
         </table>
     )

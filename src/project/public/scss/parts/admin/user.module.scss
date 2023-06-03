@@ -64,4 +64,32 @@
         @extend %item-cover;
         border-bottom: 1px solid #e1dfdf;
     }
+
+    .footer{
+        @extend %item-cover;
+        gap: 0 14px;
+
+        // 行数
+        .row{
+            width: fit-content;
+            margin: 0 0 0 auto;
+        }
+
+        // 表示ページ
+        .pagenateCover{
+            width: fit-content;
+            display: flex;
+            margin: 0 0 0 0;
+            align-items: center;
+            gap: 0 2px;
+
+            .arrowIcon{
+                color: #696969;
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
 }
