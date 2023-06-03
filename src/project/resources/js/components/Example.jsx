@@ -39,6 +39,7 @@ import Dashbord from './pages/admin/Dashbord';
 import SideHeader from './templates/admin/SideHeader';
 import MainHeader from './templates/admin/MainHeader';
 import AdminUser from './pages/admin/User';
+import { left } from '@popperjs/core';
 
 function Example() {
 
@@ -106,7 +107,9 @@ function Example() {
                     <SideHeader />
 
                     <div style={{
-                        width: "100%"
+                        width: "100%",
+                        position: "relative",
+                        left: "200px"
                     }}>
 
                         {/* メインヘッダー */}
