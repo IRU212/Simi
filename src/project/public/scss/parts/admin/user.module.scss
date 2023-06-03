@@ -2,8 +2,66 @@
 .userList{
     width: 100%;
     background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+
+    %item-cover{
+        width: 100%;
+        height: 50px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        font-size: 0.8rem;
+        text-align: left;
+
+        .checkBox{
+            width: 6%;
+            text-align: left;
+        }
+
+        .id{
+            width: 6%;
+            text-align: left;
+        }
+
+        .name{
+            width: 30%;
+            text-align: left;
+        }
+
+        .email{
+            width: 30%;
+            text-align: left;
+        }
+
+        .role{
+            width: 25%;
+            text-align: left;
+        }
+
+        .situation{
+            width: 25%;
+            text-align: left;
+        }
+
+        .iconCover{
+            width: 33px;
+
+            .icon{
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .titleItem{
+        @extend %item-cover;
+        border-bottom: 1px solid #ccc;
+    }
 
     .itemCover{
-        display: flex;
+        @extend %item-cover;
+        border-bottom: 1px solid #e1dfdf;
     }
 }

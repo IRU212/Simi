@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import styles from '../../../../../../public/scss/parts/admin/user.module.scss'
 import axios from 'axios'
 
+import LaunchIcon from '@mui/icons-material/Launch';
+import Checkbox from '@mui/material/Checkbox';
+
 // ユーザ一覧リスト
 export default function List() {
 
@@ -22,23 +25,72 @@ export default function List() {
             })
     },[])
 
+    const [checked, setChecked] = useState(false);
+
+    const handleChange = (event) => {
+        setChecked(event.target.checked);
+    };
+
     return (
-        <div className={styles.userList}>
+        <table className={styles.userList}>
+
+            <tr className={styles.titleItem}>
+                <td className={styles.checkBox}>
+                    <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        inputProps={{ 'aria-label': 'controlled' }}
+                    />
+                </td>
+                <td className={styles.id}>
+                    ID
+                </td>
+                <td className={styles.name}>
+                    ユーザ名
+                </td>
+                <td className={styles.email}>
+                    メールアドレス
+                </td>
+                <td className={styles.role}>
+                    権限
+                </td>
+                <td className={styles.situation}>
+                    状態
+                </td>
+                <td className={styles.iconCover}></td>
+            </tr>
             { datas?.data?.map((item,index) => {
                 return(
-                    <div key={index} className={styles.itemCover}>
-                        <div>
+                    <tr key={index} className={styles.itemCover}>
+                        <td className={styles.checkBox}>
+                            <Checkbox
+                                checked={checked}
+                                onChange={handleChange}
+                                inputProps={{ 'aria-label': 'controlled' }}
+                            />
+                        </td>
+                        <td className={styles.id}>
                             { item.id }
-                        </div>
-                        <div>
+                        </td>
+                        <td className={styles.name}>
                             { item.name }
-                        </div>
-                        <div>
+                        </td>
+                        <td className={styles.email}>
                             { item.email }
-                        </div>
-                    </div>
+                        </td>
+                        <td className={styles.role}>
+                            { item.role }
+                        </td>
+                        <td className={styles.situation}>
+                            { item.situation }
+                        </td>
+                        <td className={styles.iconCover}>
+                            <LaunchIcon className={styles.icon} />
+                        </td>
+                    </tr>
                 )
             }) }
-        </div>
+
+        </table>
     )
 }
