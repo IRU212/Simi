@@ -43,24 +43,25 @@ export default function List() {
         setPagenate(() => setPagenate(pagenate - 1))
     }
 
-    //
-    const [checked, setChecked] = useState(false);
+    // モーダル判定
+    const [modal,setModal] = useState(false)
 
-    const handleChange = (event) => {
-        setChecked(event.target.checked);
-    };
+    // モダール表示ボタンをクリック
+    const ModalClick = () => {
+        setModal(true)
+    }
+
+    // モダール背景をクリック
+    const ModalBackClick = (e) => {
+        if (e.target == e.currentTarget) {
+            setModal(false)
+        }
+    }
 
     return (
         <table className={styles.userList}>
 
             <tr className={styles.titleItem}>
-                <td className={styles.checkBox}>
-                    <Checkbox
-                        checked={checked}
-                        onChange={handleChange}
-                        inputProps={{ 'aria-label': 'controlled' }}
-                    />
-                </td>
                 <td className={styles.id}>
                     ID
                 </td>
@@ -81,13 +82,6 @@ export default function List() {
             { datas?.data?.map((item,index) => {
                 return(
                     <tr key={index} className={styles.itemCover}>
-                        <td className={styles.checkBox}>
-                            <Checkbox
-                                checked={checked}
-                                onChange={handleChange}
-                                inputProps={{ 'aria-label': 'controlled' }}
-                            />
-                        </td>
                         <td className={styles.id}>
                             { item.id }
                         </td>
@@ -104,7 +98,7 @@ export default function List() {
                             { item.situation }
                         </td>
                         <td className={styles.iconCover}>
-                            <LaunchIcon className={styles.icon} />
+                            <LaunchIcon className={styles.icon} onClick={ModalClick} />
                         </td>
                     </tr>
                 )
@@ -127,6 +121,16 @@ export default function List() {
                     }
                 </div>
             </tr>
+
+            { modal ?
+                <div className={styles.ModalBakcCover} onClick={(e) => ModalBackClick(e)}>
+                    <div className={styles.ModalCover}>
+                        a
+                    </div>
+                </div>
+                :
+                ""
+            }
 
         </table>
     )
