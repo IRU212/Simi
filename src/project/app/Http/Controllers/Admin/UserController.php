@@ -57,7 +57,7 @@ class UserController extends Controller
         // ユーザの状況を変更
         $user->where('id','=',$request->id)
              ->update([
-                'situation' => 1
+                'situation' => $request->situation
              ]);
 
         // 200の時にJSONを返す

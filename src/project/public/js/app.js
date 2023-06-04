@@ -18548,19 +18548,25 @@ function List() {
     setPagenate = _useState4[1];
 
   // チェック判定
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState6 = _slicedToArray(_useState5, 2),
     checkBoxValue = _useState6[0],
     setCheckBoxValue = _useState6[1];
 
-  // リロード時に実行
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+  // ユーザ一覧データを呼び出し
+  function ApiGetData() {
     // APIを呼び出し
     axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://localhost:8081/api/admin/user/index?page=".concat(pagenate)).then(function (res) {
       setDatas(res.data);
     })["catch"](function (err) {
       console.log(err);
     });
+  }
+
+  // リロード時に実行
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    // ユーザ一覧データを呼び出し
+    ApiGetData();
   }, [pagenate]);
 
   // クリックしたらページ数を増やす
@@ -18614,7 +18620,10 @@ function List() {
       situation: checkBoxValue,
       // アカウント状態
       id: selectUserId // ユーザid
-    }).then(function () {})["catch"](function (err) {
+    }).then(function () {
+      // ユーザ一覧データを呼び出し
+      ApiGetData();
+    })["catch"](function (err) {
       console.log(err);
     });
   };
@@ -18702,6 +18711,15 @@ function List() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
               type: "checkbox",
+              value: "0",
+              checked: 0 == checkBoxValue,
+              onChange: CheckBoxChange
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              children: "\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u518D\u958B\u3059\u308B"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              type: "checkbox",
               value: "1",
               checked: 1 == checkBoxValue,
               onChange: CheckBoxChange
@@ -18717,7 +18735,7 @@ function List() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               children: "\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u524A\u9664\u3059\u308B"
             })]
-          }), checkBoxValue == 1 || checkBoxValue == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          }), checkBoxValue == 0 || checkBoxValue == 1 || checkBoxValue == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: _public_scss_parts_admin_user_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].posuButton,
             onClick: function onClick() {
               return PostClick();

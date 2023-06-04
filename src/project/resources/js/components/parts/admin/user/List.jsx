@@ -16,10 +16,10 @@ export default function List() {
     const [pagenate,setPagenate] = useState(1)
 
     // チェック判定
-    const [checkBoxValue,setCheckBoxValue] = useState(0)
+    const [checkBoxValue,setCheckBoxValue] = useState(null)
 
-    // リロード時に実行
-    useEffect(() => {
+    // ユーザ一覧データを呼び出し
+    function ApiGetData() {
 
         // APIを呼び出し
         axios
@@ -30,6 +30,14 @@ export default function List() {
             .catch((err) => {
                 console.log(err)
             })
+
+    }
+
+    // リロード時に実行
+    useEffect(() => {
+
+        // ユーザ一覧データを呼び出し
+        ApiGetData()
 
     },[pagenate])
 
@@ -77,6 +85,9 @@ export default function List() {
                 id : selectUserId // ユーザid
             })
             .then(() => {
+
+                // ユーザ一覧データを呼び出し
+                ApiGetData()
 
             })
             .catch((err) => {
@@ -160,6 +171,12 @@ export default function List() {
                         <div className={styles.content}>
 
                             <section>
+                                <input type="checkbox" value='0' checked={0 == checkBoxValue} onChange={CheckBoxChange} />
+                                <div>
+                                    アカウントを再開する
+                                </div>
+                            </section>
+                            <section>
                                 <input type="checkbox" value='1' checked={1 == checkBoxValue} onChange={CheckBoxChange} />
                                 <div>
                                     アカウントを一時停止にする
@@ -173,7 +190,7 @@ export default function List() {
                             </section>
 
                             {/* 送信ボタン */}
-                            { checkBoxValue == 1 || checkBoxValue == 2 ?
+                            { checkBoxValue == 0 || checkBoxValue == 1 || checkBoxValue == 2 ?
                                 <div className={styles.posuButton} onClick={() => PostClick()}>
                                     送信
                                 </div>
