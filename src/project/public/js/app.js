@@ -18577,15 +18577,22 @@ function List() {
     });
   };
 
-  // モーダル判定
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  // 選択中ユーザID
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState8 = _slicedToArray(_useState7, 2),
-    modal = _useState8[0],
-    setModal = _useState8[1];
+    selectUserId = _useState8[0],
+    setSelectUserId = _useState8[1];
+
+  // モーダル判定
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState10 = _slicedToArray(_useState9, 2),
+    modal = _useState10[0],
+    setModal = _useState10[1];
 
   // モダール表示ボタンをクリック
-  var ModalClick = function ModalClick() {
+  var ModalClick = function ModalClick(e) {
     setModal(true);
+    setSelectUserId(e);
   };
 
   // モダール背景をクリック
@@ -18598,6 +18605,18 @@ function List() {
   // 排他的なチェックボックス
   var CheckBoxChange = function CheckBoxChange(e) {
     setCheckBoxValue(e.target.value);
+  };
+
+  // クリックしたら保存
+  var PostClick = function PostClick() {
+    // APIを呼び出し
+    axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/admin/user/situation_store", {
+      situation: checkBoxValue,
+      // アカウント状態
+      id: selectUserId // ユーザid
+    }).then(function () {})["catch"](function (err) {
+      console.log(err);
+    });
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
     className: _public_scss_parts_admin_user_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].userList,
@@ -18643,7 +18662,9 @@ function List() {
           className: _public_scss_parts_admin_user_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].iconCover,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material_Launch__WEBPACK_IMPORTED_MODULE_4__["default"], {
             className: _public_scss_parts_admin_user_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].icon,
-            onClick: ModalClick
+            onClick: function onClick() {
+              return ModalClick(item.id);
+            }
           })
         })]
       }, index);
@@ -18698,6 +18719,9 @@ function List() {
             })]
           }), checkBoxValue == 1 || checkBoxValue == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: _public_scss_parts_admin_user_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].posuButton,
+            onClick: function onClick() {
+              return PostClick();
+            },
             children: "\u9001\u4FE1"
           }) : ""]
         })]

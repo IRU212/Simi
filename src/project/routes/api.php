@@ -140,5 +140,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::prefix('user')->name('user.')->group(function () {
         Route::get('index', [AdminUserController::class,'index'])->name('index'); // ユーザ一覧
+        Route::post('situation_store', [AdminUserController::class,'situation_store'])->name('situation_store'); // アカウント状態変更
     });
 });

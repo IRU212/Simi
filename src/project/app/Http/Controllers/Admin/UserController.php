@@ -41,4 +41,26 @@ class UserController extends Controller
         // 200の時にJSONを返す
         return response()->json($data, 200);
     }
+
+    /**
+     * アカウント状態変更
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function situation_store(Request $request)
+    {
+        // モデルインスタンス呼び出し
+        // モデルテーブル user
+        $user = new User();
+
+        // ユーザの状況を変更
+        $user->where('id','=',$request->id)
+             ->update([
+                'situation' => 1
+             ]);
+
+        // 200の時にJSONを返す
+        return response()->json(true, 200);
+    }
 }

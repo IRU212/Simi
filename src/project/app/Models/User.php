@@ -31,7 +31,7 @@ class User extends Authenticatable
         'api_token',
         'icon_image',
         'back_image',
-        'role'
+        'role',
     ];
 
     /**

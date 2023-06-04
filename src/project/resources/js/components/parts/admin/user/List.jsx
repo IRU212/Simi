@@ -43,12 +43,16 @@ export default function List() {
         setPagenate(() => setPagenate(pagenate - 1))
     }
 
+    // 選択中ユーザID
+    const [selectUserId,setSelectUserId] = useState()
+
     // モーダル判定
     const [modal,setModal] = useState(false)
 
     // モダール表示ボタンをクリック
-    const ModalClick = () => {
+    const ModalClick = (e) => {
         setModal(true)
+        setSelectUserId(e)
     }
 
     // モダール背景をクリック
@@ -61,6 +65,24 @@ export default function List() {
     // 排他的なチェックボックス
     const CheckBoxChange = (e) => {
         setCheckBoxValue(e.target.value);
+    }
+
+    // クリックしたら保存
+    const PostClick = () => {
+
+        // APIを呼び出し
+        axios
+            .post(`/api/admin/user/situation_store`,{
+                situation: checkBoxValue, // アカウント状態
+                id : selectUserId // ユーザid
+            })
+            .then(() => {
+
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
     }
 
     return (
@@ -103,9 +125,10 @@ export default function List() {
                             { item.situation }
                         </td>
                         <td className={styles.iconCover}>
-                            <LaunchIcon className={styles.icon} onClick={ModalClick} />
+                            <LaunchIcon className={styles.icon} onClick={() => ModalClick(item.id)} />
                         </td>
                     </tr>
+
                 )
             }) }
             <tr className={styles.footer}>
@@ -148,8 +171,10 @@ export default function List() {
                                     アカウントを削除する
                                 </div>
                             </section>
+
+                            {/* 送信ボタン */}
                             { checkBoxValue == 1 || checkBoxValue == 2 ?
-                                <div className={styles.posuButton}>
+                                <div className={styles.posuButton} onClick={() => PostClick()}>
                                     送信
                                 </div>
                                 :
