@@ -111,6 +111,37 @@
             left: 50%;
             transform: translate(-50%,-50%);
             background-color: #fff;
+            padding: 40px 80px 30px 80px;
+            border-radius: 15px;
+
+            .title{
+                font-weight: 600;
+            }
+
+            .content{
+                width: 100%;
+                margin: 20px 0 0 0;
+
+                section{
+                    display: flex;
+                    gap: 0 15px;
+                    margin: 16px 0 0 0;
+                }
+            }
+
+            .posuButton{
+                width: fit-content;
+                margin: 20px 0 0 auto;
+                font-size: 0.7rem;
+                background-color: #696969;
+                color: #fff;
+                padding: 7px 20px;
+                border-radius: 10px;
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
         }
     }
 }

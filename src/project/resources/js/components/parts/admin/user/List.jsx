@@ -3,7 +3,6 @@ import styles from '../../../../../../public/scss/parts/admin/user.module.scss'
 import axios from 'axios'
 
 import LaunchIcon from '@mui/icons-material/Launch';
-import Checkbox from '@mui/material/Checkbox';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
@@ -16,10 +15,11 @@ export default function List() {
     // ページネート数
     const [pagenate,setPagenate] = useState(1)
 
+    // チェック判定
+    const [checkBoxValue,setCheckBoxValue] = useState(0)
+
     // リロード時に実行
     useEffect(() => {
-
-        console.log(pagenate);
 
         // APIを呼び出し
         axios
@@ -56,6 +56,11 @@ export default function List() {
         if (e.target == e.currentTarget) {
             setModal(false)
         }
+    }
+
+    // 排他的なチェックボックス
+    const CheckBoxChange = (e) => {
+        setCheckBoxValue(e.target.value);
     }
 
     return (
@@ -125,7 +130,34 @@ export default function List() {
             { modal ?
                 <div className={styles.ModalBakcCover} onClick={(e) => ModalBackClick(e)}>
                     <div className={styles.ModalCover}>
-                        a
+
+                        <div className={styles.title}>
+                            ユーザ情報を更新
+                        </div>
+                        <div className={styles.content}>
+
+                            <section>
+                                <input type="checkbox" value='1' checked={1 == checkBoxValue} onChange={CheckBoxChange} />
+                                <div>
+                                    アカウントを一時停止にする
+                                </div>
+                            </section>
+                            <section>
+                                <input type="checkbox" value='2' checked={2 == checkBoxValue} onChange={CheckBoxChange} />
+                                <div>
+                                    アカウントを削除する
+                                </div>
+                            </section>
+                            { checkBoxValue == 1 || checkBoxValue == 2 ?
+                                <div className={styles.posuButton}>
+                                    送信
+                                </div>
+                                :
+                                ""
+                            }
+
+                        </div>
+
                     </div>
                 </div>
                 :

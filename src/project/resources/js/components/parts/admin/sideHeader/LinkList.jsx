@@ -12,29 +12,29 @@ export default function LinkList() {
             </Link>
 
             {/* 質問 */}
-            <Link to="question">
+            {/* <Link to="question">
                 Qusetion
-            </Link>
+            </Link> */}
 
             {/* 通報 */}
-            <Link to="report">
+            {/* <Link to="report">
                 Report
-            </Link>
+            </Link> */}
 
             {/* メールアドレス */}
-            <Link to="email">
+            {/* <Link to="email">
                 Email
-            </Link>
+            </Link> */}
 
             {/* サポート/ヘルプ */}
-            <Link to="email">
+            {/* <Link to="email">
                 Support
-            </Link>
+            </Link> */}
 
             {/* 設定 */}
-            <Link to="setting">
+            {/* <Link to="setting">
                 Setting
-            </Link>
+            </Link> */}
 
         </div>
     )
