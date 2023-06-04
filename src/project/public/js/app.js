@@ -18615,6 +18615,9 @@ function List() {
 
   // クリックしたら保存
   var PostClick = function PostClick() {
+    // モーダル非表示
+    setModal(false);
+
     // APIを呼び出し
     axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/admin/user/situation_store", {
       situation: checkBoxValue,

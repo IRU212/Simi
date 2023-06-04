@@ -78,6 +78,9 @@ export default function List() {
     // クリックしたら保存
     const PostClick = () => {
 
+        // モーダル非表示
+        setModal(false)
+
         // APIを呼び出し
         axios
             .post(`/api/admin/user/situation_store`,{

@@ -50,15 +50,29 @@ class UserController extends Controller
      */
     public function situation_store(Request $request)
     {
+        // リクエスト取得
+        $user_id = $request->id; // ユーザID
+        $situation_id = $request->situation; // ユーザ状態
+
         // モデルインスタンス呼び出し
         // モデルテーブル user
         $user = new User();
 
-        // ユーザの状況を変更
-        $user->where('id','=',$request->id)
-             ->update([
-                'situation' => $request->situation
-             ]);
+        if ($situation_id == 2) {
+
+            // アカウント削除
+            $user->where('id','=',$user_id)
+                 ->delete();
+
+        } else {
+
+            // ユーザの状況を停止中か再開する
+            $user->where('id','=',$user_id)
+                 ->update([
+                    'situation' => $situation_id
+                 ]);
+
+        }
 
         // 200の時にJSONを返す
         return response()->json(true, 200);
