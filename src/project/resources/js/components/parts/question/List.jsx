@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styles from '../../../../../public/scss/parts/question.module.scss'
 import { Link, useParams } from 'react-router-dom'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import MoreButton from './MoreButton';
 
 // 質問一覧表示
 export default function List() {
@@ -84,8 +85,9 @@ export default function List() {
                 :
                 <div>
                     { data.map((item,index) => {
+
                         return(
-                            <Link to={`/question/detail/${item.id}`} className={styles.questionItem} key={index}>
+                            <Link to={`/question/detail/${item.id}`} className={styles.questionItem} key={index} id="target">
                                 <Link to={`/profile/${item.user_id}`} className={styles.icon}>
                                     { item.user.icon_image == null ?
                                         <AccountCircleIcon className={styles.humnanIcon}  />
@@ -111,6 +113,9 @@ export default function List() {
                                         }) }
                                     </div>
                                 </div>
+
+                                {/* モーダル */}
+                                <MoreButton item={item} />
                             </Link>
                         )
                     }) }

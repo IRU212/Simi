@@ -307,6 +307,7 @@
         padding: 10px 20px;
         border-bottom: 1px solid #34313f;
         display: flex;
+        position: relative;
 
         .icon{
             width: 40px;
@@ -332,6 +333,46 @@
 
             .title{
                 font-weight: 600;
+            }
+        }
+
+        .moreButton{
+            height: 30px;
+            position: absolute;
+            right: 30px;
+            width: 30px;
+            justify-content: center;
+
+            div{
+                letter-spacing: -8px;
+                height: fit-content;
+            }
+        }
+
+        // モーダル
+        .backModal{
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba($color: #000000, $alpha: 0.4);
+            z-index: 999;
+
+            &:hover{
+                cursor: default;
+            }
+
+            .modal{
+                position: absolute;
+                width: 200px;
+                background-color: #fff;
+                color: #000000;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                padding: 25px 25px;
+                border-radius: 15px;
             }
         }
     }
