@@ -1,0 +1,32 @@
+// ヘッダー
+.header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+}
+
+// メインヘッダー
+.mainHeader{
+    width: 100%;
+    height: 55px;
+    background-color: #444;
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+}
+
+
+// サイドヘッダー
+.sideHeader{
+    width: 200px;
+    height: 100vh;
+    background-color: #332f3f;
+    color: #ffff;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+}

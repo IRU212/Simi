@@ -33,6 +33,13 @@ import LoginUserApi from './api/get/LoginUserApi';
 import LoginRedirect from './LoginRedirect';
 import Game from './pages/game/Game';
 import Save from './pages/record/Save';
+import Dashbord from './pages/admin/Dashbord';
+
+// 管理者
+import SideHeader from './templates/admin/SideHeader';
+import MainHeader from './templates/admin/MainHeader';
+import AdminUser from './pages/admin/User';
+import { left } from '@popperjs/core';
 
 function Example() {
 
@@ -82,13 +89,51 @@ function Example() {
                         <Route path="/profile/:id" element={<Login />} />
 
                         {/* 404エラー */}
-                        <Route path="*" element={<Login />} />
+                        <Route path="*" element={<Error404 />} />
 
                     </Routes>
 
                 </BrowserRouter>
             </div>
         );
+    } else if (apiData?.role === 1 && apiData !== false) {
+        return(
+            <div style={{
+                display: "flex"
+            }}>
+                <BrowserRouter>
+
+                    {/* サイドヘッダー */}
+                    <SideHeader />
+
+                    <div style={{
+                        width: "100%",
+                        position: "relative",
+                        left: "200px"
+                    }}>
+
+                        {/* メインヘッダー */}
+                        <MainHeader />
+
+                        <Routes>
+
+                            {/* トップページ */}
+                            <Route path="/" element={<Dashbord />} />
+
+                            {/* トップページ */}
+                            <Route path="/user" element={<AdminUser />} />
+
+                            {/* 404エラー */}
+                            <Route path="*" element={<Error404 />} />
+
+                        </Routes>
+
+                    </div>
+
+                </BrowserRouter>
+
+            </div>
+        )
     } else {
         return (
             <div>

@@ -7,9 +7,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 /**
- * ログイン用ユーザ
+ *  管理者権限ユーザ
  */
-class UserSeeder extends Seeder
+class AdminUserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,9 +19,10 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'simiuser',
-            'email' => 'simi@gmail.com',
-            'password' => Hash::make('simipassword')
+            'name' => 'dminuser',
+            'email' => 'dmin@gmail.com',
+            'password' => Hash::make('dminpassword'),
+            'role' => 1
         ]);
     }
 }
